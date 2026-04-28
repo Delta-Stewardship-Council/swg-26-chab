@@ -12,6 +12,24 @@ author: Emily Richardson, Shaela Noble, Spencer Fern (others tbd)
 
 ```
 
+### Water data for the nation
+
+```{python}
+
+```
 ## Shaela's Workspace
 
+### e.g., name of data source
+
+```{r}
+
+```
+
 ## Spencer's Workspace
+
+### e.g., name of data source
+
+```{r}
+
+```
+
