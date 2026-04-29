@@ -148,9 +148,9 @@ discrete_chla_sf <- discrete_chla %>%
              crs = 4326,
              remove = FALSE)
 
-discrete_chla_sf %>% 
+test <- discrete_chla_sf %>% 
     filter(Source == "DOP") %>% 
-    distinct(Latitude, Longitude)
+    distinct(Latitude, Longitude, .keep_all = TRUE)
 ```
 
 
