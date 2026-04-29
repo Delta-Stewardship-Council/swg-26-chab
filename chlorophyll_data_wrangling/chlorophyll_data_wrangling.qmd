@@ -1,7 +1,9 @@
 ---
 title: "Grabbing Chlorophyll data"
-format: html
-author: Emily Richardson, Shaela Noble, Spencer Fern (others tbd and no specific order)
+
+format: html: embed-resources: TRUE
+author: Emily Richardson, Shaela Noble, Spencer Fern (others tbd)
+
 ---
 # This document shows steps that the 2026 NCEAS CHAB team is using to harmonize chlorophyll data
 
@@ -95,7 +97,77 @@ delta_chl_sites <- deltasite_metadata %>% filter(parameter_code %in% chl_pcodes$
 
 ### e.g., name of data source
 
+## Running spatial data packages
 ```{r}
+### Data wrangling packages:
+library(readr)
+library(dplyr)
+library(tidyr)
+library(here)
 
+### Simple Features vector spatial data:
+library(sf)
+
+### Data visualization packages:
+library(ggplot2)
+library(leaflet)
+library(ggspatial) 
+library(prettymapr) ### ggspatial depends on but does not import prettymapr for internal functions
 ```
 
+```{r}
+chla_special_sf <-read_csv(here("chlorophyll_data_wrangling/chlorphyll_special/model_chla_covars.csv"))
+
+chla_stations <- read_csv(here("chlorophyll_data_wrangling/chlorphyll_special/stations.csv"))
+```
+
+```{r}
+chla_lat_long <- chla_stations %>%
+    select(station, latitude, longitude) %>%
+    mutate(latitude = round(latitude, 3), 
+        longitude = round(longitude, 3)    
+        ) %>%
+    distinct()
+chla_joined <- chla_special_sf %>%
+    full_join(chla_lat_long, by = "station")
+```
+
+
+```{r}
+chla_4326_sf <- st_as_sf(chla_joined,
+                        coords = c('longitude', 'latitude'),
+                        crs = 4326)
+```
+
+
+```{r}
+plot(chla_4326_sf %>%
+    select(chlorophyll))
+```
+
+
+```{r}
+ggplot(chla_4326_sf) +
+    geom_sf(aes(fill = chlorophyll)) +
+    labs(fill = "chlorophyll") +
+    scale_fill_continuous(low = "blue", high =  "green") +
+    theme_bw()
+```
+
+
+```{r}
+chla_3857_sf <- st_transform(chla_4326_sf, 
+                            crs = 3857)
+```
+
+
+```{r}
+plot(chla_3857_sf %>%
+        select(chlorophyll))
+ ggplot(chla_3857_sf) +
+     ggspatial::annotation_map_tile(type = "osm", zoom = 10, progress = 'none') +
+       geom_sf(aes(fill = chlorophyll)) +
+     labs(fill = "chlorophyll") +
+     scale_fill_continuous(low = "blue", high =  "green") +
+     theme_bw()
+```

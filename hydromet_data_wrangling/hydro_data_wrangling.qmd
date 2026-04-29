@@ -1,0 +1,118 @@
+---
+title: "Download and wrangle hydro datasets"
+format: 
+  html:
+    toc: true
+    number-sections: true
+    embed-resources: true
+authors: Michelle Stern and Nick Rowlands
+---
+# Brainstorm
+The primary environmental factors shaping phytoplankton abundance and community composition are salinity, hydrodynamics, stratification, light, temperature, nutrients, and time. (https://essopenarchive.org/doi/pdf/10.22541/essoar.176495220.03206867/v1)
+* Positive: high nutrients, low turbulence, long residence time, adequate light, warm temperatures, low grazing rates, seed population/refugia, low biodiversity. 
+* Modulating Factors: strong environmental gradients like stratification and salinity, nutrient frms and ratios, diverse habitats/connectivity, selective grazing, predator/prey co-evolution, adequate light, toxin production
+* Negative: low nutrients*, high turbulence, short residence time, low light, high grazing rates, high biodiversity, extreme temperatures warm or cold
+
+Variables from SCHISM: water temperature, flow, turbidity, salinity, residence time (average for a certain month? season?)
+how to get an index for stratification, light?
+Variables from climate datasets: wind, solar radiation (also when?)
+Flow at certain gages? satellite data? 
+Non time-variant variables?
+
+
+
+
+# Download data
+
+```{r}
+# Required packages to include
+# install.packages("librarian")
+librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr)
+```
+
+![[SCHISM boundary conditions](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/topics/baydelta_boundaries.html)](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/_images/open_boundaries.png){width="70%"}
+
+```{r}
+# SCHISM data
+
+```
+
+# Download other data
+
+- Get instantaneous USGS data (for example, discharge sensor data). Start here: ?read_waterdata_continuous. If you only need the latest value, you can use the function: ?read_waterdata_latest_continuous.
+
+- Get daily USGS data (for example, mean daily discharge). Start here: ?read_waterdata_daily. If you only need the latest value, you can use the function: ?read_waterdata_latest_daily.
+
+- Get discrete USGS groundwater data. Start here: ?read_waterdata_field_measurements
+
+- Get discrete water quality data from a cooperative service that integrates publicly available water-quality data from the USGS, EPA, and over 400 state, federal, tribal, and local agencies. Start here: ?readWQPdata
+
+- Get USGS discrete water quality data. Start here: ?read_waterdata_samples
+
+- Get metadata about USGS time series data, including instantaneous and daily data. Start here: ?read_waterdata_ts_meta
+
+- Find Hydro Network-Linked Data Index (NLDI) data. Start here: ?findNLDI
+
+- Get daily data statistics. Start here: ?read_waterdata_stats_por
+
+- Add a USGS WaterData API token to your R environment. See: https://doi-usgs.github.io/dataRetrieval/articles/read_waterdata_functions.html#api-tokens
+
+- Get the latest status on NWIS and other data access updates. See: https://doi-usgs.github.io/dataRetrieval/articles/Status.html https://api.waterdata.usgs.gov/ogcapi/v0/collections/monitoring-locations
+
+```{r}
+# https://github.com/DOI-USGS/dataRetrieval
+
+```
+
+# Visualize data
+
+```{r}
+# gather shapefiles for interactive map of Delta
+delta_shapefile_url <- "https://utility.arcgis.com/usrsvcs/servers/3efc635b27344a3da989ca1e7108f5e0/rest/services/Boundaries/i03_LegalDeltaBoundary/MapServer/0/query?outFields=*&where=1%3D1&f=geojson"
+
+# Read the GeoJSON directly from the URL
+# geojsonio::geojson_read returns a Spatial object
+delta_legal <- st_read(delta_shapefile_url, quiet = TRUE)
+# Define projection
+delta_legal <- st_transform(delta_legal, crs = 4326)
+```
+
+```{r}
+# interactive map of Delta with leaflet
+leaflet(delta_legal) %>%
+  addTiles() %>%  # Add default OpenStreetMap tiles
+  setView(lng = mean(st_coordinates(st_centroid(st_union(delta_legal)))[,1]),
+          lat = mean(st_coordinates(st_centroid(st_union(delta_legal)))[,2]),
+          zoom = 10) %>%
+  addPolygons(
+    color = "blue",
+    weight = 1,
+    opacity = 0.6,
+    fillOpacity = 0.2,
+    popup = ~as.character("Legal Delta") # can change to a shapefile column name
+  )
+```
+
+```{r}
+## syntax for adding multiple shapefiles example code
+# Paths to shapefiles
+shp_files <- c("data/roads.shp", "data/lakes.shp", "data/parks.shp")
+
+# Read shapefiles into a list
+shapes <- lapply(shp_files, read_sf)
+
+# Create leaflet map
+leaflet() %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(data = shapes[[1]], color = "red", weight = 2, fillOpacity = 0.3, group = "Roads") %>%
+  addPolygons(data = shapes[[2]], color = "blue", weight = 2, fillOpacity = 0.3, group = "Lakes") %>%
+  addPolygons(data = shapes[[3]], color = "green", weight = 2, fillOpacity = 0.3, group = "Parks") %>%
+  addLayersControl(
+    overlayGroups = c("Roads", "Lakes", "Parks"),
+    options = layersControlOptions(collapsed = FALSE)
+  )
+```
+
+# Merge data together
+
+# Export to format needed for modeling
