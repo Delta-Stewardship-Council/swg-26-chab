@@ -18,10 +18,65 @@ author: Emily Richardson, Shaela Noble, Spencer Fern (others tbd and no specific
 
 ## Shaela's Workspace
 
-### e.g., name of data source
+### Discrete WQ Data Package
+
+#### Install, load package and read in data
 
 ```{r}
+#devtools::install_github("InteragencyEcologicalProgram/discretewq")
 
+library(discretewq)
+library(dplyr)
+library(sf)
+```
+```{r}
+discrete_raw <- wq(
+  Sources = c(
+    "20mm",
+    "Baystudy",
+    "DJFMP",
+    "DOP",
+    "EDSM",
+    "EMP",
+    "FMWT",
+    "NCRO",
+    "SDO",
+    "SKT",
+    "SLS",
+    "STN",
+    "Suisun",
+    "USBR",
+    "USGS_CAWSC",
+    "USGS_SFBS",
+    "YBFMP"
+  )
+)
+
+str(discrete_raw)
+```
+
+#### Data exploration
+```{r}
+#filter to chlorophyll
+discrete_chla <- discrete_raw %>% 
+    filter(!is.na(Chlorophyll))
+
+#see which surveys have chlorophyll data
+discrete_chla %>% 
+    distinct(Source)
+```
+
+```{r}
+#filter out any NA in coordinates columns and convert to a spatial object
+discrete_chla_sf <- discrete_chla %>% 
+    filter(!is.na(Latitude)) %>% 
+    st_as_sf(coords = c('Longitude', 'Latitude'),
+             crs = 4326,
+             remove = FALSE)
+
+discrete_chla_sf %>% 
+    filter(Source == "DOP") %>% 
+    distinct(Latitude, Longitude)
 ```
 
 ## Spencer's Workspace
