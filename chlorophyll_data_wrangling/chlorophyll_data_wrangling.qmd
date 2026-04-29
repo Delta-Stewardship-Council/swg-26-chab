@@ -86,3 +86,21 @@ ggplot(chla_4326_sf) +
     scale_fill_continuous(low = "blue", high =  "green") +
     theme_bw()
 ```
+
+
+```{r}
+chla_3857_sf <- st_transform(chla_4326_sf, 
+                            crs = 3857)
+```
+
+
+```{r}
+plot(chla_3857_sf %>%
+        select(chlorophyll))
+ ggplot(chla_3857_sf) +
+     ggspatial::annotation_map_tile(type = "osm", zoom = 10, progress = 'none') +
+       geom_sf(aes(fill = chlorophyll)) +
+     labs(fill = "chlorophyll") +
+     scale_fill_continuous(low = "blue", high =  "green") +
+     theme_bw()
+```
