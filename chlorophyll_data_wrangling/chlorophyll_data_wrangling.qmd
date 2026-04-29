@@ -77,3 +77,12 @@ chla_4326_sf <- st_as_sf(chla_joined,
 plot(chla_4326_sf %>%
     select(chlorophyll))
 ```
+
+
+```{r}
+ggplot(chla_4326_sf) +
+    geom_sf(aes(fill = chlorophyll)) +
+    labs(fill = "chlorophyll") +
+    scale_fill_continuous(low = "blue", high =  "green") +
+    theme_bw()
+```
