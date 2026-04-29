@@ -7,13 +7,27 @@ format:
     embed-resources: true
 authors: Michelle Stern and Nick Rowlands
 ---
+# Brainstorm
+The primary environmental factors shaping phytoplankton abundance and community composition are salinity, hydrodynamics, stratification, light, temperature, nutrients, and time. (https://essopenarchive.org/doi/pdf/10.22541/essoar.176495220.03206867/v1)
+* Positive: high nutrients, low turbulence, long residence time, adequate light, warm temperatures, low grazing rates, seed population/refugia, low biodiversity. 
+* Modulating Factors: strong environmental gradients like stratification and salinity, nutrient frms and ratios, diverse habitats/connectivity, selective grazing, predator/prey co-evolution, adequate light, toxin production
+* Negative: low nutrients*, high turbulence, short residence time, low light, high grazing rates, high biodiversity, extreme temperatures warm or cold
+
+Variables from SCHISM: water temperature, flow, turbidity, salinity, residence time (average for a certain month? season?)
+how to get an index for stratification, light?
+Variables from climate datasets: wind, solar radiation (also when?)
+Flow at certain gages? satellite data? 
+Non time-variant variables?
+
+
+
 
 # Download data
 
 ```{r}
 # Required packages to include
 # install.packages("librarian")
-librarian::shelf(leaflet, sf)
+librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr)
 ```
 
 ![[SCHISM boundary conditions](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/topics/baydelta_boundaries.html)](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/_images/open_boundaries.png){width="70%"}
@@ -76,6 +90,26 @@ leaflet(delta_legal) %>%
     opacity = 0.6,
     fillOpacity = 0.2,
     popup = ~as.character("Legal Delta") # can change to a shapefile column name
+  )
+```
+
+```{r}
+## syntax for adding multiple shapefiles example code
+# Paths to shapefiles
+shp_files <- c("data/roads.shp", "data/lakes.shp", "data/parks.shp")
+
+# Read shapefiles into a list
+shapes <- lapply(shp_files, read_sf)
+
+# Create leaflet map
+leaflet() %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(data = shapes[[1]], color = "red", weight = 2, fillOpacity = 0.3, group = "Roads") %>%
+  addPolygons(data = shapes[[2]], color = "blue", weight = 2, fillOpacity = 0.3, group = "Lakes") %>%
+  addPolygons(data = shapes[[3]], color = "green", weight = 2, fillOpacity = 0.3, group = "Parks") %>%
+  addLayersControl(
+    overlayGroups = c("Roads", "Lakes", "Parks"),
+    options = layersControlOptions(collapsed = FALSE)
   )
 ```
 
