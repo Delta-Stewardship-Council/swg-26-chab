@@ -5,9 +5,7 @@ format: html
 params:
   bioprojects: 
     - "PRJNA1458311"
-  out_dir: "data/raw"
-  n_max: 100
-  manifest_dir: "metabarcoding_data_wrangling/manifests"
+  n_max: 200
 ---
 
 ## Load packages
@@ -19,19 +17,117 @@ library(tidyverse)
 library(stringr)
 library(purrr)
 library(dplyr)
+library(here)
 ```
 
+```{r}
+manifest_dir <- here("metabarcoding_data_wrangling", "manifests")
+out_dir      <- here("metabarcoding_data_wrangling", "data", "raw")
+```
+
+```{r}
+get_sra_runs <- function(prjna, n_max = 200) {
+  
+  message("Querying: ", prjna)
+  
+  search <- entrez_search(
+    db = "sra",
+    term = prjna,
+    retmax = n_max
+  )
+  
+  summaries <- entrez_summary(db = "sra", id = search$ids)
+  
+  runs <- summaries |>
+    map(~ .x$runs) |>
+    unlist() |>
+    str_extract_all("SRR\\d+") |>
+    unlist() |>
+    unique()
+  
+  tibble(
+    bioproject = prjna,
+    run = runs
+  )
+}
+```
+
+```{r}
+run_table <- purrr::map_dfr(
+  params$bioprojects,
+  ~ get_sra_runs(.x, params$n_max)
+) %>%
+  distinct()
+```
+
+### Inspect table
+```{r}
+run_table %>%
+  count(bioproject)
+```
+
+```{r}
+manifest_dir <- here("metabarcoding_data_wrangling", "manifests")
+dir.create(manifest_dir, recursive = TRUE, showWarnings = FALSE)
+
+run_table %>%
+  group_by(bioproject) %>%
+  group_walk(~ {
+    
+    file <- file.path(manifest_dir, paste0(.y$bioproject, ".txt"))
+    
+    writeLines(.x$run, file)
+  })
+```
+
+```{r}
+writeLines(
+  run_table$run,
+  here("metabarcoding_data_wrangling", "manifests", "ALL_SRRs.txt")
+)
+```
+
+```{r}
+out_dir <- here("metabarcoding_data_wrangling", "data", "raw")
+dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
+
+run_table %>%
+  pull(run) %>%
+  unique() %>%
+  walk(~ {
+    
+    message("Downloading: ", .x)
+    
+    system(
+      paste(
+        "fasterq-dump", .x,
+        "--split-files",
+        "--gzip",
+        "-O", out_dir
+      )
+    )
+  })
+```
+
+
+
+
+
+# OLD
+```{r}
+stopifnot(!is.null(params$manifest_dir))
+stopifnot(!is.null(params$out_dir))
+
+manifest_dir <- file.path(getwd(), params$manifest_dir)
+out_dir <- file.path(getwd(), params$out_dir)
+
+dir.create(manifest_dir, recursive = TRUE, showWarnings = FALSE)
+dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
+```
 ## Query NCBI using NCBI
 
 ```{r}
-if (!exists("params")) {
-  params <- list(
-    bioprojects = c("PRJNA1458311"),
-    out_dir = "data/raw",
-    n_max = 100,
-    manifest_dir = "metabarcoding_data_wrangling/manifests"
-  )
-}
+
 ```
 ```{r}
 all_runs <- list()
@@ -61,14 +157,23 @@ for (proj in params$bioprojects) {
 
 ```{r}
 run_table <- all_runs %>%
-  purrr::imap_dfr(~ tibble::tibble(
-    bioproject = .y,
-    run = .x
-  )) %>%
+  purrr::imap_dfr(function(runs, bioproject) {
+    tibble::tibble(
+      bioproject = bioproject,
+      run = runs
+    )
+  }) %>%
   dplyr::distinct()
 ```
 
-### Create manifests for each projecy
+```{r}
+dir.create(params$manifest_dir, recursive = TRUE, showWarnings = FALSE)
+dir.create(params$out_dir, recursive = TRUE, showWarnings = FALSE)
+```
+
+
+## OLD
+### Create manifests for each project
 ```{r}
 #| label: write manifest
 dir.create("metabarcoding_data_wrangling/manifests", showWarnings = FALSE)
