@@ -10,21 +10,150 @@ author: Emily Richardson, Shaela Noble, Spencer Fern (others tbd)
 ## Emily's Workspace
 
 ### ScienceBase
-#will use https://github.com/DOI-USGS/sciencebasepy
+#### will use https://github.com/DOI-USGS/sciencebasepy
 
-### Water data for the nation
-#will use https://github.com/DOI-USGS/dataRetrieval
 ```{r}
+# In the console, entered
+#  from sciencebasepy import SbSession
+# sb = SbSession()
+library(reticulate)
+```
+
+```{python}
+#then add in
+# sb.get_token()
+#then add it in here
+#token = {
+#  "access_token": "",
+#  "refresh_token": ""
+#}
+```
+
+```{python}
+ response = sb.find_items({'q':'water', 'max':1})
+print("Found %s items" % response['total'])
+response
 
 ```
+
+```{python}
+
+```
+
+### Water data for the nation
+#### will use https://github.com/DOI-USGS/dataRetrieval
+```{r}
+#load packages
+library(dataRetrieval)
+library(dplyr)
+library(purrr)
+library(sf)
+library(stringr)
+```
+```{r}
+# Identify Delta surface water sites
+out_sf <- 
+  dataRetrieval::read_waterdata_monitoring_location(
+    state_name = "California", 
+    hydrologic_unit_code = "18020163",
+    agency_name = "U.S. Geological Survey",
+    properties = c("monitoring_location_id", "site_type", "hydrologic_unit_code", "county_name", "agency_name"))
+
+sites <- out_sf %>%
+  mutate(lon = st_coordinates(.)[,1],
+         lat = st_coordinates(.)[,2])
+
+delta_sites <- sites %>% filter((between(lat, 37.585545, 38.566034)) &  between(lon, -122.292649, -121.131962))
+```
+
+```{r}
+# Find chlorophyll-related parameter codes
+all_pcodes <- read_waterdata_parameter_codes()
+chl_pcodes <- all_pcodes %>% filter(str_detect(parameter_name, "Chl"))
+#chl_pcodes <- chl_pcodes %>% filter(parameter_group_code == "BIO")
+```
+
+```{r}
+sitelist <- delta_sites$monitoring_location_id
+deltasite_metadata <- read_waterdata_ts_meta(
+    monitoring_location_id = sitelist,
+    properties = c("monitoring_location_id", "parameter_code"))
+```
+
+```{r}
+#filter out Delta sites that don't have potential chlorophyll-related data
+delta_chl_sites <- deltasite_metadata %>% filter(parameter_code %in% chl_pcodes$parameter_code)
+
+```
+
+
+
 
 ## Shaela's Workspace
 
-### e.g., name of data source
+### Discrete WQ Data Package
+
+#### Install, load package and read in data
+
 
 ```{r}
+#devtools::install_github("InteragencyEcologicalProgram/discretewq")
 
+library(discretewq)
+library(dplyr)
+library(sf)
 ```
+```{r}
+discrete_raw <- wq(
+  Sources = c(
+    "20mm",
+    "Baystudy",
+    "DJFMP",
+    "DOP",
+    "EDSM",
+    "EMP",
+    "FMWT",
+    "NCRO",
+    "SDO",
+    "SKT",
+    "SLS",
+    "STN",
+    "Suisun",
+    "USBR",
+    "USGS_CAWSC",
+    "USGS_SFBS",
+    "YBFMP"
+  )
+)
+
+str(discrete_raw)
+```
+
+#### Data exploration
+```{r}
+#filter to chlorophyll
+discrete_chla <- discrete_raw %>% 
+    filter(!is.na(Chlorophyll))
+
+#see which surveys have chlorophyll data
+discrete_chla %>% 
+    distinct(Source)
+```
+
+```{r}
+#filter out any NA in coordinates columns and convert to a spatial object
+discrete_chla_sf <- discrete_chla %>% 
+    filter(!is.na(Latitude)) %>% 
+    st_as_sf(coords = c('Longitude', 'Latitude'),
+             crs = 4326,
+             remove = FALSE)
+
+discrete_chla_sf %>% 
+    filter(Source == "DOP") %>% 
+    distinct(Latitude, Longitude)
+```
+
+
 
 ## Spencer's Workspace
 
@@ -85,4 +214,22 @@ ggplot(chla_4326_sf) +
     labs(fill = "chlorophyll") +
     scale_fill_continuous(low = "blue", high =  "green") +
     theme_bw()
+```
+
+
+```{r}
+chla_3857_sf <- st_transform(chla_4326_sf, 
+                            crs = 3857)
+```
+
+
+```{r}
+plot(chla_3857_sf %>%
+        select(chlorophyll))
+ ggplot(chla_3857_sf) +
+     ggspatial::annotation_map_tile(type = "osm", zoom = 10, progress = 'none') +
+       geom_sf(aes(fill = chlorophyll)) +
+     labs(fill = "chlorophyll") +
+     scale_fill_continuous(low = "blue", high =  "green") +
+     theme_bw()
 ```
