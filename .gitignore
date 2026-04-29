@@ -47,3 +47,6 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# qmd generated garbage for rendering html
+*/*_files

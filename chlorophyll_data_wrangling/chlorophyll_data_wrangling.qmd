@@ -1,22 +1,23 @@
 ---
 title: "Grabbing Chlorophyll data"
+
 format: html: embed-resources: TRUE
 author: Emily Richardson, Shaela Noble, Spencer Fern (others tbd)
+
 ---
 # This document shows steps that the 2026 NCEAS CHAB team is using to harmonize chlorophyll data
 
 ## Emily's Workspace
 
 ### ScienceBase
-```{python}
-
-```
+#will use https://github.com/DOI-USGS/sciencebasepy
 
 ### Water data for the nation
-
-```{python}
+#will use https://github.com/DOI-USGS/dataRetrieval
+```{r}
 
 ```
+
 ## Shaela's Workspace
 
 ### e.g., name of data source
