@@ -1,0 +1,27 @@
+---
+title: "Download and wrangle hydro datasets"
+format: html
+authors: Michelle Stern and Nick Rowlands
+---
+
+# Download data
+
+![[SCHISM boundary conditions](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/topics/baydelta_boundaries.html)](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/_images/open_boundaries.png){width="70%"}
+
+```{r}
+# SCHISM data
+
+```
+
+# Download other data
+
+```{r}
+# https://github.com/DOI-USGS/dataRetrieval
+
+```
+
+# Visualize data
+
+# Merge data together
+
+# Export to format needed for modeling

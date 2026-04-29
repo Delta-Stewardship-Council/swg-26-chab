@@ -16,3 +16,38 @@ params:
 library(rentrez)
 library(tidyverse)
 ```
+
+## Query NCBI using NCBI
+
+```{r}
+if (!exists("params")) {
+  params <- list(
+    bioprojects = c("PRJNA1458311"),
+    out_dir = "data/raw",
+    n_max = 100
+  )
+}
+```
+```{r}
+all_runs <- list()
+
+for (proj in params$bioprojects) {
+  message("Querying: ", proj)
+  
+  search <- entrez_search(
+    db = "sra",
+    term = proj,
+    retmax = params$n_max
+  )
+  
+  summaries <- entrez_summary(db = "sra", id = search$ids)
+  
+  runs <- summaries |>
+    map_chr("runs") |>
+    str_extract_all("SRR\\d+") |>
+    unlist() |>
+    unique()
+  
+  all_runs[[proj]] <- runs
+}
+```
