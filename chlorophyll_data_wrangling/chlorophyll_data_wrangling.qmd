@@ -1,6 +1,5 @@
 ---
 title: "Grabbing Chlorophyll data"
-
 format: html: embed-resources: TRUE
 author: Emily Richardson, Shaela Noble, Spencer Fern (others tbd)
 
@@ -33,11 +32,6 @@ library(reticulate)
  response = sb.find_items({'q':'water', 'max':1})
 print("Found %s items" % response['total'])
 response
-
-```
-
-```{python}
-
 ```
 
 ### Water data for the nation
@@ -82,11 +76,22 @@ deltasite_metadata <- read_waterdata_ts_meta(
 
 ```{r}
 #filter out Delta sites that don't have potential chlorophyll-related data
-delta_chl_sites <- deltasite_metadata %>% filter(parameter_code %in% chl_pcodes$parameter_code)
-
+delta_chl_sites <- deltasite_metadata %>% 
+    filter(parameter_code %in% chl_pcodes$parameter_code)
+lu_delta_pcodes <- unique(delta_chl_sites$parameter_code)
+lu_delta_chl_sites <- unique(delta_chl_sites$monitoring_location)
 ```
 
-
+```{r}
+#THIS IS BROKEN
+#Now grab the data (this is for chl only)
+read_waterdata_daily(
+    monitoring_location_id = lu_delta_chl_sites,
+    parameter_code = lu_delta_pcodes,
+    statistic_id = 00003, # mean
+    time = c("2024-09-30", "2025-09-30")
+    )
+```
 
 
 ## Shaela's Workspace
