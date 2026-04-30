@@ -77,21 +77,24 @@ deltasite_metadata <- read_waterdata_ts_meta(
 ```{r}
 #filter out Delta sites that don't have potential chlorophyll-related data
 delta_chl_sites <- deltasite_metadata %>% 
-    filter(parameter_code %in% chl_pcodes$parameter_code)
-lu_delta_pcodes <- unique(delta_chl_sites$parameter_code)
+    filter(parameter_code == "32316")
+#lu_delta_pcodes <- unique(delta_chl_sites$parameter_code)
 lu_delta_chl_sites <- unique(delta_chl_sites$monitoring_location)
 ```
 
 ```{r}
-#THIS IS BROKEN
-#Now grab the data (this is for chl only)
-read_waterdata_daily(
-    monitoring_location_id = lu_delta_chl_sites,
-    parameter_code = lu_delta_pcodes,
-    statistic_id = 00003, # mean
-    time = c("2024-09-30", "2025-09-30")
-    )
+#Now grab the data (this is for mean daily sensor chl only in ug/l)
+delta_chl_data <- dataRetrieval::read_waterdata_continuous(monitoring_location_id = lu_delta_chl_sites,
+                              parameter_code = lu_delta_pcodes,
+                             # time = c("2020-01-01", "2021-01-01")
+                              )
 ```
+
+```{r}
+head(delta_chl_data)
+```
+
+
 
 
 ## Shaela's Workspace
