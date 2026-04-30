@@ -9,30 +9,8 @@ author: Emily Richardson, Shaela Noble, Spencer Fern (others tbd)
 ## Emily's Workspace
 
 ### ScienceBase
-#### will use https://github.com/DOI-USGS/sciencebasepy
+#### Will either need custom API or individual downloads
 
-```{r}
-# In the console, entered
-#  from sciencebasepy import SbSession
-# sb = SbSession()
-library(reticulate)
-```
-
-```{python}
-#then add in
-# sb.get_token()
-#then add it in here
-#token = {
-#  "access_token": "",
-#  "refresh_token": ""
-#}
-```
-
-```{python}
- response = sb.find_items({'q':'water', 'max':1})
-print("Found %s items" % response['total'])
-response
-```
 
 ### Water data for the nation
 #### will use https://github.com/DOI-USGS/dataRetrieval
@@ -71,7 +49,7 @@ chl_pcodes <- all_pcodes %>% filter(str_detect(parameter_name, "Chl"))
 sitelist <- delta_sites$monitoring_location_id
 deltasite_metadata <- read_waterdata_ts_meta(
     monitoring_location_id = sitelist,
-    properties = c("monitoring_location_id", "parameter_code"))
+    properties = c("monitoring_location_id", "parameter_code", "begin_utc", "end_utc"))
 ```
 
 ```{r}
@@ -83,17 +61,50 @@ lu_delta_chl_sites <- unique(delta_chl_sites$monitoring_location)
 ```
 
 ```{r}
-#Now grab the data (this is for mean daily sensor chl only in ug/l)
+mindate <- min(delta_chl_sites$begin_utc, na.rm = TRUE)
+mindate <- as.Date(mindate)
+mindate <- as.character(mindate)
+
+maxdate <- max(delta_chl_sites$end_utc, na.rm = TRUE)
+maxdate <- as.Date(maxdate)
+maxdate <- as.character(maxdate)
+```
+
+```{r}
+#BROKEN - too many dates need to figure out how to loop- Now grab the data (this is for mean daily sensor chl only in ug/l)
 delta_chl_data <- dataRetrieval::read_waterdata_continuous(monitoring_location_id = lu_delta_chl_sites,
                               parameter_code = lu_delta_pcodes,
-                             # time = c("2020-01-01", "2021-01-01")
+                              time = c(mindate, maxdate)
                               )
 ```
 
 ```{r}
-head(delta_chl_data)
+summary(delta_chl_data)
 ```
 
+```{r}
+#Grab only daytime data and average daily
+
+library(lubridate)
+
+delta_chl_data$hour <- as.numeric(format(delta_chl_data$time, "%H"))
+
+delta_chl_data$TOD <- ifelse(delta_chl_data$hour %in% c(8, 9, 10, 11, 12, 13, 14, 15, 16), "keep", "remove")
+delta_chl_data$date <- as.Date(delta_chl_data$time)
+
+daytime_delta_chl_data <- delta_chl_data %>% filter(TOD == "keep")
+
+avg_daytime_delta_chl_data <- daytime_delta_chl_data %>%
+  group_by(date, monitoring_location_id)%>%
+  mutate(avg_fchl = mean(value)) %>%
+  mutate(fchl_corr = 1.29*avg_fchl+0.33)%>%
+  select(date, monitoring_location_id, fchl_corr, avg_fchl)%>%
+  distinct()
+```
+
+```{r}
+summary(avg_daytime_delta_chl_data)
+```
 
 
 
