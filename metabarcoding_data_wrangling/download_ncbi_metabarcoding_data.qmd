@@ -88,97 +88,26 @@ writeLines(
 ```
 
 ```{r}
-out_dir <- here("metabarcoding_data_wrangling", "data", "raw")
+# Download SRA runs
+
+out_dir <- here::here("metabarcoding_data_wrangling", "data", "raw")
 dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 
 run_table %>%
-  pull(run) %>%
+  dplyr::pull(run) %>%
   unique() %>%
-  walk(~ {
-    
+  purrr::walk(~ {
+
     message("Downloading: ", .x)
-    
+
     system(
       paste(
         "fasterq-dump", .x,
         "--split-files",
-        "--gzip",
         "-O", out_dir
       )
     )
   })
 ```
 
-
-
-
-
-# OLD
-```{r}
-stopifnot(!is.null(params$manifest_dir))
-stopifnot(!is.null(params$out_dir))
-
-manifest_dir <- file.path(getwd(), params$manifest_dir)
-out_dir <- file.path(getwd(), params$out_dir)
-
-dir.create(manifest_dir, recursive = TRUE, showWarnings = FALSE)
-dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
-```
-## Query NCBI using NCBI
-
-```{r}
-
-```
-```{r}
-all_runs <- list()
-
-for (proj in params$bioprojects) {
-  message("Querying: ", proj)
-  
-  search <- entrez_search(
-    db = "sra",
-    term = proj,
-    retmax = params$n_max
-  )
-  
-  summaries <- entrez_summary(db = "sra", id = search$ids)
-  
-  runs <- summaries |>
-    map(function(x) x$runs) |>
-    unlist() |>
-    str_extract_all("SRR\\d+") |>
-    unlist() |>
-    unique()
-  
-  all_runs[[proj]] <- runs
-}
-```
-
-
-```{r}
-run_table <- all_runs %>%
-  purrr::imap_dfr(function(runs, bioproject) {
-    tibble::tibble(
-      bioproject = bioproject,
-      run = runs
-    )
-  }) %>%
-  dplyr::distinct()
-```
-
-```{r}
-dir.create(params$manifest_dir, recursive = TRUE, showWarnings = FALSE)
-dir.create(params$out_dir, recursive = TRUE, showWarnings = FALSE)
-```
-
-
-## OLD
-### Create manifests for each project
-```{r}
-#| label: write manifest
-dir.create("metabarcoding_data_wrangling/manifests", showWarnings = FALSE)
-
-run_table |>
-  group_by(bioproject) |>
-  group_walk(~ writeLines(.x$run, paste0("metabarcoding_data_wrangling/manifests/", .y$bioproject, ".txt")))
-```
+# End
