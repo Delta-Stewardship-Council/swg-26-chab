@@ -8,3 +8,37 @@ Authors: Spencer Fern, Ann Holmes, Shaela Noble, Emily Richardson, Nick Rowlands
 
 ✅ **Open Science**  
 This repository includes *working versions* of synthesis materials for transparency and internal organization only. It is *not* a formal archive or completed work product.
+
+Repository structure:
+* Data
+   * Raw
+   * filename.file
+* Notebooks
+* Plots
+
+**File and notebook naming convention:**
+
+"#_[Tag]_name_agency(optional).extension"
+
+  00 - raw data
+  
+  01 - wrangle
+  
+  02 - integrate
+
+**Tags:**
+
+CHL - chlorophyll
+
+MB - metabarcoding
+
+Pest - pesticides/herbicides
+
+qPCR - Quantitative real-time Polymerase Chain Reaction
+
+CTox - Cyanotoxin 
+
+ENV - hydrometerological data 
+
+
+  
