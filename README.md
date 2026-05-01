@@ -28,17 +28,17 @@ Repository structure:
 
 **Tags:**
 
-CHL - chlorophyll
+chl - chlorophyll
 
-MB - metabarcoding
+mb - metabarcoding
 
-Pest - pesticides/herbicides
+pest - pesticides/herbicides
 
-qPCR - Quantitative real-time Polymerase Chain Reaction
+qpcr - Quantitative real-time Polymerase Chain Reaction
 
-CTox - Cyanotoxin 
+ctox - Cyanotoxin 
 
-ENV - hydrometerological data 
+env - hydrometerological data 
 
 
   
