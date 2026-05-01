@@ -211,6 +211,8 @@ chla_lat_long <- chla_stations %>%
     distinct()
 chla_joined <- chla_special_sf %>%
     full_join(chla_lat_long, by = "station")
+
+write.csv(chla_joined, "chlorophyll_data_wrangling/chlorphyll_special/01_tidy_model_chla_covars.csv")
 ```
 
 
@@ -226,6 +228,8 @@ plot(chla_4326_sf %>%
     select(chlorophyll))
 ```
 
+
+## Making a Map with the Chlorophyll Stations
 
 ```{r}
 ggplot(chla_4326_sf) +
