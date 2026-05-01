@@ -1,0 +1,67 @@
+---
+title: "SURF data"
+format: html
+---
+
+## Load Packages
+
+```{r}
+library(readr)
+library(sf)
+library(dplyr)
+library(ggplot2)
+```
+
+## Read in data
+
+```{r}
+zip_path <- tempfile(fileext = ".zip")
+download.file("https://www.cdpr.ca.gov/wp-content/uploads/2025/06/SURF-Water-Data-2025.zip", zip_path, mode = "wb")
+
+SURF_raw <- readr::read_csv(unz(zip_path, "SURF Water Data 2025.csv"))
+```
+
+## Filter to data in the Delta
+
+```{r}
+#create sf object
+SURF_sf <- SURF_raw %>% 
+    st_as_sf(coords = c('Longitude', 'Latitude'),
+             crs = 4326,
+             remove = FALSE)
+
+#read in shapefile
+delta_sf <- st_read("https://services5.arcgis.com/netd7RBEFAa05HUC/arcgis/rest/services/Legal_Delta/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson")
+
+plot(delta_sf)
+st_crs(delta_sf)
+
+#find sampling locations within the Delta
+SURF_delta_sf <- st_filter(SURF_sf, delta_sf, .predicate = st_within)
+```
+
+## Explore spatial coverage
+
+```{r}
+#count samples per station
+samples_per_station <- SURF_delta_sf %>%
+  count(Site_code, name = "n_samples")
+
+#plot samples per station
+
+ggplot() +
+  geom_sf(data = delta_sf, fill = "#6CA6CD", color = "white", alpha = 0.25) +
+  geom_sf(
+    data = samples_per_station,
+    aes(size = n_samples),
+    color = "#E4572E",
+    alpha = 0.8
+  ) +
+  scale_size_continuous(name = "Samples per station") +
+  labs(
+    title = "Unique Station Locations within Delta",
+    subtitle = "Point size reflects number of samples per station",
+    x = NULL, y = NULL
+  ) 
+
+```
