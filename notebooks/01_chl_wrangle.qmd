@@ -197,9 +197,9 @@ library(prettymapr) ### ggspatial depends on but does not import prettymapr for 
 ```
 
 ```{r}
-chla_special_sf <-read_csv(here("chlorophyll_data_wrangling/chlorphyll_special/model_chla_covars.csv"))
+chla_special_sf <-read_csv(here("data/model_chla_covars.csv"))
 
-chla_stations <- read_csv(here("chlorophyll_data_wrangling/chlorphyll_special/stations.csv"))
+chla_stations <- read_csv(here("data/stations.csv"))
 ```
 
 ```{r}
@@ -212,7 +212,7 @@ chla_lat_long <- chla_stations %>%
 chla_joined <- chla_special_sf %>%
     full_join(chla_lat_long, by = "station")
 
-write.csv(chla_joined, "chlorophyll_data_wrangling/chlorphyll_special/01_tidy_model_chla_covars.csv")
+write.csv(chla_joined, "data/01_tidy_model_chla_covars.csv")
 ```
 
 
