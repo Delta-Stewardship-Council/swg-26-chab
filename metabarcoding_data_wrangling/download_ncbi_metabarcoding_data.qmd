@@ -111,4 +111,9 @@ run_table %>%
   })
 ```
 
+# Determine if single or paired reads
+
+```{r}
+
+```
 # End
