@@ -8,12 +8,6 @@ author: Emily Richardson, Shaela Noble, Spencer Fern (others tbd)
 
 ## Emily's Workspace
 
-### ScienceBase
-#### Will either need custom API or individual downloads
-
-
-### Water data for the nation
-#### will use https://github.com/DOI-USGS/dataRetrieval
 ```{r}
 #load packages
 library(dataRetrieval)
@@ -21,7 +15,16 @@ library(dplyr)
 library(purrr)
 library(sf)
 library(stringr)
+library(DT)
 ```
+
+### ScienceBase
+#### Used https://www.sciencebase.gov/catalog/items/get?q=chlorophyll%20sacramento to identify 22 datasets (links in excel file in Box, will have to download individually)
+
+
+### Water data for the nation
+#### will use https://github.com/DOI-USGS/dataRetrieval
+
 ```{r}
 # Identify Delta surface water sites
 out_sf <- 
