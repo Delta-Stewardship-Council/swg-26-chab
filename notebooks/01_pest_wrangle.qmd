@@ -40,6 +40,20 @@ st_crs(delta_sf)
 SURF_delta_sf <- st_filter(SURF_sf, delta_sf, .predicate = st_within)
 ```
 
+```{r}
+##### as above but adding Suisun to legal Delta
+# read in geoJSON for Delta + Suisun
+delta_suisun_sf <- st_read(
+  "https://services5.arcgis.com/netd7RBEFAa05HUC/ArcGIS/rest/services/LegalDelta/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson")
+
+# checks
+st_crs(SURF_sf) == st_crs(delta_suisun_sf)
+plot(delta_suisun_sf)
+
+# find sampling locations in Delta + Suisun
+SURF_delta_suisun_sf <- st_filter(SURF_sf, delta_suisun_sf, .predicate = st_intersects)
+```
+
 ## Explore spatial coverage
 
 ```{r}
@@ -64,4 +78,29 @@ ggplot() +
     x = NULL, y = NULL
   ) 
 
+```
+
+
+```{r}
+##### as above but adding Suisun to legal Delta
+#count samples per station
+samples_per_station_ds <- SURF_delta_suisun_sf %>%
+  count(Site_code, name = "n_samples")
+
+#plot samples per station
+
+ggplot() +
+  geom_sf(data = delta_suisun_sf, fill = "#6CA6CD", color = "white", alpha = 0.25) +
+  geom_sf(
+    data = samples_per_station_ds,
+    aes(size = n_samples),
+    color = "#E4572E",
+    alpha = 0.8
+  ) +
+  scale_size_continuous(name = "Samples per station") +
+  labs(
+    title = "Unique Station Locations within Delta and Suisun",
+    subtitle = "Point size reflects number of samples per station",
+    x = NULL, y = NULL
+  ) 
 ```
