@@ -104,3 +104,11 @@ ggplot() +
     x = NULL, y = NULL
   ) 
 ```
+
+Very incomplete list of stuff to do (maybe) in no particular order:
+- clip to Big Break
+- figure out which pesticides we are interested in
+- and at what concentration
+- investigate by date
+- see if SFEI's cd3 dataset has anything we are missing
+- ...
