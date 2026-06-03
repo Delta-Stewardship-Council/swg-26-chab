@@ -10,6 +10,7 @@ library(readr)
 library(sf)
 library(dplyr)
 library(ggplot2)
+library(ggspatial)
 ```
 
 ## Read in data
@@ -105,10 +106,46 @@ ggplot() +
   ) 
 ```
 
+```{r}
+##adding a basemap to plot 
+
+#transform data to web mercator to match basemap
+delta_suisun_3857   <- st_transform(delta_suisun_sf, 3857)
+samples_3857 <- st_transform(samples_per_station_ds, 3857)
+
+#plot samples per station with basemap
+ggplot() +
+  annotation_map_tile(type = "cartolight", zoom = 10) +
+  geom_sf(data = delta_suisun_3857, fill = "#6CA6CD", color = "white", alpha = 0.25) +
+  geom_sf(
+    data = samples_3857,
+    aes(size = n_samples),
+    color = "#E4572E",
+    alpha = 0.8
+  ) +
+  scale_size_continuous(name = "Samples per station") +
+  labs(
+    title = "Unique Station Locations within Delta and Suisun",
+    subtitle = "Point size reflects number of samples per station",
+    x = NULL, y = NULL
+  ) 
+
+```
+
+```{r}
+##exploration
+
+study_count <- SURF_delta_suisun_sf |> 
+  sf::st_drop_geometry() |> 
+  count(Study_description, name = "n_measurements") |> 
+  arrange(desc(n_measurements))
+```
+
+
 Very incomplete list of stuff to do (maybe) in no particular order:
 - clip to Big Break
 - figure out which pesticides we are interested in
 - and at what concentration
 - investigate by date
 - see if SFEI's cd3 dataset has anything we are missing
-- ...
+- figure out how to put the rosm.cache into git ignore so it is not tracked
