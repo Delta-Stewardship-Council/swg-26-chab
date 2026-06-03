@@ -17,10 +17,14 @@ library(sf)
 library(stringr)
 library(DT)
 library(lubridate)
+library(DBI)
+library(EDIutils)
 ```
 
 ### ScienceBase
-#### Used https://www.sciencebase.gov/catalog/items/get?q=chlorophyll%20sacramento to identify 22 datasets (links in excel file in Box, will have to download individually)
+#### Used https://www.sciencebase.gov/catalog/items/get?q=chlorophyll%20sacramento to identify 22 datasets (links in excel file in Box, will downloaded individually and added to raw data folder)
+
+
 
 
 ### Water data for the nation (USGS)
@@ -38,13 +42,8 @@ sites <- out_sf %>%
          lat = st_coordinates(.)[,2])
 
 delta_sites <- sites %>% filter((between(lat, 37.585545, 38.566034)) &  between(lon, -122.292649, -121.131962))
-```
 
-```{r}
-# Find chlorophyll-related parameter codes
-all_pcodes <- read_waterdata_parameter_codes()
-chl_pcodes <- all_pcodes %>% filter(str_detect(parameter_name, "Chl"))
-#chl_pcodes <- chl_pcodes %>% filter(parameter_group_code == "BIO")
+rm(out_sf, sites)
 ```
 
 ```{r}
@@ -52,10 +51,12 @@ sitelist <- delta_sites$monitoring_location_id
 deltasite_metadata <- read_waterdata_ts_meta(
     monitoring_location_id = sitelist,
     properties = c("monitoring_location_id", "parameter_code", "begin_utc", "end_utc"))
+
+rm(sitelist, delta_sites)
 ```
 
 ```{r}
-#filter out Delta sites that don't have potential chlorophyll-related data
+#filter out Delta sites that don't have potential chlorophyll-related data (parameter code 32306 is in situ fChl)
 delta_chl_sites <- deltasite_metadata %>% 
     filter(parameter_code == "32316")
 #lu_delta_pcodes <- unique(delta_chl_sites$parameter_code)
@@ -77,12 +78,12 @@ date_limit_5 <- as.character(mindate + years(12))
 maxdate <- max(delta_chl_sites$end_utc, na.rm = TRUE)
 maxdate <- as.Date(maxdate)
 date_limit_6 <- as.character(maxdate)
+
+rm(mindate, maxdate)
 ```
 
 ```{r}
-#BROKEN - too many dates need to figure out how to loop- Now grab the data (this is for mean daily sensor chl only in ug/l)
-
-
+#Now grab the data (this is fordaily sensor chl only in ug/l)
 delta_chl_data_1 <- dataRetrieval::read_waterdata_continuous(monitoring_location_id = lu_delta_chl_sites,
                               parameter_code = "32316",
                               time = c(date_limit_1, date_limit_2)
@@ -107,12 +108,16 @@ delta_chl_data_5 <- dataRetrieval::read_waterdata_continuous(monitoring_location
                               parameter_code = "32316",
                               time = c(date_limit_5, date_limit_6)
                               )
+
+rm(date_limit_1, date_limit_2, date_limit_3, date_limit_4, date_limit_5, date_limit_6)
 ```
 
 ```{r}
 #stitch together all USGS CM chl data
 delta_chl_data <- rbind(delta_chl_data_1, delta_chl_data_2, delta_chl_data_3, delta_chl_data_4, delta_chl_data_5)
 summary(delta_chl_data)
+
+rm(delta_chl_data_1, delta_chl_data_2, delta_chl_data_3, delta_chl_data_4, delta_chl_data_5)
 ```
 
 ```{r}
@@ -129,16 +134,271 @@ avg_daytime_usgs_delta_chl_data <- daytime_delta_chl_data %>%
   mutate(avg_fchl = mean(value)) %>%
   mutate(fchl_corr = 1.29*avg_fchl+0.33)%>%
   select(date, monitoring_location_id, fchl_corr, avg_fchl)%>%
+  distinct() %>% ungroup()
+```
+
+```{r}
+#add metadata
+coords <- st_coordinates(deltasite_metadata$geometry)
+unique_locations <- deltasite_metadata %>%
+  mutate(
+    longitude = coords[, "X"],
+    latitude = coords[, "Y"]
+  ) %>%
+  select(monitoring_location_id, latitude, longitude) %>%
   distinct()
+
+avg_daytime_usgs_delta_chl_data <- avg_daytime_usgs_delta_chl_data%>%
+  left_join(
+    unique_locations,
+    by = "monitoring_location_id"
+  )
+
+  avg_daytime_usgs_delta_chl_data <- avg_daytime_usgs_delta_chl_data%>%
+    rename(station = monitoring_location_id)
+
+rm(coords, daytime_delta_chl_data, delta_chl_data, delta_chl_sites, deltasite_metadata, unique_locations, lu_delta_chl_sites)
 ```
 
 ### DWR real time monitoring
 ```{r}
+#This script was adapted from one written by Schuyler Nardelli (USGS)
+
+packageId <-"edi.1177.8" # Version updated 05/2026
+#read_data_package_archive(packageId, path = tempdir()) 
+res <- read_data_entity_names(packageId)
+
+entityName <- "Station Metadata"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+stations <- readr::read_csv(file = raw)
+stations <- stations %>% select(station, latitude, longitude)
 
 
+entityName <- "ANH"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+ANH <- readr::read_csv(file = raw)
+ANH <- ANH %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+
+entityName <- "FRK"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+FRK <- readr::read_csv(file = raw)
+FRK <- FRK %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+
+entityName <- "GZL"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+GZL <- readr::read_csv(file = raw)
+GZL <- GZL %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+
+entityName <- "HON"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+HON <- readr::read_csv(file = raw)
+HON <- HON %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+
+entityName <- "MAL"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+MAL <- readr::read_csv(file = raw)
+MAL <- MAL %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+
+entityName <- "MSD"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+MSD <- readr::read_csv(file = raw)
+MSD <- MSD %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+
+entityName <- "PPT"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+PPT <- readr::read_csv(file = raw)
+PPT <- PPT %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+
+entityName <- "RRI"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+RRI <- readr::read_csv(file = raw)
+RRI <- RRI %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+
+entityName <- "RVB"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+RVB <- readr::read_csv(file = raw)
+RVB <- RVB %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+
+entityName <- "RYC"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+RYC <- readr::read_csv(file = raw)
+RYC <- RYC %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+
+entityName <- "SJR"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+SJR <- readr::read_csv(file = raw)
+SJR <- SJR %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+
+entityName <- "SRH"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+SRH <- readr::read_csv(file = raw)
+SRH <- SRH %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+
+entityName <- "SSI"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+SSI <- readr::read_csv(file = raw)
+SSI <- SSI %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+
+entityName <- "TWI"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+TWI <- readr::read_csv(file = raw)
+TWI <- TWI %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+
+
+rm(entityName,entityId,res,raw,packageId)
+# Merge all stations ------------------------------------------------------
+
+CM_DWR <- rbind(HON,MAL,GZL,RYC,ANH,FRK,MSD,PPT,RRI,RVB,SJR,SRH,SSI,TWI)
+
+rm(HON,MAL,GZL,RYC,ANH,FRK,MSD,PPT,RRI,RVB,SJR,SRH,SSI,TWI)
 ```
 
+```{r}
+#correct EXO chl data and make daytime averages
+ CM_DWR <- CM_DWR %>% mutate(hour = hour(Time))
 
+CM_DWR$TOD <- ifelse(CM_DWR$hour %in% c(8, 9, 10, 11, 12, 13, 14, 15, 16), "keep", "remove")
+
+CM_DWR <- CM_DWR %>% filter(TOD == "keep")
+
+avg_daytime_dwr_delta_chl_data <- CM_DWR %>%
+  group_by(Date, Station)%>%
+  mutate(avg_fchl = mean(Chl)) %>%
+  mutate(fchl_corr = 1.29*avg_fchl+0.33)%>%
+  select(Date, Station, fchl_corr, avg_fchl)%>%
+  rename(date = Date, station = Station)
+  distinct()%>% ungroup()
+```
+
+```{r}
+# add metadata
+avg_daytime_dwr_delta_chl_data <- avg_daytime_dwr_delta_chl_data %>%
+  left_join(
+    stations,
+    by = "station"
+  )
+  rm(CM_DWR, stations)
+```
+
+### DWR NCRO real time monitoring
+```{r}
+packageId <-"edi.2180.1" # Version updated 010/2025
+res <- read_data_entity_names(packageId)
+
+entityName <- "Stations Metadata"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+stations <- readr::read_csv(file = raw)
+stations <- stations %>% select(Station_Code, Latitude, Longitude) %>%
+    rename(station = Station_Code, latitude = Latitude, longitude = Longitude)
+
+
+entityName <- "GLC"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+GLC <- readr::read_csv(file = raw)
+GLC <- GLC %>% rename(station=Station_Code)
+
+entityName <- "GLE"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+GLE<- readr::read_csv(file = raw)
+GLE <- GLE %>% rename(station=Station_Code)
+
+entityName <- "MHO"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+MHO <- readr::read_csv(file = raw)
+MHO <- MHO %>% rename(station=Station_Code)
+
+entityName <- "MRU"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+MRU<- readr::read_csv(file = raw)
+MRU <- MRU%>% rename(station=Station_Code)
+
+entityName <- "MRX"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+MRX<- readr::read_csv(file = raw)
+MRX <- MRX %>% rename(station=Station_Code)
+
+entityName <- "ODM"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+ODM<- readr::read_csv(file = raw)
+ODM <- ODM %>% rename(station=Station_Code)
+
+entityName <- "OH1"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+OH1<- readr::read_csv(file = raw)
+OH1 <- OH1 %>% rename(station=Station_Code)
+
+entityName <- "ORI"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+ORI<- readr::read_csv(file = raw)
+ORI <-ORI %>% rename(station=Station_Code)
+
+entityName <- "ORM"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+ORM<- readr::read_csv(file = raw)
+ORM <- ORM %>% rename(station=Station_Code)
+
+entityName <- "ORX"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+ORX<- readr::read_csv(file = raw)
+ORX <- ORX %>% rename(station=Station_Code)
+
+entityName <- "TWA"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+TWA <- readr::read_csv(file = raw)
+TWA <- TWA %>% rename(station=Station_Code)
+
+entityName <- "WCI"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+WCI<- readr::read_csv(file = raw)
+WCI <-WCI%>% rename(station=Station_Code)
+
+entityName <- "VCU"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+VCU<- readr::read_csv(file = raw)
+VCU <- VCU %>% rename(station=Station_Code)
+
+cm_ncro<- rbind(GLC, GLE, MHO, MRU, MRX, ODM, OH1, ORI, ORM, ORX, TWA, WCI, VCU)
+
+rm(GLC, GLE, MHO, MRU, MRX, ODM, OH1, ORI, ORM, ORX, TWA, WCI, VCU, res, raw, entityName, entityId, packageId)
+```
+
+```{r}
+# calculate daytime averages and add metadata
+cm_ncro <- cm_ncro %>% 
+    mutate(datetime = mdy_hms(Date_Time))%>% 
+    mutate(hour = hour(datetime))
+
+cm_ncro$TOD <- ifelse(cm_ncro$hour %in% c(8, 9, 10, 11, 12, 13, 14, 15, 16), "keep", "remove")
+
+cm_ncro <- cm_ncro %>% filter(TOD == "keep")
+
+avg_daytime_ncro_delta_chl_data <- cm_ncro %>%
+    mutate(date = as_date(datetime))%>%
+  group_by(date, station)%>%
+  mutate(avg_fchl = mean(Chlorophyll)) %>%
+  mutate(fchl_corr = 1.29*avg_fchl+0.33)%>%
+  select(date, station, fchl_corr, avg_fchl)%>%
+  distinct()%>% ungroup()
+
+avg_daytime_ncro_delta_chl_data  <- avg_daytime_ncro_delta_chl_data  %>%
+  left_join(
+    stations,
+    by = "station"
+  )
+
+rm(cm_ncro, stations)
+```
+
+## Combine all continuous monitoring chlorophyll data
+
+```{r}
+avg_daytime_dwr_delta_chl_data$group <- "dwr_rtm"
+avg_daytime_ncro_delta_chl_data$group <- "dwr_ncro"
+avg_daytime_usgs_delta_chl_data$group <- "usgs"
+cm_daytime_avg_chl <- rbind(avg_daytime_dwr_delta_chl_data, avg_daytime_ncro_delta_chl_data, avg_daytime_usgs_delta_chl_data)
+
+rm(avg_daytime_dwr_delta_chl_data, avg_daytime_ncro_delta_chl_data, avg_daytime_usgs_delta_chl_data)
+```
 
 ## Shaela's Workspace
 

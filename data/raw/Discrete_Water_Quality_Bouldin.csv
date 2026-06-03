@@ -1,0 +1,109 @@
+Sample ID,Date,Time,Island,Pond,Position,Water Depth_m,Sample Depth_m,Wind Speed,Wind Direction,Sky,Precipitation,Temperature_C,DO_mgl,DO_saturation,Turbidity,Specific Conductance,Salinity,Chlorophyll_ugl,Chlorophyll_RFU,pH
+Bouldin_East_111722,11/17/2022,9:50,Bouldin,East,Bottom,4.4,3.9,1-5 -- light ripples,Northwest,Clear,Dry,11.9,7.18,66.6,3.3,1015,0.51,13.9,3.51,7.91
+Bouldin_East_111722,11/17/2022,9:52,Bouldin,East,Surface,4.4,0.5,1-5 -- light ripples,Northwest,Clear,Dry,12,6.88,64,3.6,1014,0.51,16.5,4.16,7.9
+Bouldin_West_111722,11/17/2022,9:00,Bouldin,West,Bottom,2.9,2.4,1-5 -- light ripples,Northwest,Clear,Dry,10.95,10.7,98.2,65,3631,1.92,50.5,11.66,9
+Bouldin_West_111722,11/17/2022,9:02,Bouldin,West,Surface,2.9,0.5,1-5 -- light ripples,Northwest,Clear,Dry,11.07,11.36,104.9,68,3623,1.92,50,12.18,8.99
+Bouldin_East_111822,11/18/2022,10:25,Bouldin,East,Surface,4.7,0.5,1-5 -- light ripples,Northwest,Clear,Dry,12.25,7.18,67.2,3.33,1018,0.51,16.68,4.11,7.91
+Bouldin_East_111822,11/18/2022,10:27,Bouldin,East,Bottom,4.7,4.2,1-5 -- light ripples,Northwest,Clear,Dry,11.92,6.68,62.2,3.47,1016,0.51,16.3,3.9,7.87
+Bouldin_West_111822,11/18/2022,9:02,Bouldin,West,Surface,2.2,0.5,1-5 -- light ripples,Northwest,Clear,Dry,10.93,12.6,115.6,67.79,3623,1.92,46.04,11.22,8.99
+Bouldin_West_111822,11/18/2022,9:04,Bouldin,West,Bottom,2.2,1.7,1-5 -- light ripples,Northwest,Clear,Dry,10.87,11.84,108.4,69.46,3623,1.92,46.04,11.42,8.98
+Bouldin_East_112322,11/23/2022,14:12,Bouldin,East,Surface,5.1,0.5,0-1 -- glassy,North,Clear,Dry,12.31,7.88,73.4,7.03,952.4,0.47,27.95,6.32,7.46
+Bouldin_East_112322,11/23/2022,14:14,Bouldin,East,Bottom,5.1,4.6,0-1 -- glassy,North,Clear,Dry,11.3,5.67,51.9,4.67,1023.5,0.51,15.87,3.75,7.61
+Bouldin_West_112322,11/23/2022,13:25,Bouldin,West,Bottom,2.9,2.4,0-1 -- glassy,North,Clear,Dry,10.18,10.34,92.9,65.41,3621.3,1.92,44.95,11.14,8.99
+Bouldin_West_112322,11/23/2022,13:23,Bouldin,West,Surface,2.9,0.5,0-1 -- glassy,North,Clear,Dry,10.7,11.13,101.5,66.55,3628.3,1.92,41.6,10.39,9
+Bouldin_East_113022,11/30/2022,14:02,Bouldin,East,Surface,5.9,0.5,0-1 -- glassy,,Clear,Dry,11.62,8.34,77.1,3.6,884,0.44,38.77,10.3,7.5
+Bouldin_East_113022,11/30/2022,14:04,Bouldin,East,Bottom,5.9,5.4,0-1 -- glassy,,Clear,Dry,10.67,5.74,51.6,19.8,884,0.44,24,5.68,7.34
+Bouldin_West_113022,11/30/2022,13:25,Bouldin,West,Surface,2.9,0.5,0-1 -- glassy,,Clear,Dry,10.74,12.38,113.2,70.42,3613.2,1.91,52.02,12.98,9.04
+Bouldin_West_113022,11/30/2022,13:27,Bouldin,West,Bottom,2.9,2.4,0-1 -- glassy,,Clear,Dry,9.76,9.76,91.2,68.01,3608.2,1.91,45.43,11.49,9
+Bouldin_East_120722,12/7/2022,15:17,Bouldin,East,Surface,6.1,0.5,0-1 -- glassy,,Clear,Dry,10.51,8.86,80.3,3.4,815,0.4,39.93,10.54,7.5
+Bouldin_West_120722,12/7/2022,13:32,Bouldin,West,Surface,3,0.5,0-1 -- glassy,,Clear,Dry,9.98,10.1,90.5,74.99,3564,1.88,49.97,12.55,8.98
+Bouldin_West_120722,12/7/2022,13:34,Bouldin,West,Bottom,3,2.5,0-1 -- glassy,,Clear,Dry,9.54,8.04,71.4,69.24,3562,1.88,47.85,11.69,8.96
+Bouldin_West_120722,12/7/2022,13:52,Bouldin,West,Cage,2.8,0.5,0-1 -- glassy,,Clear,Dry,9.93,9.98,89,80.97,3575,1.89,55.09,13.57,8.99
+Bouldin_West_120722,12/7/2022,13:54,Bouldin,West,Cage,2.8,2.3,0-1 -- glassy,,Clear,Dry,9.54,7.97,70.7,62.24,3563,1.88,47.57,11.64,8.96
+Bouldin_East_120722,12/7/2022,15:19,Bouldin,East,Bottom,6.1,5.6,0-1 -- glassy,,Clear,Dry,9.99,2.7,24,3.4,872,0.43,20.01,4.91,7.25
+Bouldin_East_120922,12/9/2022,8:28,Bouldin,East,Cage,6.3,5.8,0-1 -- glassy,,Light fog,Dry,10.08,1.87,16.8,2.99,862,0.43,19.28,4.75,7.23
+Bouldin_East_120922,12/9/2022,8:26,Bouldin,East,Cage,6.3,0.5,0-1 -- glassy,,Light fog,Dry,9.92,6.04,53.7,2.96,827,0.41,27.09,6.88,7.35
+Bouldin_East_120922,12/9/2022,8:09,Bouldin,East,Surface,6.2,0.5,0-1 -- glassy,,Light fog,Dry,9.96,5.44,48.4,3.03,831,0.41,31.42,7.86,7.35
+Bouldin_East_120922,12/9/2022,8:11,Bouldin,East,Bottom,6.2,5.7,0-1 -- glassy,,Light fog,Dry,10.08,2.13,19.2,2.84,864,0.43,18.98,4.68,7.24
+Bouldin_East_121522,12/15/2022,10:18,Bouldin,East,Surface,6.2,0.5,0-1 -- glassy,,Clear,Dry,9.67,5.64,50.2,1.95,823,0.41,18.58,4.66,7.49
+Bouldin_East_121522,12/15/2022,10:20,Bouldin,East,Bottom,6.2,5.7,0-1 -- glassy,,Clear,Dry,9.37,5.03,44.3,2.55,817,0.4,18.09,4.43,7.39
+Bouldin_West_121522,12/15/2022,9:29,Bouldin,West,Surface,3.2,0.5,0-1 -- glassy,,Clear,Dry,9.24,9.12,80.2,56.8,3436,1.81,47.91,11.76,8.97
+Bouldin_West_121522,12/15/2022,9:31,Bouldin,West,Bottom,3.2,2.7,0-1 -- glassy,,Clear,Dry,9.18,8.66,76.1,63.5,3436,1.81,46.02,11.51,8.96
+Bouldin_West_122222,12/22/2022,9:45,Bouldin,West,Surface,3.2,0.5,1-5 -- light ripples,Northwest,Overcast,Dry,8.02,9.49,81.1,57.2,3367,1.77,39.43,9.95,8.97
+Bouldin_West_122222,12/22/2022,9:47,Bouldin,West,Bottom,3.2,2.7,1-5 -- light ripples,Northwest,Overcast,Dry,8.03,9.45,80.8,61.44,3369,1.77,40.84,9.79,8.97
+Bouldin_East_122222,12/22/2022,10:27,Bouldin,East,Surface,6.1,0.5,1-5 -- light ripples,Northwest,Overcast,Dry,8.29,4.28,36.5,2.02,818.1,0.4,16.56,4.12,7.36
+Bouldin_East_122222,12/22/2022,10:29,Bouldin,East,Bottom,6.1,5.6,1-5 -- light ripples,Northwest,Overcast,Dry,8.25,4.17,35.5,2.11,818.5,0.4,16.54,4.11,7.34
+Bouldin_West_122922,12/29/2022,9:32,Bouldin,West,Surface,3.4,0.5,"10-15 -- moderate waves, occasional whitecaps",South,Overcast,Intermittent Rain,8.73,10.15,88.1,52.22,3245.6,1.7,33.16,8.19,8.98
+Bouldin_West_122922,12/29/2022,9:34,Bouldin,West,Bottom,3.4,2.9,"10-15 -- moderate waves, occasional whitecaps",South,Overcast,Intermittent Rain,8.68,9.97,86.5,51.97,3246.4,1.7,32.32,8.07,8.97
+Bouldin_East_122922,12/29/2022,10:16,Bouldin,East,Surface,6.4,0.5,"10-15 -- moderate waves, occasional whitecaps",South,Overcast,Intermittent Rain,8.59,7.23,60.8,2.9,796.4,0.39,16.52,4.08,7.55
+Bouldin_East_122922,12/29/2022,10:18,Bouldin,East,Bottom,6.4,5.9,"10-15 -- moderate waves, occasional whitecaps",South,Overcast,Intermittent Rain,8.51,6.54,56.1,3.09,796.1,0.39,16.57,4.09,7.48
+Bouldin_West_012623,1/26/2023,9:35,Bouldin,West,Surface,4.8,0.5,1-5 -- light ripples,North,Clear,Dry,9.64,12.4,110.8,37.32,2439.1,1.26,30.23,7.5,8.85
+Bouldin_West_012623,1/26/2023,9:37,Bouldin,West,Bottom,4.8,4.3,1-5 -- light ripples,North,Clear,Dry,9.26,7.95,69.7,33.95,2486,1.29,28.71,7.07,8.8
+Bouldin_West_012623,1/26/2023,9:58,Bouldin,West,Surface,5.2,0.5,1-5 -- light ripples,North,Clear,Dry,9.62,12.25,108.8,38.05,2441.9,1.26,31.18,7.67,8.86
+Bouldin_West_012623,1/26/2023,10:00,Bouldin,West,Bottom,5.2,4.7,1-5 -- light ripples,North,Clear,Dry,9.26,8.36,73,33.04,2487.2,1.29,29.69,7.36,8.82
+Bouldin_East_012623,1/26/2023,11:08,Bouldin,East,Surface,6.4,0.5,1-5 -- light ripples,North,Clear,Dry,8.84,8.15,70.4,7.07,627.2,0.31,16.98,4.21,7.49
+Bouldin_East_012623,1/26/2023,11:07,Bouldin,East,Bottom,6.4,5.9,1-5 -- light ripples,North,Clear,Dry,8.3,8.04,68.4,13.51,630,0.31,17.35,4.27,7.53
+Bouldin_East_012623,1/26/2023,11:31,Bouldin,East,Surface,6.4,0.5,1-5 -- light ripples,North,Clear,Dry,8.85,8.06,69.5,7.3,628.6,0.31,17.05,4.25,7.47
+Bouldin_East_012623,1/26/2023,11:32,Bouldin,East,Bottom,6.4,5.9,1-5 -- light ripples,North,Clear,Dry,8.26,8.1,69,10.6,629.6,0.31,17.2,4.27,7.51
+Bouldin_West_020223,2/2/2023,10:20,Bouldin,West,Surface,4.9,0.5,1-5 -- light ripples,Northeast,Overcast,Dry,8.71,11.2,97.1,41.64,2425.7,1.25,32.49,7.62,8.85
+Bouldin_West_020223,2/2/2023,10:21,Bouldin,West,Bottom,4.9,4.4,1-5 -- light ripples,Northeast,Overcast,Dry,8.28,9.6,82.1,36.18,2432.9,1.26,30.54,7.57,8.84
+Bouldin_East_020223,2/2/2023,11:04,Bouldin,East,Surface,6.3,0.5,1-5 -- light ripples,Northeast,Overcast,Dry,8.27,7.89,66.9,6.51,636,0.31,18.19,4.49,7.57
+Bouldin_East_020223,2/2/2023,11:05,Bouldin,East,Bottom,6.3,5.8,1-5 -- light ripples,Northeast,Overcast,Dry,7.76,7.04,59.2,12.44,637,0.31,17.62,4.36,7.49
+Bouldin_West_020923,2/9/2023,9:38,Bouldin,West,Surface,5,0.5,0-1 -- glassy,Northeast,Clear,Dry,10.07,13.68,122.5,42.04,2400.1,1.24,34.37,8.46,8.89
+Bouldin_West_020923,2/9/2023,9:40,Bouldin,West,Bottom,5,4.5,0-1 -- glassy,Northeast,Clear,Dry,9.38,9.05,79.87,46.07,2411.1,1.25,31.44,7.76,8.82
+Bouldin_East_020923,2/9/2023,10:11,Bouldin,East,Surface,6.3,0.5,0-1 -- glassy,Northeast,Clear,Dry,9.9,7.27,64.1,5.62,641.7,0.31,17.7,4.39,7.45
+Bouldin_East_020923,2/9/2023,10:13,Bouldin,East,Bottom,6.3,5.7,0-1 -- glassy,Northeast,Clear,Dry,9.15,7.06,61.5,15.75,637.1,0.31,17.29,4.28,7.41
+Bouldin_West_021623,2/16/2023,10:22,Bouldin,West,Surface,4.8,0.5,1-5 -- light ripples,Southeast,Partly cloudy,Dry,10.01,11.87,106.2,41.1,2415.1,1.25,32.7,8,8.94
+Bouldin_West_021623,2/16/2023,10:24,Bouldin,West,Bottom,4.8,4.3,1-5 -- light ripples,Southeast,Partly cloudy,Dry,9.58,10.78,95.1,42.7,2415.9,1.25,30.84,7.71,8.91
+Bouldin_East_021623,2/16/2023,11:06,Bouldin,East,Surface,6.1,0.5,1-5 -- light ripples,Southeast,Partly cloudy,Dry,10.07,8.16,72.3,4.73,648.6,0.32,17.74,4.42,7.63
+Bouldin_East_021623,2/16/2023,11:09,Bouldin,East,Bottom,6.1,5.6,1-5 -- light ripples,Southeast,Partly cloudy,Dry,9.74,7.28,64.1,8.47,650.3,0.32,17.25,4.26,7.53
+Bouldin_West_022223,2/22/2023,9:47,Bouldin,West,Surface,4.8,0.5,5-10 -- small waves,West,Partly cloudy,Dry,9.99,11.5,102.5,45.24,2418.2,1.25,31.9,7.88,8.98
+Bouldin_West_022223,2/22/2023,9:49,Bouldin,West,Bottom,4.8,4.3,5-10 -- small waves,West,Partly cloudy,Dry,9.95,11.2,99.8,48.77,2418.8,1.25,32.79,8.18,8.94
+Bouldin_West_022223,2/22/2023,10:00,Bouldin,West,Cage,3.8,0.5,5-10 -- small waves,West,Partly cloudy,Dry,9.94,11.12,99.2,47.14,2421.1,1.25,32.43,8.04,8.95
+Bouldin_West_022223,2/22/2023,10:02,Bouldin,West,Cage,3.8,3.3,5-10 -- small waves,West,Partly cloudy,Dry,9.88,11.08,98.4,66.67,2419.1,1.25,35.8,8.83,8.94
+Bouldin_East_022223,2/22/2023,11:14,Bouldin,East,Surface,5.8,0.5,5-10 -- small waves,West,Partly cloudy,Dry,10.16,9.05,82.4,6.65,656.7,0.32,17.44,4.32,7.73
+Bouldin_East_022223,2/22/2023,11:15,Bouldin,East,Bottom,5.8,5.3,5-10 -- small waves,West,Partly cloudy,Dry,9.98,8.85,78.5,7.48,656.4,0.32,17.59,4.34,7.66
+Bouldin_East_022223,2/22/2023,11:44,Bouldin,East,Cage,5.9,0.5,5-10 -- small waves,West,Partly cloudy,Dry,10.16,9.05,80.6,6.56,656.9,0.32,17.43,4.32,7.75
+Bouldin_East_022223,2/22/2023,11:46,Bouldin,East,Cage,5.9,5.4,5-10 -- small waves,West,Partly cloudy,Dry,9.99,8.76,77.8,7.26,656.5,0.32,17.48,4.31,7.66
+Bouldin_West_030223,3/2/2023,9:39,Bouldin,West,Surface,4.9,0.5,0-1 -- glassy,,Clear,Dry,8.12,12.19,104,46.55,2386,1.23,36.01,8.36,9
+Bouldin_West_030223,3/2/2023,9:49,Bouldin,West,Bottom,4.9,4.4,0-1 -- glassy,,Clear,Dry,7.88,11.4,96.6,45.2,2388,1.23,36.18,8.39,9.05
+Bouldin_East_030223,3/2/2023,10:46,Bouldin,East,Surface,5.8,0.5,0-1 -- glassy,,Clear,Dry,8.75,10.42,90,4.21,660.1,0.32,,4.29,7.74
+Bouldin_East_030223,3/2/2023,10:50,Bouldin,East,Bottom,5.8,5.4,0-1 -- glassy,,Clear,Dry,7.07,10.16,86.1,5.46,661.9,0.32,,4.29,7.69
+Bouldin_West_030823,3/8/2023,10:11,Bouldin,West,Surface,4.7,0.5,5-10 -- small waves,West,Partly cloudy,Dry,9.73,13.15,116.7,47.06,2382,1.23,32.8,8.11,9
+Bouldin_West_030823,3/8/2023,10:13,Bouldin,West,Bottom,4.7,4.3,5-10 -- small waves,West,Partly cloudy,Dry,9.33,11.71,102.9,45.98,2384.2,1.23,32.63,7.93,8.97
+Bouldin_East_030823,3/8/2023,11:06,Bouldin,East,Surface,5.8,0.5,5-10 -- small waves,West,Partly cloudy,Dry,10.13,10.71,90.5,3.61,665.8,0.33,17.53,4.37,7.67
+Bouldin_East_030823,3/8/2023,11:08,Bouldin,East,Bottom,5.8,5.3,5-10 -- small waves,West,Partly cloudy,Dry,9.91,9.88,87.4,23.01,666.4,0.33,17.36,4.23,7.57
+Bouldin_West_031723,3/17/2023,10:00,Bouldin,West,Surface,4.8,0.5,1-5 -- light ripples,North,Clear,Dry,13.27,14.03,134.5,52.84,2341,1.21,35.76,8.78,9.07
+Bouldin_West_031723,3/17/2023,10:02,Bouldin,West,Bottom,4.8,4.3,1-5 -- light ripples,North,Clear,Dry,12.26,8.84,83.6,45.77,2347,1.21,33.86,8.35,9.01
+Bouldin_East_031723,3/17/2023,10:35,Bouldin,East,Surface,5.8,0.5,1-5 -- light ripples,North,Clear,Dry,13.5,9.81,94.3,3.47,660.8,0.32,19.94,4.9,7.97
+Bouldin_East_031723,3/17/2023,10:37,Bouldin,East,Bottom,5.8,5.3,1-5 -- light ripples,North,Clear,Dry,12.36,8.33,78.2,7.35,659.5,0.32,17.17,4.27,7.83
+Bouldin_West_032423,3/24/2023,10:32,Bouldin,West,Surface,4.9,0.5,1-5 -- light ripples,North,Clear,Dry,12.77,10.6,101,53.46,2337.6,1.21,33.89,8.38,9.09
+Bouldin_West_032423,3/24/2023,10:36,Bouldin,West,Bottom,4.9,4.4,1-5 -- light ripples,North,Clear,Dry,12.54,10.07,95.1,50.72,2337.3,1.21,34.08,8.62,9.09
+Bouldin_East_032423,3/24/2023,11:09,Bouldin,East,Surface,5.8,0.5,1-5 -- light ripples,North,Clear,Dry,13.11,9.41,89.9,3.75,662.8,0.32,17.12,4.23,8.02
+Bouldin_East_032423,3/24/2023,11:10,Bouldin,East,Bottom,5.8,5.3,1-5 -- light ripples,North,Clear,Dry,12.79,9.18,86.9,4.72,663.5,0.33,17.19,4.23,7.97
+Bouldin_West_033023,3/30/2023,10:43,Bouldin,West,Surface,4.8,0.5,1-5 -- light ripples,Northwest,Partly cloudy,Dry,12.01,11.02,103.7,55.34,2342.7,1.21,35.83,8.82,9.14
+Bouldin_West_033023,3/30/2023,10:45,Bouldin,West,Bottom,4.8,4.3,1-5 -- light ripples,Northwest,Partly cloudy,Dry,11.94,10.13,94.6,55.29,2338.7,1.21,34.67,8.55,9.13
+Bouldin_East_033023,3/30/2023,11:23,Bouldin,East,Surface,5.8,0.5,1-5 -- light ripples,Northwest,Partly cloudy,Dry,12.62,8.97,84.6,3.03,667.5,0.33,16.4,4.05,8.02
+Bouldin_East_033023,3/30/2023,11:25,Bouldin,East,Bottom,5.8,5.3,1-5 -- light ripples,Northwest,Partly cloudy,Dry,12.07,8.56,79.7,5.13,667.2,0.33,16.2,3.99,7.97
+Bouldin_West_040623,4/6/2023,10:07,Bouldin,West,Surface,4.8,0.5,0-1 -- glassy,,Clear,Dry,13.83,15.07,146.8,78.26,2346.5,1.21,33.55,8.29,9.21
+Bouldin_West_040623,4/6/2023,10:09,Bouldin,West,Bottom,4.8,4.3,0-1 -- glassy,,Clear,Dry,12.85,7.96,76,55.01,2349.5,1.22,34.12,8.37,9.11
+Bouldin_East_040623,4/6/2023,10:50,Bouldin,East,Surface,5.8,0.5,0-1 -- glassy,,Clear,Dry,14.38,9.5,93.1,1.88,677.1,0.33,17.38,4.33,8.15
+Bouldin_East_040623,4/6/2023,10:52,Bouldin,East,Bottom,5.8,5.3,0-1 -- glassy,,Clear,Dry,13.09,7.12,68,5.76,674.9,0.33,16.16,4,7.91
+Bouldin_West_041223,4/12/2023,9:52,Bouldin,West,Surface,4.7,0.5,5-10 -- small waves,West,Clear,Dry,14.87,8.8,87.9,64.81,2354,1.2,30.4,7.48,9.23
+Bouldin_West_041223,4/12/2023,9:54,Bouldin,West,Bottom,4.7,4.2,5-10 -- small waves,West,Clear,Dry,14.6,7.71,76.5,61.43,2354,1.22,30.7,7.59,9.19
+Bouldin_East_041223,4/12/2023,10:31,Bouldin,East,Surface,5.8,0.5,5-10 -- small waves,West,Clear,Dry,15.35,8.63,86.3,2.46,677,0.33,16.37,4.03,8.11
+Bouldin_East_041223,4/12/2023,10:33,Bouldin,East,Bottom,5.8,5.3,5-10 -- small waves,West,Clear,Dry,15.07,7.88,77.6,3.76,678,0.33,15.87,3.95,8
+Bouldin_West_042023,4/20/2023,9:46,Bouldin,West,Surface,4.5,0.5,5-10 -- small waves,Northwest,Clear,Dry,14.78,9.09,90.4,56.42,2381,1.23,29.4,7.14,9.21
+Bouldin_West_042023,4/20/2023,9:48,Bouldin,West,Bottom,4.5,4,5-10 -- small waves,Northwest,Clear,Dry,14.38,4.46,43.7,49.95,2380,1.23,29.36,7.23,9.15
+Bouldin_East_042023,4/20/2023,10:29,Bouldin,East,Surface,5.6,0.5,5-10 -- small waves,Northwest,Clear,Dry,15.76,9.37,94.6,1.07,686,0.34,15.91,3.94,8.29
+Bouldin_East_042023,4/20/2023,10:32,Bouldin,East,Bottom,5.6,5.1,5-10 -- small waves,Northwest,Clear,Dry,14.93,8.44,83.8,2.71,685,0.34,15.47,3.86,8.17
+Bouldin_West_042723,4/27/2023,9:45,Bouldin,West,Surface,4.4,0.5,0-1 -- glassy,Northeast,Clear,Dry,19.66,7.04,77.4,71.61,2409,1.24,32,7.92,9.2
+Bouldin_West_042723,4/27/2023,9:47,Bouldin,West,Bottom,4.4,3.9,0-1 -- glassy,Northeast,Clear,Dry,15.52,0.29,3,21.49,2413,1.25,26.93,6.7,9.07
+Bouldin_West_042723,4/27/2023,10:09,Bouldin,West,Cage,6.3,0.5,0-1 -- glassy,Northeast,Clear,Dry,19.62,7.25,74.8,67.57,2418,1.25,31.57,7.88,9.2
+Bouldin_East_042723,4/27/2023,11:42,Bouldin,East,Surface,5.7,0.5,0-1 -- glassy,Northeast,Clear,Dry,21.17,9.13,103,0.99,700,0.34,15.08,3.72,8.5
+Bouldin_East_042723,4/27/2023,11:44,Bouldin,East,Bottom,5.7,5.2,0-1 -- glassy,Northeast,Clear,Dry,14.73,2.91,28.5,5.87,697,0.34,16.45,4.07,7.8
+Bouldin_East_042723,4/27/2023,11:57,Bouldin,East,Cage,5.7,0.5,0-1 -- glassy,Northeast,Clear,Dry,21.07,9.22,103.6,1.1,701,0.34,15.4,3.83,8.47
+Bouldin_West_050423,5/4/2023,9:48,Bouldin,West,Surface,4.4,0.5,1-5 -- light ripples,South,Overcast,Dry,16.54,3.26,33.8,51.14,2429,1.26,29.12,7.08,9.09
+Bouldin_West_050423,5/4/2023,9:50,Bouldin,West,Bottom,4.4,3.9,1-5 -- light ripples,South,Overcast,Dry,16.35,2.51,25.9,55.84,2431,1.26,29.29,7.21,9.09
+Bouldin_East_050423,5/4/2023,10:30,Bouldin,East,Surface,5.9,0.5,1-5 -- light ripples,South,Overcast,Dry,16.62,8.05,83,1.49,703,0.34,16.19,4.5,8.24
+Bouldin_East_050423,5/4/2023,10:32,Bouldin,East,Bottom,5.9,5.4,1-5 -- light ripples,South,Overcast,Dry,15.38,2.26,22.4,3.92,713,0.35,16.52,4.18,7.79
