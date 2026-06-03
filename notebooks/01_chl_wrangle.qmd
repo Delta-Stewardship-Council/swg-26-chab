@@ -16,15 +16,14 @@ library(purrr)
 library(sf)
 library(stringr)
 library(DT)
+library(lubridate)
 ```
 
 ### ScienceBase
 #### Used https://www.sciencebase.gov/catalog/items/get?q=chlorophyll%20sacramento to identify 22 datasets (links in excel file in Box, will have to download individually)
 
 
-### Water data for the nation
-#### will use https://github.com/DOI-USGS/dataRetrieval
-
+### Water data for the nation (USGS)
 ```{r}
 # Identify Delta surface water sites
 out_sf <- 
@@ -64,32 +63,60 @@ lu_delta_chl_sites <- unique(delta_chl_sites$monitoring_location)
 ```
 
 ```{r}
+#Only 3 years are allowed to be pulled at a time, create list to iterate through
 mindate <- min(delta_chl_sites$begin_utc, na.rm = TRUE)
 mindate <- as.Date(mindate)
-mindate <- as.character(mindate)
+#mindate <- as.character(mindate)
+
+date_limit_1 <- as.character(mindate)
+date_limit_2 <- as.character(mindate + years(3))
+date_limit_3 <- as.character(mindate + years(6))
+date_limit_4 <- as.character(mindate + years(9))
+date_limit_5 <- as.character(mindate + years(12))
 
 maxdate <- max(delta_chl_sites$end_utc, na.rm = TRUE)
 maxdate <- as.Date(maxdate)
-maxdate <- as.character(maxdate)
+date_limit_6 <- as.character(maxdate)
 ```
 
 ```{r}
 #BROKEN - too many dates need to figure out how to loop- Now grab the data (this is for mean daily sensor chl only in ug/l)
-delta_chl_data <- dataRetrieval::read_waterdata_continuous(monitoring_location_id = lu_delta_chl_sites,
-                              parameter_code = lu_delta_pcodes,
-                              time = c(mindate, maxdate)
+
+
+delta_chl_data_1 <- dataRetrieval::read_waterdata_continuous(monitoring_location_id = lu_delta_chl_sites,
+                              parameter_code = "32316",
+                              time = c(date_limit_1, date_limit_2)
+                              )
+                              
+delta_chl_data_2 <- dataRetrieval::read_waterdata_continuous(monitoring_location_id = lu_delta_chl_sites,
+                              parameter_code = "32316",
+                              time = c(date_limit_2, date_limit_3)
+                              )
+                              
+delta_chl_data_3 <- dataRetrieval::read_waterdata_continuous(monitoring_location_id = lu_delta_chl_sites,
+                              parameter_code = "32316",
+                              time = c(date_limit_3, date_limit_4)
+                              )
+                              
+delta_chl_data_4 <- dataRetrieval::read_waterdata_continuous(monitoring_location_id = lu_delta_chl_sites,
+                              parameter_code = "32316",
+                              time = c(date_limit_4, date_limit_5)
+                              )
+                              
+delta_chl_data_5 <- dataRetrieval::read_waterdata_continuous(monitoring_location_id = lu_delta_chl_sites,
+                              parameter_code = "32316",
+                              time = c(date_limit_5, date_limit_6)
                               )
 ```
 
 ```{r}
+#stitch together all USGS CM chl data
+delta_chl_data <- rbind(delta_chl_data_1, delta_chl_data_2, delta_chl_data_3, delta_chl_data_4, delta_chl_data_5)
 summary(delta_chl_data)
 ```
 
 ```{r}
-#Grab only daytime data and average daily
-
-library(lubridate)
-
+#Grab only daytime data and average daily and correct per the EXO bias correction formula in Richardson, 2025
 delta_chl_data$hour <- as.numeric(format(delta_chl_data$time, "%H"))
 
 delta_chl_data$TOD <- ifelse(delta_chl_data$hour %in% c(8, 9, 10, 11, 12, 13, 14, 15, 16), "keep", "remove")
@@ -97,7 +124,7 @@ delta_chl_data$date <- as.Date(delta_chl_data$time)
 
 daytime_delta_chl_data <- delta_chl_data %>% filter(TOD == "keep")
 
-avg_daytime_delta_chl_data <- daytime_delta_chl_data %>%
+avg_daytime_usgs_delta_chl_data <- daytime_delta_chl_data %>%
   group_by(date, monitoring_location_id)%>%
   mutate(avg_fchl = mean(value)) %>%
   mutate(fchl_corr = 1.29*avg_fchl+0.33)%>%
@@ -105,8 +132,10 @@ avg_daytime_delta_chl_data <- daytime_delta_chl_data %>%
   distinct()
 ```
 
+### DWR real time monitoring
 ```{r}
-summary(avg_daytime_delta_chl_data)
+
+
 ```
 
 
