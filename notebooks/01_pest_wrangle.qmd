@@ -166,6 +166,35 @@ write.csv(
 # )
 ```
 
+## Shaela's workspace
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Nick's workspace
+```{r}
+
+```
+
 Very incomplete list of stuff to do (maybe) in no particular order:
 - clip to Big Break
 - figure out which pesticides we are interested in
