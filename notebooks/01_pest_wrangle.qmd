@@ -142,6 +142,17 @@ study_count <- SURF_delta_suisun_sf |>
 ```
 
 
+```{r}
+## Looking at pesticide types
+# export csv for analysis
+chemical_names <- unique(SURF_delta_suisun_sf$Chemical_name)
+write.csv(
+  data.frame(chemical_name = chemical_names),
+  "./data/raw/SURF_ds_chemicals.csv",
+  row.names = FALSE
+)
+```
+
 Very incomplete list of stuff to do (maybe) in no particular order:
 - clip to Big Break
 - figure out which pesticides we are interested in
