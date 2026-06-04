@@ -168,8 +168,12 @@ write.csv(
 
 Very incomplete list of stuff to do (maybe) in no particular order:
 - clip to Big Break
+- investigate by date
+- add number of studies to the chemical count
+- add time period for each chemical - start date and end date
 - figure out which pesticides we are interested in
 - and at what concentration
-- investigate by date
 - see if SFEI's cd3 dataset has anything we are missing
 - figure out how to put the rosm.cache into git ignore so it is not tracked
+- 
+
