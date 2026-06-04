@@ -144,13 +144,26 @@ study_count <- SURF_delta_suisun_sf |>
 
 ```{r}
 ## Looking at pesticide types
-# export csv for analysis
-chemical_names <- unique(SURF_delta_suisun_sf$Chemical_name)
+
+#this reduces pesticide count from 505 to 178
+SURF_ds_detects <- SURF_delta_suisun_sf %>%
+  filter(Concentration_ppb > 0)
+
+# export as CSV for analysis
+chemicals_detected <- unique(SURF_ds_detects$Chemical_name)
 write.csv(
-  data.frame(chemical_name = chemical_names),
-  "./data/raw/SURF_ds_chemicals.csv",
+  data.frame(chemical_name = chemicals_detected),
+  "./data/raw/SURF_ds_chemicals_detected.csv",
   row.names = FALSE
 )
+
+# # export csv for analysis [this includes pesticides with ppb 0.0]
+# chemical_names <- unique(SURF_delta_suisun_sf$Chemical_name)
+# write.csv(
+#   data.frame(chemical_name = chemical_names),
+#   "./data/raw/SURF_ds_chemicals.csv",
+#   row.names = FALSE
+# )
 ```
 
 Very incomplete list of stuff to do (maybe) in no particular order:
