@@ -1,0 +1,12 @@
+---
+title: "ScienceBase Chlorophyll Data Harmonization"
+format: html
+---
+
+### The raw data script that pulled data from ScienceBase is within 01_chl_wrangle.qmd. Since these data were numerous and from multiple special projects, they require lengthy data harmonization. This notebook is specific to ScienceBase data manipulation so that these "massaging" techniques don't over-clutter the chlorophyll data wrangling notebook.
+
+
+# Three similar data sources containing toxins, qpcr, and chl data
+```{r}
+
+```

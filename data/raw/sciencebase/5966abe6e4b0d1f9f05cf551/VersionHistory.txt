@@ -1,0 +1,57 @@
+
+February 2023 - version 4.0
+
+In this version the following edits and additions were made: 
+
+v.4.0 (1) The citation was changed to:  Schraga, T.S., Nejad, E.S., Eddy, T., Martin, C.A., and Cloern, J.E., 2018, USGS measurements of water quality in San Francisco Bay (CA), 2016-2021 (ver. 4.0, February 2023): U.S. Geological Survey data release, https://doi.org/10.5066/F7D21WGF.
+
+v.4.0 (2) The separate files for each year of data were compiled into a single data file with the filename 2016_2021SanFranciscoBayWaterQualityData.csv. 2020 and 2021 data were added, and the 2016, 2017, 2018, and 2019 data were updated as detailed below.
+
+v.4.0 (3) The following calculated parameters were added for all years: Ratio of chlorophyll-a and pheopigments, oxygen percent saturation, and density as Sigma-t 
+
+v.4.0 (4) For 2019 data, the National Water Quality Lab reported the following data's reliability was questionable and we removed them from the dataset:
+PHOSPHATE removed from 2M depth: 4/25/19 station 649, and 7/1/19 station 657 
+NITRITE at 2m depth removed from the following stations and 2019 dates: 
+stations 18,22,24,27,30,32 nitrite were removed from 4/18, 4/25, 5/14, 5/28, 6/4, 6/25, 7/1, 7/24
+stations 3,6,9,13,15 nitrite were removed from 4/25, 5/14, 6/4, 7/1
+station 36 nitrite was removed from 4/18, 4/25, 5/14, 5/28, 6/25, 7/24
+station 34 nitrite was removed from 6/4 and 7/1
+station 649 nitrite was removed from 5/14, 6/4, 7/1
+
+Fv.4.0 (5) Nutrient data were added for the 12/19/19 cruise
+ 
+v.4.0 (6) Nutrient data depths were changed from 1m to 2m for the following stations and dates: 4/1/16 station 24, 4/15/16 station 32, 8/24/16 stations 32 and 6
+
+v.4.0 (7) Discrete chlorophyll data were added for 2/17/17 station 30 at 2m
+
+v.4.0 (8) In previous versions the 2016 data had a column named Calculated_Oxygen, in this version that same column is simply named Oxygen. For 2016, the data in this column were calculated from regression, for 2017-2021 the data were direct from the sensor. 
+
+v.4.0 (9) The station locations in the SFBay_TableofStationLocations.V4.0.csv was updated to have decimal latitude and longitude
+
+
+
+March 26, 2020 - version 3.0
+
+v.3.0 (1)
+2016 and 2017 Silicate (Si) data were updated. An analytical error was discovered by the National Water Quality Lab which was corrected by applying a salinity correction. Si in prior versions have incorrect concentrations 0-10% lower than the corrected value. Previous versions of the Si data may be obtained by emailing authors Schraga or Nejad.
+
+v.3.0 (2)
+2016 data file with corrected Si was added, filename 2016v.3.0SanFranciscoBayWaterQualityData.csv
+2017 data file with corrected Si was added, filename 2017v.3.0SanFranciscoBayWaterQualityData.csv
+2018 data file was added, filename 2018SanFranciscoBayWaterQualityData.csv
+2019 data file was added, filename 2019SanFranciscoBayWaterQualityData.csv
+Note for 2019 data: at the time of this publication nutrients results are not available for 12/19/19, those data will be included in the next version of this data product
+
+v.3.0 (3) 
+The citation was changed to: Schraga, T.S., Nejad, E.S., Martin, C.A., and Cloern, J.E., 2018, USGS measurements of water quality in San Francisco Bay (CA), beginning in 2016 (ver. 3.0, March 2020): U.S. Geological Survey data release, https://doi.org/10.5066/F7D21WGF.
+
+
+
+June 2018 - version 2.0  
+v.2.0 (1) 2017 data were added, filename:  2017SanFranciscoBayWaterQualityData.csv
+
+v.2.0 (2) The citation was changed to: Schraga, T.S., Nejad, E.S., Martin, C.A., and Cloern, J.E., 2018, USGS measurements of water quality in San Francisco Bay (CA), beginning in 2016 (ver. 2.0, June 2018): U.S. Geological Survey data release, https://doi.org/10.5066/F7D21WGF.
+
+
+
+Tara Schraga, USGS, Menlo Park, CA

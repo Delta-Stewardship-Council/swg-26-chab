@@ -1,0 +1,825 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Katy O'Donnell</origin>
+        <origin>Emily T. Richardson</origin>
+        <origin>Jeniffer Soto Perez</origin>
+        <origin>Crystal L. Sturgeon</origin>
+        <origin>Ayelet Delascagigas</origin>
+        <origin>Kyle Nakatsuka</origin>
+        <origin>Maura Q. Uebner</origin>
+        <origin>Thomas Bergamaschi</origin>
+        <origin>Jeffrey A. Hansen</origin>
+        <origin>Keith Bouma Gregson</origin>
+        <origin>Tamara Kraus</origin>
+        <origin>Brian Bergamaschi</origin>
+        <pubdate>20240920</pubdate>
+        <title>Assessing spatial variability of nutrients, phytoplankton, and related water quality constituents in the California Sacramento-San Joaquin Delta at the landscape scale: 2022 High resolution mapping surveys</title>
+        <geoform>tabular digital data</geoform>
+        <onlink>https://doi.org/10.5066/P9QULEAT</onlink>
+        <lworkcit>
+          <citeinfo>
+            <origin>Emily Richardson</origin>
+            <origin>Tamara Kraus</origin>
+            <origin>Katy O'Donnell</origin>
+            <origin>Jeniffer Soto-Perez</origin>
+            <origin>Crystal Sturgeon</origin>
+            <origin>Elizabeth Stumpner</origin>
+            <origin>Brian Bergamaschi</origin>
+            <pubdate>2025</pubdate>
+            <title>Assessing spatial variability of nutrients, phytoplankton, and related water-quality constituents in the California Sacramento–San Joaquin Delta at the landscape scale—Comparison of four (2018, 2020, 2021, 2022) spring high-resolution mapping surveys</title>
+            <geoform>publication</geoform>
+            <pubinfo>
+              <pubplace>n/a</pubplace>
+              <publish>US Geological Survey</publish>
+            </pubinfo>
+            <onlink>https://doi.org/10.3133/sir20255035</onlink>
+          </citeinfo>
+        </lworkcit>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>Broad-area, high-resolution, boat-based water quality mapping surveys of the Sacramento-San Joaquin Delta and Suisun Bay (Delta) of California, USA were conducted under different environmental/flow conditions in May, July, and October of 2022. The spatial and temporal variability of nutrients, phytoplankton, and related water quality parameters were assessed. This dataset includes measurements of nitrate, ammonium, orthophosphate, dissolved organic carbon, temperature, conductivity, dissolved oxygen, and chlorophyll as well as information about phytoplankton community composition.</abstract>
+      <purpose>The objective of this project is to document the variability of nutrients, phytoplankton, and related water quality parameters at high spatial resolution in the North Delta and Central Delta (California, USA).</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <mdattim>
+          <sngdate>
+            <caldate>20220516</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20220517</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20220518</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20220519</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20220717</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20220718</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20220719</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20220720</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20221017</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20221018</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20221019</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20221020</caldate>
+          </sngdate>
+        </mdattim>
+      </timeinfo>
+      <current>ground condition</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None planned</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-122.1325</westbc>
+        <eastbc>-121.3320</eastbc>
+        <northbc>38.5705</northbc>
+        <southbc>37.8290</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>ISO 19115 Topic Category</themekt>
+        <themekey>inlandWaters</themekey>
+        <themekey>biota</themekey>
+        <themekey>environment</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Thesaurus</themekt>
+        <themekey>hydrogeology</themekey>
+        <themekey>drinking water use</themekey>
+        <themekey>public supply water use</themekey>
+        <themekey>water quality</themekey>
+        <themekey>statistical analysis</themekey>
+        <themekey>visualization methods</themekey>
+        <themekey>phytoplankton</themekey>
+        <themekey>nutrient content (water)</themekey>
+      </theme>
+      <theme>
+        <themekt>English</themekt>
+        <themekey>water quality</themekey>
+        <themekey>nutrients</themekey>
+        <themekey>high-resolution</themekey>
+        <themekey>delta</themekey>
+        <themekey>real-time</themekey>
+        <themekey>biogeochemistry</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Metadata Identifier</themekt>
+        <themekey>USGS:64fa6804d34ed30c205504a6</themekey>
+      </theme>
+      <place>
+        <placekt>Common geographic areas</placekt>
+        <placekey>United States</placekey>
+        <placekey>California</placekey>
+        <placekey>Suisun Bay</placekey>
+        <placekey>Lower Sacramento</placekey>
+        <placekey>Liberty Island</placekey>
+        <placekey>San Joaquin Delta</placekey>
+      </place>
+    </keywords>
+    <accconst>None.  Please see 'Distribution Information' for details.</accconst>
+    <useconst>None. Users are advised to read the dataset's metadata thoroughly to understand appropriate use and data limitations. It is requested that the suggested citation for this USGS data release be included in any publications that reference or utilize these data.</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Katy O'Donnell</cntper>
+          <cntorg>U.S. Geological Survey, SOUTHWEST REGION</cntorg>
+        </cntperp>
+        <cntpos>Geologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>6000 J Street Placer Hall</address>
+          <city>Sacramento</city>
+          <state>CA</state>
+          <postal>95819</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>916-278-3291</cntvoice>
+        <cntfax>916-278-3070</cntfax>
+        <cntemail>kodonnell@usgs.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <datacred>State Water Contractors (https://swc.org), Delta Science Program (https://deltacouncil.ca.gov/delta-science-program/)</datacred>
+    <native>Environment of Metadata Creation: Microsoft Windows 10 Enterprise Version 22H2 (OS Build 19045.4780)</native>
+    <crossref>
+      <citeinfo>
+        <origin>Robert M. Carlson</origin>
+        <pubdate>1978</pubdate>
+        <title>Automated Separation and Conductimetric Determination of Ammonia and Dissolved Carbon Dioxide</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Analytical Chemistry</sername>
+          <issue>vol. 50, issue 11</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>American Chemical Society (ACS)</publish>
+        </pubinfo>
+        <othercit>ppg. 1528-1531</othercit>
+        <onlink>https://doi.org/10.1021/ac50033a035</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Bryan D. Downing</origin>
+        <origin>Brian A. Bergamaschi</origin>
+        <origin>Carol Kendall</origin>
+        <origin>Tamara E. C. Kraus</origin>
+        <origin>Kate J. Dennis</origin>
+        <origin>Jeffery A. Carter</origin>
+        <origin>Travis S. Von Dessonneck</origin>
+        <pubdate>20161206</pubdate>
+        <title>Using Continuous Underway Isotope Measurements To Map Water Residence Time in Hydrodynamically Complex Tidal Environments</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Environmental Science &amp; Technology</sername>
+          <issue>vol. 50, issue 24</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>American Chemical Society (ACS)</publish>
+        </pubinfo>
+        <othercit>ppg. 13387-13396</othercit>
+        <onlink>https://doi.org/10.1021/acs.est.6b05745</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>D. Terzopoulos</origin>
+        <origin>A. Witkin</origin>
+        <pubdate>198811</pubdate>
+        <title>Physically based models with rigid and deformable components</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>IEEE Computer Graphics and Applications</sername>
+          <issue>vol. 8, issue 6</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Institute of Electrical and Electronics Engineers (IEEE)</publish>
+        </pubinfo>
+        <othercit>ppg. 41-51</othercit>
+        <onlink>https://doi.org/10.1109/38.20317</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Letitia Grenier</origin>
+        <origin>Robin Grossinger</origin>
+        <pubdate>201611</pubdate>
+        <title>Tools for Landscape-scale Restoration Planning in the Delta</title>
+        <geoform>publication</geoform>
+        <othercit>Presentation to the Delta Independent Science Board, January 16, 2013, 2nd Floor Conference Center, Sacramento, CA.</othercit>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Thomas Jabusch</origin>
+        <origin>Phil Bresnahan</origin>
+        <origin>Phil Trowbridge</origin>
+        <origin>Emily Novick</origin>
+        <origin>Adam Wong</origin>
+        <origin>Micha Salomon</origin>
+        <origin>David Senn</origin>
+        <pubdate>201606</pubdate>
+        <title>Summary and Evaluation of Delta Subregions for Nutrient Monitoring and Assessment. SFEI Contribution No. 789.</title>
+        <geoform>publication</geoform>
+        <pubinfo>
+          <pubplace>Richmond, CA</pubplace>
+          <publish>San Francisco Estuary Institute – Aquatic Science Center</publish>
+        </pubinfo>
+        <onlink>https://www.sfei.org/documents/delta-subregions</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>M. Beutler</origin>
+        <origin>K. H. Wiltshire</origin>
+        <origin>B. Meyer</origin>
+        <origin>C. Moldaenke</origin>
+        <origin>C. Lüring</origin>
+        <origin>M. Meyerhöfer</origin>
+        <origin>U.-P. Hansen</origin>
+        <origin>H. Dau</origin>
+        <pubdate>200204</pubdate>
+        <title>A fluorometric method for the differentiation of algal populations in vivo and in situ</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Photosynthesis Research</sername>
+          <issue>vol. 72, issue 1</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Springer Science and Business Media LLC</publish>
+        </pubinfo>
+        <othercit>ppg. 39-53</othercit>
+        <onlink>https://doi.org/10.1023/A:1016026607048</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Joan U. Clarke</origin>
+        <pubdate>19980101</pubdate>
+        <title>Evaluation of Censored Data Methods To Allow Statistical Comparisons among Very Small Samples with Below Detection Limit Observations</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Environmental Science and Technology</sername>
+          <issue>vol. 32, issue 1</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>American Chemical Society (ACS)</publish>
+        </pubinfo>
+        <othercit>ppg. 177-183</othercit>
+        <onlink>https://doi.org/10.1021/es970521v</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Eijkelkamp</origin>
+        <pubdate>201410</pubdate>
+        <title>bbe FluoroProbe User Manual Version 2.4 E2.</title>
+        <edition>V. E2</edition>
+        <geoform>publication</geoform>
+        <othercit>accessed March 15, 2017</othercit>
+        <onlink>https://www.royaleijkelkamp.com/media/hfnej5ea/m-186508e-fluoroprobe-2-4-e2.pdf</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Cédric G. Fichot</origin>
+        <origin>Bryan D. Downing</origin>
+        <origin>Brian A. Bergamaschi</origin>
+        <origin>Lisamarie Windham-Myers</origin>
+        <origin>Mark Marvin-DiPasquale</origin>
+        <origin>David R. Thompson</origin>
+        <origin>Michelle M. Gierach</origin>
+        <pubdate>20160119</pubdate>
+        <title>High-Resolution Remote Sensing of Water Quality in the San Francisco Bay–Delta Estuary</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Environmental Science and Technology</sername>
+          <issue>vol. 50, issue 2</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>American Chemical Society (ACS)</publish>
+        </pubinfo>
+        <othercit>ppg. 573-583</othercit>
+        <onlink>https://doi.org/10.1021/acs.est.5b03518</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>K. Jordahl</origin>
+        <pubdate>202007</pubdate>
+        <title>GeoPandas: Python tools for geographic data</title>
+        <geoform>application</geoform>
+        <othercit>accessed December 2, 2020</othercit>
+        <onlink>https://doi.org/10.5281/zenodo.3946761</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>W. Kimmerer</origin>
+        <origin>F. Wilkerson</origin>
+        <origin>B. Downing</origin>
+        <origin>R. Dugdale</origin>
+        <origin>E.S. Gross</origin>
+        <origin>K. Kayfetz</origin>
+        <origin>S. Khanna</origin>
+        <origin>A.E. Parker</origin>
+        <origin>J. Thompson</origin>
+        <pubdate>201909</pubdate>
+        <title>Effects of drought and the emergency drought barrier on the ecosystem of the California Delta</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>San Francisco Estuary and Watershed Science</sername>
+          <issue>v. 17, no. 3(2)</issue>
+        </serinfo>
+        <onlink>https://doi.org/10.15447/sfews.2019v17iss3art2</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Wes McKinney</origin>
+        <pubdate>2010</pubdate>
+        <title>Data Structures for Statistical Computing in Python</title>
+        <geoform>publication</geoform>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>SciPy</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.25080/Majora-92bf1922-00a</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Brian A. Pellerin</origin>
+        <origin>Brian A. Bergamaschi</origin>
+        <origin>Bryan D. Downing</origin>
+        <origin>John Franco Saraceno</origin>
+        <origin>Jessica D. Garrett</origin>
+        <origin>Lisa D. Olsen</origin>
+        <pubdate>2013</pubdate>
+        <title>Optical techniques for the determination of nitrate in environmental waters: Guidelines for instrument selection, operation, deployment, maintenance, quality assurance, and data reporting</title>
+        <geoform>publication</geoform>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>US Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.3133/tm1D5</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Elizabeth B. Stumpner</origin>
+        <origin>Brian A. Bergamaschi</origin>
+        <origin>Tamara E.C. Kraus</origin>
+        <origin>Alexander E. Parker</origin>
+        <origin>Frances P. Wilkerson</origin>
+        <origin>Bryan D. Downing</origin>
+        <origin>Richard C. Dugdale</origin>
+        <origin>Michael C. Murrell</origin>
+        <origin>Kurt D. Carpenter</origin>
+        <origin>James L. Orlando</origin>
+        <origin>Carol Kendall</origin>
+        <pubdate>20200115</pubdate>
+        <title>Spatial variability of phytoplankton in a shallow tidal freshwater system reveals complex controls on abundance and community structure</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Science of The Total Environment</sername>
+          <issue>vol. 700</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Elsevier BV</publish>
+        </pubinfo>
+        <othercit>ppg. 134392</othercit>
+        <onlink>https://doi.org/10.1016/j.scitotenv.2019.134392</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Lisle Snyder</origin>
+        <origin>Jody D. Potter</origin>
+        <origin>William H. McDowell</origin>
+        <pubdate>20180330</pubdate>
+        <title>An Evaluation of Nitrate, fDOM, and Turbidity Sensors in New Hampshire Streams</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Water Resources Research</sername>
+          <issue>vol. 54, issue 3</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>American Geophysical Union (AGU)</publish>
+        </pubinfo>
+        <othercit>ppg. 2466-2479</othercit>
+        <onlink>https://doi.org/10.1002/2017WR020678</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>U.S. Geological Survey</origin>
+        <pubdate>2011a</pubdate>
+        <title>Value Qualifier Codes: U.S. Geological Survey National Water Information System: Help System</title>
+        <geoform>publication</geoform>
+        <othercit>accessed September 16, 2024</othercit>
+        <onlink>https://help.waterdata.usgs.gov/code/val_qual_cd_query</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>U.S. Geological Survey</origin>
+        <pubdate>2011b</pubdate>
+        <title>Remark Codes: U.S. Geological Survey, National Water Information System: Help System</title>
+        <geoform>publication</geoform>
+        <othercit>accessed September 16, 2024</othercit>
+        <onlink>https://help.waterdata.usgs.gov/remark_cd</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>U.S. Geological Survey</origin>
+        <pubdate>2018</pubdate>
+        <title>National Hydrography Dataset (NHD)</title>
+        <geoform>publication</geoform>
+        <othercit>accessed December 14, 2018</othercit>
+        <onlink>https://www.usgs.gov/national-hydrography/national-hydrography-dataset</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>U.S. Geological Survey</origin>
+        <pubdate>2022</pubdate>
+        <title>Geographic Names Information System (GNIS) website</title>
+        <geoform>publication</geoform>
+        <othercit>accessed June 19, 2023</othercit>
+        <onlink>https://www.usgs.gov/tools/geographic-names-information-system-gnis</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>U.S. Geological Survey</origin>
+        <pubdate>2024</pubdate>
+        <title>USGS Water Data for the Nation: U.S. Geological Survey, National Water Information System database</title>
+        <geoform>dataset</geoform>
+        <othercit>accessed September 16, 2024</othercit>
+        <onlink>https://doi.org/10.5066/F7P55KJN</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>G. Van Rossum</origin>
+        <origin>F.L. Drake</origin>
+        <pubdate>20090320</pubdate>
+        <title>Python 3 Reference Manual</title>
+        <geoform>publication</geoform>
+        <pubinfo>
+          <pubplace>Scotts Valley, CA</pubplace>
+          <publish>CreateSpace</publish>
+        </pubinfo>
+        <othercit>accessed March 15, 2017</othercit>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Sea-Bird Scientific</origin>
+        <pubdate>20230908</pubdate>
+        <title>BAM, C-Star, C-Rover Transmissometers User Manual</title>
+        <edition>Document No. transmissometers20230908, G</edition>
+        <geoform>publication</geoform>
+        <othercit>accessed September 13, 2023</othercit>
+        <onlink>https://www.seabird.com/asset-get.download.jsa?id=54627862535</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>xylem</origin>
+        <pubdate>2023</pubdate>
+        <title>EXO User Manual: Advanced Water Quality Monitoring Platform. ITEM# 603789REF</title>
+        <edition>K</edition>
+        <geoform>publication</geoform>
+        <othercit>accessed August 15, 2023</othercit>
+        <onlink>https://www.ysi.com/file%20library/documents/manuals/exo-user-manual-web.pdf</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>esri</origin>
+        <pubdate>Unknown</pubdate>
+        <title>GIS Dictionary</title>
+        <geoform>publication</geoform>
+        <othercit>accessed August 28, 2023</othercit>
+        <onlink>https://support.esri.com/en-us/gis-dictionary</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Emily T. Richardson</origin>
+        <origin>Angela M. Hansen</origin>
+        <origin>Tamara E. C. Kraus</origin>
+        <origin>Bryan D. Downing</origin>
+        <origin>Don Forsberg</origin>
+        <origin>John Stillian</origin>
+        <origin>Katy O'Donnell</origin>
+        <origin>Crystal L. Sturgeon</origin>
+        <origin>Brian A. Bergamaschi</origin>
+        <pubdate>20231031</pubdate>
+        <title>A novel boat-based field application of a high‐frequency conductometric ammonium analyzer to characterize spatial variation in aquatic ecosystems</title>
+        <geoform>publication</geoform>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Wiley</publish>
+        </pubinfo>
+        <othercit>Richardson and others, 2023a</othercit>
+        <onlink>https://doi.org/10.1002/lom3.10579</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Richardson, E.T.</origin>
+        <origin>Bouma-Gregson, K.</origin>
+        <origin>Kraus, T.E.C.</origin>
+        <origin>O'Donnell, K.</origin>
+        <origin>Sturgeon, C.L.</origin>
+        <origin>Soto Perez, J.</origin>
+        <origin>Delascagigas, A.</origin>
+        <origin>Nakatsuka, K.K.</origin>
+        <origin>Burau, D.J.</origin>
+        <origin>Gelber, A.D.</origin>
+        <origin>Von Hoyningen Huene, B.L.</origin>
+        <origin>Jumps, N.I.</origin>
+        <origin>Bergamaschi, B.A.</origin>
+        <pubdate>20230622</pubdate>
+        <title>Phytoplankton Species Composition and Abundance in the Sacramento-San Joaquin River Delta: Microscopic Enumeration of USGS Samples, beginning in 2016</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>U.S. Geological Survey data release</sername>
+          <issue>na</issue>
+        </serinfo>
+        <othercit>Richardson and others, 2023b</othercit>
+        <onlink>https://doi.org/10.5066/P97ZBPLH</onlink>
+      </citeinfo>
+    </crossref>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>YSI Inc. EXO sondes were calibrated before use in the field with the KorEXO software (version 1.2.18). For calibration, the sonde sensors are submerged one at a time in standards, then the verified chemical concentration is recorded within the instrument. If the instrument measures an unknown value of the parameter, it refers to the calibration information to calculate the concentration of the chemical in the water (EXO User Manual, pg. 81).
+Some software may interpret blank values as zero. Blank values should be used with caution. Values given as "NA" are not available. Typically, this means a given parameter was not analyzed for a given discrete water quality sample, or there is no associated remark code.</attraccr>
+    </attracc>
+    <logic>Redundancy is built into the system, meaning many of the parameters included in the data set are measured by 2 different instruments (e.g. EXO and Wet-Star for chlorophyll and dissolved organic matter fluorescence; EXO and Thermosalinograph for temperature and conductivity; EXO and C-Star for turbidity). Data was displayed in real-time for on the spot user verification. Topology rules were applied to points, lines, and polygons to ensure the integrity of the geospatial data.</logic>
+    <complete>Data set is considered complete for the information presented, as described in the abstract. Users are advised to read the rest of the metadata record carefully for additional details.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>We conducted a visual check that the GPS data we recorded matched the boat GPS. Data was also displayed in real-time, allowing us to spot check GPS data underway. In addition, GPS location information was compared to field notes that described known locations and features. Datum used North American Datum (NAD) 1983.</horizpar>
+      </horizpa>
+    </posacc>
+    <lineage>
+      <procstep>
+        <procdesc>Broad-area, high-resolution, boat-based water quality mapping surveys of the Sacramento-San Joaquin Delta (Delta) and Suisun Bay were conducted in May, July, and October of 2022. Each survey was comprised of four successive days of high-resolution mapping. The regions covered included the north-south axis of the Delta from the Sacramento River north of Freeport to the Harvey Banks export facility located in the southern Delta, including Old and Middle Rivers; the east-west axis of the Delta from the Sacramento River at Rio Vista to the San Joaquin River at Stockton, including Disappointment Slough and the North and South Forks of the Mokelumne River; and the northern and western Delta from the northern reaches of the Cache Slough Complex to the Grizzly, Honker, and Suisun Bays. On each day, the route of the mapping survey was determined by weather, tides and other logistical considerations. Data were collected at high speed to minimize the extent to which tidal currents obscure nutrient and phytoplankton distributions. 
+
+Surveys were conducted during daylight hours from a moving boat, the USGS research vessel (R/V) George Aiken on successive days, following the approach described by Fichot and others (2016), Downing and others (2016), Kimmerer and others (2019), and Stumpner and others (2020). Surveys were conducted on: May 16, 17, 18, and 19; July 17, 18, 19, and 20; and October 17, 18, 19, and 20. For analysis, sample water was continuously pumped onto the boat using two SHURflo Aqua King II pumps at a pressure of 60 psi and rate of 5 GPM (SHURflo Pentair, London, United Kingdom) while underway at speeds up to 30 mph (13 m/s) using a pick-up tube mounted at a fixed depth of approximately 1 m below the surface.  Water was routed through a 178 micron (um) in-line strainer (Cole Parmer; EW-29595-47, Vernon Hills, Illinois) to remove large debris. Sample water was split into separate flow paths as describe below, and each flow path was routed through a pressure-compensated manifold that maintained system pressure at a prescribed level (~20 PSI) irrespective of boat speed (Downing and others, 2016). A 2-stage debubbler was used to remove bubbles that can interfere with instrument performance.  Flow rates were maintained by metering the discharge line, except for the flow path serving the open split interface, which was metered on the feed line. Flows were continuously monitored using a sight gauge (0.1-1 GPM Flow Meter LZM-15 with adjustable knob) for each flow path. 
+
+A manifold delivered unfiltered water to the following flow paths: (1) A flow-through system consisting of a thermosalinograph that recorded temperature, conductance, and salinity (Sea-Bird Scientific SB45 (TSG), Belluve, Washington); fluorometers that measured fluorescence of chlorophyll (fCHL) and fluorescence of dissolved organic matter (fDOM, Sea-Bird Scientific WETstar (WS), Philomath, Oregon); a beam transmissometer that recorded transmittance (Sea-Bird Scientific model C-Star transmissometer (CStar), Philomath, Oregon); a nitrate (NO3) analyzer (SUNA V2; Sea-Bird Scientific, Bellevue, Washington). (2) A second path provides water to a multiparameter water quality sonde (YSI EXO2; Xylem Inc. (EXO), Rye Brook, New York) equipped with sensors to measure temperature, specific conductance (SpC), turbidity, pH, dissolved oxygen (DO), fDOM and fCHL. (3) A third path passed water to a fluorometer designed to measure different algal classes (FluoroProbe III (FP); BBE Moldaenke, Schwentinental, Germany; Eijkelkamp, 2014; Beutler and others, 2002). 
+
+A second manifold was setup to provide 0.2 micron filtered (Osmonics Memtrex, 25 cm length, 0.2 um pore size; MNY921EGS; Osmonics, Inc.) water to an open-split interface at atmospheric pressure, which served water to the on-board ammonium (NH4) analyzer and a water stable isotope analyzer (Picarro Inc, Sunnyvale, California). The NH4 analyzer was a continuous flow, gas diffusion/conductivity-based (Carlson, 1978) analyzer for ammonium (NH4) analysis (TL-2800; Timberline Instruments, Boulder, Colorado) that was modified for field operation and continuous data collection by the manufacturer (Richardson and others, 2023b). Modifications included installation in a ruggedized housing, addition of an automated line-switching valve, addition of a heating unit to maintain the instrument at a constant above-ambient temperature, and changes to the software. The analyzer was run in continuous mode with frequent periodic introduction of deionized organic-free water (OFW, resistivity &gt;18.2 Mohm/cm), and standard solutions to continuously assess instrument performance and to correct for baseline drift during the day. Full standard curves were run at the beginning and end of each day, and partial curves were run throughout the day.  
+
+Continuous measurements of the stable isotopic ratios of oxygen and hydrogen in water were made using a Picarro Cavity Ring-down Spectrometer (A0217 and L2130-i, Picarro, Inc.) (Downing and others, 2016). Prior to field work, three secondary standards and one tertiary standard were run on the Picarro; the secondary standards are sold as a set from Picarro (part number C0356). The tertiary standard is Kona Deep bottled water (https://konadeep.com). Each standard was run for approximately 20 minutes, or until stable, and the last 2 minutes of data were used to calculate an average standard value. The tertiary standard was taken into the field and analyzed on the Picarro at the start and end of each sampling and approximately every four hours over the course of the field day. Sample splits of the tertiary standard were submitted to the Reston Stable Isotope Laboratory.
+
+All instrumentation was cleaned, and calibrations were checked prior to each use following the manufacturer's recommendation or as described above. Data for most instruments were recorded at 1-second frequency on a single data logger (CR6, Campbell Scientific, Logan, Utah) together with a timestamp and boat position obtained from a high-resolution global positioning system receiver (16X-HVS, Garmin, Olathe, Kansas). The FluoroProbe logged data internally and to the host software every 1-2 seconds. The Timberline NH4 analyzer was connected to a stand-alone computer and collected data through its native software. The Picarro water stable isotope analyzer collected and logged data through its native software to an internal computer. All data were displayed in real time, so scientists on board could respond when they observed changes relevant to study objectives, or if issues with flow or instrument performance were noted. Data collected in situ are referred to as high resolution (HR) parameters.</procdesc>
+        <procdate>2022</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Discrete water samples (DS) were collected either while underway or–in the case of more extensive sample requirements–while stopped on station. Discrete samples (DS) were collected while underway by passing water from the pickup tube through a 0.2-micron filter into a sample bottle. At designated sampling stations (approximately 10 per day) samples for determination of NH4, NO2, NO3, PO4, dissolved organic carbon (DOC), total dissolved nitrogen (TDN), total dissolved phosphorus (TDP) concentrations and water isotopes were collected using this system. Additionally, unfiltered samples were collected approximately from 1 m depth using a submersible pump for analysis of chlorophyll a (Chl a) concentration, pheophytin concentration, phytoplankton enumeration, and picophytoplankton enumeration. Samples for phytoplankton enumeration (PE) and picophytoplankton enumeration were fixed immediately with Lugol’s iodine solution (~5%) and formaldehyde (~2%), respectively.  
+
+Most samples were stored on wet ice in the dark during transit to the laboratory where they were stored at 2°C. Samples for picophytoplankton analysis were stored on dry ice in the dark during transit to the laboratory where they were stored at -80°C. Dissolved organic carbon samples were preserved to &lt;2 pH with high-purity sulfuric acid the day following collection and stored at 2°C. Samples for pigment analysis were filtered within 24 hours of collection and immediately frozen (-80°C). Total Chl a samples were filtered through a 0.7 um nominal pore size glass fiber filter (Advantec MFS, Inc, Dublin, California). Chl a associated with the larger sized cell fraction were filtered through a 5 um nominal pore size 25 mm polycarbonate filter (General Electric Healthcare, Chicago, Illinois). Chilled nutrient samples were shipped to the Chesapeake Biological Laboratory (Solomons, Maryland) for analysis. Frozen Chl a samples were shipped to the USGS National Water Quality Laboratory (Denver, Colorado). Phytoplankton and picophytoplankton enumeration samples were shipped to BSA Environmental Services, Inc. (Beachwood, Ohio) for analysis. Water stable isotope samples were shipped to the USGS Reston Stable Isotope Lab (Reston, Virginia) for analysis. 
+
+Detailed methods documentation for analysis of discrete water quality samples can be found on the landing page (https://doi.org/10.5066/P9QULEAT), or in metadata when sample results are downloaded from WDFN (USGS, 2024).</procdesc>
+        <procdate>2022</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Final continuous NO3 values were obtained by regressing the SUNA instrument response against NO3 concentrations obtained from laboratory measurements of discrete samples collected through the course of the day (Pellerin and others, 2013). Individual sample results greater than three standard deviations from the regression were judged to be outliers and removed from the regression. Note that the method detection limit for the SUNA is 0.014 mg-N/L, or 1 uM. Larger differences between SUNA and laboratory NO3 concentration data are assumed to arise from 1) actual spatial heterogeneity in environmental NO3 concentrations between water entering the flow through system and that captured in the sample bottle; 2) interferences of turbidity and dissolved organic matter using the UV absorption method for nitrate; or 3) errors in sample handling and laboratory analysis. Excepting these potential sources of error, the field and laboratory NO3 measurements are typically well correlated with a linear fit. For the simple linear regressions, the laboratory NO3 concentration data was the explanatory variable to compute the response variable of the SUNA NO3 concentration. Please refer to the “Data Corrections and Offsets” tab of the data dictionary (Delta Mapping 2022 Data Dictionary.xlsx) for individual regression equations and R2 values.
+
+Timberline continuous NH4 data was processed by first correcting the voltage output of the instrument for baseline drift based on the instrument response during periodic measurements of organic-free deionized water and then using a regression model of the voltage response to a standard concentration. A regression coefficient of &gt;0.97 R2 or better was judged to be acceptable. Additional data processing steps include the removal of “bad data” caused by operator error or aberrations due to electrical interference or bubbles (Richardson and others, 2023b).
+
+Picarro data was corrected to discrete sample data by calculating the mean difference of paired discrete samples with Picarro data and adjusting all Picarro data by this value. Final water stable isotope values (delta deuterium and delta oxygen-18) were expressed relative to the Vienna Standard Mean Ocean Water (VSMOW) standard in units of per mil.
+
+All data, except that collected by the Timberline and Picarro analyzers, were processed using the pandas software library (0.220; McKinney, 2010) in Python (3.7.3; Van Rossum and Drake, 2009) to remove periods of compromised data (e.g. flow blockages, bubbles), to apply instrument corrections and unit conversions, and to apply a centered 20 second median filter to the time series. Data from onboard continuous instruments not directly logged to the flow-through data collection system (e.g., the Timberline ammonium analyzer and the Picarro water stable isotope analyzer) were merged based on timestamp to the nearest second after estimating the differential travel times between flow paths. These time lags accounted for the additional time it took for filtered sample water to reach the instruments and the time to travel through the instruments to the detectors and for the response to be reported by the software. The time differential arises from lag introduced by filtering and specifics of instrument operation that determine the time it takes for environmental sample water to reach the instrument’s detector and for a response to be recorded.  
+
+Dissolved inorganic nitrogen (DIN) concentration was calculated as the sum of NO3, NO2 and NH4 for the continuous data and for the discrete sample data. Laboratory DON concentration was calculated by subtracting NH4, NO3, and NO2 data from the TDN data (i.e. DON = TDN – DIN). Continuous DOC and DON concentrations were developed by regressing onboard fDOM data against laboratory determined DOC and DON concentrations measured in discrete samples, according to modified methods of Snyder and others (2018). These data are reported as estDOC and estDON. Please refer to the “Data Corrections and Offsets” tab of the data dictionary (Delta Mapping 2022 Data Dictionary.xlsx) for individual regression equations and R2 values. Data exceeding 3 times the standard deviation of the residuals was judged to be an outlier and not included in the model. estTDN was calculated as the sum of estDIN and estDON. 
+
+Laboratory reported data for discrete samples (DS) from the National Water Quality Information System (NWIS; USGS, 2022) are included for convenience in a discrete data file (DeltaMapping_2022_DS.txt). Accompanying laboratory reported data are NWIS qualifier and remark codes as they appear in NWIS (U.S. Geological Survey, 2011a, 2011b). For discrete nutrient sample concentrations, in addition to reporting nutrient parameters as they appear in NWIS (e.g., mg-N/L or mg-P/L), we also reported those same parameters converted to uM units. For laboratory reported values that are reported below the method lowest detection limit (LDL), half of the LDL is reported in the associated uM column (Clarke, 1998), and those data were used to bias correct the SUNA NO3 data (Pellerin and others, 2013) and to generate the spatially aligned (SA) datasets (DeltaMapping_July2022_SA.txt, DeltaMapping_May2022_SA.txt, and DeltaMapping_October2022_SA.txt). Table 1 summarizes mg/L to uM conversion factors and 1/2 the LDL values (Clarke, 1998).</procdesc>
+        <procdate>2023</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Aside from evaluating the Delta as a whole, it is useful to divide the survey data into smaller sub-sets for analysis. We chose two main approaches to do this. First, we defined eight Study Regions based on hydrodynamically distinct zones identified by Jabusch and others (2016). Broadly speaking, the Delta has three tidal transition zones (north Delta, Mokelumne system, south Delta), two strongly tidally forced tidal lagoons (western and central Delta), two dead-end channel systems (CSC, and Suisun Marsh, an area we define as a complex of tidal and managed wetlands near Ryer Island), and the brackish part of the estuary that connects the Delta to San Francisco Bay (Suisun Bay). The nine regions defined in this study are (1) north Delta tidal transition zone, (2) Mokelumne tidal transition zone, (3) south Delta tidal transition zone, (4) central Delta tidal transition zone, (5) San Joaquin tidal transition zone, (6) western Delta tidal transition zone, (7) Cache Slough Complex, (8) Suisun Bay, and (9) Suisun Marsh channel system. A ‘Transition Zone’ is where transport transitions from being mostly unidirectional, like in rivers, to mostly tidal. These eight regions are similar to regions proposed by Jabusch and others (2016) to evaluate data collection efforts and nutrient status and trends analyses in the Delta; those regions were based on Operational Landscape Units (OLUs) originally developed to represent restoration opportunity areas based on an understanding of ecological function, physical drivers, existing constraints, and elevation gradients, while taking into account hydrologic features, watershed boundaries, and DSM2 (Delta Simulation Model II)   modeling requirements (Grenier and Grossinger, 2016). Second, we associated data with the geographic name of each water feature (e.g., Sacramento River, Georgiana Slough, Old River) based on widely recognized naming conventions that were cross referenced with the USGS Geographic Names Information System (GNIS) database (USGS, 2022).  
+
+High-resolution (HR) data were spatially aligned (SA) to the North American Datum 1983 [NAD 1983 (2011)] geographic coordinate system to facilitate comparisons between dates and to minimize the effects of differential data density on the spatial interpolation calculations. The spatial alignment was performed using the GeoPandas software library in python (Jordahl, 2020), which assigned median-filtered data points to polygon shapefiles that are spaced at approximately 150 m intervals. Spatially aligned data were then aggregated by polygon shapefile to obtain summary statistics of all median-filtered data within a polygon.
+
+Interpolated water quality data were created from the spatially aligned data using ESRI’s ArcGIS Pro Spline with Barriers tool (Terzopoulos and Witkin, 1988). The raster output was smoothed with the Focal Statistics tool, and interpolated values from the raster output were extracted to the spatially aligned points with the Extract Multi Values to Points tool to create continuous spatially aligned data across the mapping domain. Rasters were converted to vector format using the Contour tool, then clipped with the Clip tool using a Sacramento-San Joaquin Delta polygon obtained from the National Hydrography Dataset (U.S. Geological Survey, 2016). These data are referred to as spatially aligned (SA) and are associated with a specific sampling day, and water quality parameter. Interpolated discrete ammonium and phosphate data are included in the SA dataset, and described below.
+
+The discrete sample dataset (DeltaMapping_2022_DS.txt) was filtered to include only timestamp and concentrations of NH4 and PO4 in micromoles. Tableau Prep was utilized to append latitude and longitude data from the high-resolution (HR) dataset to the discrete subset file through an inner join based on matching timestamps to the nearest minute. To spatially align the geographical data in the discrete subset, the same method used for the high-resolution dataset was followed. The spatially aligned, discrete data was assigned to a polygon shapefile but was not aggregated by polygon due to each data point being allocated to a single location. Spatially aligned data were then aggregated by polygon shapefile to obtain summary statistics of data within a polygon. (Only applies to discrete data spatially aligned using the 1-mile and 5-mile shapefiles.) For months where NH4 data was interpolated from discrete sample data, estDIN and estTDN were calculated using interpolated NO3 and NH4 data, rather than continuous data as described above.</procdesc>
+        <procdate>2023</procdate>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <spref>
+    <horizsys>
+      <geograph>
+        <latres>0.0197560866</latres>
+        <longres>0.0250221200</longres>
+        <geogunit>Decimal seconds</geogunit>
+      </geograph>
+      <geodetic>
+        <horizdn>NAD_1983_2011</horizdn>
+        <ellips>GRS_1980</ellips>
+        <semiaxis>6378137.0</semiaxis>
+        <denflat>298.257222101</denflat>
+      </geodetic>
+    </horizsys>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Mapping 2022 Data Dictionary.xlsx</enttypl>
+        <enttypd>Definitions of column headers, abbreviations, units of measure and other values included in the Delta Mapping 2022 data release</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Water Quality Mapping 2022 Methods.docx</enttypl>
+        <enttypd>Descriptive text of methods</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>DeltaMapping_May2022_HR.txt</enttypl>
+        <enttypd>High-resolution (HR) May 2022 data</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>DeltaMapping_May2022_MapsShp.zip</enttypl>
+        <enttypd>Compressed May 2022 shapefiles</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>DeltaMapping_May2022_SA.txt</enttypl>
+        <enttypd>Spatially aligned (SA) May 2022 data</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>DeltaMapping_July2022_HR.txt</enttypl>
+        <enttypd>High-resolution July 2022 data</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>DeltaMapping_July2022_MapsShp.zip</enttypl>
+        <enttypd>Compressed July 2022 shapefiles</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>DeltaMapping_July2022_SA.txt</enttypl>
+        <enttypd>Spatially aligned July 2022 data</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>DeltaMapping_October2022_HR.txt</enttypl>
+        <enttypd>High-resolution October 2022 data</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>DeltaMapping_October2022_MapsShp.zip</enttypl>
+        <enttypd>Compressed October 2022 shapefiles</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>DeltaMapping_October2022_SA.txt</enttypl>
+        <enttypd>Spatially aligned October 2022 data</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>DeltaMapping_2022_DS.txt</enttypl>
+        <enttypd>2022 discrete sampling (DS) data</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>DeltaMapping_2022_PE.txt</enttypl>
+        <enttypd>2022 phytoplankton enumeration (PE) data</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <overview>
+      <eaover>The data dictionary is titled Delta Mapping 2022 Data Dictionary. This file lists and describes the data file field/column labels in tables. Methods are described in this metadata file, as well as Delta Water Quality Mapping 2022 Methods.docx. The data release consists of a .xlsx data dictionary, and .txt and shapefile documents. Descriptions for each document and file are listed within this section.</eaover>
+      <eadetcit>O'Donnell, K., Richardson, E.T., Soto Perez, J., Sturgeon, C.L., Delascagigas, A., Nakatsuka, K., Uebner, M.Q., Bergamaschi, T., Hansen, J.A., Bouma Gregson, K., Kraus, T.E.C., and Bergamaschi, B.A., 2024, Assessing spatial variability of nutrients, phytoplankton, and related water quality constituents in the California Sacramento-San Joaquin Delta at the landscape scale: 2022 High resolution mapping surveys: U.S. Geological Survey data release, https://doi.org/10.5066/P9QULEAT</eadetcit>
+    </overview>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntper>GS ScienceBase</cntper>
+          <cntorg>U.S. Geological Survey</cntorg>
+        </cntperp>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>Denver Federal Center, Building 810, Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty. Any use of trade, product, or firm names is for descriptive purposes only and does not imply endorsement by the U.S. Government.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>Digital Data</formname>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>https://doi.org/10.5066/P9QULEAT</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <fees>None</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20250710</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Maura Q Uebner</cntper>
+          <cntorg>U.S. Geological Survey, SOUTHWEST REGION</cntorg>
+        </cntperp>
+        <cntpos>Hydrologic Technician</cntpos>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>6000 J Street Placer Hall</address>
+          <city>Sacramento</city>
+          <state>CA</state>
+          <postal>95819</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>916-616-7647</cntvoice>
+        <cntemail>muebner@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+  </metainfo>
+</metadata>

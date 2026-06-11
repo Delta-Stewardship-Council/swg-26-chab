@@ -1,0 +1,721 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Jennifer L. Graham</origin>
+        <origin>Barry H. Rosen</origin>
+        <origin>Neil M. Dubrovsky</origin>
+        <origin>Keith A. Loftin</origin>
+        <origin>Erin A. Stelzer</origin>
+        <pubdate>20210924</pubdate>
+        <title>Phytoplankton data for samples collected at eleven large river sites throughout the United States, June through October 2018</title>
+        <geoform>Excel Spreadsheet and Comma Separated Values (CSV) file</geoform>
+        <pubinfo>
+          <pubplace>Reston, VA</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.5066/P9N4Q9HG</onlink>
+        <lworkcit>
+          <citeinfo>
+            <origin>Robert E. Zuellig</origin>
+            <origin>Jennifer L. Graham</origin>
+            <origin>Erin A. Stelzer</origin>
+            <origin>Keith A. Loftin</origin>
+            <origin>Barry H. Rosen</origin>
+            <pubdate>2021</pubdate>
+            <title>Cyanobacteria, cyanotoxin synthetase gene, and cyanotoxin occurrence among selected large river sites of the conterminous United States, 2017–18</title>
+            <geoform>publication</geoform>
+            <pubinfo>
+              <pubplace>n/a</pubplace>
+              <publish>US Geological Survey</publish>
+            </pubinfo>
+            <onlink>https://doi.org/10.3133/sir20215121</onlink>
+          </citeinfo>
+        </lworkcit>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>This U.S. Geological Survey (USGS) Data Release provides phytoplankton data for samples collected from eleven large river sites throughout the United States, from June through October 2018. All data are reported as raw calculated values and are not rounded to USGS significant figures. The dataset includes all routine and quality assurance/quality control samples collected as part of a National Water Quality Assessment Project pilot study to describe cyanobacteria and cyanotoxin occurrence in the Nation's large rivers. Phytoplankton were identified to the lowest possible taxonomic level and abundance (reported as both natural units and cells) is reported.</abstract>
+      <purpose>These data were collected by the USGS National Water-Quality Assessment Project as part of a pilot study conducted during 2017 through 2019 to describe cyanobacteria and cyanotoxin occurrence in the Nation's large rivers. This data release was produced in compliance with the federal open-data requirements as a way to make scientific products associated with USGS research efforts and publications available to the public.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>20180605</begdate>
+          <enddate>20181031</enddate>
+        </rngdates>
+      </timeinfo>
+      <current>Publication Date</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None planned</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-129.7817</westbc>
+        <eastbc>-69.84463</eastbc>
+        <northbc>50.92334</northbc>
+        <southbc>23.43516</southbc>
+      </bounding>
+      <descgeog>Data were collected from eleven large river sites throughout the United States: Connecticut River at Thompsonville, CT (USGS Station Identification Number 01184000); Delaware River at Trenton, NJ (USGS Station Identification Number 01463500); Susquehanna River at Conowingo, MD (USGS Station Identification Number 01578310); Chattahoochee River near Whitesburg, GA (USGS Station Identification Number 02338000); Ohio River at Cannelton Dam at Cannelton, IN (USGS Station Identification Number 03303280); Mississippi River at Hastings, MN (USGS Station Identification Number 05331580); Kansas River at De Soto, KS (USGS Station Identification Number 06892350); Missouri River at Hermann, MO (USGS Station Identification Number 06934500); Trinity River below Dallas, TX (USGS Station Identification Number 08057410); Sacramento River at Freeport, CA (USGS Station Identification Number 11447650); and Willamette River at Portland, OR (USGS Station Identification Number 14211720).</descgeog>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>USGS Metadata Identifier</themekt>
+        <themekey>USGS:601025fcd34e162231fecfca</themekey>
+      </theme>
+      <theme>
+        <themekt>None</themekt>
+        <themekey>Freshwater</themekey>
+        <themekey>River</themekey>
+        <themekey>Phytoplankton</themekey>
+        <themekey>Harmful algal bloom</themekey>
+        <themekey>Cyanobacteria</themekey>
+        <themekey>Algae</themekey>
+        <themekey>Taxonomy</themekey>
+        <themekey>Taxa</themekey>
+        <themekey>Division</themekey>
+        <themekey>Genus</themekey>
+        <themekey>Species</themekey>
+      </theme>
+      <place>
+        <placekt>None</placekt>
+        <placekey>Connecticut</placekey>
+        <placekey>New Jersey</placekey>
+        <placekey>Maryland</placekey>
+        <placekey>Georgia</placekey>
+        <placekey>Indiana</placekey>
+        <placekey>Minnesota</placekey>
+        <placekey>Kansas</placekey>
+        <placekey>Missouri</placekey>
+        <placekey>Texas</placekey>
+        <placekey>California</placekey>
+        <placekey>Oregon</placekey>
+        <placekey>Connecticut River at Thompsonville, CT</placekey>
+        <placekey>USGS Station ID 01184000</placekey>
+        <placekey>Delaware River at Trenton, NJ</placekey>
+        <placekey>USGS Station ID 01463500</placekey>
+        <placekey>Susquehanna River at Conowingo, MD</placekey>
+        <placekey>USGS Station ID 01578310</placekey>
+        <placekey>Chattahoochee River near Whitesburg, GA</placekey>
+        <placekey>USGS Station ID 02338000</placekey>
+        <placekey>Ohio River at Cannelton Dam at Cannelton, IN</placekey>
+        <placekey>USGS Station ID 03303280</placekey>
+        <placekey>Mississippi River at Hastings, MN</placekey>
+        <placekey>USGS Station ID 05331580</placekey>
+        <placekey>Kansas River at De Soto, KS</placekey>
+        <placekey>USGS Station ID 06892350</placekey>
+        <placekey>Missouri River at Hermann, MO</placekey>
+        <placekey>USGS Station ID 06934500</placekey>
+        <placekey>Trinity River below Dallas, TX</placekey>
+        <placekey>USGS Station ID 08057410</placekey>
+        <placekey>Sacramento River at Freeport, CA</placekey>
+        <placekey>USGS Station ID 11447650</placekey>
+        <placekey>Willamette River at Portland, OR</placekey>
+        <placekey>USGS Station ID 14211720</placekey>
+        <placekey>United States</placekey>
+      </place>
+    </keywords>
+    <accconst>none</accconst>
+    <useconst>Public domain data from the U.S. Government are freely redistributable with proper metadata and source attribution. Please recognize the U.S. Geological Survey as the source of this information. Users are advised to read the dataset's metadata thoroughly to understand appropriate use and data limitations.</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Jennifer L. Graham</cntper>
+          <cntorg>U.S. Geological Survey, New York Water Science Center</cntorg>
+        </cntperp>
+        <cntpos>Hydrologist (Research)</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>425 Jordan Road</address>
+          <city>Troy</city>
+          <state>NY</state>
+          <postal>12180</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>(518) 285-5706</cntvoice>
+        <cntemail>jlgraham@usgs.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <datacred>This study was conducted by the U.S. Geological Survey National Water Quality Assessment Project.</datacred>
+    <taxonomy>
+      <keywtax>
+        <taxonkt>None</taxonkt>
+        <taxonkey>Bacillariophyta</taxonkey>
+        <taxonkey>Ochrophyta</taxonkey>
+        <taxonkey>Chlorophyta</taxonkey>
+        <taxonkey>Chrysophyta</taxonkey>
+        <taxonkey>Cryptophyta</taxonkey>
+        <taxonkey>Cryptophycophyta</taxonkey>
+        <taxonkey>Euglenophyta</taxonkey>
+        <taxonkey>Euglenophycota</taxonkey>
+        <taxonkey>Cyanophyta</taxonkey>
+        <taxonkey>Cyanobacteria</taxonkey>
+        <taxonkey>Pyrrophyta</taxonkey>
+        <taxonkey>Pyrrophycophyta</taxonkey>
+      </keywtax>
+      <taxonsys>
+        <classsys>
+          <classcit>
+            <citeinfo>
+              <origin>Rosen, B.H., Davis, T.W., Gobler, C.J., Kramer, B.J., and Loftin. K.A.</origin>
+              <pubdate>2017</pubdate>
+              <title>Cyanobacteria of the 2016 Lake Okeechobee and Okeechobee Waterway harmful algal bloom</title>
+              <geoform>document</geoform>
+              <pubinfo>
+                <pubplace>U.S. Geological Survey Open-File Report</pubplace>
+                <publish>USGS Open-File Report 2017-1054</publish>
+              </pubinfo>
+              <onlink>https://doi.org/10.3133/ofr20171054</onlink>
+            </citeinfo>
+          </classcit>
+        </classsys>
+        <idref>
+          <citeinfo>
+            <origin>King, L.R., Rosen, B.H., Graham, J.L., Dubrovsky, N.M., Foster, G.M., Loftin, K.A., and Stelzer, E.A.</origin>
+            <pubdate>2020</pubdate>
+            <title>Phytoplankton tally sheet, including photomicrographs, for samples collected at eleven large river sites throughout the United States, June through September 2017</title>
+            <geoform>document</geoform>
+            <serinfo>
+              <sername>U.S. Geological Survey Data Release</sername>
+              <issue>USGS Data Release</issue>
+            </serinfo>
+            <onlink>https://dx.doi.org/10.5066/P9KKN921</onlink>
+          </citeinfo>
+        </idref>
+        <idref>
+          <citeinfo>
+            <origin>Komarek, J., and Anagnostidis, K.</origin>
+            <pubdate>1998</pubdate>
+            <title>Cyanoprokaryota Part 1: Chroococcales</title>
+            <geoform>document</geoform>
+            <serinfo>
+              <sername>Freshwater Flora of Central Europe</sername>
+              <issue>Volume 19.1, pages 1-548</issue>
+            </serinfo>
+          </citeinfo>
+        </idref>
+        <idref>
+          <citeinfo>
+            <origin>Komarek, J. and Anagnostidis, K.</origin>
+            <pubdate>2005</pubdate>
+            <title>Cyanoprokaryota Part 2: Oscillatoriales</title>
+            <geoform>document</geoform>
+            <serinfo>
+              <sername>Freshwater Flora of Central Europe</sername>
+              <issue>Volume 19.2, pages 1-759</issue>
+            </serinfo>
+          </citeinfo>
+        </idref>
+        <idref>
+          <citeinfo>
+            <origin>Komarek, J.</origin>
+            <pubdate>2008</pubdate>
+            <title>The cyanobacterial genus Macrospermum</title>
+            <geoform>document</geoform>
+            <serinfo>
+              <sername>Fottea; A journal of the Czech Phycological Society</sername>
+              <issue>Volume 8, pages 79-86</issue>
+            </serinfo>
+          </citeinfo>
+        </idref>
+        <idref>
+          <citeinfo>
+            <origin>Komarek, J.</origin>
+            <pubdate>2013</pubdate>
+            <title>Cyanoprokaryota Part 3: Heterocystous Genera</title>
+            <geoform>document</geoform>
+            <serinfo>
+              <sername>Freshwater Flora of Central Europe</sername>
+              <issue>Volume 19/3, 1131 pages</issue>
+            </serinfo>
+          </citeinfo>
+        </idref>
+        <idref>
+          <citeinfo>
+            <origin>Komarek, J., Kastovsky, J., Mares, J., and Johansen, J.R.</origin>
+            <pubdate>2014</pubdate>
+            <title>Taxonomic classification of cyanoprokaryotes (cyanobacterial genera) 2014, using a polyphasic approach</title>
+            <geoform>document</geoform>
+            <serinfo>
+              <sername>Preslia</sername>
+              <issue>Volume 86, pages 295-335</issue>
+            </serinfo>
+          </citeinfo>
+        </idref>
+        <idref>
+          <citeinfo>
+            <origin>Rosen, B.H., Loftin. K.A., Graham, J.L., Stahlhut, K.N., Riley, J.M., Johnston, B.D., and Senegal, Sarena</origin>
+            <pubdate>2018</pubdate>
+            <title>Understanding the effect of salinity tolerance on cyanobacteria associated with a harmful algal bloom in Lake Okeechobee, Florida</title>
+            <geoform>document</geoform>
+            <serinfo>
+              <sername>U.S. Geological Survey Scientific Investigations Report</sername>
+              <issue>USGS Scientific Investigations Report 2018-5092</issue>
+            </serinfo>
+            <onlink>https://doi.org/10.3133/sir20185092</onlink>
+          </citeinfo>
+        </idref>
+        <idref>
+          <citeinfo>
+            <origin>Wehr, J.D., Sheath, R.G., and Kociolek, J.P.</origin>
+            <pubdate>2015</pubdate>
+            <title>Freshwater Algae of North America: Ecology and Classification</title>
+            <geoform>document</geoform>
+            <serinfo>
+              <sername>--</sername>
+              <issue>2nd Edition</issue>
+            </serinfo>
+          </citeinfo>
+        </idref>
+        <ider>
+          <cntinfo>
+            <cntperp>
+              <cntper>Barry H. Rosen, U.S. Geological Survey Emeritus</cntper>
+              <cntorg>Florida Gulf Coast University</cntorg>
+            </cntperp>
+            <cntaddr>
+              <addrtype>mailing and physical</addrtype>
+              <address>16301 Innovation Lane</address>
+              <city>Fort Myers</city>
+              <state>FL</state>
+              <postal>33913</postal>
+              <country>USA</country>
+            </cntaddr>
+            <cntvoice>(239) 745-4589</cntvoice>
+            <cntemail>brosen@fgcu.edu</cntemail>
+          </cntinfo>
+        </ider>
+        <taxonpro>Phytoplankton were enumerated to the lowest possible taxonomic level using concentration techniques described in Rosen and others (2017 and 2018). Phytoplankton were identified by morphological traits such as dimensions (length and width) of cells, the arrangement of cells in colonies or filaments, and the terminal cell shape in a filament. The presence of specialized structures such as aerotopes (also known as gas vesicles used for regulating buoyancy), heterocytes (specialized cells for nitrogen fixation), and akinetes (specialized resting cells that allow organisms to survive harsh conditions and germinate when environmental conditions allow) also were used in the identification of cyanobacteria. The dimensions and shape of these specialized cells are critical to the identification of a cyanobacterial species. Several sources were used to identify organisms on the basis of morphology (Komarek and Anagnostidis, 1998, 2005; Komarek, 2008, 2013; Komarek and others, 2014; and Wehr and others, 2015).</taxonpro>
+        <taxoncom>Phytoplankton were enumerated to the lowest possible taxonomic level, which was at least to genus for most organisms. The photomicrographs presented in King and others (2019) were used to verify identifications and ensure taxonomic consistency between the 2017 and 2018 datasets. The phytoplankton data collected from eleven large river sites throughout the United States, during June through October 2018, contained 98 unique genera in 7 Divisions (Phyla). Taxonomic citations are included for the 7 Divisions in the dataset.</taxoncom>
+      </taxonsys>
+      <taxoncl>
+        <taxonrn>Kingdom</taxonrn>
+        <taxonrv>Chromista</taxonrv>
+        <taxoncl>
+          <taxonrn>Subkingdom</taxonrn>
+          <taxonrv>Harosa</taxonrv>
+          <taxoncl>
+            <taxonrn>Infrakingdom</taxonrn>
+            <taxonrv>Halvaria</taxonrv>
+            <taxoncl>
+              <taxonrn>Superdivision</taxonrn>
+              <taxonrv>Heterokonta</taxonrv>
+              <taxoncl>
+                <taxonrn>Division</taxonrn>
+                <taxonrv>Ochrophyta</taxonrv>
+                <taxoncl>
+                  <taxonrn>Class</taxonrn>
+                  <taxonrv>Bacillariophyceae</taxonrv>
+                  <common>diatoms</common>
+                </taxoncl>
+              </taxoncl>
+            </taxoncl>
+          </taxoncl>
+        </taxoncl>
+        <taxoncl>
+          <taxonrn>Subkingdom</taxonrn>
+          <taxonrv>Viridiplantae</taxonrv>
+          <taxoncl>
+            <taxonrn>Infrakingdom</taxonrn>
+            <taxonrv>Chlorophyta</taxonrv>
+            <common>green algae</common>
+          </taxoncl>
+        </taxoncl>
+        <taxoncl>
+          <taxonrn>Subkingdom</taxonrn>
+          <taxonrv>Chromista</taxonrv>
+          <taxoncl>
+            <taxonrn>Division</taxonrn>
+            <taxonrv>Chrysophyta</taxonrv>
+            <common>golden-brown algae</common>
+            <common>chrysophycophytes</common>
+            <taxoncl>
+              <taxonrn>Class</taxonrn>
+              <taxonrv>Chrysophyceae</taxonrv>
+            </taxoncl>
+          </taxoncl>
+        </taxoncl>
+        <taxoncl>
+          <taxonrn>Subkingdom</taxonrn>
+          <taxonrv>Chromista</taxonrv>
+          <taxoncl>
+            <taxonrn>Division</taxonrn>
+            <taxonrv>Cryptophycophyta</taxonrv>
+            <taxoncl>
+              <taxonrn>Class</taxonrn>
+              <taxonrv>Cryptophyceae</taxonrv>
+              <common>cryptophytes</common>
+            </taxoncl>
+          </taxoncl>
+        </taxoncl>
+        <taxoncl>
+          <taxonrn>Phylum</taxonrn>
+          <taxonrv>Euglenophycota</taxonrv>
+          <taxoncl>
+            <taxonrn>Class</taxonrn>
+            <taxonrv>Euglenophyceae</taxonrv>
+            <common>euglenoids</common>
+          </taxoncl>
+        </taxoncl>
+        <taxoncl>
+          <taxonrn>Subkingdom</taxonrn>
+          <taxonrv>Negibacteria</taxonrv>
+          <taxoncl>
+            <taxonrn>Phylum</taxonrn>
+            <taxonrv>Cyanophyta</taxonrv>
+            <taxoncl>
+              <taxonrn>Class</taxonrn>
+              <taxonrv>Cyanophyceae</taxonrv>
+              <common>cyanobacteria</common>
+            </taxoncl>
+          </taxoncl>
+        </taxoncl>
+        <taxoncl>
+          <taxonrn>Subkingdom</taxonrn>
+          <taxonrv>Chromista</taxonrv>
+          <taxoncl>
+            <taxonrn>Division</taxonrn>
+            <taxonrv>Pyrrophycophyta</taxonrv>
+            <taxoncl>
+              <taxonrn>Class</taxonrn>
+              <taxonrv>Dinophyceae</taxonrv>
+              <common>dinoflagellates</common>
+            </taxoncl>
+          </taxoncl>
+        </taxoncl>
+      </taxoncl>
+    </taxonomy>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>Data were analyzed by Dr. Barry H. Rosen, whose laboratory does its own quality assurance and quality control procedures. All data were broadly checked for accuracy; no obvious outliers were present in the data.</attraccr>
+    </attracc>
+    <logic>No formal logical accuracy tests were conducted, but data were checked for naming consistency and numerical errors.</logic>
+    <complete>Dataset is considered complete for the information presented, as described in the abstract. Users are advised to read the rest of the metadata record carefully for additional details.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>No formal positional accuracy tests were conducted.</horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>No formal positional accuracy tests were conducted.</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <procstep>
+        <procdesc>All data were compiled into one spreadsheet for this data release. Data were evaluated to ensure consistency in naming conventions and presentation of dates and times. Phytoplankton abundances as natural units per milliliter were calculated using the following equation: natural units per milliliter = tally / raw volume counted / concentration factor. A natural unit is a single cell, colony, or filament. Phytoplankton abundances as cells per milliliter were calculated using the following equation: cells per milliliter = raw cell count / raw volume counted / concentration factor. Data used to calculate abundances can be found in this data set.</procdesc>
+        <procdate>20210126</procdate>
+      </procstep>
+      <method>
+        <methtype>Discrete water-quality sample collection.</methtype>
+        <methdesc>Discrete phytoplankton samples were collected from eleven large river sites in the United States, from June through October 2018. Samples were collected in accordance with USGS sampling protocols that follow isokinetic equal width or depth integrated techniques (U.S. Geological Survey, 2006). Replicate samples were collected from most sites, and also are included in the dataset. Replicate samples can be identified as those having timestamps 1, 5, or 10 minutes after the rountine sample collected on any given date.</methdesc>
+        <methcite>
+          <citeinfo>
+            <origin>U.S. Geological Survey</origin>
+            <pubdate>2006</pubdate>
+            <title>Collection of water samples (ver. 2.0)</title>
+            <geoform>document</geoform>
+            <serinfo>
+              <sername>U.S Geological Survey Techniques of Water Resources Investigations</sername>
+              <issue>Book 9, chapter A4 [variously paged]</issue>
+            </serinfo>
+            <onlink>https://pubs.water.usgs.gov/twri9A4/</onlink>
+          </citeinfo>
+        </methcite>
+      </method>
+    </lineage>
+  </dataqual>
+  <spdoinfo>
+    <indspref>Connecticut River at Thompsonville, CT (01184000)
+Long= -72.60583
+Lat= 41.98722; Delaware River at Trenton, NJ (01463500)
+Long= -74.77806
+Lat= 40.22167; Susquehanna River at Conowingo, MD (01578310)
+Long= -76.17444
+Lat= 39.65789; Chattahoochee River near Whitesburg, GA (02338000)
+Long= -84.90083
+Lat= 33.47694; Ohio River at Cannelton Dam at Cannelton, IN (03303280) 
+Long= -86.70556
+Lat= 37.89944; Mississippi River at Hastings, MN (05331580)
+Long= -92.84778
+Lat= 44.74583; Kansas River at De Soto, KS (06892350)
+Long= -94.96444
+Lat= 38.98333; Missouri River at Hermann, MO (06934500)
+Long= -91.43850
+Lat= 38.70981; Trinity River below Dallas, TX (08057410)
+Long= -96.73556
+Lat= 32.70750; Sacramento River at Freeport, CA (11447650)
+Long= -121.5003
+Lat= 38.45611; Willamette River at Portland, OR (14211720) 
+Long= -122.6692
+Lat= 45.5175</indspref>
+    <direct>Point</direct>
+  </spdoinfo>
+  <spref>
+    <horizsys>
+      <geograph>
+        <latres>1.0E-5</latres>
+        <longres>1.0E-5</longres>
+        <geogunit>Decimal degrees</geogunit>
+      </geograph>
+    </horizsys>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>Phytoplankton_Counts_Data.xlsx / Phytoplankton_Counts_Data.csv</enttypl>
+        <enttypd>Taxonomic identification and abundance data for phytoplankton samples collected at eleven large river sites throughout the United States, during June through October 2018.</enttypd>
+        <enttypds>Not Specified</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>USGS Station ID</attrlabl>
+        <attrdef>USGS station identification number.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Free Text</edomv>
+            <edomvd>01184000, 01463500, 01578310, 02338000, 03303280, 05331580, 06892350, 06934500, 08057410, 11447650, and 14211720.</edomvd>
+            <edomvds>Not Specified</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>USGS Station Name</attrlabl>
+        <attrdef>USGS station identification name.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Free Text</edomv>
+            <edomvd>Connecticut River at Thompsonville; CT, Delaware River at Trenton, NJ; Susquehanna River at Conowingo, MD; Chattahoochee River near Whitesburg, GA; Ohio River at Cannelton Dam at Cannelton, IN; Mississippi River at Hastings, MN; Kansas River at De Soto, KS; Missouri River at Hermann, MO; Trinity River below Dallas, TX; Sacramento River at Freeport, CA; and Willamette River at Portland, OR.</edomvd>
+            <edomvds>Not Specified</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sample Date</attrlabl>
+        <attrdef>Date samples were collected.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>MM/DD/YYYY</edomv>
+            <edomvd>Month/Day/Year</edomvd>
+            <edomvds>Not Specified</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sample Time</attrlabl>
+        <attrdef>Time samples were collected.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>HH:MM</edomv>
+            <edomvd>Hours:Minutes</edomvd>
+            <edomvds>Not Specified</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Initial Volume (mL)</attrlabl>
+        <attrdef>Initial volume of preserved samples received and processed.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>390</rdommin>
+            <rdommax>500</rdommax>
+            <attrunit>milliliters, mL</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Final Volume (mL)</attrlabl>
+        <attrdef>Volume of final sample analyzed.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>10</rdommin>
+            <rdommax>10</rdommax>
+            <attrunit>milliliters, mL</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sample Weight Counted (grams)</attrlabl>
+        <attrdef>Weight of subsample; data are calculated raw values and are not rounded to USGS significant figures.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0068</rdommin>
+            <rdommax>0.0116</rdommax>
+            <attrunit>grams</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Number of strips counted</attrlabl>
+        <attrdef>Number of strips counted; Based on magnification, the number of strips is defined as how many passes it takes to cover the area of a 22 mm coverslip; data are calculated raw values and are not rounded to USGS significant figures.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.00</rdommin>
+            <rdommax>40.59</rdommax>
+            <attrunit>Unitless</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Volume per strip (mL)</attrlabl>
+        <attrdef>Volume of sample per strip; data are calculated raw values and are not rounded to USGS significant figures.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0001</rdommin>
+            <rdommax>0.0003</rdommax>
+            <attrunit>milliliters, mL</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Raw volume counted (mL)</attrlabl>
+        <attrdef>The volume of sample counted; data are calculated raw values and are not rounded to USGS significant figures.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0003</rdommin>
+            <rdommax>0.0116</rdommax>
+            <attrunit>milliliters, mL</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Concentration factor</attrlabl>
+        <attrdef>Concentration factor describes the ratio between the original sample volume and the final concentrated volume of 10 milliliters that was subsampled for identification and enumeration.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>38.5</rdommin>
+            <rdommax>49.5</rdommax>
+            <attrunit>Unitless</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Tally</attrlabl>
+        <attrdef>The number of natural units (single cell, colony, or filament) of a specific taxa counted in a sample.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>570</rdommax>
+            <attrunit>natural units</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Raw cell count</attrlabl>
+        <attrdef>The number of cells of a specific taxa counted in a sample; "NM" indicates value was not measured.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>2406</rdommax>
+            <attrunit>cells</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Division</attrlabl>
+        <attrdef>Phytoplankton taxonomy division name.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Free Text</edomv>
+            <edomvd>One of seven phytoplankton divisions: Bacillariophyta (Ochrophyta, Bacillariophyceae), Chlorophyta, Chrysophyta, Cryptophyta (Cryptophycophyta), Cyanophyta (Cyanobacteria), Euglenophyta (Euglenophycota), or Pyrrophyta (Pyrrophycophyta).</edomvd>
+            <edomvds>Not Specified</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Taxa</attrlabl>
+        <attrdef>Phytoplankton taxonomy genus and species name.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Free Text</edomv>
+            <edomvd>Presented as Genus or Genus species; Distinct unknown species are indicated as sp.; Genera with several distinct but unknown species are indicated as spp.; Compare with is indicated as cf.</edomvd>
+            <edomvds>Not Specified</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Natural units per mL</attrlabl>
+        <attrdef>The number of natural units (single cell, colony, or filament) per mL; data are calculated raw values and are not rounded to USGS significant figures.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>10,437</rdommax>
+            <attrunit>Natural units per milliliter, NU/mL</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cells per mL</attrlabl>
+        <attrdef>The number of cells per mL; data are calculated raw values and are not rounded to USGS significant figures; "NM" indicates value was not measured.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>20,718</rdommax>
+            <attrunit>Cells per milliliter, cells/mL</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey - ScienceBase</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>Denver Federal Center, Building 810, Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty.</distliab>
+  </distinfo>
+  <metainfo>
+    <metd>20210924</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Jennifer L. Graham</cntper>
+          <cntorg>U.S. Geological Survey</cntorg>
+        </cntperp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>425 Jordan Road</address>
+          <city>Troy</city>
+          <state>NY</state>
+          <postal>12180</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>(518) 285-5706</cntvoice>
+        <cntemail>jlgraham@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+  </metainfo>
+</metadata>

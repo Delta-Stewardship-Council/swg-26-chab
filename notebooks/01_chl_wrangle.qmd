@@ -19,13 +19,146 @@ library(DT)
 library(lubridate)
 library(DBI)
 library(EDIutils)
+library(sbtools)
 ```
 
 ### ScienceBase
-#### Used https://www.sciencebase.gov/catalog/items/get?q=chlorophyll%20sacramento to identify 22 datasets (links in excel file in Box, will downloaded individually and added to raw data folder)
+```{r}
+# Pulling ScienceBase data using the R package sbtools
+## Defining my search area
+delta_items <- query_sb_spatial(
+  long = c(-122.292649, -121.131962),
+  lat  = c(37.585545, 38.566034),
+  limit = 100000
+)
 
+## Extract metadata
+titles <- sapply(delta_items, function(x) x$title)
 
+## Keep chlorophyll-related records
+idx <- grepl(
+  "chlorophyll|chlorophyll-a|phytoplankton",
+  titles,
+  ignore.case = TRUE
+)
 
+delta_chl <- delta_items[idx]
+```
+
+```{r}
+#Read through returned titles to verify relevancy
+print(delta_chl) #30 relevant datasets
+#1 N - Little Holland Tract - These are enumeration data, not chl concentration
+#2 N - Phytoplankton tally sheet - These are enumeration data, not chl concentration
+#3 Y - Assessing spatial variability - Contains Chlorophyll data
+#4 Y - Characterization of water - Contains Chlorophyll data
+#5 Y - Assessing spatial variability - Contains Chlorophyll data
+#6 Y - Assessment of nutrients - Contains Chlorophyll data
+#7 Y - Cyanotoxin, chlorophyll-a, and - Contains Chlorophyll data
+#8 N - Phytoplankton Species Composition - These are enumeration data, not chl concentration
+#9 N - Aquatic reflectance data - These data are not within our study area (bounding box encompasses US)
+#10 Y - Phytoplankton data for - Contains chl-a data from Freeport station (and from other sites throughout US)
+#11 Y - Assessing spatial variability - Contains Chlorophyll data
+#12 N - Water chemistry, vertical - Does contain chl data but collected during nutrient addition experiments, not monitoring.
+#13 Y - Assessing spatial variability - Contains Chlorophyll data
+#14 Y - Assessing spatial variability - Contains Chlorophyll data
+#15 Y - Assessing spatial variability - Contains Chlorophyll data
+#16 Y - Assessing spatial variability - Contains Chlorophyll data
+#17 N - Daily Estimates of - Just Site metadata
+#18 N - Daily Estimates of - CM sensor data, already pulling this
+#19 Y - A national harmonized - Contains Chlorophyll data (US-wide, including the Delta)
+#20 Y - Cyanotoxin, chlorophyll-a, and - Contains chl-a AND Qpcr!! data from Freeport station (and from other sites throughout US) - are these data the same as number 10?
+#21 N - Phytoplankton data for - These are enumeration data, not chl concentration
+#22 N - Phytoplankton Identification and - These are enumeration data, not chl concentration
+#23 Y - Water quality, nutrient, - Contains Chlorophyll data
+#24 N - Phytoplankton Species Composition - These are enumeration data, not chl concentration
+#25 Y - Cyanotoxin, chlorophyll-a, and - Contains chl-a and qpcr
+#26 N - Daily Estimates of Chlorophyll - Just approval status
+#27 N - Daily Estimates of - CM sensor data, already pulling this
+#28 N - Phytoplankton data for - These are enumeration data, not chl concentration
+#29 N - Phytoplankton and Cyanotoxin - These are National Parks data
+#30 Y - Assessing spatial variability - Contains Chlorophyll data (but provisional!)
+```
+
+```{r}
+#The data I want are associated with the following numbers: 3,4,5,6,7,10,11,13,14,15,16,19,20,23,25,30
+##create list of item ids
+ids <- c(
+  "64fa6804d34ed30c205504a6",
+  "5f6ce12a82ce38aaa24801be",
+  "5f24747f82cef313ed971974",
+  "5f5fe6eb82ce3550e3bff4a5",
+  "601827aad34edf5c66efffc8",
+  "601025fcd34e162231fecfca",
+  "5f7dee6482ce1d74e7dd9da0",
+  #"62183869d34ec739b2dd292f", Bay Based and too large
+  "6596fe37d34e3265ab158d60",
+  "5f284f1782cef313ed9df50e",
+  "5fa096b1d34e198cb7919341",
+ # "638f5472d34ed907bf7c8f23", #this one is too big to store in git. It is just freeport and we catch that with usgs CM, so skipping.
+  "628cc9c2d34ef70cdba3bbff",
+  "64ee7f82d34e4b6d8ab71438",
+  "5c13d214e4b006c4f8532a17",
+  "66427d79d34e1955f5a41cf0"
+)
+
+files_list <- lapply(ids, item_list_files)
+
+download_dir <- "data/raw/sciencebase"
+#dir.create(download_dir, recursive = TRUE, showWarnings = FALSE)
+
+for (id in ids) {
+  item_dir <- file.path(download_dir, id)
+
+  dir.create(item_dir, showWarnings = FALSE)
+
+  item_file_download(
+    sb_id = id,
+    dest_dir = item_dir
+  )
+}
+
+rm(delta_chl, delta_items, files_list, id, ids, idx, item_dir, titles, download_dir)
+```
+
+```{r}
+#I noticed some data that I had identified via keyword searching for "chlorophyll sacramento" are not in the above data pull. Script to add them:
+ids <- c(
+  "5966abe6e4b0d1f9f05cf551",
+  "5e7ceb88e4b01d5092751c18",
+  "5f1f44c582cef313ed8ec753",
+  "5f89cbea82ce3241878937f6",
+  "5d3f1ae2e4b01d82ce8d90e0",
+ # "5f452e8782ce4c3d12251702", #this one is too big to store in git, large fies didn't contain chl anyways so removed.
+  "64248ee5d34e370832fe343d",
+  "65b18ae7d34e36a39044c493",
+  "5f5ff87582ce3550e3bff547"
+)
+
+files_list <- lapply(ids, item_list_files)
+
+download_dir <- "data/raw/sciencebase"
+
+for (id in ids) {
+  item_dir <- file.path(download_dir, id)
+
+  dir.create(item_dir, showWarnings = FALSE)
+
+  item_file_download(
+    sb_id = id,
+    dest_dir = item_dir
+  )
+}
+rm(files_list, id, ids, idx, item_dir, titles, download_dir)
+```
+
+```{r}
+#remote: error: File data/raw/sciencebase/638f5472d34ed907bf7c8f23/national_chlorophyll_corrected_chlorophyll_a_data.csv is 106.56 MB; this exceeds GitHub's file size limit of 100.00 MB
+#remote: error: File data/raw/sciencebase/5f452e8782ce4c3d12251702/FTS_acs_ag.csv is 118.54 MB; this exceeds GitHub's file size limit of 100.00 MB
+#remote: error: File data/raw/sciencebase/5f452e8782ce4c3d12251702/FTS_acs_apg.csv is 117.61 MB; this exceeds GitHub's file size limit of 100.00 MB
+#remote: error: File data/raw/sciencebase/5f452e8782ce4c3d12251702/FTS_acs_cg.csv is 117.94 MB; this exceeds GitHub's file size limit of 100.00 MB
+
+```
 
 ### Water data for the nation (USGS)
 ```{r}
@@ -132,7 +265,7 @@ daytime_delta_chl_data <- delta_chl_data %>% filter(TOD == "keep")
 avg_daytime_usgs_delta_chl_data <- daytime_delta_chl_data %>%
   group_by(date, monitoring_location_id)%>%
   mutate(avg_fchl = mean(value)) %>%
-  mutate(fchl_corr = 1.29*avg_fchl+0.33)%>% Richardson EXO correction (these data should already be temp corrected)
+  mutate(fchl_corr = 1.29*avg_fchl+0.33)%>% #Richardson EXO correction (these data should already be temp corrected)
   select(date, monitoring_location_id, avg_fchl)%>%
   distinct() %>% ungroup()
 ```
@@ -441,6 +574,9 @@ summary(avg_daytime_dwr_delta_chl_data)
 
 ```{r}
 # add metadata
+stations <-  stations %>% 
+  select(station, latitude, longitude)
+
 avg_daytime_dwr_delta_chl_data <- avg_daytime_dwr_delta_chl_data %>%
   left_join(
     stations,
@@ -643,12 +779,16 @@ rm(cm_ncro, stations)
 ## Combine all continuous monitoring chlorophyll data
 
 ```{r}
+avg_daytime_usgs_delta_chl_data$instrument <- "EXO"
+
 avg_daytime_dwr_delta_chl_data$group <- "dwr_rtm"
 avg_daytime_ncro_delta_chl_data$group <- "dwr_ncro"
 avg_daytime_usgs_delta_chl_data$group <- "usgs"
 cm_daytime_avg_chl <- rbind(avg_daytime_dwr_delta_chl_data, avg_daytime_ncro_delta_chl_data, avg_daytime_usgs_delta_chl_data)
 
 rm(avg_daytime_dwr_delta_chl_data, avg_daytime_ncro_delta_chl_data, avg_daytime_usgs_delta_chl_data)
+
+write.csv(cm_daytime_avg_chl, file = "data/01_processed/01_cm_daytime_avg_chl.csv")
 ```
 
 ## Shaela's Workspace

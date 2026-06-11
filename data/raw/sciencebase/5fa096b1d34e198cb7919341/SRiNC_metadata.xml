@@ -1,0 +1,942 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Katy O'Donnell</origin>
+        <origin>Elizabeth Stumpner</origin>
+        <origin>Joseph Fackrell</origin>
+        <origin>Jeniffer Soto Perez</origin>
+        <origin>Alan Gelber</origin>
+        <origin>Ayelet Delascagigas</origin>
+        <origin>Dylan Burau</origin>
+        <origin>Angela Hansen</origin>
+        <origin>Crystal Sturgeon</origin>
+        <origin>Bryan Downing</origin>
+        <origin>Brian Bergamaschi</origin>
+        <origin>Tamara Kraus</origin>
+        <pubdate>20230320</pubdate>
+        <title>Assessing spatial variability of nutrients, phytoplankton, and related water quality constituents in the California Sacramento-San Joaquin Delta during treated wastewater effluent holds: August and September 2019 high resolution mapping surveys</title>
+        <geoform>tabular digital data</geoform>
+        <onlink>https://doi.org/10.5066/P9GNMDPB</onlink>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The study is comprised of daily survey data consisting of high resolution mapping and discrete sample collection of nutrients, phytoplankton, and related water quality constituents conducted in the Sacramento River, Georgiana Slough, and the North and South Forks of the Mokelumne River on August 28 and September 10-12, 2019, coincident with planned holds of treated wastewater effluent from Sacramento Regional Wastewater Treatment Plant (SRWTP) on August 27 and September 9-11, 2019.</abstract>
+      <purpose>The purpose of this study was to observe changes in nutrients, phytoplankton, and related water quality constituents in the different waterways surveyed under conditions representing typical contribution from SRWTP effluent, transition from typical SRWTP effluent conditions to SRTWP effluent-free conditions, and SRTWP effluent-free conditions.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <mdattim>
+          <sngdate>
+            <caldate>20190828</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20190910</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20190911</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20190912</caldate>
+          </sngdate>
+        </mdattim>
+      </timeinfo>
+      <current>ground condition</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None planned</update>
+    </status>
+    <spdom>
+      <descgeog>World</descgeog>
+      <bounding>
+        <westbc>-121.8713</westbc>
+        <eastbc>-121.1298</eastbc>
+        <northbc>38.4084</northbc>
+        <southbc>37.7360</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>ISO 19115 Topic Category</themekt>
+        <themekey>inlandWaters</themekey>
+        <themekey>biota</themekey>
+        <themekey>environment</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Thesaurus</themekt>
+        <themekey>hydrogeology</themekey>
+        <themekey>drinking water use</themekey>
+        <themekey>public supply water use</themekey>
+        <themekey>water quality</themekey>
+        <themekey>statistical analysis</themekey>
+        <themekey>visualization methods</themekey>
+        <themekey>phytoplankton</themekey>
+        <themekey>nutrient content (water)</themekey>
+      </theme>
+      <theme>
+        <themekt>None</themekt>
+        <themekey>nutrients</themekey>
+        <themekey>real-time</themekey>
+        <themekey>high-resolution</themekey>
+        <themekey>biogeochemistry</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Metadata Identifier</themekt>
+        <themekey>USGS:5fa096b1d34e198cb7919341</themekey>
+      </theme>
+      <place>
+        <placekt>Geographic Names Information System</placekt>
+        <placekey>United States</placekey>
+        <placekey>California</placekey>
+        <placekey>Lower Sacramento</placekey>
+      </place>
+      <place>
+        <placekt>None</placekt>
+        <placekey>Sacramento-San Joaquin Delta</placekey>
+        <placekey>Central Valley</placekey>
+        <placekey>Sacramento River</placekey>
+        <placekey>Georgiana Slough</placekey>
+        <placekey>Mokelumne River</placekey>
+      </place>
+    </keywords>
+    <accconst>None.  Please see 'Distribution Info' for details.</accconst>
+    <useconst>None. Users are advised to read the dataset's metadata thoroughly to understand appropriate use and data limitations.</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Katy O'Donnell</cntper>
+          <cntorg>U.S. Geological Survey, SOUTHWEST REGION</cntorg>
+        </cntperp>
+        <cntpos>Geologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>6000 J Street Placer Hall</address>
+          <city>Sacramento</city>
+          <state>CA</state>
+          <postal>95819</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>916-278-3291</cntvoice>
+        <cntfax>916-278-3070</cntfax>
+        <cntemail>kodonnell@usgs.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <datacred>Sacramento Regional Wastewater Treatment Plant, Bureau of Reclamation</datacred>
+    <native>Environment of Metadata Creation: Microsoft Windows 10 Enterprise Version 1803 (OS Build 17134.885)</native>
+    <crossref>
+      <citeinfo>
+        <origin>Elizabeth J. Arar</origin>
+        <origin>Gary B. Collins</origin>
+        <pubdate>199709</pubdate>
+        <title>Method 445.0 - In Vitro Determination of Chlorophyll a and Pheophytin a in Marine and Freshwater Algae by Fluorescence</title>
+        <geoform>publication</geoform>
+        <pubinfo>
+          <pubplace>Cincinnati, OH</pubplace>
+          <publish>United States Environmental Protection Agency, National Exposure Research Laboratory</publish>
+        </pubinfo>
+        <onlink>https://cfpub.epa.gov/si/si_public_record_report.cfm?Lab=NERL&amp;dirEntryId=309417</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Bryan D. Downing</origin>
+        <origin>Brian A. Bergamaschi</origin>
+        <origin>Carol Kendall</origin>
+        <origin>Tamara E. C. Kraus</origin>
+        <origin>Kate J. Dennis</origin>
+        <origin>Jeffery A. Carter</origin>
+        <origin>Travis S. Von Dessonneck</origin>
+        <pubdate>20161206</pubdate>
+        <title>Using Continuous Underway Isotope Measurements To Map Water Residence Time in Hydrodynamically Complex Tidal Environments</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Environmental Science &amp;amp; Technology</sername>
+          <issue>vol. 50, issue 24</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>American Chemical Society (ACS)</publish>
+        </pubinfo>
+        <othercit>ppg. 13387-13396</othercit>
+        <onlink>https://doi.org/10.1021/acs.est.6b05745</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Marvin J. Fishman</origin>
+        <pubdate>1993</pubdate>
+        <title>Methods of analysis by the U.S. Geological Survey National Water Quality Laboratory-Determination of inorganic and organic constituents in water and fluvial sediments</title>
+        <geoform>publication</geoform>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>US Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.3133/ofr93125</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Michael C. Murrell</origin>
+        <origin>Emile M. Lores</origin>
+        <pubdate>20040216</pubdate>
+        <title>Phytoplankton and zooplankton seasonal dynamics in a subtropical estuary: importance of cyanobacteria</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Journal of Plankton Research</sername>
+          <issue>vol. 26, issue 3</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Oxford University Press (OUP)</publish>
+        </pubinfo>
+        <othercit>ppg. 371-382</othercit>
+        <onlink>https://doi.org/10.1093/plankt/fbh038</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Charles J. Patton</origin>
+        <origin>Jennifer R. Kryskalla</origin>
+        <pubdate>2011</pubdate>
+        <title>Colorimetric determination of nitrate plus nitrite in water by enzymatic reduction, automated discrete analyzer methods</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Techniques and Methods</sername>
+          <issue>5-B8</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>US Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.3133/tm5B8</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Billy B. Potter</origin>
+        <origin>John C. Wimsatt</origin>
+        <pubdate>20120601</pubdate>
+        <title>USEPA method 415.3: Quantifying TOC, DOC, and SUVA</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Journal - American Water Works Association</sername>
+          <issue>vol. 104, issue 6</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Wiley</publish>
+        </pubinfo>
+        <othercit>ppg. E358-E369</othercit>
+        <onlink>https://doi.org/10.5942/jawwa.2012.104.0086</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Demetri Terzopoulos</origin>
+        <origin>Andrew P. Witkin</origin>
+        <pubdate>198811</pubdate>
+        <title>Physically based models with rigid and deformable components</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>IEEE Computer Graphics and Applications</sername>
+          <issue>vol. 8, issue 6</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Institute of Electrical and Electronics Engineers (IEEE)</publish>
+        </pubinfo>
+        <othercit>ppg. 41-51</othercit>
+        <onlink>https://doi.org/10.1109/38.20317</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>U.S. Geological Survey</origin>
+        <pubdate>20111109</pubdate>
+        <title>Remark Codes</title>
+        <geoform>publication</geoform>
+        <othercit>National Water Information System: System Help</othercit>
+        <onlink>https://help.waterdata.usgs.gov/remark_cd</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Elizabeth B. Stumpner</origin>
+        <origin>Brian A. Bergamaschi</origin>
+        <origin>Tamara E.C. Kraus</origin>
+        <origin>Alexander E. Parker</origin>
+        <origin>Frances P. Wilkerson</origin>
+        <origin>Bryan D. Downing</origin>
+        <origin>Richard C. Dugdale</origin>
+        <origin>Michael C. Murrell</origin>
+        <origin>Kurt D. Carpenter</origin>
+        <origin>James L. Orlando</origin>
+        <origin>Carol Kendall</origin>
+        <pubdate>202001</pubdate>
+        <title>Spatial variability of phytoplankton in a shallow tidal freshwater system reveals complex controls on abundance and community structure</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Science of The Total Environment</sername>
+          <issue>vol. 700</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Elsevier BV</publish>
+        </pubinfo>
+        <othercit>ppg. 134392</othercit>
+        <onlink>https://doi.org/10.1016/j.scitotenv.2019.134392</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Markus Beutler</origin>
+        <origin>Karen H. Wiltshire</origin>
+        <origin>Bertrand Meyer</origin>
+        <origin>Christian Moldaenke</origin>
+        <origin>Christian Lüring</origin>
+        <origin>Michael Meyerhöfer</origin>
+        <origin>Ulf-Peter Hansen</origin>
+        <origin>Holger Dau</origin>
+        <pubdate>2002</pubdate>
+        <title>A fluorometric method for the differentiation of algal populations in vivo and in situ</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Photosynthesis Research</sername>
+          <issue>vol. 72, issue 1</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Springer Science and Business Media LLC</publish>
+        </pubinfo>
+        <othercit>ppg. 39-53</othercit>
+        <onlink>https://doi.org/10.1023/A:1016026607048</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Lisle Snyder</origin>
+        <origin>Jody D. Potter</origin>
+        <origin>William H. McDowell</origin>
+        <pubdate>20180330</pubdate>
+        <title>An Evaluation of Nitrate, fDOM, and Turbidity Sensors in New Hampshire Streams</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Water Resources Research</sername>
+          <issue>vol. 54, issue 3</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>American Geophysical Union (AGU)</publish>
+        </pubinfo>
+        <othercit>ppg. 2466-2479</othercit>
+        <onlink>https://doi.org/10.1002/2017WR020678</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Brian A. Pellerin</origin>
+        <origin>Brian A. Bergamaschi</origin>
+        <origin>Bryan D. Downing</origin>
+        <origin>John Franco Saraceno</origin>
+        <origin>Jessica D. Garrett</origin>
+        <origin>Lisa D. Olsen</origin>
+        <pubdate>2013</pubdate>
+        <title>Optical techniques for the determination of nitrate in environmental waters: Guidelines for instrument selection, operation, deployment, maintenance, quality assurance, and data reporting</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Techniques and Methods</sername>
+          <issue>1-D5</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>US Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.3133/tm1D5</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>U.S. Geological Survey</origin>
+        <pubdate>2022</pubdate>
+        <title>USGS Water Data for the Nation</title>
+        <geoform>dataset</geoform>
+        <pubinfo>
+          <pubplace>https://www.sciencebase.gov</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <othercit>National Water Information System database</othercit>
+        <onlink>https://doi.org/10.5066/f7p55kjn</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Joan U. Clarke</origin>
+        <pubdate>19980101</pubdate>
+        <title>Evaluation of Censored Data Methods To Allow Statistical Comparisons among Very Small Samples with Below Detection Limit Observations</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Environmental Science &amp;amp; Technology</sername>
+          <issue>vol. 32, issue 1</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>American Chemical Society (ACS)</publish>
+        </pubinfo>
+        <othercit>ppg. 177-183</othercit>
+        <onlink>https://doi.org/10.1021/es970521v</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Cédric G. Fichot</origin>
+        <origin>Bryan D. Downing</origin>
+        <origin>Brian A. Bergamaschi</origin>
+        <origin>Lisamarie Windham-Myers</origin>
+        <origin>Mark Marvin-DiPasquale</origin>
+        <origin>David R. Thompson</origin>
+        <origin>Michelle M. Gierach</origin>
+        <pubdate>20151228</pubdate>
+        <title>High-Resolution Remote Sensing of Water Quality in the San Francisco Bay–Delta Estuary</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Environmental Science &amp;amp; Technology</sername>
+          <issue>vol. 50, issue 2</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>American Chemical Society (ACS)</publish>
+        </pubinfo>
+        <othercit>ppg. 573-583</othercit>
+        <onlink>https://doi.org/10.1021/acs.est.5b03518</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Wim Kimmerer</origin>
+        <origin>Frances Wilkerson</origin>
+        <origin>Bryan D. Downing</origin>
+        <origin>Richard Dugdale</origin>
+        <origin>Edward S. Gross</origin>
+        <origin>Karen Kayfetz</origin>
+        <origin>Shruti Khanna</origin>
+        <origin>Alexander E. Parker</origin>
+        <origin>Janet Thompson</origin>
+        <pubdate>2019</pubdate>
+        <title>Effects of Drought and the Emergency Drought Barrier on the Ecosystem of the California Delta</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>San Francisco Estuary &amp; Watershed Science</sername>
+          <issue>17</issue>
+        </serinfo>
+        <onlink>https://doi.org/10.15447/sfews.2019v17iss3art2</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Robert M. Carlson</origin>
+        <pubdate>19780901</pubdate>
+        <title>Automated separation and conductimetric determination of ammonia and dissolved carbon dioxide</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Analytical Chemistry</sername>
+          <issue>vol. 50, issue 11</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>American Chemical Society (ACS)</publish>
+        </pubinfo>
+        <othercit>ppg. 1528-1531</othercit>
+        <onlink>https://doi.org/10.1021/ac50033a035</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Charles J. Patton</origin>
+        <origin>Earl P. Truitt</origin>
+        <pubdate>1992</pubdate>
+        <title>Methods of analysis by the U.S. Geological Survey National Water Quality Laboratory-Determination of the total phosphorus by a Kjeldahl digestion method and an automated colorimetric finish that includes dialysis</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Open-File Report</sername>
+          <issue>92-146</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>US Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.3133/ofr92146</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Wes McKinney</origin>
+        <pubdate>2010</pubdate>
+        <title>Data Structures for Statistical Computing in Python</title>
+        <geoform>publication</geoform>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>SciPy</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.25080/Majora-92bf1922-00a</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Guido Van Rossum</origin>
+        <origin>Fred L. Drake</origin>
+        <pubdate>200903</pubdate>
+        <title>Python 3 Reference Manual</title>
+        <geoform>publication</geoform>
+        <pubinfo>
+          <pubplace>Scotts Valley, CA</pubplace>
+          <publish>CreateSpace</publish>
+        </pubinfo>
+        <othercit>Scotts Valley, CA: Create Space</othercit>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>U.S. Geological Survey</origin>
+        <pubdate>2016</pubdate>
+        <title>USGS National Hydrography Dataset (NHD) Downloadable Data Collection</title>
+        <geoform>publication</geoform>
+        <pubinfo>
+          <pubplace>http://nhd.usgs.gov</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <othercit>National Geospatial Data Asset (NGDA), accessed December 14, 2018.</othercit>
+        <onlink>http://nhd.usgs.gov</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Thomas Jabusch</origin>
+        <origin>Phil Bresnahan</origin>
+        <origin>Phil Trowbridge</origin>
+        <origin>Emily Novick</origin>
+        <origin>Adam Wong</origin>
+        <origin>Micha Salomon</origin>
+        <origin>David Senn</origin>
+        <pubdate>20161231</pubdate>
+        <title>Summary and evaluation of Delta subregions for nutrient monitoring and assessment Technical report</title>
+        <geoform>publication</geoform>
+        <onlink>https://www.sfei.org/documents/delta-subregions</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Kelsey Jordahl</origin>
+        <pubdate>20141231</pubdate>
+        <title>GeoPandas: Python tools for geographic data</title>
+        <geoform>publication</geoform>
+        <onlink>https://geopandas.org/en/stable/docs.html</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>L.C. Thompson</origin>
+        <origin>T.D. Mussen</origin>
+        <origin>M. Cook</origin>
+        <origin>J. Nordin</origin>
+        <origin>J. Noss</origin>
+        <origin>U. Bigler</origin>
+        <origin>S. Ramamoorthy</origin>
+        <origin>G.M. Berg</origin>
+        <origin>S. Driscoll</origin>
+        <origin>C. Herrmann</origin>
+        <origin>W. Kimmerer</origin>
+        <origin>T. Ignoffo</origin>
+        <origin>T.E.C. Kraus</origin>
+        <origin>J. Fackrell</origin>
+        <origin>B. Bergamaschi</origin>
+        <origin>M. Guerin</origin>
+        <origin>R. Rachiele</origin>
+        <pubdate>2023</pubdate>
+        <title>Sacramento River Nutrient Change Study.  A report to the Delta Regional Monitoring Program, State Water Contractors, and US Bureau of Reclamation</title>
+        <geoform>publication</geoform>
+        <onlink>https://deltarmp.org/Documents/Sacramento_River_Nutrient_Change_Study.pdf</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Charles J. Patton</origin>
+        <origin>Jennifer R. Kryskalla</origin>
+        <pubdate>2003</pubdate>
+        <title>Methods of analysis by the U.S. Geological Survey National Water Quality Laboratory-Evaluation of alkaline persulfate digestion as an alternative to Kjeldahl digestion for determination of total and dissolved nitrogen and phosphorus in water</title>
+        <geoform>publication</geoform>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>US Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.3133/wri034174</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>American Public Health Associtaion (APHA)</origin>
+        <pubdate>2012</pubdate>
+        <title>Standard methods for the examination of water and wastewater</title>
+        <edition>22</edition>
+        <geoform>publication</geoform>
+        <pubinfo>
+          <pubplace>Washington, D.C.</pubplace>
+          <publish>American Water Works Association and Water Environment Federation</publish>
+        </pubinfo>
+        <othercit>874 p.</othercit>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>JoAtnn M. Burkholder</origin>
+        <origin>Robert G. Wetzel</origin>
+        <pubdate>20041029</pubdate>
+        <title>MICROBIAL COLONIZATION ON NATURAL AND ARTIFICIAL MACROPHYTES IN A PHOSPHORUS-LIMITED, HARDWATER LAKE1</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Journal of Phycology</sername>
+          <issue>vol. 25, issue 1</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Wiley</publish>
+        </pubinfo>
+        <othercit>ppg. 55-65</othercit>
+        <onlink>https://doi.org/10.1111/j.0022-3646.1989.00055.x</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Angela M. Hansen</origin>
+        <origin>Tamara E. C. Kraus</origin>
+        <origin>Brian A. Pellerin</origin>
+        <origin>Jacob A. Fleck</origin>
+        <origin>Bryan D. Downing</origin>
+        <origin>Brian A. Bergamaschi</origin>
+        <pubdate>20160310</pubdate>
+        <title>Optical properties of dissolved organic matter (DOM): Effects of biological and photolytic degradation</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Limnology and Oceanography</sername>
+          <issue>vol. 61, issue 3</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Wiley</publish>
+        </pubinfo>
+        <othercit>ppg. 1015-1032</othercit>
+        <onlink>https://doi.org/10.1002/lno.10270</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Angela M. Hansen</origin>
+        <origin>Jacob Fleck</origin>
+        <origin>Tamara E. C. Kraus</origin>
+        <origin>Bryan D. Downing</origin>
+        <origin>Travis von Dessonneck</origin>
+        <origin>Brian Bergamaschi</origin>
+        <pubdate>2018</pubdate>
+        <title>Procedures for using the Horiba Scientific Aqualog fluorometer to measure absorbance and fluorescence from dissolved organic matter</title>
+        <geoform>publication</geoform>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>US Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.3133/ofr20181096</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Helmut Hillebrand</origin>
+        <origin>Claus-Dieter Dürselen</origin>
+        <origin>David Kirschtel</origin>
+        <origin>Utsa Pollingher</origin>
+        <origin>Tamar Zohary</origin>
+        <pubdate>20020902</pubdate>
+        <title>BIOVOLUME CALCULATION FOR PELAGIC AND BENTHIC MICROALGAE</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Journal of Phycology</sername>
+          <issue>vol. 35, issue 2</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Wiley</publish>
+        </pubinfo>
+        <othercit>ppg. 403-424</othercit>
+        <onlink>https://doi.org/10.1046/j.1529-8817.1999.3520403.x</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>John W. G. Lund</origin>
+        <origin>Charlotte Kipling</origin>
+        <origin>E. D. Le Cren</origin>
+        <pubdate>19580401</pubdate>
+        <title>The inverted microscope method of estimating algal numbers and the statistical basis of estimations by counting</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Hydrobiologia</sername>
+          <issue>vol. 11, issue 2</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Springer Science and Business Media LLC</publish>
+        </pubinfo>
+        <othercit>ppg. 143-170</othercit>
+        <onlink>https://doi.org/10.1007/BF00007865</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Clarence D. McNabb</origin>
+        <pubdate>20031222</pubdate>
+        <title>ENUMERATION OF FRESHWATER PHYTOPLANKTON CONCENTRATED ON THE MEMBRANE FILTER1</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Limnology and Oceanography</sername>
+          <issue>vol. 5, issue 1</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Wiley</publish>
+        </pubinfo>
+        <othercit>ppg. 57-61</othercit>
+        <onlink>https://doi.org/10.4319/lo.1960.5.1.0057</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>U.S. Geological Survey</origin>
+        <pubdate>20111109</pubdate>
+        <title>Value Qualifier Codes</title>
+        <geoform>publication</geoform>
+        <othercit>National Water Information System: System Help</othercit>
+        <onlink>https://help.waterdata.usgs.gov/code/val_qual_cd_query</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>B.A. Bergamaschi</origin>
+        <origin>T.E.C. Kraus</origin>
+        <origin>B.D. Downing</origin>
+        <origin>J. Soto Perez</origin>
+        <origin>K. O'Donnell</origin>
+        <origin>J.A. Hansen</origin>
+        <origin>A.M. Hansen</origin>
+        <origin>A.D. Gelber</origin>
+        <origin>E.B. Stumpner</origin>
+        <pubdate>20200504</pubdate>
+        <title>Assessing spatial variability of nutrients and related water quality constituents in the Delta as the landscape scale: High frequency campaigns</title>
+        <geoform>dataset</geoform>
+        <pubinfo>
+          <pubplace>https://www.sciencebase.gov</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.5066/p9fqeual</onlink>
+      </citeinfo>
+    </crossref>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>YSI EXO sondes were calibrated before use in the field with the KorEXO software (version 2.2.0.5) . For calibration, the sonde sensors are submerged one at a time in standards, then the verified chemical concentration is recorded within the instrument. If the instrument measures an unknown value of the parameter, it refers to the calibration information to calculate the concentration of the chemical in the water (EXO User Manual, pg. 81).</attraccr>
+    </attracc>
+    <logic>Redundancy is built into the system, meaning many of the parameters included in the data set are measured by 2 different instruments (e.g. EXO and Wet-Star for chlorophyll and dissolved organic matter fluorescence; EXO and Thermosalinograph  for temperature and conductivity; EXO and C-Star for turbidity). Data was displayed in real-time for on the spot user verification. Topology rules were applied to points, lines, and polygons to ensure the integrity of the geospatial data.</logic>
+    <complete>Data set is considered complete for the information presented, as described in the abstract. Users are advised to read the rest of the metadata record carefully for additional details.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>We conducted a visual check that the GPS data we recorded matched the boat GPS. Data was also displayed in real-time, allowing us to spot check GPS data underway. In addition, GPS location information was compared to field notes that described known locations and features. Datum used NAD1983.</horizpar>
+      </horizpa>
+    </posacc>
+    <lineage>
+      <procstep>
+        <procdesc>This data set comprises four days of high resolution mapping and discrete sample collection of nutrients, phytoplankton, and related water quality constituents conducted in the Sacramento River, Georgiana Slough, and the North and South Forks of the Mokelumne River on August 28th and September 10th through 12th, 2019, coincidental with planned holds of treated wastewater effluent from Sacramento Regional Wastewater Treatment Plant (SRWTP) following the approach described by Fichot and others (2015), Downing and others (2016), Kimmerer and others (2019) and Stumpner and others (2020). SRWTP halted treated effluent releases to the Sacramento River at their outflow site (38° 27’ 15”N, 121° 30’ 00”W), located just south of Freeport Bridge, from 23:54 on August 26th through 01:25 on August 28th, 2019, and from 23:57 on September 9th through 01:19 on September 12th, 2019 The purpose of this study was to observe changes in nutrients, phytoplankton, and related water quality constituents in the different waterways surveyed under conditions representing (i) typical contribution from SRWTP effluent, (ii) the transition from typical SRWTP effluent conditions to SRTWP effluent-free conditions, and (iii) SRTWP effluent-free conditions.  
+
+HIGH RESOLUTION DATA COLLECTION:
+
+Surveys were conducted using the USGS R/V Mary Landsteiner on August 28 and September 10-12, 2019, following the approach described by Bergamaschi and others, 2020. On each day data were collected during daylight hours. For analysis, sample water was continuously pumped onto the boat using two SHURflo Aqua King II pumps at a pressure of 55 psi and rate of 5 GPM (SHURflo Pentair, London, United Kingdom) while underway at speeds up to 30 mph (13 m/s) using a pick-up tube mounted at a fixed depth of approximately 1 m below the surface, routed through a 178 μm in-line strainer (Cole Parmer; EW-29595-47, Vernon Hills, IL) to remove large debris and into a pressure-compensated manifold that maintained system pressure at a proscribed level irrespective of boat speed (Downing and others, 2016). A 2-stage debubbler was used to remove bubbles that can interfere with optical measurements. Sample water was split into separate flow paths for each analytical flow path, with constant flow rates maintained by metering the discharge line, except for the flow path serving the open split interface, which was metered on the feed line. Flows were continuously monitored using a sight gauge (0.1-1 GPM Flow Meter LZM-15 with adjustable knob) for each flow path.
+
+All instrumentation was cleaned, and calibrations were checked prior to each use following the manufacturer's recommendation or as described below. Data for most instruments was recorded at 1-second frequency on a single data logger (CR6, Campbell Scientific, Logan, Utah, United States) together with a timestamp and boat position obtained from a high-resolution global positioning system receiver (16X-HVS, Garmin, Olathe, Kansas). The FluoroProbe logged data internally and to the host software every 4 seconds. The NH4 analyzer was connected to a stand-alone computer and collected data through its native software. All data were displayed in real time, so scientists on board could respond when they observed changes relevant to study objectives, or if issues with flow or instrument performance were noted. Data collected in situ are referred to as high resolution (HR) parameters.
+
+More detailed methods documentation can be found in Thompson and others, 2023 as well as on the landing page (https://www.sciencebase.gov/catalog/item/5fa096b1d34e198cb7919341).</procdesc>
+        <procdate>2019</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>DISCRETE WATER SAMPLING:
+
+Discrete water samples (DS) were collected either underway or–in the case of more extensive sample requirements–while stopped on station. Discrete samples were collected while underway either using a fourth flow path on the sampling manifold or using a separate system with a separate pick-up tube mounted adjacent to the main sampling pick-up and pumping sample through a 0.45-micron filter into a sample bottle. At designated sampling stations (approximately 10 per day) samples for determination of NH4, NO3, PO4, dissolved organic carbon (DOC), and total dissolved nitrogen (TDN) concentrations were collected using this system. Additionally, unfiltered samples were collected approximately from 1 m depth using a submersible pump for analysis of chlorophyll a (Chl a), pheophytin, phytoplankton enumeration, and picocyanobacterial counts. Samples for phytoplankton enumeration and picocyanobacteria counts were fixed immediately with Lugol’s iodine solution (4 mL) and formaldehyde (1 mL), respectively.
+
+More detailed methods documentation can be found in Thompson and others, 2023 as well as on the landing page (https://www.sciencebase.gov/catalog/item/5fa096b1d34e198cb7919341).</procdesc>
+        <procdate>2019</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>DATA PROCESSING:
+
+High resolution (HR) data from onboard continuous instruments not directly logged to the flow-through data collection system were merged based on timestamp to the nearest second. All data directly logged to the flow-through data collection system was processed using pandas software library (0.220) in Python (3.7.3) to remove periods of compromised data (e.g. flow blockages, bubbles), to apply instrument corrections and unit conversions, and to apply a centered 20 second median filter to the time series. Final NO3 values were obtained by regressing instrument response against NO3 concentrations obtained from laboratory measurements of discrete samples collected through the course of the day. Individual sample results with more than three standard deviations from the regression were judged to be outliers and removed from the regression. NH4 data was processed by first correcting the voltage output of the instrument for baseline drift based on the instrument response during periodic measurements of organic-free deionized water (n ≥10) and then using a regression model of the voltage response to a standard concentration. A regression coefficient of &gt;0.97 R² or better was judged to be acceptable. The NH4 data timestamp was corrected to account for the time lag associated with the microfluidic processing prior to integration with other data sources.
+
+Data were spatially aligned (SA) to geographic coordinate system (NAD 1983, 2011) to facilitate comparisons between dates and to minimize the effects of differential data density on the spatial interpolation calculations. The spatial alignment was performed using the GeoPandas software library in python (Jordahl, 2014), which assigned median-filtered data points to polygon shapefiles that are spaced at approximately 150 m intervals. Spatially aligned data were then aggregated by polygon shapefile to obtain summary statistics of all median-filtered data within a polygon.  
+
+Interpolated water quality data were created from the spatially aligned data using ESRI’s ArcGIS Pro Spline with Barriers tool (Terzopoulos and Witkin, 1988). The raster output was smoothed with the Focal Statistics tool, and interpolated values from the raster output were extracted to the spatially aligned points with the Extract Multi Values to Points tool to create continuous spatially aligned data across the mapping domain. Rasters were converted to vector format using the Contour tool, then clipped with the Clip tool using a Sacramento-San Joaquin Delta polygon obtained from the National Hydrography Dataset (U.S. Geological Survey, 2016). These data are referred to as spatially aligned (SA), and each data point is associated with a specific sampling day and water quality parameter. 
+
+More detailed methods documentation can be found in Thompson and others, 2023 as well as on the landing page (https://www.sciencebase.gov/catalog/item/5fa096b1d34e198cb7919341).</procdesc>
+        <procdate>2020</procdate>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <spref>
+    <horizsys>
+      <geograph>
+        <latres>0.0197560976</latres>
+        <longres>0.0250212359</longres>
+        <geogunit>Decimal degrees</geogunit>
+      </geograph>
+      <geodetic>
+        <horizdn>North American Datum of 1983 (NAD 83)</horizdn>
+        <ellips>Geodetic Reference System 1980</ellips>
+        <semiaxis>6378137.000000</semiaxis>
+        <denflat>298.257222</denflat>
+      </geodetic>
+    </horizsys>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>SRiNC Data Dictionary.xlsx</enttypl>
+        <enttypd>Definition of column headers of SRiNC 2019 data release</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>SRINC_2019_HR.txt</enttypl>
+        <enttypd>high-resolution data</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>SRiNC_2019_DS.txt</enttypl>
+        <enttypd>discrete data</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>SRiNC_2019_SA.txt</enttypl>
+        <enttypd>spatially-aligned data</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>SRiNC_8282019_MapsShp.zip</enttypl>
+        <enttypd>compressed SRiNC 8-28-2019 .shp files</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>SRiNC_9102019_MapsShp.zip</enttypl>
+        <enttypd>compressed SRiNC 9-10-2019 .shp files</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>SRiNC_9112019_MapsShp.zip</enttypl>
+        <enttypd>compressed SRiNC 9-11-2019 .shp files</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>SRiNC_9122019_MapsShp.zip</enttypl>
+        <enttypd>compressed SRiNC 9-12-2019 .shp files</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>SRiNC_methods.pdf</enttypl>
+        <enttypd>descriptive text of SRiNC methods</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>SRiNC_2019_PE.txt</enttypl>
+        <enttypd>phytoenumeration data</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <overview>
+      <eaover>Column header definitions and data offsets and corrections are described in text files: SRiNC Data dictionary.xlsx. More detailed description of sample collection, processing, and analysis are described in methods document (.pdf) on the landing page. High resolution (HR), spatially-aligned (SA), discrete (DS), and zipped .shp files also included</eaover>
+      <eadetcit>https://www.sciencebase.gov/catalog/item/5fa096b1d34e198cb7919341</eadetcit>
+    </overview>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntper>GS ScienceBase</cntper>
+          <cntorg>U.S. Geological Survey</cntorg>
+        </cntperp>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>Denver Federal Center, Building 810, Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>Digital Data</formname>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>https://doi.org/10.5066/P9GNMDPB</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <fees>None</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20230320</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Katy O'Donnell</cntper>
+          <cntorg>U.S. Geological Survey, SOUTHWEST REGION</cntorg>
+        </cntperp>
+        <cntpos>Geologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>6000 J Street Placer Hall</address>
+          <city>Sacramento</city>
+          <state>CA</state>
+          <postal>95819</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>916-278-3291</cntvoice>
+        <cntfax>916-278-3070</cntfax>
+        <cntemail>kodonnell@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Biological Data Profile of the Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001.1-1999</metstdv>
+  </metainfo>
+</metadata>

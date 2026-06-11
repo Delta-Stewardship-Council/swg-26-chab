@@ -1,0 +1,15 @@
+﻿"Citation: Graham, J.L., Dubrovsky, N.M., Loftin, K.A., Rosen, B.H., and Stelzer, E.A., 2021, Cyanotoxin, chlorophyll-a, and cyanobacterial toxin genetic data for samples collected at eleven large river sites throughout the United States, June through October 2018: U.S. Geological Survey data release, https://doi.org/10.5066/P98RPC1E.",,,,,
+"Standard curve information for quantitative polymerase chain reaction (qPCR) assays, 2018. ",,,,,
+"[copies/rxn, copies per reaction volume; R2, coefficient of determination; LoD, limit of detection; LoQ, limit of quantification; mcyE, microcystin synthetase gene; sxtA, saxitoxin synthetase gene; anaC, anatoxin-a synthetase gene; cyrA, cylindrospermopsin synthetase gene]",,,,,
+Assay name,"Dynamic range
+(copies/rxn)","Range of amplification 
+efficiencies (percent)","Range of R2 
+values","LoD
+(copies/rxn)","LoQ
+(copies/rxn)"
+Microcystis mcyE,69.2 - 6.92 x 107,96 - 97,0.9970 - 0.9988,13,39
+Planktothrix mcyE,24.8 - 2.48 x 107,96 - 100,0.9982 - 0.9996,51,110
+Dolichospermum mcyE,26.7 - 2.67 x 107,96 - 98,0.9964 - 0.9975,46,120
+sxtA,32.3 - 3.23 x 107,89 - 90,0.9978 - 0.9980,14,45
+anaC,20.3 - 2.03 x 106,91 - 92,0.9985 - 0.9992,32,60
+cyrA,27.5 - 2.75 x 107,98 - 103,0.9969 - 0.9977,31,83

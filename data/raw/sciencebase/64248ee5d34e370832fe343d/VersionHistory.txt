@@ -1,0 +1,27 @@
+
+March 2023 - Version 4: 
+
+I. A new table with all station locations was added, filename SFBayStations.csv
+II. An edited station map was added, with a few more stations labeled, filename SFBay_station_map_v4.pdf
+III. Revisions found in the Version 4 data file SanFranciscoBayWaterQualityData1969-2015v4.csv:
+1. Added the time stamp and Julian date for each date, station and depth of sampling
+2. Three new parameters of data were added, each of these were derived from measured parameters: ratio of chlorophyll-a and pheopigments, oxygen percent saturation, and density as Sigma-t 
+3. Silicate results for 3/11/2014- 12/16/2015 were edited with a salinity correction which changed the concentrations 0-10% from the original (uncorrected) results. The following equation was applied: corrected silicate = uncorrected silicate/((dilution adjusted salinity * -0.4595 + 103.79)/100). "Dilution adjusted salinity" is based on how much the sample was diluted for nutrient analysis.
+4. Added newly discovered archived full cruises and one additional station on one date: 12/8/1998, 4/14/1999, and 8/9/2005 all stations, and station 30 on 2/2/2005. 
+5. Added nutrient data: 1388 lines of data (single station and single depth on a single date) were added, additions include all nutrient parameters or a subset depending on the date/station/depth. These nutrient data were previously omitted due to a variety of causes from database errors to recently discovered archived data. 
+6. Two dates were changed/corrected by one day and nutrient data were added for both of these cruise dates (these nutrient data were not included in the #5 count): 9/30/91 was changed to 10/1/91; 11/20/91 was changed to 11/19/91. 
+7. Discrete data were added for 12/9/1997 (whole cruise) and 2/23/2010 stations 3 and 2.  Discrete lab analyzed data (chlorophyll, oxygen, SPM, nutrients) and salinity and temperature collected near-surface with non CTD sensors were used as CTD data were not collected at these date/locations.
+8. Duplicate lines were removed for 3/17/98 station 29 at 2m and 3/19/2002 station 2 at 2m
+
+
+May 2017 - Version 3: 
+We discovered that a small subset of the silicate measurements made between January 2011 and February 2014 have questionable reliability. These data were removed and not present in the revised file: SanFranciscoBayWaterQualityData1969-2015v3.csv
+
+
+December 2016 - Version 2:
+We discovered inconsistencies in the format of sampling dates listed in the original data file: SanFranciscoBayWaterQualityData1969-2015.csv.  These were corrected in the data file: SanFranciscoBayWaterQualityData1969-2015v2.csv 
+
+
+
+Tara Schraga, USGS, Menlo Park, CA
+

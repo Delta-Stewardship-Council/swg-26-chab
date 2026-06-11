@@ -1,0 +1,4915 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Brian A. Bergamaschi</origin>
+        <origin>Tamara E. C. Kraus</origin>
+        <origin>Bryan D. Downing</origin>
+        <origin>Katy O'Donnell</origin>
+        <origin>Jeniffer Soto Perez</origin>
+        <origin>Jeffrey A. Hansen</origin>
+        <origin>Angela M. Hansen</origin>
+        <origin>Alan D. Gelber</origin>
+        <origin>Elizabeth B. Stumpner</origin>
+        <pubdate>2020</pubdate>
+        <title>Assessing spatial variability of nutrients and related water quality constituents in the California Sacramento-San Joaquin Delta at the landscape scale: 2018 High resolution mapping surveys (ver. 2.0, October 2023)</title>
+        <geoform>tabular digital data</geoform>
+        <othercit>n/a</othercit>
+        <onlink>https://doi.org/10.5066/P9FQEUAL</onlink>
+        <lworkcit>
+          <citeinfo>
+            <origin>Brian A. Bergamaschi</origin>
+            <origin>Tamara E. C. Kraus</origin>
+            <origin>Bryan D. Downing</origin>
+            <origin>Elizabeth B. Stumpner</origin>
+            <origin>Katy O'Donnell</origin>
+            <origin>Jeffrey A. Hansen</origin>
+            <origin>Jeniffer Soto Perez</origin>
+            <origin>Emily T. Richardson</origin>
+            <origin>Angela M. Hansen</origin>
+            <origin>Alan Gelber</origin>
+            <pubdate>2024</pubdate>
+            <title>Assessing spatial variability of nutrients, phytoplankton, and related water-quality constituents in the California Sacramento–San Joaquin Delta at the landscape scale—2018 high resolution mapping surveys</title>
+            <geoform>publication</geoform>
+            <pubinfo>
+              <pubplace>n/a</pubplace>
+              <publish>US Geological Survey</publish>
+            </pubinfo>
+            <onlink>https://doi.org/10.3133/sir20235060</onlink>
+          </citeinfo>
+        </lworkcit>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The dataset documents the spatial and temporal variability of nutrients and related water quality parameters at high spatial resolution in the North Delta, Central Delta, and the Western Delta out to Suisun Bay in the Sacramento-San Joaquin River Delta of California, USA. The dataset includes nitrate, ammonium, phosphate, dissolved organic carbon, temperature, conductivity, dissolved oxygen, and chlorophyll as well as information about phytoplankton community composition. Data-collection cruises were conducted under three different environmental/flow conditions in May, July, and October of 2018. The data release consists of a xml document, 13 text/csv documents, and a zip file. Descriptions for each document and file are listed below:
+
+1. METADATA: (2018_High_resolution_mapping_surveys_v2.0.xml) – Metadata for child item “Assessing spatial variability of nutrients and related water quality constituents in the California Sacramento-San Joaquin Delta at the landscape scale: 2018 High resolution mapping surveys.”
+2. QA DATA: (Delta Water Quality Mapping 2018 Data Corrections and Offsets.csv) – Data corrections and offsets calculations applied to the datasets.
+3. DATA DICTIONARY (Delta Water Quality Mapping 2018 Data Dictionary v2.0.csv) – Data dictionary for tables and attributes.
+4. DISCRETE SAMPLING DATA: (Delta Water Quality Mapping 2018 Discrete Sampling v2.0.csv) – Discrete sampling, water chemistry data from the Sacramento-San Joaquin Delta study area.
+5. PHYTOPLANKTON ENUMERATION DATA FROM DISCRETE SAMPLES: (Delta Water Quality Mapping 2018 Discrete Sampling Phytoenumeration v2.0.csv) – Discrete sampling, phytoenumeration data from the Sacramento-San Joaquin Delta study area.
+6. May 2018 FIELD MAPPING DATA (High resolution, timestamped and 20 second median filtered): (Delta Water Quality Mapping May 2018 High Resolution.csv) – High resolution, in situ, unfiltered, in vivo fluorescence (IVF), water chemistry data from the Sacramento-San Joaquin Delta study area. All measurements were collected in the field.
+7. May 2018 MAPPING DATA ON COMMON SPATIAL FRAMEWORK: (Delta Water Quality Mapping May 2018 Spatially Aligned.csv) – Spatially Aligned (Centerline Extracted) and interpolated, water chemistry data from the Sacramento-San Joaquin Delta study area.
+8. July 2018 FIELD MAPPING DATA (High resolution, timestamped and 20 second median filtered): (Delta Water Quality Mapping July 2018 High Resolution.csv) – High resolution, in situ, unfiltered, in vivo fluorescence (IVF), water chemistry data from the Sacramento-San Joaquin Delta study area. All measurements were collected in the field.
+9. July 2018 MAPPING DATA ON COMMON SPATIAL FRAMEWORK: (Delta Water Quality Mapping July 2018 Spatially Aligned.csv) – Spatially Aligned (Centerline Extracted) and interpolated, water chemistry data from the Sacramento-San Joaquin Delta study area.
+10. FIELD MAPPING DATA (High resolution, timestamped and 20 second median filtered): (Delta Water Quality Mapping October 2018 High Resolution.csv) – High resolution, in situ, unfiltered, in vivo fluorescence (IVF), water chemistry data from the Sacramento-San Joaquin Delta study area. All measurements were collected in the field.
+11. October 2018 MAPPING DATA ON COMMON SPATIAL FRAMEWORK: (Delta Water Quality Mapping October 2018 Spatially Aligned.csv) – Spatially Aligned (Centerline Extracted) and interpolated, water chemistry data from the Sacramento-San Joaquin Delta study area.
+12. CALCULATED DIFFERENCES BETWEEN MAY AND JULY, 2018: (Delta Water Quality Mapping May to July 2018 Differences.csv) – Calculated differences between months for water chemistry data from the Sacramento-San Joaquin Delta study area.
+13. CALCULATED DIFFERENCES BETWEEN MAY AND OCTOBER 2018: (Delta Water Quality Mapping May to October 2018 Differences.csv) – Calculated differences between months for water chemistry data from the Sacramento-San Joaquin Delta study area.
+14. CALCULATED DIFFERENCES BETWEEN JULY AND OCTOBER, 2018: (Delta Water Quality Mapping July to October 2018 Differences.csv) – Calculated differences between months for water chemistry data from the Sacramento-San Joaquin Delta study area.
+15. SHAPE FILES FOR ALL RESULTS: (Maps_Shapefiles.zip) – Zip file containing 117 shapefiles for spatially aligned water quality constituents from the Sacramento-San Joaquin Delta study area.
+16. METHODS: (Methods_ChildItem_v2.0.pdf) – Text document describing methods used for data and sample collection and analysis.</abstract>
+      <purpose>The objective of this project is to document the variability of nutrients and related water quality parameters at high spatial resolution in the North Delta, Central Delta, and the Western Delta out to Suisun Bay (California, USA). This data release reports measurements that include nitrate, ammonium, phosphate, dissolved organic carbon, temperature, conductivity, dissolved oxygen, chlorophyll, blue-green algal pigments, and phytoplankton community structure.</purpose>
+      <supplinf>See files: Delta Water Quality Mapping 2018 Data Corrections and Offsets.xlsx; Delta Water Quality Mapping 2018 Data Dictionary v2.0.xlsx for further information regarding the datasets.</supplinf>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <mdattim>
+          <sngdate>
+            <caldate>20180515</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20180516</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20180517</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20180724</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20180725</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20180726</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20181017</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20181018</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20181019</caldate>
+          </sngdate>
+        </mdattim>
+      </timeinfo>
+      <current>publication date</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None planned</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-122.1545</westbc>
+        <eastbc>-121.2938</eastbc>
+        <northbc>38.5716</northbc>
+        <southbc>37.8227</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>ISO 19115 Topic Category</themekt>
+        <themekey>inlandWaters</themekey>
+        <themekey>structure</themekey>
+        <themekey>environment</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Thesaurus</themekt>
+        <themekey>hydrogeology</themekey>
+        <themekey>drinking water use</themekey>
+        <themekey>public supply water use</themekey>
+        <themekey>water quality</themekey>
+        <themekey>statistical analysis</themekey>
+        <themekey>visualization methods</themekey>
+        <themekey>phytoplankton</themekey>
+        <themekey>nutrient content (water)</themekey>
+        <themekey>high frequency</themekey>
+      </theme>
+      <theme>
+        <themekt>English</themekt>
+        <themekey>water quality</themekey>
+        <themekey>nutrients</themekey>
+        <themekey>high-frequency</themekey>
+        <themekey>delta</themekey>
+        <themekey>real-time</themekey>
+        <themekey>biogeochemistry</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Metadata Identifier</themekt>
+        <themekey>USGS:5d3f1ae2e4b01d82ce8d90e0</themekey>
+      </theme>
+      <place>
+        <placekt>Common geographic areas</placekt>
+        <placekey>United States</placekey>
+        <placekey>California</placekey>
+        <placekey>Central Valley</placekey>
+        <placekey>Suisun Bay</placekey>
+        <placekey>Sacramento River</placekey>
+        <placekey>Liberty Island</placekey>
+        <placekey>Sacramento-San Joaquin Delta</placekey>
+      </place>
+    </keywords>
+    <accconst>n/a</accconst>
+    <useconst>Although this data set has been used by the U.S. Geological Survey, U.S. Department of the Interior, no warranty expressed or implied is made by the U.S. Geological Survey as to the accuracy of the data and related materials. The act of distribution shall not constitute any such warranty, and no responsibility is assumed by the U.S. Geological Survey in the use of this data, software, or related materials. Any use of trade, product, or firm names is for descriptive purposes only and does not imply endorsement by the U.S. Government.</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Brian A Bergamaschi</cntper>
+          <cntorg>U.S. Geological Survey</cntorg>
+        </cntperp>
+        <cntpos>Chemist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>6000 J St</address>
+          <city>Sacramento</city>
+          <state>California</state>
+          <postal>95819</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>916-278-3053</cntvoice>
+      </cntinfo>
+    </ptcontac>
+    <datacred>Delta Regional Monitoring Program</datacred>
+    <native>Environment of Metadata Creation: Microsoft Windows 10 Enterprise Version 1803 (OS Build 17134.885); Esri ArcGIS 10.6.1 (Build 9270) Service Pack N/A (Build N/A)</native>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>EXO sondes were calibrated before use in the field with the KorEXO software. For calibration, the sonde sensors are submerged one at a time in standards, then the verified chemical concentration is recorded within the instrument. If the instrument measures an unknown value of the parameter, it refers to the calibration information to calculate the concentration of the chemical in the water (EXO User Manual, pg. 81).</attraccr>
+    </attracc>
+    <logic>Redundancy is built into the system, meaning many of the parameters included in the data set are measured by 2 different instruments. Data was displayed in real-time for on the spot user verification. Topology rules were applied to points, lines, and polygons to ensure the integrity of the geospatial data.</logic>
+    <complete>Data set is considered complete for the information presented, as described in the abstract. Users are advised to read the rest of the metadata record carefully for additional details.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>We conducted a visual check that the GPS data we recorded matched the boat GPS. Data was also displayed in real-time, allowing us to spot check GPS data underway. In addition, GPS location information was compared to field notes that described known locations and features.</horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>We conducted a visual check that the GPS data we recorded matched the boat GPS. Data was also displayed in real-time, allowing us to spot check GPS data underway. In addition, GPS location information was compared to field notes that described known locations and features. Datum used NAD1983.</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <procstep>
+        <procdesc>Broad area water quality mapping surveys of the Sacramento-San Joaquin River Delta (California, USA) were conducted three times in 2018 during the months of May, July, and October using the USGS R/V Mary Landsteiner, a 26-foot (~8 meter) long motorboat. For each of these months, transects were conducted on three successive days: May 15, 16, and 17; July 24, 25, and 26; and October 17, 18, and 19. Each day covered one of three regions of the Delta: North (~100 km), Central (~120 km), and South (~100 km). On each day data were collected during daylight hours from approximately 07:30 am to 3:30 pm pacific standard time (PST).
+
+For analysis, sample water was continuously pumped onto the boat while underway at speeds up to 30 mph (13 m/s) using a pick- up tube mounted at a fixed depth of approximately 1 m below the surface, routed through a screen to remove large debris and into a pressure-compensated manifold that maintained system pressure at a proscribed level irrespective of boat speed (Downing et al., 2016). A 2-stage debubbler was used to remove bubbles that can interfere with optical measurements. Sample water was split into separate flow paths for each analytical flow path, with constant flow rates maintained by metering the discharge line, except for the flow path serving the open split interface, which was metered on the feed line. Flows were continuously monitored using a sight gauge for each flow path.
+
+More detailed methods documentation can be found on the landing page (https://www.sciencebase.gov/catalog/item/5d3f1ae2e4b01d82ce8d90e0).</procdesc>
+        <procdate>20180515</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Discrete water samples were collected either underway or–in the case of more extensive sample requirements–while stopped on station. Discrete samples were collected while underway either using a fourth flow path on the sampling manifold or using a separate system with a separate pick-up tube mounted adjacent to the main sampling pick-up and pumping sample through a 0.45-micron filter into a sample bottle. Samples were collected while underway approximately every 2 miles, principally for determination of ortho-phosphate (PO4). At designated sampling stations (approximately 10 per day) samples for determination of NH4, NO3, PO4, dissolved organic carbon (DOC), and total dissolved nitrogen (TDN) concentrations were collected using this system. Additionally, unfiltered samples were collected approximately from 1 m depth using a submersible pump for analysis of chlorophyll-a (Chl-a), pheophytin, phycocyanin, allophycocyanin, and phycoerythrin pigments, phytoenumeration, and picocyanobacterial counts. Samples for phytoplankton enumeration and picocyanobacteria counts were fixed immediately with Lugol’s iodine solution (4 mL) and formaldehyde (1 mL), respectively.
+
+More detailed methods documentation can be found on the landing page (https://www.sciencebase.gov/catalog/item/5d3f1ae2e4b01d82ce8d90e0).</procdesc>
+        <procdate>20180515</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Data from onboard continuous instruments not directly logged to the flow-through data collection system were merged based on timestamp to the nearest second. All data directly logged to the flow- through data collection system was processed using pandas software library in Python to remove periods of compromised data (e.g. flow blockages, bubbles), to apply instrument corrections and unit conversions, and to apply a centered 20 second median filter to the time series. Final NO3 values were obtained by regressing instrument response against NO3 concentrations obtained from laboratory measurements of discrete samples collected through the course of the day. Individual sample results with more than three standard deviations from the regression were judged to be outliers and removed from the regression. NH4 data was processed by first correcting the voltage output of the instrument for baseline drift based on the instrument response during periodic measurements of organic-free deionized water (n ≥10) and then using a regression model of the voltage response to a standard concentration. A regression coefficient of &gt;0.97 R² or better was judged to be acceptable. The NH4 data timestamp was corrected to account for the time lag associated with the microfluidic processing prior to integration with other data sources.
+
+Data was spatially aligned (SA) to a common spatial framework to facilitate comparisons between dates and to minimize the effects of differential data density on the spatial interpolation calculations by assigning median-filtered data by proximity to a centerline vector comprising points located at the centerline of all channels navigated, spaced at approximately 150 m intervals. Interpolated water quality maps were created from the spatially aligned data using ArcGIS Spline with Barriers tool (Terzopoulos and Witkin, 1988). The raster output was smoothed with the Focal Statistics tool, and interpolated values were extracted to the spatially aligned points to create continuous spatially aligned data across the mapping domain.
+
+More detailed methods documentation can be found on the landing page (https://www.sciencebase.gov/catalog/item/5d3f1ae2e4b01d82ce8d90e0).</procdesc>
+        <procdate>20181101</procdate>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <spdoinfo>
+    <direct>Vector</direct>
+    <ptvctinf>
+      <sdtsterm>
+        <sdtstype>G-polygon</sdtstype>
+        <ptvctcnt>111</ptvctcnt>
+      </sdtsterm>
+    </ptvctinf>
+  </spdoinfo>
+  <spref>
+    <horizsys>
+      <geograph>
+        <latres>0.0197560976</latres>
+        <longres>0.0250212359</longres>
+        <geogunit>Decimal seconds</geogunit>
+      </geograph>
+      <geodetic>
+        <horizdn>NAD_1983_2011</horizdn>
+        <ellips>GRS_1980</ellips>
+        <semiaxis>6378137.0</semiaxis>
+        <denflat>298.257222101</denflat>
+      </geodetic>
+    </horizsys>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Water Quality Mapping May 2018 High Resolution.csv (May 2018 HR)</enttypl>
+        <enttypd>High resolution, in situ, unfiltered, in vivo fluorescence (IVF), water chemistry data from the Sacramento-San Joaquin Delta study area. All measurements were collected in the field.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>Timestamp (PST)</attrlabl>
+        <attrdef>Date and time (YYYY-MM-DD hh:mm:ss), pacific standard time</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>2018-05-15 07:40:01</rdommin>
+            <rdommax>2018-05-17 16:15:58</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Latitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>Garmin GPS16X-HVS, NAD83, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>37.829415</rdommin>
+            <rdommax>38.57104</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Longitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>Garmin GPS16X-HVS, NAD83, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-122.13954</rdommin>
+            <rdommax>-121.32761</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4 (μM) (Tline) HR</attrlabl>
+        <attrdef>Ammonium, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.001</rdommin>
+            <rdommax>56.761</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3 (μM) (SUNA) HR</attrlabl>
+        <attrdef>Nitrate plus nitrite, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0024545057345692735</rdommin>
+            <rdommax>63.29955744053106</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cond (μS/cm) (TSG) HR</attrlabl>
+        <attrdef>Conductivity, microsiemens per centimeter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>36.05</rdommin>
+            <rdommax>16337.65</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DO (%sat) (EXO) HR</attrlabl>
+        <attrdef>Dissolved oxygen, percent of saturation</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>80.38</rdommin>
+            <rdommax>145.62</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DO (mg/L) (EXO) HR</attrlabl>
+        <attrdef>Dissolved oxygen, milligrams per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>7.46</rdommin>
+            <rdommax>13.215</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fDOM (QSU) (EXO) HR</attrlabl>
+        <attrdef>Fluorescence of dissolved organic matter, quinine sulfate units (1 QSU = 1 part per billion quinine sulfate); corrected for turbidity and inner filter effects</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.930817133</rdommin>
+            <rdommax>64.27231262</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fDOM (QSU) (WS) HR</attrlabl>
+        <attrdef>Fluorescent dissolved organic matter, quinine sulfate equivalents; corrected for temperature, turbidity, and inner filter effect</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>15.4159832</rdommin>
+            <rdommax>81.7230451</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>pH (EXO) HR</attrlabl>
+        <attrdef>pH, standard units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>7.23</rdommin>
+            <rdommax>8.995</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>pH (mV) (EXO) HR</attrlabl>
+        <attrdef>pH, millivolts</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>-124.28</rdommin>
+            <rdommax>-22.79</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Salinity (PSU) (TSG) HR</attrlabl>
+        <attrdef>Salinity, practical salinity unit</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.04955</rdommin>
+            <rdommax>11.1673499999999</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sp Cond (μS/cm) (EXO) HR</attrlabl>
+        <attrdef>Specific conductance, microsiemens per centimeter at 25 degrees Celcius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>44.71</rdommin>
+            <rdommax>18693.2</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Temp (˚C) (EXO) HR</attrlabl>
+        <attrdef>Temperature, degrees Celsius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>16.0</rdommin>
+            <rdommax>21.98</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Temp (˚C) (TSG) HR</attrlabl>
+        <attrdef>Temperature, degrees Celsius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>16.00115</rdommin>
+            <rdommax>21.98895</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Turb (FNU) (EXO) HR</attrlabl>
+        <attrdef>Turbidity, formazin nephelometric units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.595</rdommin>
+            <rdommax>148.71</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>C (1/m) (CStar) HR</attrlabl>
+        <attrdef>Beam transmissometer/attenuation at 650 nm, per meter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.727221953</rdommin>
+            <rdommax>137.062036253032</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Tr (%) (CStar) HR</attrlabl>
+        <attrdef>Transmittance, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>-0.00125707596253902</rdommin>
+            <rdommax>0.761304266</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fCHLA (μg/L) (EXO) HR</attrlabl>
+        <attrdef>Fluorescent chlorophyll-a, micrograms per liter; corrected for temperature</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.096374484</rdommin>
+            <rdommax>68.765946266276</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fCHLA  (μg/L) (WS) HR</attrlabl>
+        <attrdef>Fluorescent chlorophyll-a, micrograms per liter; corrected for temperature</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.94720096</rdommin>
+            <rdommax>60.7460993771671</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Total Conc (μg/L) (FP) HR</attrlabl>
+        <attrdef>Total chlorophyll-a, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.01</rdommin>
+            <rdommax>65.545</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Bluegreen (μg/L) (FP) HR</attrlabl>
+        <attrdef>Bluegreen algae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.65</rdommin>
+            <rdommax>5.16</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Bluegreen (%) (FP) HR</attrlabl>
+        <attrdef>Bluegreen algae contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with bluegreen algae by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>4.683663833805476</rdommin>
+            <rdommax>78.7128712871287</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cryptophyta (μg/L) (FP) HR</attrlabl>
+        <attrdef>Cryptophyceae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.00109374999999999</rdommin>
+            <rdommax>0.8</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cryptophyta (%) (FP) HR</attrlabl>
+        <attrdef>Cryptophytes contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with cryptophytes by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>16.124661246612554</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Diatoms (μg/L) (FP) HR</attrlabl>
+        <attrdef>Diatoms, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.1425</rdommin>
+            <rdommax>61.97</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Diatoms (%) (FP) HR</attrlabl>
+        <attrdef>Diatoms/dinoflagellates contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with diatoms by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>7.797537619699083</rdommin>
+            <rdommax>95.20116777666271</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Green Algae (μg/L) (FP) HR</attrlabl>
+        <attrdef>Green algae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0025</rdommin>
+            <rdommax>3.085</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Green Algae (%) (FP) HR</attrlabl>
+        <attrdef>Green algae contribution to the total conc of chlorophyll, estimated by dividing the micrograms per liter of chlorophyll-a associated with green algae by the sum of green algae, bluegreen, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>56.738768718802</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Transmission (%) (FP) HR</attrlabl>
+        <attrdef>Transmission, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>5.535</rdommin>
+            <rdommax>100.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Yellow substances (μg/L) (FP) HR</attrlabl>
+        <attrdef>Yellow substances correction, micrograms per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.005</rdommin>
+            <rdommax>2.195</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Temp Sample (˚C) (FP) HR</attrlabl>
+        <attrdef>Temperature, degrees Celsius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>15.79</rdommin>
+            <rdommax>21.84</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Water Quality Mapping May 2018 Spatially Aligned.csv (May 2018 SA)</enttypl>
+        <enttypd>Spatially Aligned (Centerline Extracted) and interpolated, water chemistry data from the Sacramento-San Joaquin Delta study area.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>CL ID</attrlabl>
+        <attrdef>Centerline point identifier, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>173</rdommin>
+            <rdommax>6037</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Time Period (Month, Year)</attrlabl>
+        <attrdef>Sampling time period, month, year</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>May 2018</edomv>
+            <edomvd>Sampling time period, month, year</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Latitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>GSC NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>37.825015</rdommin>
+            <rdommax>38.571111</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Longitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>GSC NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-122.149497</rdommin>
+            <rdommax>-121.3138</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Grouping</attrlabl>
+        <attrdef>Name of the approximate location for center line points</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Name of the approximate location for center line points</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4 (μM) (Tline) SA</attrlabl>
+        <attrdef>Ammonium, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>57.00872</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3 (μM) (SUNA) SA</attrlabl>
+        <attrdef>Nitrate plus nitrite, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.024211</rdommin>
+            <rdommax>43.96529</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Orthophosphate (µM) SA</attrlabl>
+        <attrdef>Orthophosphate, micromolar; interpolated, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>6.527405</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DIN (µM) SA</attrlabl>
+        <attrdef>Total dissolved inorganic nitrogen (DIN) concentration calculated as the sum of nitrate, nitrite and ammonium ([NO3] + [NO2] + [NH4]), micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.048545</rdommin>
+            <rdommax>64.378508</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>estDON (μM) SA</attrlabl>
+        <attrdef>Dissolved organic nitrogen, micromolar; modeled based on fDOM, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.7231544789999997</rdommin>
+            <rdommax>21.91441268</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>TDN (µM) SA</attrlabl>
+        <attrdef>Total dissolved nitrogen, micromolar; modeled, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>5.556450308</rdommin>
+            <rdommax>70.67325440999998</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>estDOC (mg/L) SA</attrlabl>
+        <attrdef>Dissolved organic carbon, milligrams per liter; modeled based on fDOM, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.9545740684</rdommin>
+            <rdommax>3.842066128</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3:NH4 (mol:mol) SA</attrlabl>
+        <attrdef>Ratio of nitrate to ammonium, calculated as [NO3]/[NH4], molar to molar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.06869036982327348</rdommin>
+            <rdommax>56.953734247250644</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4:DIN (%) SA</attrlabl>
+        <attrdef>Contribution of ammonium (NH4) to the dissolved inorganic nitrogen (DIN) pool, calculated as 100*[NH4]/[DIN], percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.7255143486244642</rdommin>
+            <rdommax>93.57247227420673</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3:DIN (%) SA</attrlabl>
+        <attrdef>Contribution of nitrate (NO3) to the dissolved inorganic nitrogen (DIN) pool, calculated as 100*[NO3]/[DIN], percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>6.427527725793263</rdommin>
+            <rdommax>100.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DIN:PO4 (mol:mol) SA</attrlabl>
+        <attrdef>Ratio of dissolved inorganic nitrogen (DIN) to orthophosphate, calculated as [PO4]/[DIN], molar to molar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.6295104351016961</rdommin>
+            <rdommax>55.513580325672635</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DON:TDN (%) SA</attrlabl>
+        <attrdef>Contribution of dissolved organic nitrogen (DON) to the total dissolved nitrogen (TDN) pool, calculated as 100*[DON]/[TDN], percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>8.422205581568756</rdommin>
+            <rdommax>91.59346514068422</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4 Slope (˚) SA</attrlabl>
+        <attrdef>Ammonium concentration slope expressed as angles, degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.000513</rdommin>
+            <rdommax>3.82362</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3 Slope (˚) SA</attrlabl>
+        <attrdef>Nitrate concentration slope expressed as angles, degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.000157</rdommin>
+            <rdommax>1.483612</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PO4 Slope (˚) SA</attrlabl>
+        <attrdef>Orthophosphate concentration slope expressed as angles, degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.7e-05</rdommin>
+            <rdommax>0.206134</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cond (μS/cm) (TSG) SA</attrlabl>
+        <attrdef>Conductivity, microsiemens per centimeter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.046538</rdommin>
+            <rdommax>8.199064</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DO (%) (EXO) SA</attrlabl>
+        <attrdef>Dissolved oxygen, percent of saturation</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>81.03627</rdommin>
+            <rdommax>135.9051</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DO (mg/L) (EXO) SA</attrlabl>
+        <attrdef>Dissolved oxygen, milligrams per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>7.495548</rdommin>
+            <rdommax>12.36401</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fDOM (QSU) (EXO) SA</attrlabl>
+        <attrdef>Fluorescence of dissolved organic matter, quinine sulfate units (1 QSU = 1 part per billion quinine sulfate); corrected for turbidity and inner filter effects</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.905977</rdommin>
+            <rdommax>61.59484</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>pH (EXO) SA</attrlabl>
+        <attrdef>pH, standard units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>7.249642</rdommin>
+            <rdommax>8.876151</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Salinity (PSU) (TSG) SA</attrlabl>
+        <attrdef>Salinity, practical salinity unit</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>37.60232</rdommin>
+            <rdommax>12037.72</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sp Cond (μS/cm) (EXO) SA</attrlabl>
+        <attrdef>Specific conductance, microsiemens per centimeter at 25 degrees Celcius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>45.48977</rdommin>
+            <rdommax>14178.37</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Temp (˚C) (TSG) SA</attrlabl>
+        <attrdef>Temperature, degrees Celsius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>12.42794</rdommin>
+            <rdommax>21.89183</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Turb (FNU) (EXO) SA</attrlabl>
+        <attrdef>Turbidity, formazin nephelometric units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.157042</rdommin>
+            <rdommax>135.3856</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fCHLA (μg/L) (EXO) SA</attrlabl>
+        <attrdef>Fluorescent chlorophyll-a, micrograms per liter; corrected for temperature</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.189884</rdommin>
+            <rdommax>46.62661</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Total Conc (μg/L) (FP) SA</attrlabl>
+        <attrdef>Total chlorophyll-a, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>49.14503</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Bluegreen (μg/L) (FP) SA</attrlabl>
+        <attrdef>Bluegreen algae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.734575</rdommin>
+            <rdommax>6.314768</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Bluegreen (%) (FP) SA</attrlabl>
+        <attrdef>Bluegreen algae contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with bluegreen algae by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>5.794847</rdommin>
+            <rdommax>74.75689</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cryptophyta (μg/L) (FP) SA</attrlabl>
+        <attrdef>Cryptophyceae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>0.569308</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cryptophyta (%) (FP) SA</attrlabl>
+        <attrdef>Cryptophytes contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with cryptophytes by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>13.64761</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Diatoms (μg/L) (FP) SA</attrlabl>
+        <attrdef>Diatoms, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.257574</rdommin>
+            <rdommax>47.52285</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Diatoms (%) (FP) SA</attrlabl>
+        <attrdef>Diatoms/dinoflagellates contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with diatoms by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>12.55362</rdommin>
+            <rdommax>94.10355</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Green Algae (μg/L) (FP) SA</attrlabl>
+        <attrdef>Green algae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>3.28318</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Green Algae (%) (FP) SA</attrlabl>
+        <attrdef>Green algae contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with green algae by the sum of green algae, bluegreen, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>47.76339</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Transmission (%) (FP) SA</attrlabl>
+        <attrdef>Transmission, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>9.598195</rdommin>
+            <rdommax>100.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Yellow Substances (μg/L) SA</attrlabl>
+        <attrdef>Yellow substances correction, micrograms per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.07178</rdommin>
+            <rdommax>2.184775</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Water Quality Mapping May to July 2018 Differences.csv (May to July 2018 DIFF)</enttypl>
+        <enttypd>Calculated differences between months for water chemistry data from the Sacramento-San Joaquin Delta study area.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>CL ID</attrlabl>
+        <attrdef>Center line point identifier; see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>173</rdommin>
+            <rdommax>6037</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Time Period (Month, Year)</attrlabl>
+        <attrdef>Month and year used for difference calculations</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>May-July</edomv>
+            <edomvd>Month and year used for difference calculations</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Latitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>GSC NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>37.825015</rdommin>
+            <rdommax>38.571111</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Longitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>GSC NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-122.149497</rdommin>
+            <rdommax>-121.3138</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Grouping</attrlabl>
+        <attrdef>Name of the approximate location for center line points</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Name of the approximate location for center line points</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4 (μM) DIFF</attrlabl>
+        <attrdef>Ammonium, filtered, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-31.38277</rdommin>
+            <rdommax>46.612114000000005</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3 (μM) DIFF</attrlabl>
+        <attrdef>Nitrate difference, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-136.51465</rdommin>
+            <rdommax>23.805509999999998</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PO4 (μM) DIFF</attrlabl>
+        <attrdef>Orthophosphate difference, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-17.651159999999997</rdommin>
+            <rdommax>4.578564</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DIN (μM) DIFF</attrlabl>
+        <attrdef>Dissolved inorganic nitrogen difference, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-142.194187</rdommin>
+            <rdommax>50.225792</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>TDN (μM) DIFF</attrlabl>
+        <attrdef>Total dissolved nitrogen difference, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-152.59149861999998</rdommin>
+            <rdommax>49.458159499999994</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Water Quality Mapping 2018 Discrete Sampling v2.0.csv (2018 Discrete Sampling)</enttypl>
+        <enttypd>Discrete sampling, water chemistry data from the Sacramento-San Joaquin Delta study area.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>Station Abbrev. DS</attrlabl>
+        <attrdef>Informal field identifier associated with numeric station code</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Informal field identifier associated with numeric station code</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Station ID DS</attrlabl>
+        <attrdef>Numeric USGS station code</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>11185185</rdommin>
+            <rdommax>383225121304601</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Timestamp (PST) DS</attrlabl>
+        <attrdef>Date and time (YYYY-MM-DD hh:mm:ss), pacific standard time</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>5/15/2018 7:39</rdommin>
+            <rdommax>10/19/2018 16:25</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Latitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>Garmin GPS16X-HVS, NAD83, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>37.82833</rdommin>
+            <rdommax>38.56894</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Longitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>Garmin GPS16X-HVS, NAD 83, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-122.11201</rdommin>
+            <rdommax>-121.32761</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4 (µM) DS</attrlabl>
+        <attrdef>Ammonium, filtered, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.35695</rdommin>
+            <rdommax>117.7935</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO2 + NO3 (µM) DS</attrlabl>
+        <attrdef>Nitrite plus nitrate, filtered, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.4278</rdommin>
+            <rdommax>167.05259999999998</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO2 (µM) DS</attrlabl>
+        <attrdef>Nitrite, filtered, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.035695</rdommin>
+            <rdommax>2.2866217000000004</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PO4 (µM) DS</attrlabl>
+        <attrdef>Orthophosphate, filtered, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.06458</rdommin>
+            <rdommax>20.058870900000002</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>TDN (µM) DS</attrlabl>
+        <attrdef>Total dissolved nitrogen [nitrate + nitrite + ammonium + organic-N], filtered, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>7.8529</rdommin>
+            <rdommax>189.1835</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Chla (µg/L) DS</attrlabl>
+        <attrdef>Chlorophyll-a, phytoplankton, &gt;0.7 microns, chromatographic-fluorometric method, micrograms per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.05</rdommin>
+            <rdommax>20.73361</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Pheophytin (µg/L) DS</attrlabl>
+        <attrdef>Pheophytin-a, phytoplankton, &gt;0.7 microns, micrograms per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.2</rdommin>
+            <rdommax>10.81881</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>5 micron Chla (µg/L) DS</attrlabl>
+        <attrdef>Chlorophyl-a, phytoplankton, &gt;5.0 microns, chromatographic-fluorometric method, micrograms per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.16</rdommin>
+            <rdommax>11.4</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>5 micron Pheophytin (µg/L) DS</attrlabl>
+        <attrdef>Pheophytin-a, phytoplankton, &gt;5.0 microns, micrograms per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.17</rdommin>
+            <rdommax>2.26</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Phycocyanin (µg/L) DS</attrlabl>
+        <attrdef>Phycocyanins, filtered, recoverable, micrograms per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>2157.3333333333335</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Allophycocyanin (µg/L) DS</attrlabl>
+        <attrdef>Allophycocyanin, filtered, recoverable, micrograms per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>77.51669941060906</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Phycoerythrin (µg/L) DS</attrlabl>
+        <attrdef>Phycoerythrin, filtered, recoverable, micrograms per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>1760.1620245747297</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DOC (mg/L) DS</attrlabl>
+        <attrdef>Organic carbon, filtered, milligrams per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.2842</rdommin>
+            <rdommax>4.8921</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>A254 (AU/cm) DS</attrlabl>
+        <attrdef>Absorbance, 254 nm, filtered, absorbance units per centimeter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0214</rdommin>
+            <rdommax>0.15</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>A280 (AU/cm) DS</attrlabl>
+        <attrdef>Absorbance at 280 nm, filtered, absorbance units per centimeter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0137</rdommin>
+            <rdommax>0.1076</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>A370 (AU/cm) DS</attrlabl>
+        <attrdef>Absorbance at 370 nm, filtered, absorbance units per centimeter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0018</rdommin>
+            <rdommax>0.0229</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>A412 (AU/cm) DS</attrlabl>
+        <attrdef>Absorbance at 412 nm, filtered, absorbance units per centimeter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0008</rdommin>
+            <rdommax>0.011</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>A440 (AU/cm) DS</attrlabl>
+        <attrdef>Absorbance at 440 nm, filtered, absorbance units per centimeter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0005</rdommin>
+            <rdommax>0.007</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sag 275-295 nm DS</attrlabl>
+        <attrdef>Absorption spectral slope calculated for wavelengths 275-295 nm, unitless</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.017</rdommin>
+            <rdommax>0.0238</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sag 290-350 nm DS</attrlabl>
+        <attrdef>Absorption spectral slope calculated for wavelengths 290-350 nm, unitless</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0155</rdommin>
+            <rdommax>0.0218</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sag 350-400 nm DS</attrlabl>
+        <attrdef>Absorption spectral slope calculated for wavelengths 350-400 nm, unitless</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0162</rdommin>
+            <rdommax>0.0259</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sag 412-600 nm DS</attrlabl>
+        <attrdef>Absorption spectral slope calculated for wavelengths 412-600 nm, unitless</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0065</rdommin>
+            <rdommax>0.0152</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Peak A (RU) DS</attrlabl>
+        <attrdef>Fluorescence at excitation 260 nm / emission at 450 nm, filtered, Raman units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.1419</rdommin>
+            <rdommax>1.4491</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Peak B (RU) DS</attrlabl>
+        <attrdef>Fluorescence at excitation 275 nm / emission at 304 nm, filtered, Raman units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0419</rdommin>
+            <rdommax>1.015</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Peak T (RU) DS</attrlabl>
+        <attrdef>Fluorescence at excitation 275 nm / emission at 340 nm, filtered, Raman units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0636</rdommin>
+            <rdommax>0.281</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Peak N (RU) DS</attrlabl>
+        <attrdef>Fluorescence at excitation 280 nm / emission at 370 nm, filtered, Raman units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0733</rdommin>
+            <rdommax>0.4419</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Peak M (RU) DS</attrlabl>
+        <attrdef>Fluorescence at excitation 300 nm / emission at 390 nm, filtered, Raman units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.1054</rdommin>
+            <rdommax>0.681</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Peak C (RU) DS</attrlabl>
+        <attrdef>Fluorescence at excitation 340 nm / emission at 440 nm, filtered, Raman units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0998</rdommin>
+            <rdommax>0.7263</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Peak D (RU) DS</attrlabl>
+        <attrdef>Fluorescence at excitation 390 nm / emission at 510 nm, filtered, Raman units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0237</rdommin>
+            <rdommax>0.2528</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fDOM (RU) DS</attrlabl>
+        <attrdef>Fluorescence at excitation 370 nm / emission at 460 nm, filtered, Raman units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0608</rdommin>
+            <rdommax>0.4783</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>HIX DS</attrlabl>
+        <attrdef>Humification Index, calculated by dividing the fluorescence intensity in the 435-480 nm region by the total intensities in the 300-345 and 435-480 nm regions, unitless</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.2595</rdommin>
+            <rdommax>0.9008</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>FI DS</attrlabl>
+        <attrdef>Fluorescence Index, ratio of emission intensities at 470 nm to 520 nm at an excitation wavelength of 370 nm</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.514</rdommin>
+            <rdommax>1.9099</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Picocyanobacteria aliquot (mL) DS</attrlabl>
+        <attrdef>Volume of sample used for picocyanobacteria counts</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>5.0</rdommin>
+            <rdommax>6.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Picocyanobacteria PC-Rich Tally DS</attrlabl>
+        <attrdef>Picocyanobacteria counts, phycocyanin rich tally, number of cells counted</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>6.0</rdommin>
+            <rdommax>591.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Picocyanobacteria PC-Rich Density (cells/L) DS</attrlabl>
+        <attrdef>Picocyanobacteria counts, phycocyanin rich, cells per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>482548.80000000005</rdommin>
+            <rdommax>475310568.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Picocyanobacteria PE-Rich Tally DS</attrlabl>
+        <attrdef>Picocyanobacteria counts, phycoerythrin rich tally, number of cells counted</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>200.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Picocyanobacteria PE-Rich Density (cells/L) DS</attrlabl>
+        <attrdef>Picocyanobacteria counts, phycoerythrin rich, cells per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>41935788.571428575</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Picocyanobacteria Total Tally DS</attrlabl>
+        <attrdef>Picocyanobacteria counts, sum of PE-Rich and PE-Rich tally, number of cells counted</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>41.0</rdommin>
+            <rdommax>591.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Picocyanobacteria Total Density (cells/L) DS</attrlabl>
+        <attrdef>Picocyanobacteria counts, sum of PE-Rich and PE-Rich, cells per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>No Data</edomv>
+            <edomvd>Empty cell denotes no data available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>3297416.8</rdommin>
+            <rdommax>475310568.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Water Quality Mapping 2018 Discrete Sampling PhytoEnumeration v2.0.csv</enttypl>
+        <enttypd>Comma Separated Value (CSV) file containing data.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>Timestamp (PST) DS</attrlabl>
+        <attrdef>Date and time (YYYY-MM-DD hh:mm:ss), pacific standard time</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Date and time (YYYY-MM-DD hh:mm:ss), pacific standard time</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Station Abbrev. DS</attrlabl>
+        <attrdef>Informal field identifier associated with numeric station code</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Informal field identifier associated with numeric station code</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Station ID DS</attrlabl>
+        <attrdef>Numeric USGS station code</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>11185185</rdommin>
+            <rdommax>382740121301201</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NWIS Station Latitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>37.82437145</rdommin>
+            <rdommax>38.46111944</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NWIS Station Longitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-122.0559806</rdommin>
+            <rdommax>-121.3769444</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Division DS</attrlabl>
+        <attrdef>Phytoplankton taxonomy division name</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Phytoplankton taxonomy genus name</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Genus DS</attrlabl>
+        <attrdef>Phytoplankton taxonomy genus name</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Phytoplankton taxonomy genus name</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Species DS</attrlabl>
+        <attrdef>Phytoplankton taxonomy species name</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Phytoplankton taxonomy species name</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Tally DS</attrlabl>
+        <attrdef>The numbers of cells counted in a sample</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>648</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Density (cells/mL) DS</attrlabl>
+        <attrdef>The number of cells per volume, cells per milliliter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>26844</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Biovolume (µm3/mL) DS</attrlabl>
+        <attrdef>The biovolume of a specific taxa in a sample, cubic micrometers per milliliter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>6.0</rdommin>
+            <rdommax>4381710.25</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>RMP_July_2018_DIN.shp Attribute Table</enttypl>
+        <enttypd>Shapefile table containing attribute information associated with the data set.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>FID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>ESRI</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Shape</attrlabl>
+        <attrdef>Feature geometry.</attrdef>
+        <attrdefs>ESRI</attrdefs>
+        <attrdomv>
+          <udom>Coordinates defining the features.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>ContourMin</attrlabl>
+        <attrdef>Minimum parameter value within a contour.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>165.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>ContourMax</attrlabl>
+        <attrdef>Maximum parameter value within a contour.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.5</rdommin>
+            <rdommax>166.382354736</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Map</attrlabl>
+        <attrdef>Name identifier used to join tables in Tableau.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Name identifier used to join tables in Tableau.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Water Quality Mapping July 2018 High Resolution.csv (July 2018 HR)</enttypl>
+        <enttypd>High resolution, in situ, unfiltered, in vivo fluorescence (IVF), water chemistry data from the Sacramento-San Joaquin Delta study area. All measurements were collected in the field.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>Timestamp (PST)</attrlabl>
+        <attrdef>Date and time (YYYY-MM-DD hh:mm:ss), pacific standard time</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>7/24/2018 10:00</rdommin>
+            <rdommax>7/26/2018 9:59</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Latitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>Garmin GPS16X-HVS, NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>37.8294</rdommin>
+            <rdommax>38.57039</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Longitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>Garmin GPS16X-HVS, NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>-122.11281000000001</rdommin>
+            <rdommax>-121.32734</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4 (μM) (Tline) HR</attrlabl>
+        <attrdef>Ammonium, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>46.65</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3 (μM) (SUNA) HR</attrlabl>
+        <attrdef>Nitrate plus nitrite, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>165.97</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cond (μS/cm) (TSG) HR</attrlabl>
+        <attrdef>Conductivity, microsiemens per centimeter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>104.3</rdommin>
+            <rdommax>17416.1</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DO (%sat) (EXO) HR</attrlabl>
+        <attrdef>Dissolved oxygen, percent of saturation</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>59.2</rdommin>
+            <rdommax>155.9</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DO (mg/L) (EXO) HR</attrlabl>
+        <attrdef>Dissolved oxygen, milligrams per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>5.1</rdommin>
+            <rdommax>12.5</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fDOM (QSU) (EXO) HR</attrlabl>
+        <attrdef>Fluorescence of dissolved organic matter, quinine sulfate units (1 QSU = 1 part per billion quinine sulfate); corrected for turbidity and inner filter effects</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>10.2</rdommin>
+            <rdommax>64.4</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fDOM (QSU) (WS) HR</attrlabl>
+        <attrdef>Fluorescent dissolved organic matter, quinine sulfate equivalents; corrected for temperature, turbidity, and inner filter effect</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>15.7</rdommin>
+            <rdommax>66.7</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>pH (EXO) HR</attrlabl>
+        <attrdef>pH, standard units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>7.24</rdommin>
+            <rdommax>9.09</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>pH (mV) (EXO) HR</attrlabl>
+        <attrdef>pH, millivolts</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>-142.66</rdommin>
+            <rdommax>-35.31</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Salinity (PSU) (TSG) HR</attrlabl>
+        <attrdef>Salinity, practical salinity unit</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.041</rdommin>
+            <rdommax>11.143</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sp Cond (μS/cm) (EXO) HR</attrlabl>
+        <attrdef>Specific conductance, microsiemens per centimeter at 25 degrees Celcius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>110.6</rdommin>
+            <rdommax>18642.2</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Temp (˚C) (EXO) HR</attrlabl>
+        <attrdef>Temperature, degrees Celsius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>21.0</rdommin>
+            <rdommax>27.8</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Temp (˚C) (TSG) HR</attrlabl>
+        <attrdef>Temperature, degrees Celsius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>20.9</rdommin>
+            <rdommax>27.9</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Turb (FNU) (EXO) HR</attrlabl>
+        <attrdef>Turbidity, formazin nephelometric units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.5</rdommin>
+            <rdommax>104.8</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>C (1/m) (CStar) HR</attrlabl>
+        <attrdef>Beam transmissometer/attenuation at 650 nm, per meter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.51</rdommin>
+            <rdommax>97.47</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Tr (%) (CStar) HR</attrlabl>
+        <attrdef>Transmittance, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>0.78</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fCHLA (μg/L) (EXO) HR</attrlabl>
+        <attrdef>Fluorescent chlorophyll-a, micrograms per liter; corrected for temperature</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.8</rdommin>
+            <rdommax>26.2</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fCHLA  (μg/L) (WS) HR</attrlabl>
+        <attrdef>Fluorescent chlorophyll-a, micrograms per liter; corrected for temperature</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.8</rdommin>
+            <rdommax>29.1</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Total Conc (μg/L) (FP) HR</attrlabl>
+        <attrdef>Total chlorophyll-a, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.6</rdommin>
+            <rdommax>21.5</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Bluegreen (μg/L) (FP) HR</attrlabl>
+        <attrdef>Bluegreen algae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>14.61</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Bluegreen (%) (FP) HR</attrlabl>
+        <attrdef>Bluegreen algae contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with bluegreen algae by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>100.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cryptophyta (μg/L) (FP) HR</attrlabl>
+        <attrdef>Cryptophyceae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>3.35</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cryptophyta (%) (FP) HR</attrlabl>
+        <attrdef>Cryptophytes contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with cryptophytes by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>73.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Diatoms (μg/L) (FP) HR</attrlabl>
+        <attrdef>Diatoms, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>11.64</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Diatoms (%) (FP) HR</attrlabl>
+        <attrdef>Diatoms/dinoflagellates contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with diatoms by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>88.8</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Green Algae (μg/L) (FP) HR</attrlabl>
+        <attrdef>Green algae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>12.23</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Green Algae (%) (FP) HR</attrlabl>
+        <attrdef>Green algae contribution to the total conc of chlorophyll, estimated by dividing the micrograms per liter of chlorophyll-a associated with green algae by the sum of green algae, bluegreen, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>88.2</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Transmission (%) (FP) HR</attrlabl>
+        <attrdef>Transmission, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>3.8</rdommin>
+            <rdommax>100.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Yellow substances (μg/L) (FP) HR</attrlabl>
+        <attrdef>Yellow substances correction, micrograms per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.01</rdommin>
+            <rdommax>3.54</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Temp Sample (˚C) (FP) HR</attrlabl>
+        <attrdef>Temperature, degrees Celsius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>20.5</rdommin>
+            <rdommax>28.2</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Water Quality Mapping July 2018 Spatially Aligned.csv (July 2018 SA)</enttypl>
+        <enttypd>Spatially Aligned (Centerline Extracted) and interpolated, water chemistry data from the Sacramento-San Joaquin Delta study area.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>CL ID</attrlabl>
+        <attrdef>Centerline point identifier, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>173</rdommin>
+            <rdommax>6037</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Time Period (Month, Year)</attrlabl>
+        <attrdef>Sampling time period, month, year</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Jul-18</edomv>
+            <edomvd>Sampling time period, month, year</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Latitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>37.825015</rdommin>
+            <rdommax>38.571111</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Longitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-122.149497</rdommin>
+            <rdommax>-121.3138</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Grouping</attrlabl>
+        <attrdef>Name of the approximate location for center line points</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Name of the approximate location for center line points</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4 (μM) (Tline) SA</attrlabl>
+        <attrdef>Ammonium, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>46.08</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3 (μM) (SUNA) SA</attrlabl>
+        <attrdef>Nitrate plus nitrite, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.42</rdommin>
+            <rdommax>158.18</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Orthophosphate (µM) SA</attrlabl>
+        <attrdef>Orthophosphate, micromolar; interpolated, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.31</rdommin>
+            <rdommax>21.45</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DIN (µM) SA</attrlabl>
+        <attrdef>Total dissolved inorganic nitrogen (DIN) concentration calculated as the sum of nitrate, nitrite and ammonium ([NO3] + [NO2] + [NH4]), micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.92</rdommin>
+            <rdommax>165.71</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>estDON (μM) SA</attrlabl>
+        <attrdef>Dissolved organic nitrogen, micromolar; modeled based on fDOM, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>5.8</rdommin>
+            <rdommax>22.3</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>TDN (µM) SA</attrlabl>
+        <attrdef>Total dissolved nitrogen, micromolar; modeled, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>6.92</rdommin>
+            <rdommax>186.65</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>estDOC (mg/L) SA</attrlabl>
+        <attrdef>Dissolved organic carbon, milligrams per liter; modeled based on fDOM, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.4</rdommin>
+            <rdommax>3.9</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3:NH4 (mol:mol) SA</attrlabl>
+        <attrdef>Ratio of nitrate to ammonium, calculated as [NO3]/[NH4], molar to molar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>40.7</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4:DIN (%) SA</attrlabl>
+        <attrdef>Contribution of ammonium (NH4) to the dissolved inorganic nitrogen (DIN) pool, calculated as 100*[NH4]/[DIN], percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.4</rdommin>
+            <rdommax>95.5</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3:DIN (%) SA</attrlabl>
+        <attrdef>Contribution of nitrate (NO3) to the dissolved inorganic nitrogen (DIN) pool, calculated as 100*[NO3]/[DIN], percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>4.5</rdommin>
+            <rdommax>99.7</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DIN:PO4 (mol:mol) SA</attrlabl>
+        <attrdef>Ratio of dissolved inorganic nitrogen (DIN) to orthophosphate, calculated as [DIN]/[PO4], molar to molar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.3</rdommin>
+            <rdommax>21.2</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DON:TDN (%) SA</attrlabl>
+        <attrdef>Contribution of dissolved organic nitrogen (DON) to the total dissolved nitrogen (TDN) pool, calculated as 100*[DON]/[TDN], percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>11.1</rdommin>
+            <rdommax>94.9</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4 Slope (˚) SA</attrlabl>
+        <attrdef>Ammonium concentration slope expressed as angles, degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>1.18</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3 Slope (˚) SA</attrlabl>
+        <attrdef>Nitrate concentration slope expressed as angles, degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.001</rdommin>
+            <rdommax>2.9330000000000003</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PO4 Slope (˚) SA</attrlabl>
+        <attrdef>Orthophosphate concentration slope expressed as angles, degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>0.313</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cond (μS/cm) (TSG) SA</attrlabl>
+        <attrdef>Conductivity, microsiemens per centimeter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>104.8</rdommin>
+            <rdommax>17805.3</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DO (%) (EXO) SA</attrlabl>
+        <attrdef>Dissolved oxygen, percent of saturation</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>62.4</rdommin>
+            <rdommax>148.7</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DO (mg/L) (EXO) SA</attrlabl>
+        <attrdef>Dissolved oxygen, milligrams per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>5.3</rdommin>
+            <rdommax>12.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fDOM (QSU) (EXO) SA</attrlabl>
+        <attrdef>Fluorescence of dissolved organic matter, quinine sulfate units (1 QSU = 1 part per billion quinine sulfate); corrected for turbidity and inner filter effects</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>12.4</rdommin>
+            <rdommax>62.7</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>pH (EXO) SA</attrlabl>
+        <attrdef>pH, standard units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>7.26</rdommin>
+            <rdommax>9.02</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Salinity (PSU) (TSG) SA</attrlabl>
+        <attrdef>Salinity, practical salinity unit</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.044000000000000004</rdommin>
+            <rdommax>11.376</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sp Cond (μS/cm) (EXO) SA</attrlabl>
+        <attrdef>Specific conductance, microsiemens per centimeter at 25 degrees Celcius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>111.3</rdommin>
+            <rdommax>18730.5</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Temp (˚C) (TSG) SA</attrlabl>
+        <attrdef>Temperature, degrees Celsius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>20.9</rdommin>
+            <rdommax>27.7</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Turb (FNU) (EXO) SA</attrlabl>
+        <attrdef>Turbidity, formazin nephelometric units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.6</rdommin>
+            <rdommax>84.7</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fCHLA (μg/L) (EXO) SA</attrlabl>
+        <attrdef>Fluorescent chlorophyll-a, micrograms per liter; corrected for temperature</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.9</rdommin>
+            <rdommax>13.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Total Conc (μg/L) (FP) SA</attrlabl>
+        <attrdef>Total chlorophyll-a, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.8</rdommin>
+            <rdommax>14.9</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Bluegreen (μg/L) (FP) SA</attrlabl>
+        <attrdef>Bluegreen algae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.02</rdommin>
+            <rdommax>13.72</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Bluegreen (%) (FP) SA</attrlabl>
+        <attrdef>Bluegreen algae contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with bluegreen algae by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.7</rdommin>
+            <rdommax>100.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cryptophyta (μg/L) (FP) SA</attrlabl>
+        <attrdef>Cryptophyceae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>1.75</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cryptophyta (%) (FP) SA</attrlabl>
+        <attrdef>Cryptophytes contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with cryptophytes by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>35.3</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Diatoms (μg/L) (FP) SA</attrlabl>
+        <attrdef>Diatoms, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>10.36</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Diatoms (%) (FP) SA</attrlabl>
+        <attrdef>Diatoms/dinoflagellates contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with diatoms by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>77.6</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Green Algae (μg/L) (FP) SA</attrlabl>
+        <attrdef>Green algae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>6.6</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Green Algae (%) (FP) SA</attrlabl>
+        <attrdef>Green algae contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with green algae by the sum of green algae, bluegreen, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>74.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Transmission (%) (FP) SA</attrlabl>
+        <attrdef>Transmission, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>10.9</rdommin>
+            <rdommax>100.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Yellow Substances (μg/L) SA</attrlabl>
+        <attrdef>Yellow substances correction, micrograms per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.56</rdommin>
+            <rdommax>3.21</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Water Quality Mapping October 2018 High Resolution.csv (October 2018 HR)</enttypl>
+        <enttypd>High resolution, in situ, unfiltered, in vivo fluorescence (IVF), water chemistry data from the Sacramento-San Joaquin Delta study area. All measurements were collected in the field.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>Timestamp (PST)</attrlabl>
+        <attrdef>Date and time (YYYY-MM-DD hh:mm:ss), pacific standard time</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>10/17/2018 10:00</rdommin>
+            <rdommax>10/19/2018 9:59</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Latitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>Garmin GPS16X-HVS, NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>37.829390000000004</rdommin>
+            <rdommax>38.55989</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Longitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>Garmin GPS16X-HVS, NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>-122.11383</rdommin>
+            <rdommax>-121.33463</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4 (μM) (Tline) HR</attrlabl>
+        <attrdef>Ammonium, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.44</rdommin>
+            <rdommax>155.92</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3 (μM) (SUNA) HR</attrlabl>
+        <attrdef>Nitrate plus nitrite, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.21</rdommin>
+            <rdommax>166.34</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cond (μS/cm) (TSG) HR</attrlabl>
+        <attrdef>Conductivity, microsiemens per centimeter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>37.5</rdommin>
+            <rdommax>27167.5</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DO (%sat) (EXO) HR</attrlabl>
+        <attrdef>Dissolved oxygen, percent of saturation</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>81.0</rdommin>
+            <rdommax>128.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DO (mg/L) (EXO) HR</attrlabl>
+        <attrdef>Dissolved oxygen, milligrams per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>7.7</rdommin>
+            <rdommax>12.1</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fDOM (QSU) (EXO) HR</attrlabl>
+        <attrdef>Fluorescence of dissolved organic matter, quinine sulfate units (1 QSU = 1 part per billion quinine sulfate); corrected for turbidity and inner filter effects</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>10.8</rdommin>
+            <rdommax>61.4</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fDOM (QSU) (WS) HR</attrlabl>
+        <attrdef>Fluorescent dissolved organic matter, quinine sulfate equivalents; corrected for temperature, turbidity, and inner filter effect</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>11.9</rdommin>
+            <rdommax>70.5</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>pH (EXO) HR</attrlabl>
+        <attrdef>pH, standard units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>7.2</rdommin>
+            <rdommax>9.17</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>pH (mV) (EXO) HR</attrlabl>
+        <attrdef>pH, millivolts</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>-131.29</rdommin>
+            <rdommax>-39.52</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Salinity (PSU) (TSG) HR</attrlabl>
+        <attrdef>Salinity, practical salinity unit</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.026</rdommin>
+            <rdommax>19.461</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sp Cond (μS/cm) (EXO) HR</attrlabl>
+        <attrdef>Specific conductance, microsiemens per centimeter at 25 degrees Celcius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>46.1</rdommin>
+            <rdommax>31114.7</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Temp (˚C) (EXO) HR</attrlabl>
+        <attrdef>Temperature, degrees Celsius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>14.9</rdommin>
+            <rdommax>20.3</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Temp (˚C) (TSG) HR</attrlabl>
+        <attrdef>Temperature, degrees Celsius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>14.9</rdommin>
+            <rdommax>20.3</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Turb (FNU) (EXO) HR</attrlabl>
+        <attrdef>Turbidity, formazin nephelometric units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.1</rdommin>
+            <rdommax>146.9</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>C (1/m) (CStar) HR</attrlabl>
+        <attrdef>Beam transmissometer/attenuation at 650 nm, per meter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.55</rdommin>
+            <rdommax>37.36</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Tr (%) (CStar) HR</attrlabl>
+        <attrdef>Transmittance, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.02</rdommin>
+            <rdommax>0.86</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fCHLA (μg/L) (EXO) HR</attrlabl>
+        <attrdef>Fluorescent chlorophyll-a, micrograms per liter; corrected for temperature</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>36.5</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fCHLA  (μg/L) (WS) HR</attrlabl>
+        <attrdef>Fluorescent chlorophyll-a, micrograms per liter; corrected for temperature</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.0</rdommin>
+            <rdommax>30.4</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Total Conc (μg/L) (FP) HR</attrlabl>
+        <attrdef>Total chlorophyll-a, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.9</rdommin>
+            <rdommax>33.9</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Bluegreen (μg/L) (FP) HR</attrlabl>
+        <attrdef>Bluegreen algae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>11.47</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Bluegreen (%) (FP) HR</attrlabl>
+        <attrdef>Bluegreen algae contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with bluegreen algae by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>95.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cryptophyta (μg/L) (FP) HR</attrlabl>
+        <attrdef>Cryptophyceae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>4.64</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cryptophyta (%) (FP) HR</attrlabl>
+        <attrdef>Cryptophytes contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with cryptophytes by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>34.7</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Diatoms (μg/L) (FP) HR</attrlabl>
+        <attrdef>Diatoms, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>12.2</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Diatoms (%) (FP) HR</attrlabl>
+        <attrdef>Diatoms/dinoflagellates contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with diatoms by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>62.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Green Algae (μg/L) (FP) HR</attrlabl>
+        <attrdef>Green algae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>21.68</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Green Algae (%) (FP) HR</attrlabl>
+        <attrdef>Green algae contribution to the total conc of chlorophyll, estimated by dividing the micrograms per liter of chlorophyll-a associated with green algae by the sum of green algae, bluegreen, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>86.5</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Transmission (%) (FP) HR</attrlabl>
+        <attrdef>Transmission, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>16.6</rdommin>
+            <rdommax>100.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Yellow substances (μg/L) (FP) HR</attrlabl>
+        <attrdef>Yellow substances correction, micrograms per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>3.59</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Temp Sample (˚C) (FP) HR</attrlabl>
+        <attrdef>Temperature, degrees Celsius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>14.5</rdommin>
+            <rdommax>20.2</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Water Quality Mapping October 2018 Spatially Aligned.csv (October 2018 SA)</enttypl>
+        <enttypd>Spatially Aligned (Centerline Extracted) and interpolated, water chemistry data from the Sacramento-San Joaquin Delta study area.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>CL ID</attrlabl>
+        <attrdef>Centerline point identifier, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>173</rdommin>
+            <rdommax>6037</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Time Period (Month, Year)</attrlabl>
+        <attrdef>Sampling time period, month, year</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Oct-18</edomv>
+            <edomvd>Sampling time period, month, year</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Latitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>37.825015</rdommin>
+            <rdommax>38.571111</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Longitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-122.149497</rdommin>
+            <rdommax>-121.3138</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Grouping</attrlabl>
+        <attrdef>Name of the approximate location for center line points</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Name of the approximate location for center line points</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4 (μM) (Tline) SA</attrlabl>
+        <attrdef>Ammonium, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>140.73</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3 (μM) (SUNA) SA</attrlabl>
+        <attrdef>Nitrate plus nitrite, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.19</rdommin>
+            <rdommax>165.66</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Orthophosphate (µM) SA</attrlabl>
+        <attrdef>Orthophosphate, micromolar; interpolated, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.78</rdommin>
+            <rdommax>10.51</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DIN (µM) SA</attrlabl>
+        <attrdef>Total dissolved inorganic nitrogen (DIN) concentration calculated as the sum of nitrate, nitrite and ammonium ([NO3] + [NO2] + [NH4]), micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.34</rdommin>
+            <rdommax>169.68</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>estDON (μM) SA</attrlabl>
+        <attrdef>Dissolved organic nitrogen, micromolar; modeled based on fDOM, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>5.7</rdommin>
+            <rdommax>22.3</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>TDN (µM) SA</attrlabl>
+        <attrdef>Total dissolved nitrogen, micromolar; modeled, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>8.96</rdommin>
+            <rdommax>185.09</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>estDOC (mg/L) SA</attrlabl>
+        <attrdef>Dissolved organic carbon, milligrams per liter; modeled based on fDOM, see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>4</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3:NH4 (mol:mol) SA</attrlabl>
+        <attrdef>Ratio of nitrate to ammonium, calculated as [NO3]/[NH4], molar to molar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.1</rdommin>
+            <rdommax>93.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4:DIN (%) SA</attrlabl>
+        <attrdef>Contribution of ammonium (NH4) to the dissolved inorganic nitrogen (DIN) pool, calculated as 100*[NH4]/[DIN], percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.1</rdommin>
+            <rdommax>93.4</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3:DIN (%) SA</attrlabl>
+        <attrdef>Contribution of nitrate (NO3) to the dissolved inorganic nitrogen (DIN) pool, calculated as 100*[NO3]/[DIN], percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>6.6</rdommin>
+            <rdommax>100.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DIN:PO4 (mol:mol) SA</attrlabl>
+        <attrdef>Ratio of dissolved inorganic nitrogen (DIN) to orthophosphate, calculated as [DIN]/[PO4], molar to molar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.7</rdommin>
+            <rdommax>100.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DON:TDN (%) SA</attrlabl>
+        <attrdef>Contribution of dissolved organic nitrogen (DON) to the total dissolved nitrogen (TDN) pool, calculated as 100*[DON]/[TDN], percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>6.4</rdommin>
+            <rdommax>81.3</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4 Slope (˚) SA</attrlabl>
+        <attrdef>Ammonium concentration slope expressed as angles, degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>8.452</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3 Slope (˚) SA</attrlabl>
+        <attrdef>Nitrate concentration slope expressed as angles, degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.001</rdommin>
+            <rdommax>4.676</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PO4 Slope (˚) SA</attrlabl>
+        <attrdef>Orthophosphate concentration slope expressed as angles, degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>0.20800000000000002</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cond (μS/cm) (TSG) SA</attrlabl>
+        <attrdef>Conductivity, microsiemens per centimeter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>38.4</rdommin>
+            <rdommax>27015.6</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DO (%) (EXO) SA</attrlabl>
+        <attrdef>Dissolved oxygen, percent of saturation</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>82.0</rdommin>
+            <rdommax>126.1</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DO (mg/L) (EXO) SA</attrlabl>
+        <attrdef>Dissolved oxygen, milligrams per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>7.7</rdommin>
+            <rdommax>11.9</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fDOM (QSU) (EXO) SA</attrlabl>
+        <attrdef>Fluorescence of dissolved organic matter, quinine sulfate units (1 QSU = 1 part per billion quinine sulfate); corrected for turbidity and inner filter effects</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>12.0</rdommin>
+            <rdommax>62.8</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>pH (EXO) SA</attrlabl>
+        <attrdef>pH, standard units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>5.98</rdommin>
+            <rdommax>9.15</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Salinity (PSU) (TSG) SA</attrlabl>
+        <attrdef>Salinity, practical salinity unit</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.026000000000000002</rdommin>
+            <rdommax>19.391</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sp Cond (μS/cm) (EXO) SA</attrlabl>
+        <attrdef>Specific conductance, microsiemens per centimeter at 25 degrees Celcius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>47.3</rdommin>
+            <rdommax>31420.2</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Temp (˚C) (TSG) SA</attrlabl>
+        <attrdef>Temperature, degrees Celsius</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>9.8</rdommin>
+            <rdommax>20.2</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Turb (FNU) (EXO) SA</attrlabl>
+        <attrdef>Turbidity, formazin nephelometric units</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.2</rdommin>
+            <rdommax>73.5</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>fCHLA (μg/L) (EXO) SA</attrlabl>
+        <attrdef>Fluorescent chlorophyll-a, micrograms per liter; corrected for temperature</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>7.9</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Total Conc (μg/L) (FP) SA</attrlabl>
+        <attrdef>Total chlorophyll-a, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.5</rdommin>
+            <rdommax>25.2</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Bluegreen (μg/L) (FP) SA</attrlabl>
+        <attrdef>Bluegreen algae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.08</rdommin>
+            <rdommax>11.78</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Bluegreen (%) (FP) SA</attrlabl>
+        <attrdef>Bluegreen algae contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with bluegreen algae by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>87.7</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cryptophyta (μg/L) (FP) SA</attrlabl>
+        <attrdef>Cryptophyceae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>4.31</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cryptophyta (%) (FP) SA</attrlabl>
+        <attrdef>Cryptophytes contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with cryptophytes by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>30.3</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Diatoms (μg/L) (FP) SA</attrlabl>
+        <attrdef>Diatoms, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>5.8</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Diatoms (%) (FP) SA</attrlabl>
+        <attrdef>Diatoms/dinoflagellates contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with diatoms by the sum of green algae, bluegreen algae, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>48.7</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Green Algae (μg/L) (FP) SA</attrlabl>
+        <attrdef>Green algae, micrograms of chlorophyll-a per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>12.45</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Green Algae (%) (FP) SA</attrlabl>
+        <attrdef>Green algae contribution to the total conc of chlorophyll-a, estimated by dividing the micrograms per liter of chlorophyll-a associated with green algae by the sum of green algae, bluegreen, diatoms, and cryptophyta, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.5</rdommin>
+            <rdommax>75.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Transmission (%) (FP) SA</attrlabl>
+        <attrdef>Transmission, percent</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>92.3</rdommin>
+            <rdommax>100.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Yellow Substances (μg/L) SA</attrlabl>
+        <attrdef>Yellow substances correction, micrograms per liter</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.03</rdommin>
+            <rdommax>3.59</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Water Quality Mapping July to October 2018 Differences.csv (July to October 2018 DIFF)</enttypl>
+        <enttypd>Calculated differences between months for water chemistry data from the Sacramento-San Joaquin Delta study area.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>CL ID</attrlabl>
+        <attrdef>Center line point identifier; see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>173</rdommin>
+            <rdommax>6037</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Time Period (Month, Year)</attrlabl>
+        <attrdef>Month and year used for difference calculations</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>July-Oct</edomv>
+            <edomvd>Month and year used for difference calculations</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Latitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>37.825015</rdommin>
+            <rdommax>38.571111</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Longitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-122.149497</rdommin>
+            <rdommax>-121.3138</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Grouping</attrlabl>
+        <attrdef>Name of the approximate location for center line points</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Name of the approximate location for center line points</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4 (μM) DIFF</attrlabl>
+        <attrdef>Ammonium difference, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-132.64</rdommin>
+            <rdommax>21.57</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3 (μM) DIFF</attrlabl>
+        <attrdef>Nitrate difference, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-152.17</rdommin>
+            <rdommax>48.09</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PO4 (μM) DIFF</attrlabl>
+        <attrdef>Orthophosphate difference, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-7.02</rdommin>
+            <rdommax>12.28</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DIN (μM) DIFF</attrlabl>
+        <attrdef>Dissolved inorganic nitrogen difference, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-154.6</rdommin>
+            <rdommax>51.88</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>TDN (μM) DIFF</attrlabl>
+        <attrdef>Total dissolved nitrogen difference, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-148.81</rdommin>
+            <rdommax>59.11</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Water Quality Mapping May to October 2018 Differences.csv (May to October 2018 DIFF)</enttypl>
+        <enttypd>Calculated differences between months for water chemistry data from the Sacramento-San Joaquin Delta study area.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>CL ID</attrlabl>
+        <attrdef>Center line point identifier; see metadata for details</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>173</rdommin>
+            <rdommax>6037</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Time Period (Month, Year)</attrlabl>
+        <attrdef>Month and year used for difference calculations</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>May-October</edomv>
+            <edomvd>Month and year used for difference calculations</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Latitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>37.825015</rdommin>
+            <rdommax>38.571111</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Longitude (Decimal Degrees, NAD83)</attrlabl>
+        <attrdef>NAD 1983, decimal degrees</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-122.149497</rdommin>
+            <rdommax>-121.3138</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Grouping</attrlabl>
+        <attrdef>Name of the approximate location for center line points</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Name of the approximate location for center line points</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NH4 (μM) DIFF</attrlabl>
+        <attrdef>Ammonium difference, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-86.03</rdommin>
+            <rdommax>44.94</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NO3 (μM) DIFF</attrlabl>
+        <attrdef>Nitrate difference, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-144.56</rdommin>
+            <rdommax>15.3</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PO4 (μM) DIFF</attrlabl>
+        <attrdef>Orthophosphate difference, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-6.66</rdommin>
+            <rdommax>4.28</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DIN (μM) DIFF</attrlabl>
+        <attrdef>Dissolved inorganic nitrogen difference, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-147.27</rdommin>
+            <rdommax>45.25</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>TDN (μM) DIFF</attrlabl>
+        <attrdef>Total dissolved nitrogen difference, micromolar</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-145.94</rdommin>
+            <rdommax>45.74</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Water Quality Mapping 2018 Data Corrections and Offsets.csv</enttypl>
+        <enttypd>Data corrections and offsets calculations applied to the datasets.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>Correction Type</attrlabl>
+        <attrdef>Type of correction applied.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Type of correction applied.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Correction Equation</attrlabl>
+        <attrdef>Equation used for the correction.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Equation used for the correction.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Applied to</attrlabl>
+        <attrdef>The instrument which corrections were applied to.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <udom>The instrument which corrections were applied to.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Reference</attrlabl>
+        <attrdef>Reference used for the correction method</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>(Watras et al. 2011, Downing et al. 2012)</edomv>
+            <edomvd>Reference used for the correction method</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Delta Water Quality Mapping 2018 Data Dictionary v2.0.csv</enttypl>
+        <enttypd>Data dictionary for tables and attributes.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>Abbreviation</attrlabl>
+        <attrdef>Abbreviations used for labels and instruments</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <udom>Abbreviations used for labels and instruments</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Description</attrlabl>
+        <attrdef>Description of abbreviations and attributes</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <udom>Description of abbreviations and attributes</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Detection Range</attrlabl>
+        <attrdef>Instrument and equipment detection range</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <udom>Instrument and equipment detection range</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Equation</attrlabl>
+        <attrdef>Equation to obtain specific conductance</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Specific Conductance = Conductivity / (1 + 0.02 * (temp(C) - 25))</edomv>
+            <edomvd>Equation to obtain specific conductance</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <overview>
+      <eaover>The data dictionary is titled Delta Water Quality Mapping 2018 Data Dictionary v2.0. This file lists and describes the labels in tables. The files with "High Resolution" on their title are used with an Excel macro to create the files with "Spatially Aligned" on their title. This files are then incorporated into ArcGIS Pro to interpolate the data and create the prediction maps. See methods for more details.</eaover>
+      <eadetcit>The files are available on the landing page: https://www.sciencebase.gov/catalog/item/5d3f1ae2e4b01d82ce8d90e0.</eadetcit>
+    </overview>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey</cntorg>
+          <cntper>GS ScienceBase</cntper>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>Denver Federal Center, Building 810, Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>Although this data set has been used by the U.S. Geological Survey, U.S. Department of the Interior, no warranty expressed or implied is made by the U.S. Geological Survey as to the accuracy of the data and related materials. The act of distribution shall not constitute any such warranty, and no responsibility is assumed by the U.S. Geological Survey in the use of this data, software, or related materials. Any use of trade, product, or firm names is for descriptive purposes only and does not imply endorsement by the U.S. Government.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>Digital Data</formname>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>https://doi.org/10.5066/P9FQEUAL</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <fees>N/A</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20240402</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Jeniffer Soto Perez</cntper>
+          <cntorg>U.S. Geological Survey, SOUTHWEST REGION</cntorg>
+        </cntperp>
+        <cntpos>HYDROLOGIC TECHNICIAN</cntpos>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>6000 J Street Placer Hall</address>
+          <city>Sacramento</city>
+          <state>CA</state>
+          <postal>95819</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>916-278-3061</cntvoice>
+        <cntemail>jsotoperez@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+  </metainfo>
+</metadata>
