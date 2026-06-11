@@ -5,8 +5,68 @@ format: html
 
 ### The raw data script that pulled data from ScienceBase is within 01_chl_wrangle.qmd. Since these data were numerous and from multiple special projects, they require lengthy data harmonization. This notebook is specific to ScienceBase data manipulation so that these "massaging" techniques don't over-clutter the chlorophyll data wrangling notebook.
 
+```{r}
+#Load packages
+library(janitor)
+library(dplyr)
+library(stringr)
+library(lubridate)
+```
 
 # Three similar data sources containing toxins, qpcr, and chl data
+
 ```{r}
+#Read in data
+chl_gen_cyano_1 <- read.csv("data//raw//sciencebase//5c13d214e4b006c4f8532a17//Cyanotoxins_Chl_Genetic_Data.csv")
+chl_gen_cyano_2 <- read.csv("data//raw//sciencebase//628cc9c2d34ef70cdba3bbff//2019_Cyanotoxins_Chl_Genetics_Data.csv", header = TRUE, skip = 1) #1st row is garbage
+chl_gen_cyano_3 <- read.csv("data//raw//sciencebase//601827aad34edf5c66efffc8//2018_Cyanotoxins_Chl_Genetics_Data.csv", header = TRUE, skip = 1)#1st row is garbage
+
+#Limit to just our Delta location and chl data (assuming toxins will be captures in VK data project)
+chl_gen_cyano_1_CA <- chl_gen_cyano_1 %>% filter(State == "CA") %>%
+    select(Station.ID, Station.Name, Date, Time, Sample.Type, Chlorophyll.a..ug.L.) %>%
+    rename(station_num = Station.ID, station = Station.Name, date = Date, time = Time, sample_type = Sample.Type, chla_ugl = Chlorophyll.a..ug.L.)%>% filter(sample_type == "Regular")
+
+chl_gen_cyano_1_CA$time_hms <- str_c(chl_gen_cyano_1_CA$time, ":00")
+chl_gen_cyano_1_CA <- chl_gen_cyano_1_CA %>% select(-time)
+chl_gen_cyano_1_CA$datetime <- paste(chl_gen_cyano_1_CA$date, chl_gen_cyano_1_CA$time, sep = " ")
+
+
+chl_gen_cyano_2_CA <- chl_gen_cyano_2 %>% filter(str_detect(USGS.Station.Name, "CA"))%>%
+    select(USGS.Station.ID, USGS.Station.Name, Sample.Date, Sample.Time, Sample.Type, Chlorophyll.a..ug.L.)%>%
+    rename(station_num = USGS.Station.ID, station = USGS.Station.Name, date = Sample.Date, time = Sample.Time, sample_type = Sample.Type, chla_ugl = Chlorophyll.a..ug.L.)%>% filter(sample_type == "Regular")
+
+chl_gen_cyano_2_CA$time_hm <- sub("(?=..$)", ":", chl_gen_cyano_2_CA$time, perl = TRUE)
+chl_gen_cyano_2_CA$time_hms <- str_c(chl_gen_cyano_2_CA$time_hm, ":00")
+chl_gen_cyano_2_CA <- chl_gen_cyano_2_CA %>% select(-time, -time_hm)
+chl_gen_cyano_2_CA$datetime <- paste(chl_gen_cyano_2_CA$date, chl_gen_cyano_2_CA$time, sep = " ")
+
+chl_gen_cyano_3_CA <- chl_gen_cyano_3 %>% filter(str_detect(USGS.Station.Name, "CA")) %>%
+    select(USGS.Station.ID, USGS.Station.Name, Sample.Date, Sample.Time, Sample.Type, Chlorophyll.a..ug.L.)%>%
+    rename(station_num = USGS.Station.ID, station = USGS.Station.Name, date = Sample.Date, time = Sample.Time, sample_type = Sample.Type, chla_ugl = Chlorophyll.a..ug.L.)%>% filter(sample_type == "Regular")
+
+chl_gen_cyano_3_CA$time_hm <- sub("(?=..$)", ":", chl_gen_cyano_3_CA$time, perl = TRUE)
+chl_gen_cyano_3_CA$time_hms <- str_c(chl_gen_cyano_3_CA$time_hm, ":00")
+chl_gen_cyano_3_CA <- chl_gen_cyano_3_CA %>% select(-time, -time_hm)
+chl_gen_cyano_3_CA$datetime <- paste(chl_gen_cyano_3_CA$date, chl_gen_cyano_3_CA$time, sep = " ")
+
+freeport_chl_ds <-rbind(chl_gen_cyano_1_CA, chl_gen_cyano_2_CA, chl_gen_cyano_3_CA)
+rm(chl_gen_cyano_1, chl_gen_cyano_2, chl_gen_cyano_3, chl_gen_cyano_1_CA, chl_gen_cyano_2_CA, chl_gen_cyano_3_CA)
+
+freeport_chl_ds$agency <- "USGS"
+freeport_chl_ds$latitude <- 38.45566
+freeport_chl_ds$longitude <- -121.50162
+
+
+freeport_chl_ds <- freeport_chl_ds %>% mutate(datetime = mdy_hms(datetime))%>%
+    select(-time_hms) %>%
+    mutate(date = mdy(date))
+
+freeport_chl_ds$chla_ugl <- as.double(freeport_chl_ds$chla_ugl)
+freeport_chl_ds <- freeport_chl_ds %>% filter(!is.na(chla_ugl))
+```
+
+
+```{r}
+
 
 ```
