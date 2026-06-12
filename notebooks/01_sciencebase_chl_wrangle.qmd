@@ -1,6 +1,7 @@
 ---
 title: "ScienceBase Chlorophyll Data Harmonization"
 format: html
+Author: Emily Richardson
 ---
 
 ### The raw data script that pulled data from ScienceBase is within 01_chl_wrangle.qmd. Since these data were numerous and from multiple special projects, they require lengthy data harmonization. This notebook is specific to ScienceBase data manipulation so that these "massaging" techniques don't over-clutter the chlorophyll data wrangling notebook.
@@ -58,15 +59,93 @@ freeport_chl_ds$longitude <- -121.50162
 
 
 freeport_chl_ds <- freeport_chl_ds %>% mutate(datetime = mdy_hms(datetime))%>%
-    select(-time_hms) %>%
+    select(-time_hms, -sample_type) %>%
     mutate(date = mdy(date))
 
 freeport_chl_ds$chla_ugl <- as.double(freeport_chl_ds$chla_ugl)
 freeport_chl_ds <- freeport_chl_ds %>% filter(!is.na(chla_ugl))
+freeport_chl_ds$sample_type <- "discrete"
 ```
 
+# USGS high resolution - Many datasets using the same boat setup and instrumentation can be combined
+```{r}
+hr_mapping2018_jul <- read.csv("data//raw//sciencebase//5d3f1ae2e4b01d82ce8d90e0//Delta Water Quality Mapping July 2018 High Resolution.csv")
+hr_mapping2018_may <- read.csv("data//raw//sciencebase//5d3f1ae2e4b01d82ce8d90e0//Delta Water Quality Mapping May 2018 High Resolution.csv")
+hr_mapping2018_oct <-read.csv("data//raw//sciencebase//5d3f1ae2e4b01d82ce8d90e0//Delta Water Quality Mapping October 2018 High Resolution.csv")
+ds_mapping2018 <-read.csv("data//raw//sciencebase//5d3f1ae2e4b01d82ce8d90e0//Delta Water Quality Mapping 2018 Discrete Sampling v2.0.csv")
+
+hr_toe20180823 <- read.csv("data//raw//sciencebase//5e7ceb88e4b01d5092751c18//2018-08-23_Sample_data_ver.2.0.csv")
+hr_toe20180905 <- read.csv("data//raw//sciencebase//5e7ceb88e4b01d5092751c18//2018-09-05_Sample_data_ver.2.0.csv")
+hr_toe20180913 <- read.csv("data//raw//sciencebase//5e7ceb88e4b01d5092751c18//2018-09-13_Sample_data_ver.2.0.csv")
+hr_toe20181004 <- read.csv("data//raw//sciencebase//5e7ceb88e4b01d5092751c18//2018-10-04_Sample_data_ver.2.0.csv")
+
+hrprof_aqveg2018 <- read.csv("data//raw//sciencebase//5f1f44c582cef313ed8ec753//AquaticVegetation_2018.csv")
+
+hrds_conf2017 <- read.csv("data//raw//sciencebase//5f5fe6eb82ce3550e3bff4a5//Confluence_2017.csv")
+
+hr_yolo2017 <- read.csv("data//raw//sciencebase//5f5ff87582ce3550e3bff547//YoloBypass_2017.csv")
+
+#ds_opbwrt <- read.csv("data//raw//sciencebase//5f6ce12a82ce38aaa24801be//OpB WRT Discrete.csv")
+#hr_opbwrt_2017oct <- read.csv("data//raw//sciencebase//5f6ce12a82ce38aaa24801be//OpB WRT Oct2017_HR.csv")
+#hr_opbwrt_2018may <- read.csv("data//raw//sciencebase//5f6ce12a82ce38aaa24801be//OpB WRT May2018 HR.csv")
+#hr_opbwrt_2018oct <- read.csv("data//raw//sciencebase//5f6ce12a82ce38aaa24801be//OpB WRT Oct2018_HR.csv")
+
+hr_edb <- read.csv("data//raw//sciencebase//5f7dee6482ce1d74e7dd9da0//EDB_HR.txt")
+ds_edb <- read.csv("data//raw//sciencebase//5f7dee6482ce1d74e7dd9da0//EDB_DS.txt")
+
+
+hr_csc_2021Jul <- read.csv("data//raw//sciencebase//5f89cbea82ce3241878937f6//July2021_CacheSloughComplexMapping_HR_preliminary.txt")
+hr_csc_2021Sept <- read.csv("data//raw//sciencebase//5f89cbea82ce3241878937f6//September2021_CacheSloughComplexMapping_HR_preliminary.txt")
+hr_csc_2022Oct <- read.csv("data//raw//sciencebase//5f89cbea82ce3241878937f6//October2022_CacheSloughComplexMapping_HR_preliminary.txt")
+ds_csc <- read.csv("data//raw//sciencebase//5f89cbea82ce3241878937f6//CacheSloughComplexMapping_DS_preliminary.txt")
+
+hr_ftswq <- read.csv("data//raw//sciencebase//5f452e8782ce4c3d12251702//FTS_water_quality_20s_median.csv")
+
+ds_mapping2020 <-read.csv("data//raw//sciencebase/5f24747f82cef313ed971974//DeltaMapping_2020_DS.txt")
+ds_mapping2021 <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_2021_DS.txt")
+hr_mapping2020aug <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_August2020_HR.txt")
+hr_mapping2021jul <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_July2021_HR.txt")
+hr_mapping2020jul <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_July2020_HR.txt")
+hr_mapping2021may <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_May2021_HR.txt")
+hr_mapping2020june <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_June2020_HR.txt")
+hr_mapping2021oct <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_October2021_HR.txt")
+hr_mapping2020oct <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_October2020_HR.txt")
+
+ds_srinc2019 <- read.csv("data//raw//sciencebase//5fa096b1d34e198cb7919341//SRiNC_2019_DS.txt")
+hr_srinc2019 <- read.csv("data//raw//sciencebase//5fa096b1d34e198cb7919341//SRiNC_2019_HR.txt")
+
+ds_frank <-read.csv("data//raw//sciencebase//64ee7f82d34e4b6d8ab71438//FranksTract_2022_DS.txt")
+hr_frank <-read.csv("data//raw//sciencebase//64ee7f82d34e4b6d8ab71438//FranksTract_2022-2023_HR.txt")
+
+ds_mapping2022 <-read.csv("data//raw//sciencebase//64fa6804d34ed30c205504a6//DeltaMapping_2022_DS.txt")
+hr_mapping2022jul <-read.csv("data//raw//sciencebase//64fa6804d34ed30c205504a6//DeltaMapping_July2022_HR.txt")
+hr_mapping2022may <-read.csv("data//raw//sciencebase//64fa6804d34ed30c205504a6//DeltaMapping_May2022_HR.txt")
+hr_mapping2022oct <-read.csv("data//raw//sciencebase//64fa6804d34ed30c205504a6//DeltaMapping_October2022_HR.txt")
+
+ds_sensor_hyperspec <- read.csv("data//raw//sciencebase//65b18ae7d34e36a39044c493//T6_DS_DR.csv")
+
+ds_mapping2023 <- read.csv("data//raw//sciencebase//6596fe37d34e3265ab158d60//DeltaMapping_2023_DS.txt")
+hr_mapping2023jul <- read.csv("data//raw//sciencebase//6596fe37d34e3265ab158d60//DeltaMapping_July2023_HR.txt")
+hr_mapping2023may <- read.csv("data//raw//sciencebase//6596fe37d34e3265ab158d60//DeltaMapping_May2023_HR.txt")
+hr_mapping2023oct  <- read.csv("data//raw//sciencebase//6596fe37d34e3265ab158d60//DeltaMapping_October2023_HR.txt")
+
+hr_mapping2024july <- read.csv("data//raw//sciencebase//66427d79d34e1955f5a41cf0//HR_DeltaMapping_July2024_provisional.txt")
+hr_mapping2024may <- read.csv("data//raw//sciencebase//66427d79d34e1955f5a41cf0//HR_DeltaMapping_May2024_provisional.txt")
+hr_mapping2024oct <- read.csv("data//raw//sciencebase//66427d79d34e1955f5a41cf0//HR_DeltaMapping_October2024_provisional.txt")
+```
+
+## SF Bay Peterson data (has a Delta extent -Grizzly Bay to Rio Vista in Sac River)
 
 ```{r}
+ds_peter20162021 <- read.csv("data//raw//sciencebase//5966abe6e4b0d1f9f05cf551//2016_2021SanFranciscoBayWaterQualityData.csv")
+peterlocs20162021 <- read.csv("data//raw//sciencebase//5966abe6e4b0d1f9f05cf551//SFBay_TableofStationLocations_v4.csv")
 
+ds_peter19692015 <- read.csv("data//raw//sciencebase//64248ee5d34e370832fe343d//SanFranciscoBayWaterQualityData1969-2015v4.csv")
+peterlocs19692015 <- read.csv("data//raw//sciencebase//64248ee5d34e370832fe343d//SFBstation_locations19692015.csv")
+```
 
+## Graham Phyto stdy
+
+```{r}
+graham_phyto <- read.csv("data//raw//sciencebase//601025fcd34e162231fecfca//2018 Phytoplankton Data.csv")
 ```
