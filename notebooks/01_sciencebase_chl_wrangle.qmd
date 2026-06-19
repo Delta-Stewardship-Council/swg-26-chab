@@ -12,6 +12,8 @@ library(janitor)
 library(dplyr)
 library(stringr)
 library(lubridate)
+library(readr)
+library(stringr)
 ```
 
 # Three similar data sources containing toxins, qpcr, and chl data
@@ -67,85 +69,680 @@ freeport_chl_ds <- freeport_chl_ds %>% filter(!is.na(chla_ugl))
 freeport_chl_ds$sample_type <- "discrete"
 ```
 
-# USGS high resolution - Many datasets using the same boat setup and instrumentation can be combined
+# USGS high resolution flow through measurements- Many datasets using the same boat setup and instrumentation can be combined
 ```{r}
+#2018 high resolution mapping
 hr_mapping2018_jul <- read.csv("data//raw//sciencebase//5d3f1ae2e4b01d82ce8d90e0//Delta Water Quality Mapping July 2018 High Resolution.csv")
 hr_mapping2018_may <- read.csv("data//raw//sciencebase//5d3f1ae2e4b01d82ce8d90e0//Delta Water Quality Mapping May 2018 High Resolution.csv")
 hr_mapping2018_oct <-read.csv("data//raw//sciencebase//5d3f1ae2e4b01d82ce8d90e0//Delta Water Quality Mapping October 2018 High Resolution.csv")
-ds_mapping2018 <-read.csv("data//raw//sciencebase//5d3f1ae2e4b01d82ce8d90e0//Delta Water Quality Mapping 2018 Discrete Sampling v2.0.csv")
 
+hr_mapping2018 <- rbind(hr_mapping2018_jul, hr_mapping2018_may, hr_mapping2018_oct)
+rm(hr_mapping2018_jul, hr_mapping2018_may, hr_mapping2018_oct)
+
+hr_mapping2018 <- hr_mapping2018  %>%
+    select(Timestamp..PST., Longitude..Decimal.Degrees..NAD83., Latitude..Decimal.Degrees..NAD83., fCHLA..μg.L...EXO..HR) %>%
+    rename(datetime = Timestamp..PST.,
+    longitude = Longitude..Decimal.Degrees..NAD83.,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    fchl_tempcorr = fCHLA..μg.L...EXO..HR) %>%
+    filter(!is.na(latitude))%>% 
+    filter(!is.na(fchl_tempcorr)) %>%
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>%
+    mutate(datetime = str_c(datetime, ":00")) %>%
+    mutate(datetime = mdy_hms(datetime))
+
+#round to one measurement per minute
+hr_mapping2018 <- hr_mapping2018  %>% 
+    group_by(datetime) %>%
+    mutate(latitude = mean(latitude)) %>%
+    mutate(longitude = mean(longitude)) %>%
+    mutate(fchl_corr = mean(fchl_corr)) %>%
+    mutate(instrument = "EXO") %>%
+    ungroup() %>%
+    distinct()
+
+#Toe drain flow pulse
 hr_toe20180823 <- read.csv("data//raw//sciencebase//5e7ceb88e4b01d5092751c18//2018-08-23_Sample_data_ver.2.0.csv")
 hr_toe20180905 <- read.csv("data//raw//sciencebase//5e7ceb88e4b01d5092751c18//2018-09-05_Sample_data_ver.2.0.csv")
 hr_toe20180913 <- read.csv("data//raw//sciencebase//5e7ceb88e4b01d5092751c18//2018-09-13_Sample_data_ver.2.0.csv")
 hr_toe20181004 <- read.csv("data//raw//sciencebase//5e7ceb88e4b01d5092751c18//2018-10-04_Sample_data_ver.2.0.csv")
 
-hrprof_aqveg2018 <- read.csv("data//raw//sciencebase//5f1f44c582cef313ed8ec753//AquaticVegetation_2018.csv")
+hr_toe20180823 <- hr_toe20180823 %>% 
+    select(Timestamp..PST., Latitude..Decimal.Degrees., Longitude..Decimal.Degrees., fCHLA..µg.L...EXO..HR) %>% 
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees.,
+    longitude = Longitude..Decimal.Degrees., 
+    fchl_tempcorr = fCHLA..µg.L...EXO..HR)
+hr_toe20180905 <- hr_toe20180905 %>% 
+    select(Timestamp..PST., Latitude..Decimal.Degrees., Longitude..Decimal.Degrees., fCHLA..µg.L...EXO..HR)%>% 
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees.,
+    longitude = Longitude..Decimal.Degrees., 
+    fchl_tempcorr = fCHLA..µg.L...EXO..HR)
+hr_toe20180913 <- hr_toe20180913%>% 
+    select(Timestamp..PST., Latitude..Decimal.Degrees., Longitude..Decimal.Degrees., fCHLA..µg.L...EXO..HR)%>% 
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees.,
+    longitude = Longitude..Decimal.Degrees., 
+    fchl_tempcorr = fCHLA..µg.L...EXO..HR)
+hr_toe20181004 <- hr_toe20181004%>% 
+    select(Timestamp..PST., Latitude..Decimal.Degrees., Longitute..Decimal.Degrees., fCHLA..µg.L...EXO..HR)%>%
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees.,
+    longitude = Longitute..Decimal.Degrees., 
+    fchl_tempcorr = fCHLA..µg.L...EXO..HR)
+
+hr_toe <- rbind(hr_toe20180823, hr_toe20180905, hr_toe20180913, hr_toe20181004)
+rm(hr_toe20180823, hr_toe20180905, hr_toe20180913, hr_toe20181004)
+
+hr_toe <-  hr_toe  %>% 
+    filter(!is.na(longitude))%>% 
+    filter(!is.na(fchl_tempcorr)) %>%
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>% 
+    mutate(datetime = str_c(datetime, ":00")) %>%
+    mutate(datetime = mdy_hms(datetime))
+
+hr_toe <-  hr_toe  %>% 
+    group_by(datetime) %>%
+    mutate(latitude = mean(latitude)) %>%
+    mutate(longitude = mean(longitude)) %>%
+    mutate(fchl_corr = mean(fchl_corr)) %>%
+    mutate(instrument = "EXO") %>%
+    ungroup() %>%
+    distinct()
+
+hrds_prof_aqveg2018 <- read.csv("data//raw//sciencebase//5f1f44c582cef313ed8ec753//AquaticVegetation_2018.csv")
+
+#split sensor and discrete (will clean ds in next cell with the other ds data)
+hr_prof_aqveg2018 <- hrds_prof_aqveg2018 %>% 
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD.83., Data.Type, Depth..m...CTD..HR, Profile.position, fCHL..μg.L...EXO..HR)%>% 
+    filter(!is.na(fCHL..μg.L...EXO..HR)) %>% 
+    filter(Data.Type =="mapping")  %>% 
+    select(-Profile.position, -Data.Type, -Depth..m...CTD..HR)
+
+ds_prof_aqveg2018 <- hrds_prof_aqveg2018 %>% 
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD.83., Data.Type, Depth..m...CTD..HR, Profile.position, Total.Chla..µg.L..DS) %>% 
+    filter(!is.na(Total.Chla..µg.L..DS))
+
+rm(hrds_prof_aqveg2018)
+
+hr_prof_aqveg2018 <- hr_prof_aqveg2018  %>%
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    longitude = Longitude..Decimal.Degrees..NAD.83.,
+    fchl_tempcorr = fCHL..μg.L...EXO..HR) %>%
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>% 
+    filter(!is.na(latitude))%>% 
+    filter(!is.na(fchl_corr)) %>%
+    mutate(datetime = mdy_hms(datetime)) %>% 
+    mutate(instrument = "EXO")
 
 hrds_conf2017 <- read.csv("data//raw//sciencebase//5f5fe6eb82ce3550e3bff4a5//Confluence_2017.csv")
 
+#split sensor and discrete (will clean ds in next cell with the other ds data)
+hr_conf2017 <- hrds_conf2017 %>% 
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD83.,fCHL..μg.L...EXO..HR)%>% 
+    filter(!is.na(fCHL..μg.L...EXO..HR))
+
+ds_conf2017 <- hrds_conf2017 %>% 
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD83., Total.Chla..µg.L..DS) %>% 
+    filter(!is.na(Total.Chla..µg.L..DS))
+
+rm(hrds_conf2017)
+
+hr_conf2017 <- hr_conf2017 %>% 
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    longitude = Longitude..Decimal.Degrees..NAD83.,
+    fchl_tempcorr = fCHL..μg.L...EXO..HR) %>%
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>% 
+    filter(!is.na(latitude))%>% 
+    filter(!is.na(fchl_corr)) %>%
+    mutate(datetime = mdy_hms(datetime)) %>% 
+    mutate(instrument = "EXO")
+
 hr_yolo2017 <- read.csv("data//raw//sciencebase//5f5ff87582ce3550e3bff547//YoloBypass_2017.csv")
 
-#ds_opbwrt <- read.csv("data//raw//sciencebase//5f6ce12a82ce38aaa24801be//OpB WRT Discrete.csv")
-#hr_opbwrt_2017oct <- read.csv("data//raw//sciencebase//5f6ce12a82ce38aaa24801be//OpB WRT Oct2017_HR.csv")
-#hr_opbwrt_2018may <- read.csv("data//raw//sciencebase//5f6ce12a82ce38aaa24801be//OpB WRT May2018 HR.csv")
-#hr_opbwrt_2018oct <- read.csv("data//raw//sciencebase//5f6ce12a82ce38aaa24801be//OpB WRT Oct2018_HR.csv")
+hr_yolo2017 <- hr_yolo2017 %>% 
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD.83., Longitude..Decimal.Degrees..NAD.83., fCHL..μg.L...EXO..HR) %>% 
+    filter(!is.na(fCHL..μg.L...EXO..HR))%>% 
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees..NAD.83.,
+    longitude = Longitude..Decimal.Degrees..NAD.83.,
+    fchl_tempcorr = fCHL..μg.L...EXO..HR) %>%
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>% 
+    filter(!is.na(latitude))%>% 
+    filter(!is.na(fchl_corr)) %>%
+    mutate(datetime = str_c(datetime, ":00")) %>%
+    mutate(datetime = mdy_hms(datetime)) %>% group_by(datetime) %>%
+    mutate(latitude = mean(latitude)) %>%
+    mutate(longitude = mean(longitude)) %>%
+    mutate(fchl_corr = mean(fchl_corr)) %>%
+    mutate(instrument = "EXO") %>%
+    ungroup() %>%
+    distinct()
 
-hr_edb <- read.csv("data//raw//sciencebase//5f7dee6482ce1d74e7dd9da0//EDB_HR.txt")
-ds_edb <- read.csv("data//raw//sciencebase//5f7dee6482ce1d74e7dd9da0//EDB_DS.txt")
+hr_edb <- read.csv("data//raw//sciencebase//5f7dee6482ce1d74e7dd9da0//EDB_HR.txt",
+  sep = "\t", #this one is tab delimited, not comma
+  header = TRUE)
 
+hr_edb <- hr_edb %>%
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD83., fCHL..ug.L...EXO..HR) %>% 
+    filter(!is.na(fCHL..ug.L...EXO..HR))%>% 
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    longitude = Longitude..Decimal.Degrees..NAD83.,
+    fchl_tempcorr = fCHL..ug.L...EXO..HR) %>%
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>% 
+    filter(!is.na(latitude))%>% 
+    filter(!is.na(fchl_corr)) %>%
+    mutate(datetime = str_c(datetime, ":00")) %>%
+    mutate(datetime = mdy_hms(datetime)) %>% group_by(datetime) %>%
+    mutate(latitude = mean(latitude)) %>%
+    mutate(longitude = mean(longitude)) %>%
+    mutate(fchl_corr = mean(fchl_corr)) %>%
+    mutate(instrument = "EXO") %>%
+    ungroup() %>%
+    distinct()
 
-hr_csc_2021Jul <- read.csv("data//raw//sciencebase//5f89cbea82ce3241878937f6//July2021_CacheSloughComplexMapping_HR_preliminary.txt")
-hr_csc_2021Sept <- read.csv("data//raw//sciencebase//5f89cbea82ce3241878937f6//September2021_CacheSloughComplexMapping_HR_preliminary.txt")
-hr_csc_2022Oct <- read.csv("data//raw//sciencebase//5f89cbea82ce3241878937f6//October2022_CacheSloughComplexMapping_HR_preliminary.txt")
-ds_csc <- read.csv("data//raw//sciencebase//5f89cbea82ce3241878937f6//CacheSloughComplexMapping_DS_preliminary.txt")
+hr_csc_2021Jul <- read.csv("data//raw//sciencebase//5f89cbea82ce3241878937f6//July2021_CacheSloughComplexMapping_HR_preliminary.txt",
+  sep = "\t", #this one is tab delimited, not comma
+  header = TRUE)
+hr_csc_2021Sept <- read.csv("data//raw//sciencebase//5f89cbea82ce3241878937f6//September2021_CacheSloughComplexMapping_HR_preliminary.txt",
+  sep = "\t", #this one is tab delimited, not comma
+  header = TRUE)
+hr_csc_2022Oct <- read.csv("data//raw//sciencebase//5f89cbea82ce3241878937f6//October2022_CacheSloughComplexMapping_HR_preliminary.txt",
+  sep = "\t", #this one is tab delimited, not comma
+  header = TRUE)
+
+hr_csc_julsept <- rbind(hr_csc_2021Jul, hr_csc_2021Sept)
+rm(hr_csc_2021Jul, hr_csc_2021Sept)
+
+hr_csc_julsept <- hr_csc_julsept %>% 
+    select(Timestamp..PST., Latitude..Decimal.Degrees., Longitude..Decimal.Degrees., fCHL..ug.L...EXO..HR) %>% 
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees.,
+    longitude = Longitude..Decimal.Degrees., 
+    fchl_tempcorr = fCHL..ug.L...EXO..HR)
+
+hr_csc_2022Oct <- hr_csc_2022Oct %>% 
+    select(Timestamp..PST., Latitude..Decimal.Degrees., Longitude..Decimal.Degrees., fCHL..ug.L...EXO..HR) %>% 
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees.,
+    longitude = Longitude..Decimal.Degrees., 
+    fchl_tempcorr = fCHL..ug.L...EXO..HR)
+
+hr_csc <- rbind(hr_csc_julsept, hr_csc_2022Oct)
+rm(hr_csc_julsept, hr_csc_2022Oct)
+
+hr_csc <- hr_csc %>%
+    filter(!is.na(fchl_tempcorr))%>% 
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>% 
+    filter(!is.na(latitude))%>% 
+    mutate(datetime = mdy_hms(datetime)) %>% 
+    mutate(instrument = "EXO")
 
 hr_ftswq <- read.csv("data//raw//sciencebase//5f452e8782ce4c3d12251702//FTS_water_quality_20s_median.csv")
 
-ds_mapping2020 <-read.csv("data//raw//sciencebase/5f24747f82cef313ed971974//DeltaMapping_2020_DS.txt")
-ds_mapping2021 <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_2021_DS.txt")
-hr_mapping2020aug <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_August2020_HR.txt")
-hr_mapping2021jul <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_July2021_HR.txt")
-hr_mapping2020jul <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_July2020_HR.txt")
-hr_mapping2021may <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_May2021_HR.txt")
-hr_mapping2020june <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_June2020_HR.txt")
-hr_mapping2021oct <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_October2021_HR.txt")
-hr_mapping2020oct <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_October2020_HR.txt")
+hr_ftswq <- hr_ftswq %>% 
+    select(DateTime, LAT_MAP, LONG_MAP, fCHL_32316_XOM) %>% 
+    rename(datetime = DateTime,
+    latitude = LAT_MAP,
+    longitude = LONG_MAP, 
+    fchl_tempcorr = fCHL_32316_XOM)%>%
+    filter(!is.na(latitude))%>% 
+    filter(!is.na(fchl_tempcorr)) %>%
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>% 
+    mutate(datetime = str_c(datetime, ":00")) %>%
+    mutate(datetime = mdy_hms(datetime)) %>% group_by(datetime) %>%
+    mutate(latitude = mean(latitude)) %>%
+    mutate(longitude = mean(longitude)) %>%
+    mutate(fchl_corr = mean(fchl_corr)) %>%
+    mutate(instrument = "EXO") %>%
+    ungroup() %>%
+    distinct()
 
-ds_srinc2019 <- read.csv("data//raw//sciencebase//5fa096b1d34e198cb7919341//SRiNC_2019_DS.txt")
-hr_srinc2019 <- read.csv("data//raw//sciencebase//5fa096b1d34e198cb7919341//SRiNC_2019_HR.txt")
 
-ds_frank <-read.csv("data//raw//sciencebase//64ee7f82d34e4b6d8ab71438//FranksTract_2022_DS.txt")
-hr_frank <-read.csv("data//raw//sciencebase//64ee7f82d34e4b6d8ab71438//FranksTract_2022-2023_HR.txt")
+hr_mapping2020aug <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_August2020_HR.txt", sep = "\t", header = TRUE)
+hr_mapping2021jul <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_July2021_HR.txt", sep = "\t", header = TRUE)
+hr_mapping2020jul <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_July2020_HR.txt", sep = "\t", header = TRUE)
+hr_mapping2021may <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_May2021_HR.txt", sep = "\t", header = TRUE)
+hr_mapping2020june <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_June2020_HR.txt", sep = "\t", header = TRUE)
+hr_mapping2021oct <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_October2021_HR.txt", sep = "\t", header = TRUE)
+hr_mapping2020oct <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_October2020_HR.txt", sep = "\t", header = TRUE)
 
-ds_mapping2022 <-read.csv("data//raw//sciencebase//64fa6804d34ed30c205504a6//DeltaMapping_2022_DS.txt")
-hr_mapping2022jul <-read.csv("data//raw//sciencebase//64fa6804d34ed30c205504a6//DeltaMapping_July2022_HR.txt")
-hr_mapping2022may <-read.csv("data//raw//sciencebase//64fa6804d34ed30c205504a6//DeltaMapping_May2022_HR.txt")
-hr_mapping2022oct <-read.csv("data//raw//sciencebase//64fa6804d34ed30c205504a6//DeltaMapping_October2022_HR.txt")
+hr_map20202021_41col <- rbind(hr_mapping2020aug, hr_mapping2021jul, hr_mapping2021may, hr_mapping2021oct, hr_mapping2020oct)
+rm(hr_mapping2020aug, hr_mapping2021jul, hr_mapping2021may, hr_mapping2021oct, hr_mapping2020oct)
+
+hr_map20202021_41col <- hr_map20202021_41col %>%
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD83., fCHL..ug.L...EXO..HR) %>% 
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    longitude = Longitude..Decimal.Degrees..NAD83., 
+    fchl_tempcorr = fCHL..ug.L...EXO..HR)
+
+hr_mapping2020jul <- hr_mapping2020jul %>%
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD83., fCHL..ug.L...EXO..HR) %>% 
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    longitude = Longitude..Decimal.Degrees..NAD83., 
+    fchl_tempcorr = fCHL..ug.L...EXO..HR)
+
+hr_mapping2020june <- hr_mapping2020june %>%
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD83., fCHL..ug.L...EXO..HR) %>% 
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    longitude = Longitude..Decimal.Degrees..NAD83., 
+    fchl_tempcorr = fCHL..ug.L...EXO..HR)
+
+hr_map20202021 <- rbind(hr_map20202021_41col, hr_mapping2020jul, hr_mapping2020june)
+rm(hr_map20202021_41col, hr_mapping2020jul, hr_mapping2020june)
+
+hr_map20202021 <- hr_map20202021 %>%
+    filter(!is.na(fchl_tempcorr)) %>%
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>% 
+    mutate(datetime = mdy_hms(datetime))  %>%
+    mutate(instrument = "EXO") 
+
+hr_srinc2019 <- read.csv("data//raw//sciencebase//5fa096b1d34e198cb7919341//SRiNC_2019_HR.txt", sep = "\t", header = TRUE)
+
+hr_srinc2019 <- hr_srinc2019 %>%
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD83., fCHL..ug.L...EXO..HR)  %>% 
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    longitude = Longitude..Decimal.Degrees..NAD83., 
+    fchl_tempcorr = fCHL..ug.L...EXO..HR)%>%
+    filter(!is.na(latitude))%>% 
+    filter(!is.na(fchl_tempcorr)) %>%
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>% 
+    mutate(datetime = str_c(datetime, ":00")) %>%
+    mutate(datetime = mdy_hms(datetime)) %>% group_by(datetime) %>%
+    mutate(latitude = mean(latitude)) %>%
+    mutate(longitude = mean(longitude)) %>%
+    mutate(fchl_corr = mean(fchl_corr)) %>%
+    mutate(instrument = "EXO") %>%
+    ungroup() %>%
+    distinct()
+
+hr_frank <-read.csv("data//raw//sciencebase//64ee7f82d34e4b6d8ab71438//FranksTract_2022-2023_HR.txt", sep = "\t", header = TRUE)
+
+hr_frank  <- hr_frank %>%
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD83., fCHL..ug.L...EXO..HR)  %>% 
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    longitude = Longitude..Decimal.Degrees..NAD83., 
+    fchl_tempcorr = fCHL..ug.L...EXO..HR)%>%
+    filter(!is.na(latitude))%>% 
+    filter(!is.na(fchl_tempcorr)) %>%
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>% 
+    mutate(datetime = mdy_hms(datetime)) %>% 
+    mutate(instrument = "EXO") 
+
+hr_mapping2022jul <-read.csv("data//raw//sciencebase//64fa6804d34ed30c205504a6//DeltaMapping_July2022_HR.txt", sep = "\t", header = TRUE)
+hr_mapping2022may <-read.csv("data//raw//sciencebase//64fa6804d34ed30c205504a6//DeltaMapping_May2022_HR.txt", sep = "\t", header = TRUE)
+hr_mapping2022oct <-read.csv("data//raw//sciencebase//64fa6804d34ed30c205504a6//DeltaMapping_October2022_HR.txt", sep = "\t", header = TRUE)
+
+hr_mapping2022jul  <- hr_mapping2022jul %>%
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD83., fCHL..ug.L...EXO..HR) 
+hr_mapping2022may  <- hr_mapping2022may %>%
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD83., fCHL..ug.L...EXO..HR) 
+hr_mapping2022oct  <- hr_mapping2022oct %>%
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD83., fCHL..ug.L...EXO..HR) 
+
+hr_mapping2022 <- rbind(hr_mapping2022jul, hr_mapping2022may, hr_mapping2022oct)
+rm(hr_mapping2022jul, hr_mapping2022may, hr_mapping2022oct)
+
+hr_mapping2022 <- hr_mapping2022 %>%
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    longitude = Longitude..Decimal.Degrees..NAD83., 
+    fchl_tempcorr = fCHL..ug.L...EXO..HR)%>%
+    filter(!is.na(latitude))%>% 
+    filter(!is.na(fchl_tempcorr)) %>%
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>% 
+    mutate(datetime = mdy_hms(datetime)) %>% 
+    mutate(instrument = "EXO") 
+
+hr_mapping2023jul <- read.csv("data//raw//sciencebase//6596fe37d34e3265ab158d60//DeltaMapping_July2023_HR.txt", sep = "\t", header = TRUE)
+hr_mapping2023may <- read.csv("data//raw//sciencebase//6596fe37d34e3265ab158d60//DeltaMapping_May2023_HR.txt", sep = "\t", header = TRUE)
+hr_mapping2023oct  <- read.csv("data//raw//sciencebase//6596fe37d34e3265ab158d60//DeltaMapping_October2023_HR.txt", sep = "\t", header = TRUE)
+
+hr_mapping2023 <- rbind(hr_mapping2023jul, hr_mapping2023may, hr_mapping2023oct)
+rm(hr_mapping2023jul, hr_mapping2023may, hr_mapping2023oct)
+
+hr_mapping2023 <- hr_mapping2023 %>%
+    select(Timestamp..PST.,Latitude..Decimal.Degrees..NAD83.,Longitude..Decimal.Degrees..NAD83.,fCHL..ug.L...EXO..HR) %>%
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    longitude = Longitude..Decimal.Degrees..NAD83., 
+    fchl_tempcorr = fCHL..ug.L...EXO..HR)%>%
+    filter(!is.na(latitude))%>% 
+    filter(!is.na(fchl_tempcorr)) %>%
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>% 
+    mutate(datetime = mdy_hms(datetime)) %>% 
+    mutate(instrument = "EXO") 
+
+hr_mapping2024july <- read.csv("data//raw//sciencebase//66427d79d34e1955f5a41cf0//HR_DeltaMapping_July2024_provisional.txt", sep = "\t", header = TRUE)
+hr_mapping2024may <- read.csv("data//raw//sciencebase//66427d79d34e1955f5a41cf0//HR_DeltaMapping_May2024_provisional.txt", sep = "\t", header = TRUE)
+hr_mapping2024oct <- read.csv("data//raw//sciencebase//66427d79d34e1955f5a41cf0//HR_DeltaMapping_October2024_provisional.txt", sep = "\t", header = TRUE)
+
+hr_mapping2024mayoct <- rbind(hr_mapping2024may, hr_mapping2024oct)
+rm(hr_mapping2024may, hr_mapping2024oct)
+
+hr_mapping2024mayoct <- hr_mapping2024mayoct %>%
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD83., fCHL..ug.L...EXO..HR) 
+
+hr_mapping2024july <- hr_mapping2024july %>%
+    select(Timestamp..PST., Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD83., fCHL..ug.L...EXO..HR) 
+
+hr_mapping2024 <- rbind(hr_mapping2024mayoct, hr_mapping2024july)
+rm(hr_mapping2024mayoct, hr_mapping2024july)
+
+hr_mapping2024 <- hr_mapping2024 %>%
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    longitude = Longitude..Decimal.Degrees..NAD83., 
+    fchl_tempcorr = fCHL..ug.L...EXO..HR)%>%
+    filter(!is.na(latitude))%>% 
+    filter(!is.na(fchl_tempcorr)) %>%
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>% 
+    mutate(datetime = mdy_hms(datetime)) %>% 
+    mutate(instrument = "EXO") 
+
+guess_encoding("data//raw//OpB WRT Oct2017_HR.csv")
+hr_opbwrt_2017oct <- read_csv("data//raw//OpB WRT Oct2017_HR.csv",
+  locale = locale(encoding = "Windows-1252"))
+hr_opbwrt_2018may <- read_csv("data//raw//OpB WRT May2018 HR.csv",
+  locale = locale(encoding = "Windows-1252"))
+hr_opbwrt_2018oct <- read_csv("data//raw//OpB WRT Oct2018_HR.csv",
+  locale = locale(encoding = "Windows-1252"))
+
+hr_opbwrt_2018mayoct <- rbind(hr_opbwrt_2018may, hr_opbwrt_2018oct)
+rm(hr_opbwrt_2018may, hr_opbwrt_2018oct)
+
+hr_opbwrt_2018mayoct <- hr_opbwrt_2018mayoct %>%
+    select('Timestamp (PST)', 'Latitude (Decimal Degrees, NAD83)', 'Longitude (Decimal Degrees, NAD83)', 'fCHL (µg/L) (EXO) HR') 
+
+hr_opbwrt_2017oct <-hr_opbwrt_2017oct  %>% 
+    select('Timestamp (PST)', 'Latitude (Decimal Degrees, NAD83)', 'Longitude (Decimal Degrees, NAD83)', 'fCHL (µg/L) (EXO) HR') 
+
+hr_opbwrt <- rbind(hr_opbwrt_2018mayoct, hr_opbwrt_2017oct)
+rm(hr_opbwrt_2018mayoct, hr_opbwrt_2017oct)
+
+hr_opbwrt <- hr_opbwrt %>%
+    rename(datetime = 'Timestamp (PST)',
+    latitude = 'Latitude (Decimal Degrees, NAD83)',
+    longitude = 'Longitude (Decimal Degrees, NAD83)', 
+    fchl_tempcorr = 'fCHL (µg/L) (EXO) HR')%>%
+    filter(!is.na(latitude))%>% 
+    filter(!is.na(fchl_tempcorr)) %>%
+    mutate(fchl_corr = (1.29*fchl_tempcorr)+0.33)%>%
+    select(-fchl_tempcorr) %>% 
+    mutate(datetime = str_c(datetime, ":00")) %>%
+    mutate(datetime = mdy_hms(datetime)) %>% group_by(datetime) %>%
+    mutate(latitude = mean(latitude)) %>%
+    mutate(longitude = mean(longitude)) %>%
+    mutate(fchl_corr = mean(fchl_corr)) %>%
+    mutate(instrument = "EXO") %>%
+    ungroup() %>%
+    distinct()
+
+hr_data <- rbind(hr_mapping2018, hr_toe, hr_prof_aqveg2018, hr_conf2017, hr_yolo2017, hr_edb, hr_csc, hr_ftswq, hr_map20202021, hr_srinc2019, hr_frank, hr_mapping2022, hr_mapping2023, hr_mapping2024, hr_opbwrt)
+
+map_coords_lu <- rbind(hr_map20202021, hr_mapping2022, hr_mapping2023, hr_mapping2024, hr_edb, hr_csc,hr_srinc2019, hr_frank) 
+map_coords_lu <- map_coords_lu %>% select(datetime, latitude, longitude)
+
+
+rm(hr_mapping2018, hr_toe, hr_prof_aqveg2018, hr_conf2017, hr_yolo2017, hr_edb, hr_csc, hr_ftswq, hr_map20202021, hr_srinc2019, hr_frank, hr_mapping2022, hr_mapping2023, hr_mapping2024, hr_opbwrt)
+```
+
+# USGS high resolution flow discrete measurements
+```{r}
+ds_prof_aqveg2018 <- ds_prof_aqveg2018 %>% 
+    filter(Profile.position == "top") %>%
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    longitude = Longitude..Decimal.Degrees..NAD.83.,
+    chl_ugl = Total.Chla..µg.L..DS) %>%
+    select(datetime, latitude, longitude, chl_ugl)%>%
+    mutate(sample_type = "discrete")%>%
+    mutate(datetime = mdy_hms(datetime))
+
+ds_conf2017 <- ds_conf2017 %>%
+    rename(datetime = Timestamp..PST.,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    longitude = Longitude..Decimal.Degrees..NAD83.,
+    chl_ugl = Total.Chla..µg.L..DS) %>%
+    mutate(sample_type = "discrete") %>%
+    mutate(datetime = mdy_hms(datetime))
+
+freeport_chl_ds <- freeport_chl_ds %>% 
+    select(datetime, latitude, longitude, chla_ugl) %>% 
+    rename(chl_ugl = chla_ugl)%>%
+    mutate(sample_type = "discrete")
+
+ds_mapping2018 <-read.csv("data//raw//sciencebase//5d3f1ae2e4b01d82ce8d90e0//Delta Water Quality Mapping 2018 Discrete Sampling v2.0.csv")
+ds_mapping2018 <- ds_mapping2018 %>%
+    select(Timestamp..PST..DS, Latitude..Decimal.Degrees..NAD83., Longitude..Decimal.Degrees..NAD83., Chla..µg.L..DS)%>%
+    rename(datetime = Timestamp..PST..DS,
+    latitude = Latitude..Decimal.Degrees..NAD83.,
+    longitude = Longitude..Decimal.Degrees..NAD83.,
+    chl_ugl = Chla..µg.L..DS) %>%
+    filter(!is.na(chl_ugl)) %>%
+    mutate(sample_type = "discrete") %>%
+    mutate(datetime = mdy_hms(datetime)) 
 
 ds_sensor_hyperspec <- read.csv("data//raw//sciencebase//65b18ae7d34e36a39044c493//T6_DS_DR.csv")
 
-ds_mapping2023 <- read.csv("data//raw//sciencebase//6596fe37d34e3265ab158d60//DeltaMapping_2023_DS.txt")
-hr_mapping2023jul <- read.csv("data//raw//sciencebase//6596fe37d34e3265ab158d60//DeltaMapping_July2023_HR.txt")
-hr_mapping2023may <- read.csv("data//raw//sciencebase//6596fe37d34e3265ab158d60//DeltaMapping_May2023_HR.txt")
-hr_mapping2023oct  <- read.csv("data//raw//sciencebase//6596fe37d34e3265ab158d60//DeltaMapping_October2023_HR.txt")
+ds_sensor_hyperspec <- ds_sensor_hyperspec %>%
+    select(Timestamp_PST, Date, ID, chla_ug_L, site_no)%>%
+    rename(datetime = Timestamp_PST,
+    chl_ugl = chla_ug_L) %>%
+    filter(!is.na(chl_ugl)) %>%
+    mutate(sample_type = "discrete") %>%
+    mutate(datetime = str_sub(datetime, end = -4)) %>%
+    mutate(Date = str_sub(Date, end = -11)) %>%
+    mutate(Date = ymd(Date)) %>%
+    mutate(datetime = ymd_hms(datetime)) %>% group_by(datetime) %>%
+    mutate(chl_ugl = mean(chl_ugl)) %>%
+    ungroup() %>%
+    distinct()
 
-hr_mapping2024july <- read.csv("data//raw//sciencebase//66427d79d34e1955f5a41cf0//HR_DeltaMapping_July2024_provisional.txt")
-hr_mapping2024may <- read.csv("data//raw//sciencebase//66427d79d34e1955f5a41cf0//HR_DeltaMapping_May2024_provisional.txt")
-hr_mapping2024oct <- read.csv("data//raw//sciencebase//66427d79d34e1955f5a41cf0//HR_DeltaMapping_October2024_provisional.txt")
+ds_sensor_hyperspec_coords <- read.csv("data//raw//sciencebase//65b18ae7d34e36a39044c493//Paired_svc_sat_data.csv")
+
+ds_sensor_hyperspec_coords <- ds_sensor_hyperspec_coords %>%
+    select(Date, ID, lat, long) %>%
+    rename(latitude = lat,
+    longitude = long) %>%
+    mutate(Date = mdy(Date))
+    
+ds_hyperspec <- left_join(ds_sensor_hyperspec, ds_sensor_hyperspec_coords, join_by(ID, Date))
+
+rm(ds_sensor_hyperspec_coords, ds_sensor_hyperspec)
+
+ds_hyperspec <- ds_hyperspec %>% select(-Date, -ID, -site_no) %>%
+    group_by(datetime) %>%
+    mutate(chl_ugl = mean(chl_ugl),
+    latitude = mean(latitude),
+    longitude = mean(longitude)) %>%
+    ungroup()%>%
+    distinct()
+
+ds_opbwrt <- read_csv("data//raw//sciencebase//5f6ce12a82ce38aaa24801be//OpB WRT Discrete.csv", locale = locale(encoding = "Windows-1252"))
+
+ds_opbwrt <- ds_opbwrt %>%
+    select('Timestamp (PST)', 'Latitude (Decimal Degrees, NAD83)', 'Longitude (Decimal Degrees, NAD83)', 'Total Chla (µg/L) DS')%>%
+    rename(datetime = 'Timestamp (PST)',
+    latitude = 'Latitude (Decimal Degrees, NAD83)',
+    longitude = 'Longitude (Decimal Degrees, NAD83)',
+    chl_ugl ='Total Chla (µg/L) DS') %>%
+    mutate(sample_type = "discrete")
+
+ds_mapping2023 <- read.csv("data//raw//sciencebase//6596fe37d34e3265ab158d60//DeltaMapping_2023_DS.txt", sep = "\t", header = TRUE)
+
+ds_mapping2023 <- ds_mapping2023 %>% select(Timestamp..PST..DS, Chla..ug.L..DS) %>%
+    rename(datetime = Timestamp..PST..DS,
+    chl_ugl = Chla..ug.L..DS)%>%
+    filter(!is.na(chl_ugl))
+
+ds_mapping2022 <-read.csv("data//raw//sciencebase//64fa6804d34ed30c205504a6//DeltaMapping_2022_DS.txt", sep = "\t", header = TRUE)
+
+ds_mapping2022 <- ds_mapping2022 %>% select(Timestamp..PST..DS, Chla..ug.L..DS) %>%
+    rename(datetime = Timestamp..PST..DS,
+    chl_ugl = Chla..ug.L..DS)%>%
+    filter(!is.na(chl_ugl))
+
+ds_mapping2020 <-read.csv("data//raw//sciencebase/5f24747f82cef313ed971974//DeltaMapping_2020_DS.txt", sep = "\t", header = TRUE)
+
+ds_mapping2020 <- ds_mapping2020 %>% select(Timestamp..PST..DS, Chla..ug.L..DS) %>%
+    rename(datetime = Timestamp..PST..DS,
+    chl_ugl = Chla..ug.L..DS)%>%
+    filter(!is.na(chl_ugl))
+
+ds_mapping2021 <-read.csv("data//raw//sciencebase//5f24747f82cef313ed971974//DeltaMapping_2021_DS.txt", sep = "\t", header = TRUE)
+
+ds_mapping2021 <- ds_mapping2021 %>% select(Timestamp..PST..DS, Chla..ug.L..DS) %>%
+    rename(datetime = Timestamp..PST..DS,
+    chl_ugl = Chla..ug.L..DS)%>%
+    filter(!is.na(chl_ugl))
+
+ds_frank <-read.csv("data//raw//sciencebase//64ee7f82d34e4b6d8ab71438//FranksTract_2022_DS.txt", sep = "\t", header = TRUE)
+
+ds_frank <- ds_frank %>% select(Timestamp..PST..DS, Chla..ug.L..DS) %>%
+    rename(datetime = Timestamp..PST..DS,
+    chl_ugl = Chla..ug.L..DS)%>%
+    filter(!is.na(chl_ugl))
+
+ds_srinc2019 <- read.csv("data//raw//sciencebase//5fa096b1d34e198cb7919341//SRiNC_2019_DS.txt", sep = "\t", header = TRUE)
+
+ds_srinc2019 <- ds_srinc2019 %>% select(Timestamp..PST..DS, Chla..ug.L..DS) %>%
+    rename(datetime = Timestamp..PST..DS,
+    chl_ugl = Chla..ug.L..DS)%>%
+    filter(!is.na(chl_ugl))
+
+ds_csc <- read.csv("data//raw//sciencebase//5f89cbea82ce3241878937f6//CacheSloughComplexMapping_DS_preliminary.txt", sep = "\t", header = TRUE)
+
+ds_csc <- ds_csc %>% select(Timestamp..PST..DS, Chla..ug.L..DS) %>%
+    rename(datetime = Timestamp..PST..DS,
+    chl_ugl = Chla..ug.L..DS)%>%
+    filter(!is.na(chl_ugl))
+
+#ds_edb <- read.csv("data//raw//sciencebase//5f7dee6482ce1d74e7dd9da0//EDB_DS.txt", sep = "\t", header = TRUE)
+#no chlorophyll data
+
+ds_mapping <- rbind(ds_mapping2020, ds_mapping2021, ds_mapping2022, ds_mapping2023, ds_csc, ds_frank, ds_srinc2019)
+rm(ds_mapping2020, ds_mapping2021, ds_mapping2022, ds_mapping2023, ds_csc, ds_frank, ds_srinc2019)
+
+ds_mapping <- ds_mapping %>% 
+    mutate(datetime = str_c(datetime, ":00")) %>%
+    mutate(datetime = mdy_hms(datetime)) %>%
+    mutate(sample_type = "discrete")
+
+ds_mapping <- left_join(ds_mapping, map_coords_lu, join_by(datetime))
+
+rm(map_coords_lu)
+
+ds_data <- rbind(ds_mapping2018, ds_hyperspec, ds_prof_aqveg2018, ds_conf2017, freeport_chl_ds, ds_opbwrt, ds_mapping)
+
+rm(ds_mapping2018, ds_hyperspec, ds_prof_aqveg2018, ds_conf2017, freeport_chl_ds, ds_opbwrt, ds_mapping)
+
+hr_data <- hr_data %>% 
+    rename(sample_type = instrument,
+    chl_ugl = fchl_corr)
 ```
 
 ## SF Bay Peterson data (has a Delta extent -Grizzly Bay to Rio Vista in Sac River)
 
 ```{r}
 ds_peter20162021 <- read.csv("data//raw//sciencebase//5966abe6e4b0d1f9f05cf551//2016_2021SanFranciscoBayWaterQualityData.csv")
-peterlocs20162021 <- read.csv("data//raw//sciencebase//5966abe6e4b0d1f9f05cf551//SFBay_TableofStationLocations_v4.csv")
+
+ds_peter20162021 <- ds_peter20162021 %>% select(Date, Time, Station_Number, Depth, Discrete_Chlorophyll,Calculated_Chlorophyll)
 
 ds_peter19692015 <- read.csv("data//raw//sciencebase//64248ee5d34e370832fe343d//SanFranciscoBayWaterQualityData1969-2015v4.csv")
+
+ds_peter19692015 <- ds_peter19692015 %>% select(Date, Time, Station_Number, Depth, Discrete_Chlorophyll,Calculated_Chlorophyll)
+
+peterson_data <- rbind(ds_peter20162021, ds_peter19692015)
+rm(ds_peter20162021, ds_peter19692015)
+
+peterson_data <-  peterson_data %>%
+  filter(Station_Number < 11 | Station_Number > 600)  %>%
+  filter(Depth == 1)
+
 peterlocs19692015 <- read.csv("data//raw//sciencebase//64248ee5d34e370832fe343d//SFBstation_locations19692015.csv")
+
+peterlocs19692015 <- peterlocs19692015 %>% select(Station_Number, Latitude_degree, Longitude_degree)
+
+peterlocs20162021 <- read.csv("data//raw//sciencebase//5966abe6e4b0d1f9f05cf551//SFBay_TableofStationLocations_v4.csv")
+
+peterlocs20162021 <- peterlocs20162021 %>% select(Station_Number, Latitude_degree, Longitude_degree)
+
+peterson_locs <- rbind(peterlocs19692015, peterlocs20162021)
+rm(peterlocs19692015, peterlocs20162021)
+
+peterson_locs <- peterson_locs %>% distinct() %>% filter(!is.na(Station_Number))
+
+peterson_data <- left_join(peterson_data, peterson_locs, join_by(Station_Number))
+rm(peterson_locs)
+
+peterson_data <-  peterson_data %>% 
+    filter(Depth == 1) %>% 
+    mutate(Time = str_c(Time, ":00")) %>%
+    mutate(datetime = paste(Date, Time))%>%
+    mutate(datetime = mdy_hms(datetime)) %>%
+    select(-Depth, - Station_Number, -Date, -Time) 
+
+ds_peterson <-  peterson_data %>% 
+    select(-Calculated_Chlorophyll) %>% 
+    filter(!is.na(Discrete_Chlorophyll)) %>% 
+    mutate(sample_type = "discrete")%>%
+    rename(chl_ugl = Discrete_Chlorophyll,
+    latitude = Latitude_degree,
+    longitude = Longitude_degree)
+
+sensor_peterson <-  peterson_data %>% 
+    select(-Discrete_Chlorophyll)%>% 
+    filter(!is.na(Calculated_Chlorophyll))%>% 
+    mutate(sample_type ="CTD regression with ds chla")%>%
+    rename(chl_ugl = Calculated_Chlorophyll,
+    latitude = Latitude_degree,
+    longitude = Longitude_degree)
+
+peterson_chldata <- rbind(ds_peterson, sensor_peterson)
+rm(peterson_data, ds_peterson, sensor_peterson)
 ```
 
 ## Graham Phyto stdy
 
 ```{r}
-graham_phyto <- read.csv("data//raw//sciencebase//601025fcd34e162231fecfca//2018 Phytoplankton Data.csv")
+#No chlorophyll data, just enumeration.
+
+#graham_phyto <- read.csv("data//raw//sciencebase//601025fcd34e162231fecfca//2018 Phytoplankton Data.csv", header = TRUE, skip = 1) #1st row is garbage
+
+#graham_phyto <- graham_phyto %>% filter(USGS.Station.Name == "Sacramento River at Freeport, CA") %>%
+#    mutate(Sample.Time = str_c(Sample.Time, ":00")) %>%
+#    mutate(datetime = paste(Sample.Date, Sample.Time))%>%
+#    mutate(datetime = mdy_hms(datetime)) %>%
+```
+
+
+```{r}
+chl_data_sciencebase <- rbind(hr_data, ds_data, peterson_chldata)
+rm(hr_data, ds_data, peterson_chldata)
+
+write.csv(chl_data_sciencebase, file = "data/01_processed/01_sciencebase_chl.csv")
 ```
