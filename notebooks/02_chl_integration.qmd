@@ -7,19 +7,61 @@ Authors: Emily Richardson, TBD
 
 ## Load Packages
 ```{r}
-
+library(dplyr)
+library(lubridate)
+library(plotly)
 ```
 
-## Read in data
+## Read in data and keep only dates that fall within the range of continous monitoring data
 ```{r}
 #Continuous monitoring
 cm_data <- read.csv("data//01_processed//01_chl_cm_daytime_avg.csv")
-
+cm_data <- cm_data %>% select(-X)
+maxdate <- as.Date(max(cm_data$date))
+mindate <- as.Date(min(cm_data$date))
 
 #ScienceBase
 sb_data <- read.csv("data//01_processed//01_chl_sciencebase.csv")
+sb_data <- sb_data %>% 
+    mutate(date = as.Date(datetime)) %>%
+    filter(between(date, mindate, maxdate))
+
 #EMP
 ## TBD
 #EDI
 ## TBD
+
+rm(mindate, maxdate)
+```
+
+## Combine the data
+```{r}
+cm_data <- cm_data %>% 
+    select(-station, -group) %>%
+    rename(sample_type = instrument,
+    chl_ugl = avg_fchl) %>%
+    mutate(date = as.Date(date)) %>% 
+    mutate(chl_ugl = round(chl_ugl, 2)) %>% 
+    distinct()
+
+sb_data <- sb_data %>%
+    select(-datetime) %>%
+    distinct()
+
+chl_data <- rbind(cm_data, sb_data)
+rm(cm_data, sb_data)
+
+chl_data <- chl_data %>% filter(!is.na(latitude)) %>% filter(!is.na(longitude)) %>% filter(!is.na(chl_ugl))
+
+summary(chl_data)
+```
+
+
+```{r}
+#Visulaize the data
+fig <- plot_geo(chl_data, lat = ~latitude, lon = ~longitude, color = ~chl_ugl)
+fig <- fig %>% add_markers(
+    text = ~paste(chl_data$sample_type, "Sample Type"), hoverinfo = "text"
+  )
+  
 ```
