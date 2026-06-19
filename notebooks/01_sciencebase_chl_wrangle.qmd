@@ -744,7 +744,8 @@ rm(peterson_data, ds_peterson, sensor_peterson)
 chl_data_sciencebase <- rbind(hr_data, ds_data, peterson_chldata)
 rm(hr_data, ds_data, peterson_chldata)
 
-chl_data_sciencebase <- chl_data_sciencebase %>% distinct()
+chl_data_sciencebase <- chl_data_sciencebase %>% distinct()%>%
+  mutate(chl_ugl = round(chl_ugl, 2))
 
-write.csv(chl_data_sciencebase, file = "data/01_processed/01_sciencebase_chl.csv")
+write.csv(chl_data_sciencebase, file = "data/01_processed/01_chl_sciencebase.csv", row.names = FALSE)
 ```
