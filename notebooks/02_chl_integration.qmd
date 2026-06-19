@@ -1,0 +1,25 @@
+---
+title: "Chlorophyll Data integration and explotraion"
+format: html
+Authors: Emily Richardson, TBD
+---
+# This workbook contains code to integrate pre-cleaned chlorophyll data. See 01-prefixed notebooks for cleaning steps.
+
+## Load Packages
+```{r}
+
+```
+
+## Read in data
+```{r}
+#Continuous monitoring
+cm_data <- read.csv("data//01_processed//01_chl_cm_daytime_avg.csv")
+
+
+#ScienceBase
+sb_data <- read.csv("data//01_processed//01_chl_sciencebase.csv")
+#EMP
+## TBD
+#EDI
+## TBD
+```
