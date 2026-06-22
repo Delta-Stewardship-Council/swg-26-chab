@@ -1,0 +1,196 @@
+---
+title: "Chlorophyll Data integration and explotraion"
+format: html
+Author: Emily Richardson, TBD
+---
+#DO NOT RUN IT WILL EXPLODE YOUR COMPUTER. I messed up the map rendering and have far too many points to disply., I need to aggregate further.
+# This workbook contains code to integrate pre-cleaned chlorophyll data. See 01-prefixed notebooks for cleaning steps.
+
+## Load Packages
+```{r}
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+library(plotly)
+library(sf)
+library(leaflet)
+library(leaflet.extras2)
+library(scales)
+library(crosstalk)
+library(geojsonsf)
+library(jsonlite)
+```
+
+## Read in data and keep only dates that fall within the range of continous monitoring data
+
+```{r}
+#Continuous monitoring
+cm_data <- read.csv("data//01_processed//01_chl_cm_daytime_avg.csv")
+cm_data <- cm_data %>% select(-X)
+maxdate <- as.Date(max(cm_data$date))
+mindate <- as.Date(min(cm_data$date))
+
+#ScienceBase
+sb_data <- read.csv("data//01_processed//01_chl_sciencebase.csv")
+sb_data <- sb_data %>% 
+    mutate(date = as.Date(datetime)) %>%
+    filter(between(date, mindate, maxdate))
+
+#EMP
+## TBD
+#EDI
+## TBD
+
+rm(mindate, maxdate)
+```
+
+## Combine the data
+
+```{r}
+cm_data <- cm_data %>% 
+    select(-station, -group) %>%
+    rename(sample_type = instrument,
+    chl_ugl = avg_fchl) %>%
+    mutate(date = as.Date(date)) %>% 
+    mutate(chl_ugl = round(chl_ugl, 2)) %>% 
+    distinct()
+
+sb_data <- sb_data %>%
+    select(-datetime) %>%
+    distinct()
+
+chl_data <- rbind(cm_data, sb_data)
+rm(cm_data, sb_data)
+
+chl_data <- chl_data %>% filter(!is.na(latitude)) %>% filter(!is.na(longitude)) %>% filter(!is.na(chl_ugl))
+```
+
+## Visulaize the data
+
+### Convert and clean
+
+```{r}
+#Create spatial object
+chl_sf <- chl_data %>% 
+    st_as_sf(coords = c('longitude', 'latitude'),
+             crs = 4326, #WGS84, leaflet demands it.
+             remove = FALSE)
+
+#read in shapefile
+# read in geoJSON for Delta + Suisun
+delta_suisun_sf <- st_read(
+  "https://services5.arcgis.com/netd7RBEFAa05HUC/ArcGIS/rest/services/LegalDelta/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson")
+
+nad83_delta_suisun_sf <- st_transform(delta_suisun_sf, crs = 4326)
+rm(delta_suisun_sf)
+
+# find sampling locations in Delta + Suisun
+chl_delta_suisun_sf <- st_filter(chl_sf, nad83_delta_suisun_sf, .predicate = st_intersects)
+rm(chl_sf)
+
+#group by hydrologic cycle
+chl_seasonal <- chl_delta_suisun_sf %>%
+  mutate(
+    year = year(date),
+    month = month(date),
+    season = case_when(
+      month %in% c(10, 11, 12, 1, 2, 3) ~ "Wet",
+      month %in% c(4, 5, 6, 7, 8, 9)     ~ "Dry"),
+    water_year = if_else(month >= 10, year + 1, year),
+    season_date = case_when(
+      season == "Wet" ~ as.Date(paste0(water_year, "-01-15")),
+      season == "Dry" ~ as.Date(paste0(water_year, "-07-15"))
+  ))
+```
+
+### Create fodder for map
+
+```{r}
+#create labels
+chl_seasonal$time_label <- paste(
+  "WY", chl_seasonal$water_year,
+  chl_seasonal$season)
+
+shared_data <- SharedData$new(
+  chl_seasonal,
+  key = ~time_label)
+
+filter_slider(
+  id = "season",
+  label = "Season",
+  sharedData = shared_data,
+  column = ~water_year)
+
+leaflet(shared_data) %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addCircleMarkers(
+    radius = ~scales::rescale(chl_ugl, c(4,12)),
+    color = ~viridisLite::viridis(100)[
+      cut(chl_ugl, 100)])
+
+#create color and marker scales
+pal <- colorNumeric(
+  palette = "viridis",
+  domain = chl_seasonal$chl_ugl)
+
+chl_seasonal$radius <- rescale(
+  chl_seasonal$chl_ugl,
+  to = c(4, 12)
+  )
+#convert to timeline-compatible GeoJSON
+geo <- fromJSON(
+  sf_geojson(chl_seasonal),
+  simplifyVector = FALSE)
+
+#add timeline information and styling
+for(i in seq_along(geo$features)) {
+
+  geo$features[[i]]$properties$time <-
+    format(chl_seasonal$season_date[i], "%Y-%m-%d")
+
+  geo$features[[i]]$properties$style <- list(
+    radius = chl_seasonal$radius[i],
+    color = pal(chl_seasonal$chl_ugl[i]),
+    fillColor = pal(chl_seasonal$chl_ugl[i]),
+    fillOpacity = 0.8,
+    weight = 1)
+
+geo$features[[i]]$properties$popup <- paste0(
+  "<b>", chl_seasonal$time_label[i], "</b>",
+  "<br><b>Chl:</b> ",
+  round(chl_seasonal$chl_ugl[i], 1),
+  " µg/L")}
+
+geojson <- toJSON(
+  geo,
+  auto_unbox = TRUE)
+```
+
+### Build map
+
+```{r}
+leaflet() %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+
+  addPolygons(
+    data = nad83_delta_suisun_sf,
+    color = "black",
+    weight = 1,
+    fill = FALSE
+  ) %>%
+
+  addTimeline(
+    geojson,
+    timelineOpts = timelineOptions(
+      formatOutput = TRUE,
+      showTicks = TRUE,
+      duration = 0
+    )
+  ) %>%
+
+  addLegend(
+    pal = pal,
+    values = chl_seasonal$chl_ugl,
+    title = "Chlorophyll (µg/L)"
+  )
+```

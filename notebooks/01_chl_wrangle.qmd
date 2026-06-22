@@ -19,13 +19,146 @@ library(DT)
 library(lubridate)
 library(DBI)
 library(EDIutils)
+library(sbtools)
 ```
 
 ### ScienceBase
-#### Used https://www.sciencebase.gov/catalog/items/get?q=chlorophyll%20sacramento to identify 22 datasets (links in excel file in Box, will downloaded individually and added to raw data folder)
+```{r}
+# Pulling ScienceBase data using the R package sbtools
+## Defining my search area
+delta_items <- query_sb_spatial(
+  long = c(-122.292649, -121.131962),
+  lat  = c(37.585545, 38.566034),
+  limit = 100000
+)
 
+## Extract metadata
+titles <- sapply(delta_items, function(x) x$title)
 
+## Keep chlorophyll-related records
+idx <- grepl(
+  "chlorophyll|chlorophyll-a|phytoplankton",
+  titles,
+  ignore.case = TRUE
+)
 
+delta_chl <- delta_items[idx]
+```
+
+```{r}
+#Read through returned titles to verify relevancy
+print(delta_chl) #30 relevant datasets
+#1 N - Little Holland Tract - These are enumeration data, not chl concentration
+#2 N - Phytoplankton tally sheet - These are enumeration data, not chl concentration
+#3 Y - Assessing spatial variability - Contains Chlorophyll data
+#4 Y - Characterization of water - Contains Chlorophyll data
+#5 Y - Assessing spatial variability - Contains Chlorophyll data
+#6 Y - Assessment of nutrients - Contains Chlorophyll data
+#7 Y - Cyanotoxin, chlorophyll-a, and - Contains Chlorophyll data
+#8 N - Phytoplankton Species Composition - These are enumeration data, not chl concentration
+#9 N - Aquatic reflectance data - These data are not within our study area (bounding box encompasses US)
+#10 Y - Phytoplankton data for - Contains chl-a data from Freeport station (and from other sites throughout US)
+#11 Y - Assessing spatial variability - Contains Chlorophyll data
+#12 N - Water chemistry, vertical - Does contain chl data but collected during nutrient addition experiments, not monitoring.
+#13 Y - Assessing spatial variability - Contains Chlorophyll data
+#14 Y - Assessing spatial variability - Contains Chlorophyll data
+#15 Y - Assessing spatial variability - Contains Chlorophyll data
+#16 Y - Assessing spatial variability - Contains Chlorophyll data
+#17 N - Daily Estimates of - Just Site metadata
+#18 N - Daily Estimates of - CM sensor data, already pulling this
+#19 Y - A national harmonized - Contains Chlorophyll data (US-wide, including the Delta)
+#20 Y - Cyanotoxin, chlorophyll-a, and - Contains chl-a AND Qpcr!! data from Freeport station (and from other sites throughout US) - are these data the same as number 10?
+#21 N - Phytoplankton data for - These are enumeration data, not chl concentration
+#22 N - Phytoplankton Identification and - These are enumeration data, not chl concentration
+#23 Y - Water quality, nutrient, - Contains Chlorophyll data
+#24 N - Phytoplankton Species Composition - These are enumeration data, not chl concentration
+#25 Y - Cyanotoxin, chlorophyll-a, and - Contains chl-a and qpcr
+#26 N - Daily Estimates of Chlorophyll - Just approval status
+#27 N - Daily Estimates of - CM sensor data, already pulling this
+#28 N - Phytoplankton data for - These are enumeration data, not chl concentration
+#29 N - Phytoplankton and Cyanotoxin - These are National Parks data
+#30 Y - Assessing spatial variability - Contains Chlorophyll data (but provisional!)
+```
+
+```{r}
+#The data I want are associated with the following numbers: 3,4,5,6,7,10,11,13,14,15,16,19,20,23,25,30
+##create list of item ids
+ids <- c(
+  "64fa6804d34ed30c205504a6",
+  "5f6ce12a82ce38aaa24801be",
+  "5f24747f82cef313ed971974",
+  "5f5fe6eb82ce3550e3bff4a5",
+  "601827aad34edf5c66efffc8",
+  "601025fcd34e162231fecfca",
+  "5f7dee6482ce1d74e7dd9da0",
+  #"62183869d34ec739b2dd292f", Bay Based and too large
+  "6596fe37d34e3265ab158d60",
+  "5f284f1782cef313ed9df50e",
+  "5fa096b1d34e198cb7919341",
+ # "638f5472d34ed907bf7c8f23", #this one is too big to store in git. It is just freeport and we catch that with usgs CM, so skipping.
+  "628cc9c2d34ef70cdba3bbff",
+  "64ee7f82d34e4b6d8ab71438",
+  "5c13d214e4b006c4f8532a17",
+  "66427d79d34e1955f5a41cf0"
+)
+
+files_list <- lapply(ids, item_list_files)
+
+download_dir <- "data/raw/sciencebase"
+#dir.create(download_dir, recursive = TRUE, showWarnings = FALSE)
+
+for (id in ids) {
+  item_dir <- file.path(download_dir, id)
+
+  dir.create(item_dir, showWarnings = FALSE)
+
+  item_file_download(
+    sb_id = id,
+    dest_dir = item_dir
+  )
+}
+
+rm(delta_chl, delta_items, files_list, id, ids, idx, item_dir, titles, download_dir)
+```
+
+```{r}
+#I noticed some data that I had identified via keyword searching for "chlorophyll sacramento" are not in the above data pull. Script to add them:
+ids <- c(
+  "5966abe6e4b0d1f9f05cf551",
+  "5e7ceb88e4b01d5092751c18",
+  "5f1f44c582cef313ed8ec753",
+  "5f89cbea82ce3241878937f6",
+  "5d3f1ae2e4b01d82ce8d90e0",
+ # "5f452e8782ce4c3d12251702", #this one is too big to store in git, large fies didn't contain chl anyways so removed.
+  "64248ee5d34e370832fe343d",
+  "65b18ae7d34e36a39044c493",
+  "5f5ff87582ce3550e3bff547"
+)
+
+files_list <- lapply(ids, item_list_files)
+
+download_dir <- "data/raw/sciencebase"
+
+for (id in ids) {
+  item_dir <- file.path(download_dir, id)
+
+  dir.create(item_dir, showWarnings = FALSE)
+
+  item_file_download(
+    sb_id = id,
+    dest_dir = item_dir
+  )
+}
+rm(files_list, id, ids, idx, item_dir, titles, download_dir)
+```
+
+```{r}
+#remote: error: File data/raw/sciencebase/638f5472d34ed907bf7c8f23/national_chlorophyll_corrected_chlorophyll_a_data.csv is 106.56 MB; this exceeds GitHub's file size limit of 100.00 MB
+#remote: error: File data/raw/sciencebase/5f452e8782ce4c3d12251702/FTS_acs_ag.csv is 118.54 MB; this exceeds GitHub's file size limit of 100.00 MB
+#remote: error: File data/raw/sciencebase/5f452e8782ce4c3d12251702/FTS_acs_apg.csv is 117.61 MB; this exceeds GitHub's file size limit of 100.00 MB
+#remote: error: File data/raw/sciencebase/5f452e8782ce4c3d12251702/FTS_acs_cg.csv is 117.94 MB; this exceeds GitHub's file size limit of 100.00 MB
+
+```
 
 ### Water data for the nation (USGS)
 ```{r}
@@ -83,7 +216,7 @@ rm(mindate, maxdate)
 ```
 
 ```{r}
-#Now grab the data (this is fordaily sensor chl only in ug/l)
+#Now grab the data (this is for daily sensor chl only in ug/l)
 delta_chl_data_1 <- dataRetrieval::read_waterdata_continuous(monitoring_location_id = lu_delta_chl_sites,
                               parameter_code = "32316",
                               time = c(date_limit_1, date_limit_2)
@@ -132,8 +265,8 @@ daytime_delta_chl_data <- delta_chl_data %>% filter(TOD == "keep")
 avg_daytime_usgs_delta_chl_data <- daytime_delta_chl_data %>%
   group_by(date, monitoring_location_id)%>%
   mutate(avg_fchl = mean(value)) %>%
-  mutate(fchl_corr = 1.29*avg_fchl+0.33)%>%
-  select(date, monitoring_location_id, fchl_corr, avg_fchl)%>%
+  mutate(fchl_corr = 1.29*avg_fchl+0.33)%>% #Richardson EXO correction (these data should already be temp corrected)
+  select(date, monitoring_location_id, avg_fchl)%>%
   distinct() %>% ungroup()
 ```
 
@@ -171,78 +304,240 @@ res <- read_data_entity_names(packageId)
 entityName <- "Station Metadata"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 stations <- readr::read_csv(file = raw)
-stations <- stations %>% select(station, latitude, longitude)
+stations <- stations %>% select(station, latitude, longitude, EXO2_start_date, EXO2_start_time)
+
+stations$EXO2_start_date<- as.character(stations$EXO2_start_date)
+stations$EXO2_start_time<- as.character(stations$EXO2_start_time)
+
+stations$datetime <- paste(stations$EXO2_start_date, stations$EXO2_start_time, sep = " ")
+stations <- stations %>% mutate(datetime = ymd_hms(datetime))
+
+#indicate when data were collected by different instruments
+
+HON_exodate <- stations %>% filter(station == "HON")
+HON_exodate <- HON_exodate$datetime
+
+MAL_exodate <- stations %>% filter(station == "MAL")
+MAL_exodate <- MAL_exodate$datetime
+
+GZL_exodate <- stations %>% filter(station == "GZL")
+GZL_exodate <- GZL_exodate$datetime
+
+RYC_exodate <- stations %>% filter(station == "RYC")
+RYC_exodate <- RYC_exodate$datetime
+
+ANH_exodate <- stations %>% filter(station == "ANH")
+ANH_exodate <- ANH_exodate$datetime
+
+FRK_exodate <- stations %>% filter(station == "FRK")
+FRK_exodate <- FRK_exodate$datetime
+
+MSD_exodate <- stations %>% filter(station == "MSD")
+MSD_exodate <- MSD_exodate$datetime
+
+PPT_exodate <- stations %>% filter(station == "PPT")
+PPT_exodate <- PPT_exodate$datetime
+
+RRI_exodate <- stations %>% filter(station == "RRI")
+RRI_exodate <- RRI_exodate$datetime
+
+RVB_exodate <- stations %>% filter(station == "RVB")
+RVB_exodate <- RVB_exodate$datetime
+
+SJR_exodate <- stations %>% filter(station == "SJR")
+SJR_exodate <- SJR_exodate$datetime
+
+SRH_exodate <- stations %>% filter(station == "SRH")
+SRH_exodate <- SRH_exodate$datetime
+
+SSI_exodate <- stations %>% filter(station == "SSI")
+SSI_exodate <- SSI_exodate$datetime
+
+TWI_exodate <- stations %>% filter(station == "TWI")
+TWI_exodate <- TWI_exodate$datetime
 
 
 entityName <- "ANH"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 ANH <- readr::read_csv(file = raw)
-ANH <- ANH %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+ANH <- ANH %>% rename(Chl=fluorescence)%>% 
+  mutate(Date = as.character(date))%>% 
+  mutate(Time = as.character(time))
 
-entityName <- "FRK"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-FRK <- readr::read_csv(file = raw)
-FRK <- FRK %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+ANH$datetime <- paste(ANH$Date, ANH$Time, sep = " ")
 
-entityName <- "GZL"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-GZL <- readr::read_csv(file = raw)
-GZL <- GZL %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+ANH <- ANH %>% 
+  mutate(datetime = ymd_hms(datetime))%>% 
+  mutate(instrument = if_else(datetime >= ANH_exodate, "EXO", "6600"))
 
 entityName <- "HON"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 HON <- readr::read_csv(file = raw)
-HON <- HON %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+HON <- HON %>% rename(Chl=fluorescence)%>% 
+  mutate(Date = as.character(date))%>% 
+  mutate(Time = as.character(time))
+
+HON$datetime <- paste(HON$Date, HON$Time, sep = " ")
+
+HON <- HON %>% 
+  mutate(datetime = ymd_hms(datetime))%>% 
+  mutate(instrument = if_else(datetime >= HON_exodate, "EXO", "6600"))
 
 entityName <- "MAL"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 MAL <- readr::read_csv(file = raw)
-MAL <- MAL %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+MAL <- MAL %>% rename(Chl=fluorescence)%>% 
+  mutate(Date = as.character(date))%>% 
+  mutate(Time = as.character(time))
 
-entityName <- "MSD"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-MSD <- readr::read_csv(file = raw)
-MSD <- MSD %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+MAL$datetime <- paste(MAL$Date, MAL$Time, sep = " ")
 
-entityName <- "PPT"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-PPT <- readr::read_csv(file = raw)
-PPT <- PPT %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+MAL <- MAL %>% 
+  mutate(datetime = ymd_hms(datetime))%>% 
+  mutate(instrument = if_else(datetime >= MAL_exodate, "EXO", "6600"))
 
-entityName <- "RRI"; entityId <- res$entityId[res$entityName == entityName]
+entityName <- "GZL"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
-RRI <- readr::read_csv(file = raw)
-RRI <- RRI %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+GZL <- readr::read_csv(file = raw)
+GZL <- GZL %>% rename(Chl=fluorescence)%>% 
+  mutate(Date = as.character(date))%>% 
+  mutate(Time = as.character(time))
 
-entityName <- "RVB"; entityId <- res$entityId[res$entityName == entityName]
+GZL$datetime <- paste(GZL$Date, GZL$Time, sep = " ")
+
+GZL <- GZL %>% 
+  mutate(datetime = ymd_hms(datetime))%>% 
+  mutate(instrument = if_else(datetime >= GZL_exodate, "EXO", "6600"))
+
+entityName <- "FRK"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
-RVB <- readr::read_csv(file = raw)
-RVB <- RVB %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+FRK <- readr::read_csv(file = raw)
+FRK <- FRK %>% rename(Chl=fluorescence)%>% 
+  mutate(Date = as.character(date))%>% 
+  mutate(Time = as.character(time))
+
+FRK$datetime <- paste(FRK$Date, FRK$Time, sep = " ")
+
+FRK <- FRK %>% 
+  mutate(datetime = ymd_hms(datetime))%>% 
+  mutate(instrument = if_else(datetime >= FRK_exodate, "EXO", "6600"))
 
 entityName <- "RYC"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 RYC <- readr::read_csv(file = raw)
-RYC <- RYC %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+RYC <- RYC %>% rename(Chl=fluorescence)%>% 
+  mutate(Date = as.character(date))%>% 
+  mutate(Time = as.character(time))
+
+RYC$datetime <- paste(RYC$Date, RYC$Time, sep = " ")
+
+RYC <- RYC %>% 
+  mutate(datetime = ymd_hms(datetime))%>% 
+  mutate(instrument = if_else(datetime >= RYC_exodate, "EXO", "6600"))
+
+entityName <- "MSD"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+MSD <- readr::read_csv(file = raw)
+MSD <- MSD %>% rename(Chl=fluorescence)%>% 
+  mutate(Date = as.character(date))%>% 
+  mutate(Time = as.character(time))
+
+MSD$datetime <- paste(MSD$Date, MSD$Time, sep = " ")
+
+MSD <- MSD %>% 
+  mutate(datetime = ymd_hms(datetime))%>% 
+  mutate(instrument = if_else(datetime >= MSD_exodate, "EXO", "6600"))
+
+entityName <- "PPT"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+PPT <- readr::read_csv(file = raw)
+PPT <- PPT %>% rename(Chl=fluorescence)%>% 
+  mutate(Date = as.character(date))%>% 
+  mutate(Time = as.character(time))
+
+PPT$datetime <- paste(PPT$Date, PPT$Time, sep = " ")
+
+PPT <- PPT %>% 
+  mutate(datetime = ymd_hms(datetime))%>% 
+  mutate(instrument = if_else(datetime >= PPT_exodate, "EXO", "6600"))
+
+entityName <- "RRI"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+RRI <- readr::read_csv(file = raw)
+RRI <- RRI %>% rename(Chl=fluorescence)%>% 
+  mutate(Date = as.character(date))%>% 
+  mutate(Time = as.character(time))
+
+RRI$datetime <- paste(RRI$Date, RRI$Time, sep = " ")
+
+RRI <- RRI %>% 
+  mutate(datetime = ymd_hms(datetime))%>% 
+  mutate(instrument = if_else(datetime >= RRI_exodate, "EXO", "6600"))
+
+entityName <- "RVB"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+RVB <- readr::read_csv(file = raw)
+RVB <- RVB %>% rename(Chl=fluorescence)%>% 
+  mutate(Date = as.character(date))%>% 
+  mutate(Time = as.character(time))
+
+RVB$datetime <- paste(RVB$Date, RVB$Time, sep = " ")
+
+RVB <- RVB %>% 
+  mutate(datetime = ymd_hms(datetime))%>% 
+  mutate(instrument = if_else(datetime >= RVB_exodate, "EXO", "6600"))
 
 entityName <- "SJR"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 SJR <- readr::read_csv(file = raw)
-SJR <- SJR %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+SJR <- SJR %>% rename(Chl=fluorescence)%>% 
+  mutate(Date = as.character(date))%>% 
+  mutate(Time = as.character(time))
+
+SJR$datetime <- paste(SJR$Date, SJR$Time, sep = " ")
+
+SJR <- SJR %>% 
+  mutate(datetime = ymd_hms(datetime))%>% 
+  mutate(instrument = if_else(datetime >= SJR_exodate, "EXO", "6600"))
 
 entityName <- "SRH"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 SRH <- readr::read_csv(file = raw)
-SRH <- SRH %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+SRH <- SRH %>% rename(Chl=fluorescence)%>% 
+  mutate(Date = as.character(date))%>% 
+  mutate(Time = as.character(time))
+
+SRH$datetime <- paste(SRH$Date, SRH$Time, sep = " ")
+
+SRH <- SRH %>% 
+  mutate(datetime = ymd_hms(datetime))%>% 
+  mutate(instrument = if_else(datetime >= SRH_exodate, "EXO", "6600"))
 
 entityName <- "SSI"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 SSI <- readr::read_csv(file = raw)
-SSI <- SSI %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+SSI <- SSI %>% rename(Chl=fluorescence)%>% 
+  mutate(Date = as.character(date))%>% 
+  mutate(Time = as.character(time))
+
+SSI$datetime <- paste(SSI$Date, SSI$Time, sep = " ")
+
+SSI <- SSI %>% 
+  mutate(datetime = ymd_hms(datetime))%>% 
+  mutate(instrument = if_else(datetime >= SSI_exodate, "EXO", "6600"))
 
 entityName <- "TWI"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 TWI <- readr::read_csv(file = raw)
-TWI <- TWI %>% rename(Station=station,Date=date,Time=time,Oxy=dissolvedoxygen,Chl=fluorescence,pH=ph,SpecCond=spc,Turb=turbidity,Temp=watertemperature)
+TWI <- TWI %>% rename(Chl=fluorescence)%>% 
+  mutate(Date = as.character(date))%>% 
+  mutate(Time = as.character(time))
+
+TWI$datetime <- paste(TWI$Date, TWI$Time, sep = " ")
+
+TWI <- TWI %>% 
+  mutate(datetime = ymd_hms(datetime))%>% 
+  mutate(instrument = if_else(datetime >= TWI_exodate, "EXO", "6600"))
 
 
 rm(entityName,entityId,res,raw,packageId)
@@ -251,27 +546,37 @@ rm(entityName,entityId,res,raw,packageId)
 CM_DWR <- rbind(HON,MAL,GZL,RYC,ANH,FRK,MSD,PPT,RRI,RVB,SJR,SRH,SSI,TWI)
 
 rm(HON,MAL,GZL,RYC,ANH,FRK,MSD,PPT,RRI,RVB,SJR,SRH,SSI,TWI)
+rm(HON_exodate,MAL_exodate,GZL_exodate,RYC_exodate,ANH_exodate,FRK_exodate,MSD_exodate,PPT_exodate,RRI_exodate,RVB_exodate,SJR_exodate,SRH_exodate,SSI_exodate,TWI_exodate)
 ```
 
 ```{r}
 #correct EXO chl data and make daytime averages
- CM_DWR <- CM_DWR %>% mutate(hour = hour(Time))
+ CM_DWR <- CM_DWR %>% 
+  mutate(hour = hour(time))
 
 CM_DWR$TOD <- ifelse(CM_DWR$hour %in% c(8, 9, 10, 11, 12, 13, 14, 15, 16), "keep", "remove")
 
 CM_DWR <- CM_DWR %>% filter(TOD == "keep")
 
 avg_daytime_dwr_delta_chl_data <- CM_DWR %>%
-  group_by(Date, Station)%>%
-  mutate(avg_fchl = mean(Chl)) %>%
-  mutate(fchl_corr = 1.29*avg_fchl+0.33)%>%
-  select(Date, Station, fchl_corr, avg_fchl)%>%
-  rename(date = Date, station = Station)
-  distinct()%>% ungroup()
+  mutate(chl_tempcorr = Chl/(1+(0.01*(watertemperature-25))))%>% #Watras temerature correction
+  mutate(fchl_corr = if_else(instrument == "EXO", 1.29*chl_tempcorr+0.33, chl_tempcorr))%>% #Richardson EXO correction
+  group_by(date, station, instrument)%>%
+  mutate(avg_fchl = mean(fchl_corr)) %>%
+  select(date, station, avg_fchl, instrument)%>%
+  filter(!is.na(avg_fchl))%>% 
+  distinct()%>% 
+  ungroup() 
+
+
+summary(avg_daytime_dwr_delta_chl_data)
 ```
 
 ```{r}
 # add metadata
+stations <-  stations %>% 
+  select(station, latitude, longitude)
+
 avg_daytime_dwr_delta_chl_data <- avg_daytime_dwr_delta_chl_data %>%
   left_join(
     stations,
@@ -282,7 +587,7 @@ avg_daytime_dwr_delta_chl_data <- avg_daytime_dwr_delta_chl_data %>%
 
 ### DWR NCRO real time monitoring
 ```{r}
-packageId <-"edi.2180.1" # Version updated 010/2025
+packageId <-"edi.2180.1" # Version updated 10/2025
 res <- read_data_entity_names(packageId)
 
 entityName <- "Stations Metadata"; entityId <- res$entityId[res$entityName == entityName]
@@ -291,81 +596,156 @@ stations <- readr::read_csv(file = raw)
 stations <- stations %>% select(Station_Code, Latitude, Longitude) %>%
     rename(station = Station_Code, latitude = Latitude, longitude = Longitude)
 
+entityName <- "Instrument Type Date Ranges"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+instruments <- readr::read_csv(file = raw)
+instruments$Start_Time_YSIEXO2 <- as.character(instruments$Start_Time_YSIEXO2)
+
+instruments$datetime <- paste(instruments$Start_Date_YSIEXO2, instruments$Start_Time_YSIEXO2, sep = " ")
+instruments <- instruments %>% mutate(datetime = mdy_hms(datetime))
+
+#indicate when data were collected by different instruments
+
+GLC_exodate <- instruments %>% filter(Station_Code == "GLC")
+GLC_exodate <- GLC_exodate$datetime
+
+GLE_exodate <- instruments %>% filter(Station_Code == "GLE")
+GLE_exodate <- GLE_exodate$datetime
+
+MHO_exodate <- instruments %>% filter(Station_Code == "MHO")
+MHO_exodate <- MHO_exodate$datetime
+
+MRU_exodate <- instruments %>% filter(Station_Code == "MRU")
+MRU_exodate <- MRU_exodate$datetime
+
+MRX_exodate <- instruments %>% filter(Station_Code == "MRX")
+MRX_exodate <- MRX_exodate$datetime
+
+ODM_exodate <- instruments %>% filter(Station_Code == "ODM")
+ODM_exodate <- ODM_exodate$datetime
+
+OH1_exodate <- instruments %>% filter(Station_Code == "OH1")
+OH1_exodate <- OH1_exodate$datetime
+
+ORI_exodate <- instruments %>% filter(Station_Code == "ORI")
+ORI_exodate <- ORI_exodate$datetime
+
+ORM_exodate <- instruments %>% filter(Station_Code == "ORM")
+ORM_exodate <- ORM_exodate$datetime
+
+ORX_exodate <- instruments %>% filter(Station_Code == "ORX")
+ORX_exodate <- ORX_exodate$datetime
+
+TWA_exodate <- instruments %>% filter(Station_Code == "TWA")
+TWA_exodate <- TWA_exodate$datetime
+
+WCI_exodate <- instruments %>% filter(Station_Code == "WCI")
+WCI_exodate <- WCI_exodate$datetime
+
+VCU_exodate <- instruments %>% filter(Station_Code == "VCU")
+VCU_exodate <- VCU_exodate$datetime
+
 
 entityName <- "GLC"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 GLC <- readr::read_csv(file = raw)
-GLC <- GLC %>% rename(station=Station_Code)
+GLC <- GLC %>% rename(station=Station_Code)  %>%
+  mutate(Date_Time = mdy_hms(Date_Time)) %>%
+  mutate(instrument = if_else(Date_Time >= GLC_exodate, "EXO", "6600"))
 
 entityName <- "GLE"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 GLE<- readr::read_csv(file = raw)
-GLE <- GLE %>% rename(station=Station_Code)
+GLE <- GLE %>% rename(station=Station_Code)  %>%
+  mutate(Date_Time = mdy_hms(Date_Time)) %>%
+  mutate(instrument = if_else(Date_Time >= GLE_exodate, "EXO", "6600"))
 
 entityName <- "MHO"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 MHO <- readr::read_csv(file = raw)
-MHO <- MHO %>% rename(station=Station_Code)
+MHO<- MHO %>% rename(station=Station_Code)  %>%
+  mutate(Date_Time = mdy_hms(Date_Time)) %>%
+  mutate(instrument = if_else(Date_Time >= MHO_exodate, "EXO", "6600"))
 
 entityName <- "MRU"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 MRU<- readr::read_csv(file = raw)
-MRU <- MRU%>% rename(station=Station_Code)
+MRU<- MRU %>% rename(station=Station_Code)  %>%
+  mutate(Date_Time = mdy_hms(Date_Time)) %>%
+  mutate(instrument = if_else(Date_Time >= MRU_exodate, "EXO", "6600"))
 
 entityName <- "MRX"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 MRX<- readr::read_csv(file = raw)
-MRX <- MRX %>% rename(station=Station_Code)
+MRX<- MRX %>% rename(station=Station_Code)  %>%
+  mutate(Date_Time = mdy_hms(Date_Time)) %>%
+  mutate(instrument = if_else(Date_Time >= MRX_exodate, "EXO", "6600"))
 
 entityName <- "ODM"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 ODM<- readr::read_csv(file = raw)
-ODM <- ODM %>% rename(station=Station_Code)
+ODM<- ODM %>% rename(station=Station_Code)  %>%
+  mutate(Date_Time = mdy_hms(Date_Time)) %>%
+  mutate(instrument = if_else(Date_Time >= ODM_exodate, "EXO", "6600"))
 
 entityName <- "OH1"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 OH1<- readr::read_csv(file = raw)
-OH1 <- OH1 %>% rename(station=Station_Code)
+OH1<- OH1 %>% rename(station=Station_Code)  %>%
+  mutate(Date_Time = mdy_hms(Date_Time)) %>%
+  mutate(instrument = if_else(Date_Time >= OH1_exodate, "EXO", "6600"))
 
 entityName <- "ORI"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 ORI<- readr::read_csv(file = raw)
-ORI <-ORI %>% rename(station=Station_Code)
+ORI<- ORI %>% rename(station=Station_Code)  %>%
+  mutate(Date_Time = mdy_hms(Date_Time)) %>%
+  mutate(instrument = if_else(Date_Time >= ORI_exodate, "EXO", "6600"))
 
 entityName <- "ORM"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 ORM<- readr::read_csv(file = raw)
-ORM <- ORM %>% rename(station=Station_Code)
+ORM<- ORM %>% rename(station=Station_Code)  %>%
+  mutate(Date_Time = mdy_hms(Date_Time)) %>%
+  mutate(instrument = if_else(Date_Time >= ORM_exodate, "EXO", "6600"))
 
 entityName <- "ORX"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 ORX<- readr::read_csv(file = raw)
-ORX <- ORX %>% rename(station=Station_Code)
+ORX<- ORX %>% rename(station=Station_Code)  %>%
+  mutate(Date_Time = mdy_hms(Date_Time)) %>%
+  mutate(instrument = if_else(Date_Time >= ORX_exodate, "EXO", "6600"))
 
 entityName <- "TWA"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 TWA <- readr::read_csv(file = raw)
-TWA <- TWA %>% rename(station=Station_Code)
+TWA<- TWA %>% rename(station=Station_Code)  %>%
+  mutate(Date_Time = mdy_hms(Date_Time)) %>%
+  mutate(instrument = if_else(Date_Time >= TWA_exodate, "EXO", "6600"))
 
 entityName <- "WCI"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 WCI<- readr::read_csv(file = raw)
-WCI <-WCI%>% rename(station=Station_Code)
+WCI<- WCI %>% rename(station=Station_Code)  %>%
+  mutate(Date_Time = mdy_hms(Date_Time)) %>%
+  mutate(instrument = if_else(Date_Time >= WCI_exodate, "EXO", "6600"))
 
 entityName <- "VCU"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 VCU<- readr::read_csv(file = raw)
-VCU <- VCU %>% rename(station=Station_Code)
+VCU<- VCU %>% rename(station=Station_Code)  %>%
+  mutate(Date_Time = mdy_hms(Date_Time)) %>%
+  mutate(instrument = if_else(Date_Time >= VCU_exodate, "EXO", "6600"))
 
 cm_ncro<- rbind(GLC, GLE, MHO, MRU, MRX, ODM, OH1, ORI, ORM, ORX, TWA, WCI, VCU)
-
-rm(GLC, GLE, MHO, MRU, MRX, ODM, OH1, ORI, ORM, ORX, TWA, WCI, VCU, res, raw, entityName, entityId, packageId)
+rm(GLC_exodate, GLE_exodate, MHO_exodate, MRU_exodate, MRX_exodate, ODM_exodate, OH1_exodate, ORI_exodate, ORM_exodate, ORX_exodate, TWA_exodate, WCI_exodate, VCU_exodate)
+rm(GLC, GLE, MHO, MRU, MRX, ODM, OH1, ORI, ORM, ORX, TWA, WCI, VCU, res, raw, entityName, entityId, packageId, instruments)
 ```
 
 ```{r}
 # calculate daytime averages and add metadata
 cm_ncro <- cm_ncro %>% 
-    mutate(datetime = mdy_hms(Date_Time))%>% 
+   rename(datetime =Date_Time)%>% 
     mutate(hour = hour(datetime))
 
 cm_ncro$TOD <- ifelse(cm_ncro$hour %in% c(8, 9, 10, 11, 12, 13, 14, 15, 16), "keep", "remove")
@@ -374,12 +754,19 @@ cm_ncro <- cm_ncro %>% filter(TOD == "keep")
 
 avg_daytime_ncro_delta_chl_data <- cm_ncro %>%
     mutate(date = as_date(datetime))%>%
-  group_by(date, station)%>%
-  mutate(avg_fchl = mean(Chlorophyll)) %>%
-  mutate(fchl_corr = 1.29*avg_fchl+0.33)%>%
-  select(date, station, fchl_corr, avg_fchl)%>%
-  distinct()%>% ungroup()
+    mutate(chl_tempcorr = Chlorophyll/(1+(0.01*(Water_Temperature-25))))%>% #Watras temerature correction
+    mutate(fchl_corr = if_else(instrument == "EXO", 1.29*chl_tempcorr+0.33, Chlorophyll))%>% #Richardson EXO correction
+    group_by(date, station, instrument)%>%
+    mutate(avg_fchl = mean(fchl_corr)) %>%
+    select(date, station, avg_fchl, instrument)%>%
+    filter(!is.na(avg_fchl))%>% 
+    distinct()%>% 
+    ungroup() 
 
+summary(avg_daytime_ncro_delta_chl_data)
+```
+
+```{r}
 avg_daytime_ncro_delta_chl_data  <- avg_daytime_ncro_delta_chl_data  %>%
   left_join(
     stations,
@@ -392,12 +779,16 @@ rm(cm_ncro, stations)
 ## Combine all continuous monitoring chlorophyll data
 
 ```{r}
+avg_daytime_usgs_delta_chl_data$instrument <- "EXO"
+
 avg_daytime_dwr_delta_chl_data$group <- "dwr_rtm"
 avg_daytime_ncro_delta_chl_data$group <- "dwr_ncro"
 avg_daytime_usgs_delta_chl_data$group <- "usgs"
 cm_daytime_avg_chl <- rbind(avg_daytime_dwr_delta_chl_data, avg_daytime_ncro_delta_chl_data, avg_daytime_usgs_delta_chl_data)
 
 rm(avg_daytime_dwr_delta_chl_data, avg_daytime_ncro_delta_chl_data, avg_daytime_usgs_delta_chl_data)
+
+write.csv(cm_daytime_avg_chl, file = "data/01_processed/01_chl_cm_daytime_avg.csv")
 ```
 
 ## Shaela's Workspace

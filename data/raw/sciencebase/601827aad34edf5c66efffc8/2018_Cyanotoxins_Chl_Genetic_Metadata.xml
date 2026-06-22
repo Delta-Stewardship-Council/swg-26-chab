@@ -1,0 +1,786 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Jennifer L. Graham</origin>
+        <origin>Neil M. Dubrovsky</origin>
+        <origin>Keith A. Loftin</origin>
+        <origin>Barry H. Rosen</origin>
+        <origin>Erin A. Stelzer</origin>
+        <pubdate>20210924</pubdate>
+        <title>Cyanotoxin, chlorophyll-a, and cyanobacterial toxin genetic data for samples collected at eleven large river sites throughout the United States, June through October 2018</title>
+        <geoform>Excel Spreadsheet and Comma Separated Values (CSV) file</geoform>
+        <pubinfo>
+          <pubplace>Reston, VA</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.5066/P98RPC1E</onlink>
+        <lworkcit>
+          <citeinfo>
+            <origin>Robert E. Zuellig</origin>
+            <origin>Jennifer L. Graham</origin>
+            <origin>Erin A. Stelzer</origin>
+            <origin>Keith A. Loftin</origin>
+            <origin>Barry H. Rosen</origin>
+            <pubdate>2021</pubdate>
+            <title>Cyanobacteria, cyanotoxin synthetase gene, and cyanotoxin occurrence among selected large river sites of the conterminous United States, 2017–18</title>
+            <geoform>publication</geoform>
+            <pubinfo>
+              <pubplace>n/a</pubplace>
+              <publish>US Geological Survey</publish>
+            </pubinfo>
+            <onlink>https://doi.org/10.3133/sir20215121</onlink>
+          </citeinfo>
+        </lworkcit>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>This U.S. Geological Survey (USGS) data release provides discretely measured cyanotoxin, chlorophyll-a, and cyanobacterial toxin genetic data for samples collected from eleven large river sites throughout the United States, from June through October 2018. Discrete water-quality samples were analyzed for cyanotoxins (anatoxin, cylindrospermopsin, microcystin, and saxitoxin), chlorophyll-a, and cyanobacterial toxin genetics as part of a National Water-Quality Assessment Project pilot study to describe cyanobacteria and cyanotoxin occurrence in the Nation's large rivers.</abstract>
+      <purpose>These data were collected by the National Water-Quality Assessment Project as part of a pilot study to describe cyanobacteria and cyanotoxin occurrence in the Nation's large rivers. This data release was produced in compliance with the federal open-data requirements as a way to make scientific products associated with USGS research efforts and publications available to the public.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>20180605</begdate>
+          <enddate>20181031</enddate>
+        </rngdates>
+      </timeinfo>
+      <current>Publication Date</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None planned</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-129.7817</westbc>
+        <eastbc>-69.84463</eastbc>
+        <northbc>50.92334</northbc>
+        <southbc>23.43516</southbc>
+      </bounding>
+      <descgeog>Data were collected from eleven sites throughout the United States: Connecticut River at Thompsonville, CT (USGS Station Identification Number 01184000); Delaware River at Trenton, NJ (USGS Station Identification Number 01463500); Susquehanna River at Conowingo, MD (USGS Station Identification Number 01578310); Chattahoochee River near Whitesburg, GA (USGS Station Identification Number 02338000); Ohio River at Cannelton Dam at Cannelton, IN (USGS Station Identification Number 03303280); Mississippi River at Hastings, MN (USGS Station Identification Number 05331580); Kansas River at De Soto, KS (USGS Station Identification Number 06892350); Missouri River at Hermann, MO (USGS Station Identification Number 06934500); Trinity River Below Dallas, TX (USGS Station Identification Number 08057410); Sacramento River at Freeport, CA (USGS Station Identification Number 11447650); and Willamette River at Portland, OR (USGS Station Identification Number 14211720).</descgeog>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>USGS Metadata Identifier</themekt>
+        <themekey>USGS:601827aad34edf5c66efffc8</themekey>
+      </theme>
+      <theme>
+        <themekt>None</themekt>
+        <themekey>Water quality</themekey>
+        <themekey>Discretely measured</themekey>
+        <themekey>Cyanotoxins</themekey>
+        <themekey>Phytoplankton community composition</themekey>
+        <themekey>Cyanotoxin genetics</themekey>
+        <themekey>Anatoxin</themekey>
+        <themekey>Saxitoxin</themekey>
+        <themekey>Cylindrospermopsin</themekey>
+        <themekey>Microcystin</themekey>
+        <themekey>Chlorophyll-a</themekey>
+        <themekey>Pheophytin-a</themekey>
+        <themekey>Microcystis</themekey>
+        <themekey>Dolichospermum (formerly Anabaena)</themekey>
+        <themekey>Planktothrix</themekey>
+        <themekey>Enzyme-linked immunosorbent assay (ELISA)</themekey>
+        <themekey>Quantitative polymerase chain reaction (qPCR)</themekey>
+        <themekey>mcyE gene</themekey>
+        <themekey>anaC gene</themekey>
+        <themekey>sxtA gene</themekey>
+        <themekey>cyrA gene</themekey>
+      </theme>
+      <place>
+        <placekt>None</placekt>
+        <placekey>Connecticut</placekey>
+        <placekey>New Jersey</placekey>
+        <placekey>Maryland</placekey>
+        <placekey>Georgia</placekey>
+        <placekey>Ohio</placekey>
+        <placekey>Minnesota</placekey>
+        <placekey>Kansas</placekey>
+        <placekey>Missouri</placekey>
+        <placekey>Texas</placekey>
+        <placekey>California</placekey>
+        <placekey>Oregon</placekey>
+        <placekey>Connecticut River at Thompsonville, CT</placekey>
+        <placekey>USGS Station ID 01184000</placekey>
+        <placekey>Delaware River at Trenton, NJ</placekey>
+        <placekey>USGS Station ID 01463500</placekey>
+        <placekey>Susquehanna River at Conowingo, MD</placekey>
+        <placekey>USGS Station ID 01578310</placekey>
+        <placekey>Chattahoochee River near Whitesburg, GA</placekey>
+        <placekey>USGS Station ID 02338000</placekey>
+        <placekey>Ohio River at Cannelton Dam at Cannelton, IN</placekey>
+        <placekey>USGS Station ID 03303280</placekey>
+        <placekey>Mississippi River at Hastings, MN</placekey>
+        <placekey>USGS Station ID 05331580</placekey>
+        <placekey>Kansas River at De Soto, KS</placekey>
+        <placekey>USGS Station ID 06892350</placekey>
+        <placekey>Missouri River at Hermann, MO</placekey>
+        <placekey>USGS Station ID 06934500</placekey>
+        <placekey>Trinity River below Dallas, TX</placekey>
+        <placekey>USGS Station ID 08057410</placekey>
+        <placekey>Sacramento River at Freeport, CA</placekey>
+        <placekey>USGS Station ID 11447650</placekey>
+        <placekey>Willamette River at Portland, OR</placekey>
+        <placekey>USGS Station ID 14211720</placekey>
+        <placekey>United States</placekey>
+      </place>
+    </keywords>
+    <accconst>none</accconst>
+    <useconst>Public domain data from the U.S. Government are freely redistributable with proper metadata and source attribution. Please recognize the U.S. Geological Survey as the source of this information. Users are advised to read the dataset's metadata thoroughly to understand appropriate data limitations.</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Jennifer L. Graham</cntper>
+          <cntorg>U.S. Geological Survey, New York Water Science Center</cntorg>
+        </cntperp>
+        <cntpos>Hydrologist (Research)</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>425 Jordan Road</address>
+          <city>Troy</city>
+          <state>NY</state>
+          <postal>12180</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>(518) 285-5706</cntvoice>
+        <cntemail>jlgraham@usgs.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <datacred>This study was conducted by the U.S. Geological Survey National Water-Quality Assessment Project.</datacred>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>All data were broadly checked for accuracy; no obvious outliers were present in the data.</attraccr>
+    </attracc>
+    <logic>No formal logical accuracy tests were conducted, but data were checked for consistency and numerical errors.</logic>
+    <complete>Dataset is considered complete for the information presented, as described in the abstract. Users are advised to read the rest of the metadata record carefully for additional details.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>No formal positional accuracy tests were conducted.</horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>No formal positional accuracy tests were conducted.</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <procstep>
+        <procdesc>All data were compiled into one spreadsheet for this data release.</procdesc>
+        <procdate>20210201</procdate>
+      </procstep>
+      <method>
+        <methtype>Discrete water-quality sample collection and analysis.</methtype>
+        <methdesc>Discrete water-quality samples were collected from eleven large river sites in the United States, from June through October 2018, in accordance with U.S. Geological Survey protocols as described in Graham and others (2020). Samples were analyzed for total cyanotoxins (anatoxins, cylindrospermopsins, microcystins, and saxitoxins) by enzyme-linked immunosorbent assay (ELISA), chlorophyll-a and the degradate pheophytin-a in accordance with U.S. Environmental Protection Agency method 445.0, and genes present in anatoxin (anaC), cylindrospermopsin (cyrA), Dolichospermum-, Microcystis-, and Planktothrix-specific microcystin (mcyE), and saxitoxin (stxA) synthetase gene clusters by quantitative polymerase chain reaction (qPCR). Details on the standard curve for the qPCR results are given in a table associated with the metadata and described as a separate entity below. Cyanotoxins were analyzed by the USGS Organic Geochemistry Research Laboratory (Lawrence, Kansas) as described in Loftin and others (2008) and Graham and others (2010). Chlorophyll-a and pheophytin-a were analyzed at the USGS National Water Quality Laboratory (Lakewood, Colorado), in accordance with the U.S. Environmental Protection Agency Method 445.0 as described in Arar and others (1997). Cyanobacterial genetics were analyzed at the USGS Ohio Microbiology Laboratory (Columbus, Ohio) as described in Stelzer and others (2013). Molecular assays for cyanobacterial genes were done to enumerate the following: mcyE genus-specific toxin genes for microcystin (Rantala and others, 2006 and Sipari and others, 2010), sxtA toxin gene for saxitoxin (Al-Tebrineh and others, 2012), anaC toxin gene for anatoxin-a (Sabart and others, 2015) and cyrA toxin gene for cylindrospermopsin (Al-Tebrineh and others, 2012). The limit of blank (LoB), limit of detection (LoD), and limit of quantification (LoQ) were calculated for each assay according to procedures in Francy and others (2017).</methdesc>
+        <methcite>
+          <citeinfo>
+            <origin>Al-Tebrineh, J., Pearson, L.A., Yasar, S.A., and Neilan, B.A.</origin>
+            <pubdate>2012</pubdate>
+            <title>A multiplex qPCR targeting hepato- and neurotoxigenic cyanobacteria of global significance</title>
+            <geoform>Document</geoform>
+            <serinfo>
+              <sername>Harmful Algae</sername>
+              <issue>Volume 15, pages 19-25</issue>
+            </serinfo>
+          </citeinfo>
+        </methcite>
+        <methcite>
+          <citeinfo>
+            <origin>Arar, E.J., and Collins G.B.</origin>
+            <pubdate>1997</pubdate>
+            <title>U.S. Environmental Protection Agency Method 445.0, In vitro determination of chlorophyll a and pheophytin a in marine and freshwater algae by fluorescence</title>
+            <geoform>Webpage</geoform>
+            <onlink>https://www.nemi.gov/methods/method_summary/7222/</onlink>
+          </citeinfo>
+        </methcite>
+        <methcite>
+          <citeinfo>
+            <origin>Francy, D.S., Bushon, R.N., Cicale, J.R., Brady, A.M.G., Kephart, C.M., Stelzer, E.A., and Ecker, C.D.</origin>
+            <pubdate>2017</pubdate>
+            <title>Quality assurance/quality control manual: Ohio Water Microbiology Laboratory</title>
+            <geoform>Webpage</geoform>
+            <onlink>https://oh.water.usgs.gov/OWML/micro_qaqc.htm</onlink>
+          </citeinfo>
+        </methcite>
+        <methcite>
+          <citeinfo>
+            <origin>Graham, J.L., Dubrovsky, N.M., Foster, G.M., King, L.R., Loftin, K.A., Rosen, B.H., and Stelzer, E.A.</origin>
+            <pubdate>2020</pubdate>
+            <title>Cyanotoxin occurrence in large rivers of the United States</title>
+            <geoform>Document</geoform>
+            <serinfo>
+              <sername>Inland Waters</sername>
+              <issue>Volume 10, pages 109-117</issue>
+            </serinfo>
+            <onlink>https://doi.org/10.1080/20442041.2019.1700749</onlink>
+          </citeinfo>
+        </methcite>
+        <methcite>
+          <citeinfo>
+            <origin>Graham, J.L., Loftin, K.A., Meyer, M.T., and Ziegler, A.C.</origin>
+            <pubdate>2010</pubdate>
+            <title>Cyanotoxin mixtures and taste-and-odor compounds in cyanobacterial blooms from the midwestern United States</title>
+            <geoform>Document</geoform>
+            <serinfo>
+              <sername>Environmental Science and Technology</sername>
+              <issue>Volume 44, pages 7361-7368</issue>
+            </serinfo>
+          </citeinfo>
+        </methcite>
+        <methcite>
+          <citeinfo>
+            <origin>Loftin, K.A., Meyer, M.T., Rubio, F., Kamp, L., Humphries, E., and Whereat, E.</origin>
+            <pubdate>2008</pubdate>
+            <title>Comparison of two cell lysis procedures for recovery of microcystins in water samples from Silver Lake in Dover, Delaware, with microcystin producing cyanobacterial accumulations</title>
+            <geoform>Document</geoform>
+            <serinfo>
+              <sername>U.S. Geological Survey Open-File Report</sername>
+              <issue>U.S. Geological Survey Open-File Report 2008-1341</issue>
+            </serinfo>
+            <onlink>https://doi.org/10.3133/ofr20081341</onlink>
+          </citeinfo>
+        </methcite>
+        <methcite>
+          <citeinfo>
+            <origin>Rantala, A., Rajaniemi-Wacklin,P., Lyra, C., Lepisto, L., Rintala, J., Mankiewicz-Boczek, J., and Sivonen, K.</origin>
+            <pubdate>2006</pubdate>
+            <title>Detection of microcystin-producing cyanobacteria in Finnish lakes with genus-specific microcystin synthetase gene E (mcyE) PCR and associations with environmental factors</title>
+            <geoform>Document</geoform>
+            <serinfo>
+              <sername>Applied and Environmental Microbiology</sername>
+              <issue>Volume 72, pages 6101-6110</issue>
+            </serinfo>
+          </citeinfo>
+        </methcite>
+        <methcite>
+          <citeinfo>
+            <origin>Sabart, M., Crenn, K., Perriere, F., Abila, A., Leremboure, M., Colombet, J., Jousse, C., and Latour, D.</origin>
+            <pubdate>2015</pubdate>
+            <title>Co-occurance of microcystin and anatoxin-a in the freshwater lake Aydat (France): analytical and molecular approaches during a three-year survey</title>
+            <geoform>Document</geoform>
+            <serinfo>
+              <sername>Harmful Algae</sername>
+              <issue>Volume 48, pages 12-20</issue>
+            </serinfo>
+          </citeinfo>
+        </methcite>
+        <methcite>
+          <citeinfo>
+            <origin>Sipari, H., Rantala-Ylinen, A., Jokela, J., Oksanen, I., and Sivonen, K.</origin>
+            <pubdate>2010</pubdate>
+            <title>Development of a chip assay and quantitative PCR for detecting microcystin synthetase E gene expression</title>
+            <geoform>Document</geoform>
+            <serinfo>
+              <sername>Applied and Environmental Microbiology</sername>
+              <issue>Volume 76, pages 3797-3805</issue>
+            </serinfo>
+          </citeinfo>
+        </methcite>
+        <methcite>
+          <citeinfo>
+            <origin>Stelzer, E.A., Loftin, K.A., and Struffolino, Pamela</origin>
+            <pubdate>2013</pubdate>
+            <title>Relations between DNA- and RNA-based molecular methods for cyanobacteria and microcystin concentration at Maumee Bay State Park Lakeside Beach, Oregon, Ohio, 2012</title>
+            <geoform>Document</geoform>
+            <serinfo>
+              <sername>U.S. Geological Survey Scientific Investigations Report</sername>
+              <issue>U.S. Geological Survey Scientific Investigation Report 2013-5189</issue>
+            </serinfo>
+            <onlink>https://doi.org/10.3133/sir20135189</onlink>
+          </citeinfo>
+        </methcite>
+      </method>
+    </lineage>
+  </dataqual>
+  <spdoinfo>
+    <indspref>Connecticut River at Thompsonville, CT (01184000)
+Long= -72.60583
+Lat= 41.98722; Delaware River at Trenton, NJ (01463500)
+Long= -74.77806
+Lat= 40.22167; Susquehanna River at Conowingo, MD (01578310)
+Long= -76.17444
+Lat= 39.65789; Chattahoochee River near Whitesburg, GA (02338000)
+Long= -84.90083
+Lat= 33.47694; Ohio River at Cannelton Dam at Cannelton, IN (03303280) 
+Long= -86.70556
+Lat= 37.89944; Mississippi River at Hastings, MN (05331580)
+Long= -92.84778
+Lat= 44.74583; Kansas River at De Soto, KS (06892350)
+Long= -94.96444
+Lat= 38.98333; Missouri River at Hermann, MO (06934500)
+Long= -91.43850
+Lat= 38.70981; Trinity River below Dallas, TX (08057410)
+Long= -96.73556
+Lat= 32.70750; Sacramento River at Freeport, CA (11447650)
+Long= -121.5003
+Lat= 38.45611; Willamette River at Portland, OR (14211720) 
+Long= -122.6692
+Lat= 45.5175</indspref>
+    <direct>Point</direct>
+  </spdoinfo>
+  <spref>
+    <horizsys>
+      <geograph>
+        <latres>1.0E-5</latres>
+        <longres>1.0E-5</longres>
+        <geogunit>Decimal degrees</geogunit>
+      </geograph>
+    </horizsys>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>qPCR_Standard_Curve_Information.xslx/qPCR_Standard_Curve_Information.csv</enttypl>
+        <enttypd>Standard curve information for quantitative polymerase chain reaction (qPCR) assays, 2018.</enttypd>
+        <enttypds>Not Specified</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Cyanotoxins_Chl_Genetic_Data.xlsx / Cyanotoxins_Chl_Genetic_Data.csv</enttypl>
+        <enttypd>Cyanotoxin, chlorophyll-a, and cyanobacterial toxin genetic data for samples collected at eleven large river sites throughout the United States, June through October 2018.</enttypd>
+        <enttypds>Not Specified</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>USGS Station ID</attrlabl>
+        <attrdef>USGS station identification number where samples were collected.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Free Text</edomv>
+            <edomvd>01184000, 01463500, 01578310, 02338000, 03303280, 05331580, 06892350, 06934500, 08057410, 11447650, and 14211720</edomvd>
+            <edomvds>Not Specified</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>USGS Station Name</attrlabl>
+        <attrdef>USGS station name where samples were collected.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Free Text</edomv>
+            <edomvd>Connecticut River at Thompsonville, CT; Delaware River at Trenton, NJ; Susquehanna River at Conowingo, MD; Chattahoochee River near Whitesburg, GA; Ohio River at Cannelton Dam at Cannelton, IN; Mississippi River at Hastings, MN; Kansas River at De Soto, KS; Missouri River at Hermann, MO; Trinity River below Dallas, TX; Sacramento River at Freeport, CA; and Willamette River at Portland, OR</edomvd>
+            <edomvds>Not Specified</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sample Date</attrlabl>
+        <attrdef>Date samples were collected.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>MM/DD/YYYY</edomv>
+            <edomvd>Month/Day/Year</edomvd>
+            <edomvds>Not Specified</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sample Time</attrlabl>
+        <attrdef>Time samples were collected.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>HH:MM; "NA" indicates laboratory replicate and no time offset.</edomv>
+            <edomvd>Hours:Minutes</edomvd>
+            <edomvds>Not Specified</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sample Type</attrlabl>
+        <attrdef>Type of sample collected.</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Regular sample</edomv>
+            <edomvd>Primary environmental sample</edomvd>
+            <edomvds>Not Specified</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Concurrent replicate</edomv>
+            <edomvd>Two or more samples of environmental water that are collected simultaneously or at approximately the same time in the field.</edomvd>
+            <edomvds>U.S. Geological Survey National Field Manual, Chapter A4</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Laboratory replicate</edomv>
+            <edomvd>A sample collected in a single bottle that is split at the laboratory into two or more replicates after having been processed and preserved.</edomvd>
+            <edomvds>U.S. Geological Survey National Field Manual, Chapter A4</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Data qualifiers for Total microcystins plus nodularins</attrlabl>
+        <attrdef>Data qualifiers for attribute labeled Total microcystins plus nodularins (ug/L)</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;</edomv>
+            <edomvd>Less than symbol indicates concentration was less than laboratory reporting level.</edomvd>
+            <edomvds>Kansas Water Science Center Organic Geochemistry Research Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Total microcystins plus nodularins (ug/L)</attrlabl>
+        <attrdef>Total microcystins plus nodularins, unfiltered water, freeze/thaw extraction, ADDA specific enzyme-linked immunosorbent assay, recoverable, micrograms per liter (USGS parameter code 89011); refer to prior attribute for associated data qualifier.</attrdef>
+        <attrdefs>National Water Information System (https://nwis.waterdata.usgs.gov/nwis)</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.10</rdommin>
+            <rdommax>0.55</rdommax>
+            <attrunit>micrograms per liter, ug/L</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Data qualifiers for Total cylindrospermopsins</attrlabl>
+        <attrdef>Data qualifiers for attribute labeled Total cylindrospermopsins (ug/L).</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;</edomv>
+            <edomvd>Less than symbol indicates concentration was less than laboratory reporting level.</edomvd>
+            <edomvds>Kansas Water Science Center Organic Geochemistry Research Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Total cylindrospermopsins (ug/L)</attrlabl>
+        <attrdef>Total cylindrospermopsins, freeze/thaw extraction and then filtered (0.7 micron filter), enzyme-linked immunosorbent assay, recoverable, micrograms per liter (USGS parameter code 89005); refer to prior attribute for associated data qualifier; "NM" indicates value was not measured.</attrdef>
+        <attrdefs>National Water Information System (https://nwis.waterdata.usgs.gov/nwis)</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.05</rdommin>
+            <rdommax>0.05</rdommax>
+            <attrunit>micrograms per liter, ug/L</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Data qualifiers for Total saxitoxins</attrlabl>
+        <attrdef>Data qualifiers for attribute labeled Total saxitoxins (ug/L).</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;</edomv>
+            <edomvd>Less than symbol indicates concentration was less than laboratory reporting level.</edomvd>
+            <edomvds>Kansas Water Science Center Organic Geochemistry Research Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Total saxitoxins (ug/L)</attrlabl>
+        <attrdef>Total saxitoxins, freeze/thaw extraction and then filtered (0.7 micron filter), enzyme-linked immunosorbent assay, recoverable, micrograms per liter (USGS parameter code 89003); refer to prior attribute for associated data qualifier; "NM" indicates value was not measured.</attrdef>
+        <attrdefs>National Water Information System (https://nwis.waterdata.usgs.gov/nwis)</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.02</rdommin>
+            <rdommax>0.02</rdommax>
+            <attrunit>micrograms per liter, ug/L</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Data qualifiers for Anatoxin-a (method IMM24)</attrlabl>
+        <attrdef>Data qualifiers for attribute labeled Anatoxin-a (method IMM24) (ug/L).</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;</edomv>
+            <edomvd>Less than symbol indicates concentration was less than laboratory reporting level.</edomvd>
+            <edomvds>Kansas Water Science Center Organic Geochemistry Research Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Anatoxin-a (method IMM24) (ug/L)</attrlabl>
+        <attrdef>Anatoxin-a, water, unfiltered, recoverable, micrograms per liter (USGS parameter code 68287); refer to prior attribute for associated data qualifier; "NM" indicates value was not measured.</attrdef>
+        <attrdefs>National Water Information System (https://nwis.waterdata.usgs.gov/nwis)</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.15</rdommin>
+            <rdommax>0.15</rdommax>
+            <attrunit>micrograms per liter, ug/L</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Data qualifiers for Chlorophyll-a</attrlabl>
+        <attrdef>Data qualifiers for attribute labeled Chlorophyll-a (ug/L).</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>E</edomv>
+            <edomvd>Indicates sample was above the detection limit but below the limit for accurate quantifications and is therefore estimated.</edomvd>
+            <edomvds>National Water Quality Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Chlorophyll-a (ug/L)</attrlabl>
+        <attrdef>Chlorophyll a, phytoplankton, chromatographic-fluorometric method, micrograms per liter (USGS parameter code 70953); "NM" indicates value was not measured.</attrdef>
+        <attrdefs>National Water Information System (https://nwis.waterdata.usgs.gov/nwis)</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.50</rdommin>
+            <rdommax>84.8</rdommax>
+            <attrunit>micrograms per liter, ug/L</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Data qualifiers for Pheophytin-a</attrlabl>
+        <attrdef>Data qualifiers for attribute labeled Pheophytin-a (ug/L).</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>E</edomv>
+            <edomvd>Indicates sample was above the detection limit but below the limit for accurate quantifications and is therefore estimated.</edomvd>
+            <edomvds>National Water Quality Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Pheophytin-a (ug/L)</attrlabl>
+        <attrdef>Pheophytin a, phytoplankton, micrograms per liter (USGS parameter code 62360); "NM" indicates value was not measured.</attrdef>
+        <attrdefs>National Water Information System (https://nwis.waterdata.usgs.gov/nwis)</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.60</rdommin>
+            <rdommax>26.3</rdommax>
+            <attrunit>micrograms per liter, ug/L</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Data qualifiers for Anatoxin-a gene anaC</attrlabl>
+        <attrdef>Data qualifiers for attribute labeled Anatoxin-a gene anaC (cp/100 mL).</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;</edomv>
+            <edomvd>Less than symbol indicates concentration was less than laboratory reporting level.</edomvd>
+            <edomvds>Ohio Water Microbiology Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>E</edomv>
+            <edomvd>Indicates sample was above the detection limit but below the limit for accurate quantifications and is therefore estimated.</edomvd>
+            <edomvds>Ohio Water Microbiology Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Anatoxin-a gene anaC (cp/100 mL)</attrlabl>
+        <attrdef>Anatoxin-a gene anaC, water, DNA based, recoverable, copies per 100 milliliters (cp/100 mL) (USGS parameter code 31795); refer to prior attribute for associated data qualifier; "NM" indicates value was not measured.</attrdef>
+        <attrdefs>National Water Information System (https://nwis.waterdata.usgs.gov/nwis)</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>960</rdommin>
+            <rdommax>11,000</rdommax>
+            <attrunit>copies per 100 milliliters, cp/100 mL</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Data qualifiers for Saxitoxin gene sxtA</attrlabl>
+        <attrdef>Data qualifiers for attribute labeled Saxitoxin gene sxtA (cp/100 mL).</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;</edomv>
+            <edomvd>Less than symbol indicates concentration was less than laboratory reporting level.</edomvd>
+            <edomvds>Ohio Water Microbiology Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>E</edomv>
+            <edomvd>Indicates sample was above the detection limit but below the limit for accurate quantifications and is therefore estimated.</edomvd>
+            <edomvds>Ohio Water Microbiology Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Saxitoxin gene sxtA (cp/100 mL)</attrlabl>
+        <attrdef>Saxitoxin gene sxtA, water, DNA based, recoverable, copies per 100 milliliters (cp/100 mL) (USGS parameter code 31797); refer to prior attribute for associated data qualifier; "NM" indicates value was not measured.</attrdef>
+        <attrdefs>National Water Information System (https://nwis.waterdata.usgs.gov/nwis)</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>420</rdommin>
+            <rdommax>240,000</rdommax>
+            <attrunit>copies per 100 milliliters, cp/100 mL</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Data qualifiers for Cylindrospermopsin gene cyrA</attrlabl>
+        <attrdef>Data qualifiers for attribute labeled Cylindrospermopsin gene cyrA (cp/100 mL).</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;</edomv>
+            <edomvd>Less than symbol indicates concentration was less than laboratory reporting level.</edomvd>
+            <edomvds>Ohio Water Microbiology Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>E</edomv>
+            <edomvd>Indicates sample was above the detection limit but below the limit for accurate quantifications and is therefore estimated.</edomvd>
+            <edomvds>Ohio Water Microbiology Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cylindrospermopsin gene cyrA (cp/100 mL)</attrlabl>
+        <attrdef>Cylindrospermopsin gene cyrA, water, recoverable, DNA based, copies per 100 milliliters (cp/100 mL) (USGS parameter code 31863); refer to prior attribute for associated data qualifier; "NM" indicates value was not measured.</attrdef>
+        <attrdefs>National Water Information System (https://nwis.waterdata.usgs.gov/nwis)</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>930</rdommin>
+            <rdommax>910,000</rdommax>
+            <attrunit>copies per 100 milliliters, cp/100 mL</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Data qualifiers for Microcystis mcyE toxin gene</attrlabl>
+        <attrdef>Data qualifiers for attribute labeled Microcystis mcyE toxin gene (cp/100 mL).</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;</edomv>
+            <edomvd>Less than symbol indicates concentration was less than laboratory reporting level.</edomvd>
+            <edomvds>Ohio Water Microbiology Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>E</edomv>
+            <edomvd>Indicates sample was above the detection limit but below the limit for accurate quantifications and is therefore estimated.</edomvd>
+            <edomvds>Ohio Water Microbiology Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Microcystis mcyE toxin gene (cp/100 mL)</attrlabl>
+        <attrdef>Microcystis mcyE toxin gene, water, DNA based, copies per 100 milliliters (cp/100 mL) (USGS parameter code 51756); refer to prior attribute for associated data qualifier; "NM" indicates value was not measured.</attrdef>
+        <attrdefs>National Water Information System (https://nwis.waterdata.usgs.gov/nwis)</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>390</rdommin>
+            <rdommax>10,000,000</rdommax>
+            <attrunit>copies per 100 milliliters, cp/100 mL</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Data qualifiers for Dolichospermum mcyE toxin gene</attrlabl>
+        <attrdef>Data qualifiers for attribute labeled Dolichospermum mcyE toxin gene (cp/100 mL) (formerly Anabaena).</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;</edomv>
+            <edomvd>Less than symbol indicates concentration was less than laboratory reporting level.</edomvd>
+            <edomvds>Ohio Water Microbiology Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Dolichospermum mcyE toxin gene (cp/100 mL)</attrlabl>
+        <attrdef>Dolichospermum (formerly Anabaena) mcyE toxin gene, water, DNA based, copies per 100 milliliters (cp/100 mL) (USGS parameter code 51758); refer to prior attribute for data associated qualifier; "NM" indicates value was not measured.</attrdef>
+        <attrdefs>National Water Information System (https://nwis.waterdata.usgs.gov/nwis)</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1,400</rdommin>
+            <rdommax>7,800</rdommax>
+            <attrunit>copies per 100 milliliters, cp/100 mL</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Data qualifiers for Planktothrix mcyE toxin gene</attrlabl>
+        <attrdef>Data qualifiers for attribute labeled Planktothrix mcyE toxin gene (cp/100 mL).</attrdef>
+        <attrdefs>Not Specified</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;</edomv>
+            <edomvd>Less than symbol indicates concentration was less than laboratory reporting level.</edomvd>
+            <edomvds>Ohio Water Microbiology Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>E</edomv>
+            <edomvd>Indicates sample was above the detection limit but below the limit for accurate quantifications and is therefore estimated.</edomvd>
+            <edomvds>Ohio Water Microbiology Laboratory</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Planktothrix mcyE toxin gene (cp/100 mL)</attrlabl>
+        <attrdef>Planktothrix mcyE toxin gene, water, DNA based, copies per 100 milliliters (cp/100 mL) (USGS parameter code 51760); refer to prior attribute for associated data qualifier; "NM" indicates value was not measured.</attrdef>
+        <attrdefs>National Water Information System (https://nwis.waterdata.usgs.gov/nwis)</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1,500</rdommin>
+            <rdommax>480,000</rdommax>
+            <attrunit>copies per 100 milliliters, cp/100 mL</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey - ScienceBase</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>Denver Federal Center, Building 810, Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty.</distliab>
+  </distinfo>
+  <metainfo>
+    <metd>20210924</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Jennifer L. Graham</cntper>
+          <cntorg>U.S. Geological Survey</cntorg>
+        </cntperp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>425 Jordan Road</address>
+          <city>Troy</city>
+          <state>NY</state>
+          <postal>12180</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>(518) 285-5706</cntvoice>
+        <cntemail>jlgraham@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+  </metainfo>
+</metadata>

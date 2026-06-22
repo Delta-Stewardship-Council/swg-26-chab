@@ -1,0 +1,9 @@
+﻿Correction Type,Correction Equation,Applied to,Reference
+fDOM_raw with blank substraction and convert to QSE,fDOM (QSE ppb) = scale factor * (fDOM_raw-blank),WS fDOM,
+fDOM Temperature correction: T_corr (deg_C),fDOM_T_corr  = fDOM_raw/(1 - 0.01 * (T_measured - 25)),WS fDOM,"(Watras et al. 2011, Downing et al. 2012)"
+fDOM Turbidity correction,fDOM_Turb_corr = fDOM_T_corr/EXP(-0.002 * FNU),WS fDOM,
+fDOM Turbidity correction,fDOM_Turb_corr = fDOM_T_corr/EXP(-0.003 * FNU),EXO fDOM,
+Inner Filter Effects (IFE) correction,fDOM_IFE_corr = fDOM T@Turb_corr/EXP((-0.308 * (0.0000003 * fDOM_Turb_corr^2 - 0.0002 * fDOM_Turb_corr^2 + 0.1451)),EXO/WS fDOM,
+fCHLA Temperature correction,fCHLA_T_corr = fCHLA_raw/(1 - 0.01 * (T_measured - 25)),WS fCHLA,
+Beam Transmissometer (WETLabs C-Star serial #1158 with 10 cm pathlength),"Tr = (Vsig - Vdark)/(Vref - Vdark), c = -1/pathlength * ln (Tr)",C-Star Transmittance,
+Nitrate correction,blank corrected: blank value - measured value,SUNA,

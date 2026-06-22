@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Cloern, James E.</origin>
+        <origin>Schraga, Tara S.</origin>
+        <pubdate>20161215</pubdate>
+        <title>USGS Measurements of Water Quality in San Francisco Bay (CA), 1969-2015 (ver. 4.0 March 2023)</title>
+        <geoform>numerical</geoform>
+        <pubinfo>
+          <pubplace>Menlo Park, CA</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.5066/F7TQ5ZPR</onlink>
+        <onlink>https://sfbay.wr.usgs.gov/water-quality-database/</onlink>
+        <onlink>https://www.nature.com/articles/sdata201798</onlink>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The U.S. Geological Survey maintains a program of water-quality studies in San Francisco Bay (CA) that began in 1969. This Data Release archives and makes available all measurements made from 1969 through 2015. Water-quality constituents include salinity, temperature, light extinction coefficient, chlorophyll-a, dissolved oxygen, suspended particulate matter, nitrate, nitrite, ammonium, silicate and phosphate. Time, Julian date, and three constituents were added retroactively in 2023 to all years:  ratio of chlorophyll-a and pheopigments, oxygen percent saturation, and density as Sigma-t. Water samples were collected along a 145-km transect from lower South San Francisco Bay to the lower Sacramento River. Samples were collected at 59 fixed sampling locations, of these 37 became standard long-term sampling stations. All stations are listed in the station location table (SFBstationlocations_19692015.csv) and standard stations are shown on the map (sfbaymap.jpg)</abstract>
+      <purpose>The dataset was collected to measure and understand spatial and temporal patterns of water-quality variability in San Francisco Bay as a component of long-term research to understand how estuarine-coastal ecosystems change in response to human activities and climate variability.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>19690410</begdate>
+          <enddate>20151216</enddate>
+        </rngdates>
+      </timeinfo>
+      <current>observed</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None planned</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-122.4717</westbc>
+        <eastbc>-121.6667</eastbc>
+        <northbc>38.2267</northbc>
+        <southbc>37.4717</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>USGS Thesaurus</themekt>
+        <themekey>water quality</themekey>
+        <themekey>salinity</themekey>
+        <themekey>water temperature</themekey>
+        <themekey>turbidity</themekey>
+        <themekey>chlorophyll</themekey>
+        <themekey>oxygen content (water)</themekey>
+        <themekey>nutrient content (water)</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Metadata Identifier</themekt>
+        <themekey>USGS:64248ee5d34e370832fe343d</themekey>
+      </theme>
+      <place>
+        <placekt>GNIS</placekt>
+        <placekey>San Francisco Bay, California</placekey>
+      </place>
+    </keywords>
+    <accconst>none</accconst>
+    <useconst>none</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Tara Schraga</cntper>
+          <cntorg>WATER: EARTH SYS PROCESS DIV</cntorg>
+        </cntperp>
+        <cntpos>Oceanographer</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>Mail Stop 496, 345 Middlefield Road</address>
+          <city>Menlo Park</city>
+          <state>CA</state>
+          <postal>94025</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>650-329-4381</cntvoice>
+        <cntemail>tschraga@usgs.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <datacred>USGS National Research Program; USGS Priority Ecosystem Science; Regional Monitoring Program for Water Quality in San Francisco Bay; San Francisco Bay Nutrient Management Strategy</datacred>
+    <crossref>
+      <citeinfo>
+        <origin>Tara Schraga</origin>
+        <origin>Erica S Nejad</origin>
+        <origin>Charles A Martin</origin>
+        <origin>James E Cloern</origin>
+        <pubdate>2018</pubdate>
+        <title>USGS Measurements of Water Quality in San Francisco Bay (CA), beginning in 2016</title>
+        <geoform>dataset</geoform>
+        <pubinfo>
+          <pubplace>https://www.sciencebase.gov</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.5066/f7d21wgf</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Erica S Nejad</origin>
+        <origin>James Cloern</origin>
+        <origin>Tara Schraga</origin>
+        <pubdate>2017</pubdate>
+        <title>Phytoplankton Species Composition, Abundance and Cell Size in San Francisco Bay: Microscopic Analyses of USGS Samples Collected 1992-2014</title>
+        <geoform>dataset</geoform>
+        <pubinfo>
+          <pubplace>https://www.sciencebase.gov</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.5066/f74f1p6p</onlink>
+      </citeinfo>
+    </crossref>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>Multiple steps were taken to validate accuracy of the data set:
+1. The conductivity, temperature, and depth sensors in the CTD package and oxygen probes were calibrated by the manufacturer annually.
+2. Laboratory analyses were performed with standard methods.
+3. Periodic validations of nutrient and chlorophyll-a data were done by cross-comparison of measurements of replicate samples by other laboratories.
+4. Discrete_Chlorophyll-a measurements are means of replicate analyses. If replicates deviated by greater than 10%, the data were excluded from the data set.
+5. Calculated-Chlorophyll-a, Calculated_SPM, and Calculated_Oxygen were all based on cruise-specific calibrations with discrete measurements determined in the laboratory. Deviations from those regressions were one step to identify and remove data of questionable accuracy.
+6. Beginning in the late 1990s, for each sampling cruise at least two members of the research team examined all results carefully to ensure that all values fell within expected ranges, to verify that calibration regressions were an acceptable basis for computing quantities from in-vivo measurements, to ensure completeness of each cruise data report, and to verify that values transcribed from field notes were accurate.
+7. The entire data set was validated with three steps: (1) Range Tests to ensure that the data records fell between ranges that are plausible and consistent with knowledge of San Francisco Bay and other estuaries; (2) Pattern Tests of time series of all measurements to ensure they followed a plausible and understandable patterns of variability; (3) Pattern Tests of all measurements by sampling station to ensure they followed plausible and understandable spatial patterns of variability.
+
+Detailed descriptions of accuracy tests for all measured parameters can be found in Schraga and Cloern (2017)</attraccr>
+    </attracc>
+    <logic>See the Attribute Accuracy Report</logic>
+    <complete>This data set was acquired as part of a research program whose goals varied from year to year. Therefore, the number, spatial extent, and makeup of water-quality measurements varied from year to year. The record includes substantial gaps in some measurements, such as nutrient concentrations. Some constituents (e.g., Chlorophyll-a) were not measured early in the research program. Resolution of vertical sampling was coarse from 1969-1987 when vertical sampling was done with a submersible pump. Vertical resolution increased greatly in 1988 after acquisition of a CTD system. Sampling became more regular, and all constituents were measured each cruise after 1992 when this program became incorporated into the Regional Monitoring Program for Water Quality in San Francisco Bay (http://www.sfei.org/rmp)</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>Location of each water sample collection was measured with GPS.</horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>Beginning March 1987, depths of water-quality measurements from the CTD were determined with a digiquartz pressure sensor calibrated by the manufacturer annually. Resolution of vertical sampling was coarse from 1969-1987 when vertical sampling was done by submersible pump.</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <procstep>
+        <procdesc>USGS water quality studies in San Francisco Bay included two types of measurements: 
+1) laboratory analyses of discrete water samples collected aboard a ship (chlorophyll-a, dissolved oxygen, suspended particulate matter, dissolved inorganic nutrients), and (2) shipboard or submersible sensors to measure salinity, temperature, chlorophyll fluorescence, dissolved oxygen, turbidity, and light extinction. The analyses of discrete water samples were used to calibrate the shipboard sensor measurements, with individual calibrations for each sampling cruise and often for each bay region. Therefore, the data record includes both discrete measurements (e.g. Discrete_Chlorophyll-a) and sensor-based measurements (e.g. Calculated_Chlorophyll-a). From 1969 through 28 October 1987 the discrete water samples were collected by pump and the pumped stream (Schemel and Dedini, 1979) was delivered to a shipboard fluorometer, nephelometer, thermistor and conductivity sensor. Vertical profiles were obtained by lowering the pump to prescribed depths, typically 0, 2, 5, 10, 20 m. Aliquots of water samples were fixed with Winkler reagents aboard ship for dissolved oxygen and filtered aboard ship for chlorophyll-a and suspended particulate matter (SPM). Oxygen, chlorophyll-a, SPM, and nutrient analyses were performed in the laboratory. From March 1987 through 2015 the discrete water samples were collected near surface (~ 1.5 m) by pump and at depth with a Niskin bottle, then processed as described above. Vertical profiles were obtained with a sensor package built around a SeaBird Electronics CTD with additional sensors for chlorophyll fluorescence, dissolved oxygen, optical backscatter, and light.</procdesc>
+        <srcused>Schemel, L.E., and Dedini, L.A., 1979, A continuous water-sampling and multi-parameter/measurement system for estuaries: U.S. Geological Survey Open-File Report 79-273, 28 p.</srcused>
+        <procdate>2022</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Data were processed by cruise, following a common series of steps:
+1. Laboratory analyses of discrete water samples for chlorophyll-a, dissolved oxygen, SPM, and dissolved inorganic nutrients. 
+2. Calibration of shipboard sensors with linear regressions of chlorophyll-a and fluorescence, dissolved oxygen and the oxygen sensor, and SPM and the nephelometer or optical backscatter sensor.
+3. Calculated chlorophyll-a, calculated oxygen, and calculated SPM were derived from the linear regressions (#2) developed for each cruise.
+4. Processing of CTD data and derivation of salinity, percent oxygen saturation, and Sigma-t using Sea-Bird Scientific software (Seasoft V2: SBE Data Processing). Formulas for the computation of salinity and density (Sigma-t) are in Fofonoff and Millard (1983). Oxygen calculation is described in Sea-Bird Scientific Application Note 64: SBE 43 Dissolved Oxygen Sensor. Oxygen percent saturation was calculated from Calculated_Oxygen, Temperature, and Salinity measurements using formulas of Gnaiger and Forstner (1983). 
+5. Calculation of Ratio_discrete chlorophyll-pheopigment from laboratory analysis of chlorophyll-a 
+6. Calculation of the light extinction coefficient from vertical profiles of PAR measured with the quantum sensor.
+7. Construction of a data table summarizing both discrete and calculated quantities at each station and sampling depth.
+8. Validation of the data table through critical inspection by at least two members of the research team.
+9. Archival of the data on the research project web page database: https://sfbay.wr.usgs.gov/water-quality-database/</procdesc>
+        <srcused>Gnaiger, E., Forstner, H. (Eds.), 1983. Polarographic Oxygen Sensors. Aquatic and Physiological Applications. Springer, Berlin, Heidelberg, New York, p. 370.</srcused>
+        <srcused>Fofonoff, N. P. And Millard, R. C. Jr. 1983 Algorithms for Computation of Fundamental Properties of Seawater. UNESCO.</srcused>
+        <srcused>Sea-bird Scientific, Manual for Seasoft V2:SBE Data Processing, CTD Data Processing and Plotting Software for Windows (manual-Seassoft_DataProcessing_7.26.8.pdf) https://www.seabird.com/</srcused>
+        <procdate>2022</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Methods evolved over time, detailed descriptions are in Schraga and Cloern (2017).
+In recent years vertical profiles were obtained with a Sea-Bird Electronics-9plus data acquisition system and sensors to measure: depth (Paroscientific Digiquartz pressure transducer), conductivity (SBE-4C conductivity sensor), temperature (SBE-3plus temperature sensor), suspended particulate matter (Campbell Scientific OBS-3 optical backscatter sensor), chlorophyll-a (Turner Designs C7 fluorometer), photosynthetically available radiation (Li-Cor 192s quantum sensor), and dissolved oxygen (SBE-43 oxygen electrode). The optical backscatter sensor, fluorometer, and oxygen electrode were calibrated each sampling cruise with discrete measurements of ca. 20 samples collected in surface and near-bottom waters. 
+CTD data were processed using Sea-Bird Scientific software (Seasoft V2: SBE Data Processing). Sea-Bird's formulas for the computation of salinity and density (Sigma-t) are from Fofonoff and Millard (1983). Oxygen calculation is described in Sea-Bird Scientific Application Note 64: SBE 43 Dissolved Oxygen Sensor. 
+Suspended particulate matter (SPM) was measured gravimetrically as mass collected onto pre-weighed 0.4-µm pore size polycarbonate membrane filters, using a correction for salt retained on filters (Hager 1993). Chlorophyll-a samples were collected onto GF/F filters and extracted in 90% acetone. Chlorophyll-a concentration of the extract was determined using a Turner Designs fluorometer calibrated with chlorophyll-a standard. The acetone extracts were acidified, and chlorophyll-a and pheopigment concentrations calculated using equations of Jeffrey et al. (2005). Winkler reagents (Strickland and Parsons 1972) were added immediately to dissolved oxygen (DO) samples collected into BOD bottles on the ship. Acidified DO samples were titrated with 0.01 N sodium thiosulfate dispensed by a Metrohm autotitrator (Titrino 798) using the potentiometric titration method of Granéli and Granéli (1991). Samples for dissolved inorganic nutrient analyses were filtered through 0.4-µm pore size membrane filters under vacuum (less than 14 kPa), and the filtrates were frozen until analyzed by the USGS National Water Quality Laboratory.  Concentrations were determined on an Aquakem 600 automated discrete analyzer (Thermo Scientific, USA) following Fishman and Friedman (1989) for nitrite, phosphate, and silicate, and Patton and Kryskalla (2003) for nitrate.  
+Earlier methods are listed in Schraga and Cloern (2017) and described in USGS Open-File Reports for individual years, such as Schemel et al. (1979), Alpine et al. (1981), Ota et al. (1986), Wienke et al. (1990), Caffrey et al. (1994), Edmunds et al. (1995), Hager et al. (1997)</procdesc>
+        <srcused>Schraga, T. S. and Cloern, J. E. 2017. Water quality measurements in San Francisco Bay by the U.S. Geological Survey, 1969–2015. Sci. Data 4:170098 doi: 10.1038/sdata.2017.98</srcused>
+        <srcused>Fofonoff, N. P. And Millard, R. C. Jr. 1983 Algorithms for Computation of Fundamental Properties of Seawater. UNESCO.</srcused>
+        <srcused>Jeffrey, S. W., R. F. Mantoura, and S. W. Wright. 2005. Phytoplankton pigments in oceanography: guidelines to modern methods. UNESCO Pub., 2005. 661 p.</srcused>
+        <srcused>Strickland, J. D. H., and T. R. Parsons. 1972. A Practical Handbook of Seawater Analysis.</srcused>
+        <srcused>Granéli, W., and E. Granéli. 1991. Automatic potentiometric determination of dissolved oxygen. Marine Biology 108: 341–348.</srcused>
+        <srcused>Fishman, M. J., and L. C. Friedman. 1989. Methods for Determination of Inorganic Substances in Water and Fluvial Sediment: U.S. Geological Survey, Techniques of Water-Resources Investigations, Book 5, Chapter A1. 545p.   http://pubs.usgs.gov/twri/twri5-a1/html/pdf.html</srcused>
+        <srcused>Patton, C. J., and J. R. Kryskalla. 2003. Methods of Analysis by the U.S. Geological Survey National Water Quality Laboratory ― Evaluation of Alkaline Persulfate Digestion as an Alternative to Kjeldahl Digestion for Determination of Total and Dissolved Nitrogen and Phosphorus in Water: U.S. Geological Survey, Water-Resources Investigations Report 03-4174.</srcused>
+        <srcused>Schemel, L.E., Alpine, A.E., Cole, B.E., Dedini, L.A., and Spiker, E.C., 1979, Water and sediment measurements in San Francisco Bay, California: U.S. Geological Survey Open-File Report 78-973, 28 p.</srcused>
+        <srcused>Ota, A.Y., Schemel, L.E., and Hager, S.W., 1986, Physical and chemical data for northern San Francisco Bay, California, September-November, 1984: U.S. Geological Survey Open-File Report 86-228, 32 p.</srcused>
+        <srcused>Wienke, S.M., Alpine, A.E., Cloern, J.E., and Cole, B.E., 1990, Plankton studies in San Francisco Bay, X, chlorophyll distributions and hydrographic properties in San Francisco Bay, 1987: U.S. Geological Survey Open-File Report 90-145, 50 p.</srcused>
+        <srcused>Caffrey, J.M., Cole, B.E., Cloern, J.E., Rudek, J.R., Tyler, A.C., and Jassby, A.D., 1994, Studies of the San Francisco Bay, California, estuarine ecosystem: pilot regional monitoring program results, 1993: U.S. Geological Survey Open-File Report 94-82, 411 p.</srcused>
+        <srcused>Edmunds, J.L., Cole, B.E., Cloern, J.E., Caffrey, J.M., and Jassby, A.D., 1995, Studies of the San Francisco Bay, California, estuarine ecosystem pilot regional monitoring program results, 1994: U.S. Geological Survey Open-File Report 95-378, 436 p.</srcused>
+        <srcused>Hager, S.W., and Schemel, L.E., 1997, Dissolved nutrient data for the San Francisco Bay estuary, California, January through November 1995: U.S. Geological Survey Open-File Report 97-359.</srcused>
+        <srcused>Wienke, S.M., Alpine, A.E., Cloern, J.E., and Cole, B.E., 1990, Plankton studies in San Francisco Bay, X, chlorophyll distributions and hydrographic properties in San Francisco Bay, 1987: U.S. Geological Survey Open-File Report 90-145, 50 p.</srcused>
+        <srcused>Hager, S. W. 1993. Dissolved nutrient and suspended particulate matter data for the San Francisco Bay Estuary, California, October 1988 through September 1991, p. 52. United States Geological Survey, USGS Open-File Report 93-57.</srcused>
+        <srcused>Alpine, A.E., Cloern, J.E., and Cole, B.E., 1981, Plankton studies in San Francisco Bay. I. Chlorophyll distributions and hydrographic properties of the San Francisco Bay estuary, July 1977-December 1979: U.S. Geological Survey Open- File Report 81-213.150 p.</srcused>
+        <procdate>2022</procdate>
+        <srcprod>http://pubs.usgs.gov/twri/twri5-a1/html/pdf.html</srcprod>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>SanFranciscoBayWaterQualityData1969-2015v4.csv</enttypl>
+        <enttypd>A CSV (comma separated values) file where each row provides measurements for a unique date, sampling station, and depth.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>Date</attrlabl>
+        <attrdef>Date of water quality sample collection, format MM/DD/YYYY</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>4/10/1969</rdommin>
+            <rdommax>12/16/2015</rdommax>
+            <attrunit>Date</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Julian_Date</attrlabl>
+        <attrdef>Julian Date is the continuous count of days each year ranging from 1 (January 1) and and 366 (December 31). The format is year and a day of the year YYYYDDD, e.g. 2015002 for January 2, 2015</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1969100</rdommin>
+            <rdommax>2015350</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Time</attrlabl>
+        <attrdef>Local time (PST or PDT) of water quality sample collection in 24h format HHMM</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0100</rdommin>
+            <rdommax>2359</rdommax>
+            <attrunit>Time</attrunit>
+            <attrmres>minutes</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Station_Number</attrlabl>
+        <attrdef>Numeric identifier of fixed geographic location where water samples are collected in San Francisco Bay by USGS</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.0</rdommin>
+            <rdommax>662.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Depth</attrlabl>
+        <attrdef>Depth in the water column where sample collection occurred</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.5</rdommin>
+            <rdommax>80.0</rdommax>
+            <attrunit>Meters</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Discrete_Chlorophyll</attrlabl>
+        <attrdef>Laboratory-analyzed chlorophyll-a concentration in water samples</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.1</rdommin>
+            <rdommax>479.6</rdommax>
+            <attrunit>Micrograms per liter (= milligrams per cubic meter)</attrunit>
+            <attrmres>0.1</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Ratio_DiscreteChlorophyll_Pheopigment</attrlabl>
+        <attrdef>Ratio_DiscreteChlorophyll_Pheopigment  is calculated as Discrete_Chlorophyll-a/(Discrete_Chlorophyll-a+ pheopigments). Pheopigments are chlorophyll degradation products that are detected using the standard laboratory acidification method for chlorophyll-a.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.01</rdommin>
+            <rdommax>1.0</rdommax>
+            <attrmres>0.01</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Calculated_Chlorophyll</attrlabl>
+        <attrdef>Concentration of chlorophyll-a in the water column derived from linear regressions of Discrete_Chlorophyll-a and in-situ fluorescence. Regressions were conducted for each cruise and within each sub-embayment to account for spatial and temporal variability in the relationship between chlorophyll-a and fluorescence.  Until 1988, fluorescence was obtained from pumped water measured on a shipboard fluorometer, beginning in 1988 fluorescence was obtained from submersible in-situ fluorometer on a Conductivity-Temperature-Depth (CTD) package.  Reported CTD values are means of all measurements made from approximately 0.5 m above to 0.5 m below the reported Depth.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.1</rdommin>
+            <rdommax>221.2</rdommax>
+            <attrunit>micrograms per liter (= milligrams per cubic meter)</attrunit>
+            <attrmres>0.1</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Discrete_Oxygen</attrlabl>
+        <attrdef>Laboratory-analyzed concentration of dissolved oxygen in water samples</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.4</rdommin>
+            <rdommax>15.8</rdommax>
+            <attrunit>Milligrams per liter of water (mg/L)</attrunit>
+            <attrmres>0.1</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Calculated_Oxygen</attrlabl>
+        <attrdef>Concentration of dissolved oxygen in water derived from linear regressions of Discrete_Oxygen and in-situ oxygen probe output. Regressions were conducted for each cruise beginning in 1993. The oxygen probe was connected to a Conductivity-Temperature-Depth (CTD) package. Reported values are the means of all measurements made from approximately 0.5 m above to 0.5 m below the reported Depth.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>3.7</rdommin>
+            <rdommax>16.7</rdommax>
+            <attrunit>Milligrams per liter of water (mg/L)</attrunit>
+            <attrmres>0.1</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Oxygen_Percent_Saturation</attrlabl>
+        <attrdef>Oxygen percent saturation is the value of Calculated_Oxygen expressed as a percentage of the dissolved oxygen concentration that would be present if there was perfect equilibrium between the oxygen content of water and that in the atmosphere. Reported values are means of all measurements made from approximately 0.5 m above to 0.5 m below the reported Depth.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>31</rdommin>
+            <rdommax>187</rdommax>
+            <attrunit>Percentage</attrunit>
+            <attrmres>whole number</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Discrete_SPM</attrlabl>
+        <attrdef>Laboratory-analyzed concentration of suspended particulate matter (SPM) in water samples</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.0</rdommin>
+            <rdommax>1000.0</rdommax>
+            <attrunit>Milligrams per liter</attrunit>
+            <attrmres>whole number</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Calculated_SPM</attrlabl>
+        <attrdef>Calculated_SPM is the concentration of suspended particulate matter (SPM) in water derived from linear regressions of Discrete_SPM and in-situ nephelometer or optical backscatter sensor output. Beginning in 1993, regressions were conducted for each cruise and sub-embayment to account for spatial and temporal variability in suspended sediment optical properties. Reported values are means of all measurements made from approximately 0.5 m above to 0.5 m below the reported Depth.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>991</rdommax>
+            <attrunit>Milligrams per liter</attrunit>
+            <attrmres>whole number</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Extinction_Coefficient</attrlabl>
+        <attrdef>Extinction_Coefficient is a measure of light penetration. In 1977–1982 and 1988–2015, a LiCor 192s quantum sensor was used to collect vertical profiles of photosynthetically active radiation (PAR) in water and Exctinction Coefficient was calculated as the slope of linear regression of ln(PAR) against water depth.
+From 1983 through 1987 Extinction Coefficient was computed from Secchi depth SD (m) using an empirical relationship derived for San Francisco Bay: k=0.4+109/SD. Extinction_Coefficient is listed at the station's surface depth line, usually 1m.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.27</rdommin>
+            <rdommax>29.9</rdommax>
+            <attrunit>Inverse meters (1/m)</attrunit>
+            <attrmres>0.01</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Salinity</attrlabl>
+        <attrdef>Salinity is a measure of dissolved salts in the water. Salinity was initially measured with an Industrial Instruments RS5-3 induction salinometer and beginning December 1969 with a CM2 model 516 CTD probe48. Beginning July 1974, salinity was measured with an electrodeless induction salinometer. Beginning March 1987, salinity was collected using a Sea-Bird Electronics SBE-4 conductivity sensor and since 2002 with a SBE-4C conductivity sensor connected to a Sea-Bird submersible Conductivity-Temperature-Depth (CTD) package. Salinity was computed from conductivity, temperature, and pressure as part of the CTD package. CTD measurements were made approximately every 5 cm in the water column, and reported values are means of all measurements made 0.5 m above and 0.5 m below the reported depth.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>34.1</rdommax>
+            <attrunit>Practical Salinity Units</attrunit>
+            <attrmres>0.1</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Temperature</attrlabl>
+        <attrdef>Temperature was measured with linear thermistors until March 1987 when it was measured with a Sea-Bird Electronics SBE-3
+temperature sensor (SBE-3plus since 2002) as part of a Sea-Bird  submersible Conductivity-Temperature-Depth (CTD) package. CTD measurements were made approximately every 5 cm in the water column, and reported values are means of all measurements made from approximately 0.5 m above to 0.5 m below the reported Depth.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>5.14</rdommin>
+            <rdommax>25.52</rdommax>
+            <attrunit>degrees Celsius</attrunit>
+            <attrmres>0.01</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sigma_t</attrlabl>
+        <attrdef>Sigma-t is a measure of the density of the water as a function of salinity and temperature at standard atmospheric pressure</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.01</rdommin>
+            <rdommax>31.64</rdommax>
+            <attrunit>kilograms per cubic meter</attrunit>
+            <attrmres>0.01</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Nitrite</attrlabl>
+        <attrdef>Concentration of nitrite in water samples as determined by laboratory analysis with standard methods</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.01</rdommin>
+            <rdommax>34.1</rdommax>
+            <attrunit>micromoles per liter (= micro-gram atoms per liter)</attrunit>
+            <attrmres>0.01</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Nitrate_Nitrite</attrlabl>
+        <attrdef>Concentration of nitrate plus nitrite in water samples as determined by laboratory analysis with standard methods</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.01</rdommin>
+            <rdommax>247.8</rdommax>
+            <attrunit>micromoles per liter (= micro-gram atoms per liter)</attrunit>
+            <attrmres>0.01</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Ammonium</attrlabl>
+        <attrdef>Concentration of ammonium in water samples as determined by laboratory analysis with standard methods</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.01</rdommin>
+            <rdommax>455.0</rdommax>
+            <attrunit>micromoles per liter (= micro-gram atoms per liter)</attrunit>
+            <attrmres>0.01</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Phosphate</attrlabl>
+        <attrdef>Concentration of dissolved reactive phosphate in water samples as determined by laboratory analysis with standard methods</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.12</rdommin>
+            <rdommax>62.6</rdommax>
+            <attrunit>micromoles per liter (= micro-gram atoms per liter)</attrunit>
+            <attrmres>0.01</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Silicate</attrlabl>
+        <attrdef>Concentration of dissolved silica in water samples as determined by laboratory analysis with standard methods</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;&lt; empty cell &gt;&gt;</edomv>
+            <edomvd>No Data</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.01</rdommin>
+            <rdommax>374.54</rdommax>
+            <attrunit>micromoles per liter (= micro-gram atoms per liter)</attrunit>
+            <attrmres>0.01</attrmres>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>SFBstation_locations19692015.csv</enttypl>
+        <enttypd>Comma Separated Value (CSV) file containing data related to water sampling locations</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>Station_Number</attrlabl>
+        <attrdef>Numeric identifier of fixed geographic location where water samples are collected in San Francisco Bay by USGS</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.0</rdommin>
+            <rdommax>662.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Latitude_degree</attrlabl>
+        <attrdef>Latitude degree location of the station</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>37.471667</rdommin>
+            <rdommax>38.226667</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Longitude_degree</attrlabl>
+        <attrdef>Longitude degree location of the station</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-122.471667</rdommin>
+            <rdommax>-121.666667</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>First_Date</attrlabl>
+        <attrdef>First date the station was sampled within the 1969-2015 range of these data, in YYYYMMDD format</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>19690410</rdommin>
+            <rdommax>19990817</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Last_Date</attrlabl>
+        <attrdef>Final date the station was sampled within the 1969-2015 range of these data, in YYYYMMDD format</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>19771110</rdommin>
+            <rdommax>20151216</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey</cntorg>
+          <cntper>GS ScienceBase</cntper>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>Denver Federal Center, Building 810, Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>Digital Data</formname>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>https://sfbay.wr.usgs.gov/water-quality-database/</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <fees></fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20230406</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Tara Schraga</cntper>
+          <cntorg>WATER: EARTH SYS PROCESS DIV</cntorg>
+        </cntperp>
+        <cntpos>Oceanographer</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>Mail Stop 496, 345 Middlefield Road</address>
+          <city>Menlo Park</city>
+          <state>CA</state>
+          <postal>94025</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>650-329-4381</cntvoice>
+        <cntemail>tschraga@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+  </metainfo>
+</metadata>

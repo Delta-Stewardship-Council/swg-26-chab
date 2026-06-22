@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Elizabeth B. Stumpner</origin>
+        <origin>Tamara E. C. Kraus</origin>
+        <origin>Bryan D. Downing</origin>
+        <origin>Katy O'Donnell</origin>
+        <origin>Jeffrey A. Hansen</origin>
+        <origin>Angela M. Hansen</origin>
+        <origin>Jeniffer Soto Perez</origin>
+        <origin>David E. Ayers</origin>
+        <origin>John A. Donovan</origin>
+        <origin>Brian A. Bergamaschi</origin>
+        <pubdate>20210222</pubdate>
+        <title>High-Resolution Measurements to Identify Effects of Aquatic Vegetation on Water Quality and Stratification</title>
+        <edition>n/a</edition>
+        <geoform>tabular digital data</geoform>
+        <othercit>n/a</othercit>
+        <onlink>https://doi.org/10.5066/P965H3CO</onlink>
+        <lworkcit>
+          <citeinfo>
+            <origin>Nicholas Rasmussen</origin>
+            <origin>J. Louise Conrad</origin>
+            <origin>Heather Green</origin>
+            <origin>Shruti Khanna</origin>
+            <origin>Jeff Caudill</origin>
+            <origin>Patricia Gilbert</origin>
+            <origin>Pascale Goertler</origin>
+            <origin>Hailey Wright</origin>
+            <origin>Krista Hoffmann</origin>
+            <origin>Sarah Lesmeister</origin>
+            <origin>Jeff Jenkins</origin>
+            <origin>Lynn Takata</origin>
+            <origin>Dave Bosworth</origin>
+            <origin>Theodore Flynn</origin>
+            <origin>Edward Hard</origin>
+            <origin>Ted Sommer</origin>
+            <pubdate>20201001</pubdate>
+            <title>Delta Smelt Resiliency Strategy Action for Enhanced Control of Aquatic Weeds and Understanding Effects of Herbicide Treatment on Habitat.</title>
+            <geoform>publication</geoform>
+            <othercit>Interagency Ecological Program Technical
+Report. 324 pp.</othercit>
+          </citeinfo>
+        </lworkcit>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The dataset documents the spatial and temporal variability of nutrients and related water quality parameters at high spatial resolution in the North Delta of the Sacramento-San Joaquin River Delta of California, USA. The dataset includes surface mapping, depth profile, and discrete data for nitrate, ammonium, phosphate, dissolved organic carbon, temperature, conductivity, dissolved oxygen, and chlorophyll as well as information about phytoplankton community composition. Data-collection cruises were conducted over two time periods in July and October 2018 across two flooded islands with dense submerged aquatic vegetation beds. Little Hastings Tract received an herbicide treatment by the California Department of Boating and Waterways and French Island was the untreated control site.</abstract>
+      <purpose>This effort was a pilot study for adapting current technologies and monitoring approaches to measure water quality and stratification across submerged aquatic vegetation beds in the Sacramento-San Joaquin Delta. The pilot study was part of a larger multi-year study to better understand the effects of invasive aquatic vegetation on Delta habitats conducted by the California Department of Water Resources (DWR), in collaboration with California State Parks Division of Boating and Waterways (DBW). The study was completed under the California Natural Resources Agency’s Delta Smelt Resiliency Strategy to study measured water quality constituents in two wetland habitats with similar hydrologic regimes.</purpose>
+      <supplinf>See files: Delta Water Quality Mapping 2018 Data Corrections and Offsets.csv; Aquatic Vegetation 2018 Data Dictionary.csv, Aquatic vegetation 2018 methods.pdf for further information regarding the dataset.</supplinf>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <mdattim>
+          <sngdate>
+            <caldate>20180713</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20180714</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20181010</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20181011</caldate>
+          </sngdate>
+        </mdattim>
+      </timeinfo>
+      <current>publication date</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None planned</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-121.7422</westbc>
+        <eastbc>-121.6187</eastbc>
+        <northbc>38.3180</northbc>
+        <southbc>38.1821</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>ISO 19115 Topic Category</themekt>
+        <themekey>inlandWaters</themekey>
+        <themekey>structure</themekey>
+        <themekey>environment</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Thesaurus</themekt>
+        <themekey>hydrogeology</themekey>
+        <themekey>drinking water use</themekey>
+        <themekey>public supply water use</themekey>
+        <themekey>water quality</themekey>
+        <themekey>statistical analysis</themekey>
+        <themekey>visualization methods</themekey>
+        <themekey>phytoplankton</themekey>
+        <themekey>nutrient content (water)</themekey>
+        <themekey>high frequency</themekey>
+      </theme>
+      <theme>
+        <themekt>English</themekt>
+        <themekey>water quality</themekey>
+        <themekey>nutrients</themekey>
+        <themekey>high-frequency</themekey>
+        <themekey>delta</themekey>
+        <themekey>real-time</themekey>
+        <themekey>biogeochemistry</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Metadata Identifier</themekt>
+        <themekey>USGS:5f1f44c582cef313ed8ec753</themekey>
+      </theme>
+      <place>
+        <placekt>Common geographic areas</placekt>
+        <placekey>United States</placekey>
+        <placekey>California</placekey>
+        <placekey>Central Valley</placekey>
+        <placekey>North Delta</placekey>
+        <placekey>Little Hastings Tract</placekey>
+        <placekey>French Island</placekey>
+        <placekey>Sacramento-San Joaquin Delta</placekey>
+      </place>
+    </keywords>
+    <accconst>n/a</accconst>
+    <useconst>Although this data set has been used by the U.S. Geological Survey, U.S. Department of the Interior, no warranty expressed or implied is made by the U.S. Geological Survey as to the accuracy of the data and related materials. The act of distribution shall not constitute any such warranty, and no responsibility is assumed by the U.S. Geological Survey in the use of this data, software, or related materials. Any use of trade, product, or firm names is for descriptive purposes only and does not imply endorsement by the U.S. Government.</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Elizabeth B. Stumpner</cntper>
+          <cntorg>U.S. Geological Survey</cntorg>
+        </cntperp>
+        <cntpos>Geologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>6000 J St</address>
+          <city>Sacramento</city>
+          <state>California</state>
+          <postal>95819</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>916-278-3067</cntvoice>
+      </cntinfo>
+    </ptcontac>
+    <datacred>California Department of Water Resources, California Department of Boating and Waterways, California Natural Resources Agency</datacred>
+    <native>Environment of Metadata Creation: Microsoft Windows 10 Enterprise Version 1803 (OS Build 17134.885); Tableau 2019.3, Tableau Prep Builder 2019.3</native>
+    <crossref>
+      <citeinfo>
+        <origin>Xu;e,</origin>
+        <pubdate>20200120</pubdate>
+        <title>KorEXO Version2 Software</title>
+        <edition>2.2.0.5</edition>
+        <geoform>application/service</geoform>
+        <onlink>https://www.ysi.com/korexo</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Xylem</origin>
+        <pubdate>20190114</pubdate>
+        <title>EXO User Manual</title>
+        <edition>Revision K</edition>
+        <geoform>publication</geoform>
+        <onlink>https://www.ysi.com/file%20library/documents/manuals/exo-user-manual-web.pdf</onlink>
+      </citeinfo>
+    </crossref>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>EXO sondes were calibrated before use in the field with the KorEXO software (version 2.2.0.5). For calibration, the sonde sensors are submerged one at a time in standards, then the verified chemical concentration is recorded within the instrument. If the instrument measures an unknown value of the parameter, it refers to the calibration information to calculate the concentration of the chemical in the water (EXO User Manual, pg. 81).</attraccr>
+    </attracc>
+    <logic>Redundancy is built into the system, meaning many of the parameters included in the data set are measured by 2 different instruments. Data was displayed in real-time for on the spot user verification. Topology rules were applied to points, lines, and polygons to ensure the integrity of the geospatial data.</logic>
+    <complete>Data set is considered complete for the information presented, as described in the abstract. Users are advised to read the rest of the metadata record carefully for additional details.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>We conducted a visual check that the GPS data we recorded matched the boat GPS. Data was also displayed in real-time, allowing us to spot check GPS data underway. In addition, GPS location information was compared to field notes that described known locations and features.</horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>We conducted a visual check that the GPS data we recorded matched the boat GPS. Data was also displayed in real-time, allowing us to spot check GPS data underway. In addition, GPS location information was compared to field notes that described known locations and features. Datum used NAD1983.</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <procstep>
+        <procdesc>Water-quality mapping surveys of the North Delta in the Sacramento-San Joaquin River Delta (California, USA) were conducted over two time periods in 2018 during the months of July, and October using the USGS R/V Mary Landsteiner, a 26-foot (~8 meter) long motorboat. For each of these months, transects were conducted on two successive days:July 13 and 14; and October 10, and 11. Each day covered one of the two flooded islands of Little Hastings Tract and French Island and included surface mapping, depth profiles, and discrete sample collection. On each day data were collected during daylight hours from approximately 07:30 am to 5:30 pm pacific standard time (PST). For a  detailed description of sample collection, analysis, and post-processing, see the methods file attached to the landing page.</procdesc>
+        <procdate>20180713</procdate>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <spdoinfo>
+    <direct>Vector</direct>
+    <ptvctinf>
+      <sdtsterm>
+        <sdtstype>G-polygon</sdtstype>
+        <ptvctcnt>111</ptvctcnt>
+      </sdtsterm>
+    </ptvctinf>
+  </spdoinfo>
+  <spref>
+    <horizsys>
+      <geograph>
+        <latres>0.0197560976</latres>
+        <longres>0.0250212359</longres>
+        <geogunit>Decimal seconds</geogunit>
+      </geograph>
+      <geodetic>
+        <horizdn>NAD_1983_2011</horizdn>
+        <ellips>GRS_1980</ellips>
+        <semiaxis>6378137.0</semiaxis>
+        <denflat>298.257222101</denflat>
+      </geodetic>
+    </horizsys>
+  </spref>
+  <eainfo>
+    <overview>
+      <eaover>For methods and data descriptions, the data dictionary, data corrections and offsets, and methods files describe further the metadata with this data release.The data dictionary is titled Aquatic Vegetation 2018 Data Dictionary. This file lists and describes the column headers in data. Columns in the 'AquaticVegetation.csv' with 'HR' in their header are in situ high-resolution water quality mapping results post-processed with pandas software library in Jupyter Notebook. The columns with 'DS' in their header are discrete sample analytical results from the National Water Quality Laboratory and the California Water Science Center Organic Matter Research Laboratory. For data file 'AquaticVegetation_TT.csv', headers that contain 'TT' are associated with Tidal Trend data generated from velocity data collected at USGS station 11455350</eaover>
+      <eadetcit>https://www.sciencebase.gov/catalog/item/5f1f44c582cef313ed8ec753</eadetcit>
+    </overview>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey</cntorg>
+          <cntper>GS ScienceBase</cntper>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>Denver Federal Center, Building 810, Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>Although this data set has been used by the U.S. Geological Survey, U.S. Department of the Interior, no warranty expressed or implied is made by the U.S. Geological Survey as to the accuracy of the data and related materials. The act of distribution shall not constitute any such warranty, and no responsibility is assumed by the U.S. Geological Survey in the use of this data, software, or related materials. Any use of trade, product, or firm names is for descriptive purposes only and does not imply endorsement by the U.S. Government.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>Digital Data</formname>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>https://doi.org/10.5066/P965H3CO</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <fees>N/A</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20210222</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Elizabeth Stumpner</cntper>
+          <cntorg>U.S. Geological Survey, SOUTHWEST REGION</cntorg>
+        </cntperp>
+        <cntpos>Geologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>6000 J Street Placer Hall</address>
+          <city>Sacramento</city>
+          <state>CA</state>
+          <postal>95819</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>916-278-3000</cntvoice>
+        <cntemail>estumpner@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+  </metainfo>
+</metadata>
