@@ -880,9 +880,30 @@ library(sf)
 library(ggplot2)
 library(leaflet)
 library(ggspatial) 
-library(prettymapr) ### ggspatial depends on but does not import prettymapr for internal functions
+library(prettymapr)
+library(EDIutils)
+### ggspatial depends on but does not import prettymapr for internal functions
 ```
 
+```{r}
+packageId <-"edi.1537.4" 
+read_data_package_archive(packageId, path = tempdir()) 
+res <- read_data_entity_names(packageId)
+
+entityName <- "Chlorophyll and Covariate Data"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+chla_special_sf <- readr::read_csv(file = raw)
+```
+
+```{r}
+packageId <-"edi.1537.4" 
+#read_data_package_archive(packageId, path = tempdir()) 
+res <- read_data_entity_names(packageId)
+
+entityName <- "Station locations"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+chla_stations <- readr::read_csv(file = raw)
+```
 ```{r}
 chla_special_sf <-read_csv(here("data/model_chla_covars.csv"))
 
