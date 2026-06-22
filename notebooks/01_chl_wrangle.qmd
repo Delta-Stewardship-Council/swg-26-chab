@@ -835,16 +835,31 @@ str(discrete_raw)
 ```{r}
 #filter to chlorophyll
 discrete_chla <- discrete_raw %>% 
-    filter(!is.na(Chlorophyll)) %>% filter(!is.na(Latitude))
+    filter(!is.na(Chlorophyll)) %>% filter(!is.na(Latitude)) %>%
+    select(Source, Station, Latitude, Longitude, Date, Datetime, Depth, Chlorophyll, Chlorophyll_Sign) %>%
+    rename(group = Source,
+          station = Station,
+          chla = Chlorophyll,
+          chla_rmk = Chlorophyll_Sign,
+          depth = Depth, 
+          latitude = Latitude,
+          longitude = Longitude,
+          date = Date,
+          datetime = Datetime) %>%
+    mutate(sample_type = "discrete",
+          date = as.Date(date))
 
 #see which surveys have chlorophyll data
 discrete_chla %>% 
-    distinct(Source)
+    distinct(group)
+
+#explore what the chlorophyll notes are 
+unique(discrete_chla$chla_rmk)
 ```
 
 ```{r}
 #save data to 01 folder
-#write.csv(discrete_chla, file = "data/01_processed/01_emp_discretewq.csv")
+write.csv(discrete_chla, file = "data/01_processed/01_chl_iep.csv")
 ```
 
 ```{r}
