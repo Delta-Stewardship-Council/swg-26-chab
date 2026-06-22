@@ -788,10 +788,10 @@ cm_daytime_avg_chl <- rbind(avg_daytime_dwr_delta_chl_data, avg_daytime_ncro_del
 
 rm(avg_daytime_dwr_delta_chl_data, avg_daytime_ncro_delta_chl_data, avg_daytime_usgs_delta_chl_data)
 
-write.csv(cm_daytime_avg_chl, file = "data/01_processed/01_chl_cm_daytime_avg.csv")
+#write.csv(cm_daytime_avg_chl, file = "data/01_processed/01_chl_cm_daytime_avg.csv")
 ```
 
-## Shaela's Workspace
+## Shaela's Workspace (Emily jumping in too :) 
 
 ### Discrete WQ Data Package
 
@@ -835,17 +835,36 @@ str(discrete_raw)
 ```{r}
 #filter to chlorophyll
 discrete_chla <- discrete_raw %>% 
-    filter(!is.na(Chlorophyll))
+    filter(!is.na(Chlorophyll)) %>% filter(!is.na(Latitude)) %>%
+    select(Source, Station, Latitude, Longitude, Date, Datetime, Depth, Chlorophyll, Chlorophyll_Sign) %>%
+    rename(group = Source,
+          station = Station,
+          chla = Chlorophyll,
+          chla_rmk = Chlorophyll_Sign,
+          depth = Depth, 
+          latitude = Latitude,
+          longitude = Longitude,
+          date = Date,
+          datetime = Datetime) %>%
+    mutate(sample_type = "discrete",
+          date = as.Date(date))
 
 #see which surveys have chlorophyll data
 discrete_chla %>% 
-    distinct(Source)
+    distinct(group)
+
+#explore what the chlorophyll notes are 
+unique(discrete_chla$chla_rmk)
 ```
 
 ```{r}
-#filter out any NA in coordinates columns and convert to a spatial object
+#save data to 01 folder
+write.csv(discrete_chla, file = "data/01_processed/01_chl_iep.csv")
+```
+
+```{r}
+#convert to a spatial object
 discrete_chla_sf <- discrete_chla %>% 
-    filter(!is.na(Latitude)) %>% 
     st_as_sf(coords = c('Longitude', 'Latitude'),
              crs = 4326,
              remove = FALSE)
@@ -876,9 +895,30 @@ library(sf)
 library(ggplot2)
 library(leaflet)
 library(ggspatial) 
-library(prettymapr) ### ggspatial depends on but does not import prettymapr for internal functions
+library(prettymapr)
+library(EDIutils)
+### ggspatial depends on but does not import prettymapr for internal functions
 ```
 
+```{r}
+packageId <-"edi.1537.4" 
+read_data_package_archive(packageId, path = tempdir()) 
+res <- read_data_entity_names(packageId)
+
+entityName <- "Chlorophyll and Covariate Data"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+chla_special_sf <- readr::read_csv(file = raw)
+```
+
+```{r}
+packageId <-"edi.1537.4" 
+#read_data_package_archive(packageId, path = tempdir()) 
+res <- read_data_entity_names(packageId)
+
+entityName <- "Station locations"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+chla_stations <- readr::read_csv(file = raw)
+```
 ```{r}
 chla_special_sf <-read_csv(here("data/model_chla_covars.csv"))
 
