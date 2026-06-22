@@ -788,10 +788,10 @@ cm_daytime_avg_chl <- rbind(avg_daytime_dwr_delta_chl_data, avg_daytime_ncro_del
 
 rm(avg_daytime_dwr_delta_chl_data, avg_daytime_ncro_delta_chl_data, avg_daytime_usgs_delta_chl_data)
 
-write.csv(cm_daytime_avg_chl, file = "data/01_processed/01_chl_cm_daytime_avg.csv")
+#write.csv(cm_daytime_avg_chl, file = "data/01_processed/01_chl_cm_daytime_avg.csv")
 ```
 
-## Shaela's Workspace
+## Shaela's Workspace (Emily jumping in too :) 
 
 ### Discrete WQ Data Package
 
@@ -835,7 +835,7 @@ str(discrete_raw)
 ```{r}
 #filter to chlorophyll
 discrete_chla <- discrete_raw %>% 
-    filter(!is.na(Chlorophyll))
+    filter(!is.na(Chlorophyll)) %>% filter(!is.na(Latitude))
 
 #see which surveys have chlorophyll data
 discrete_chla %>% 
@@ -843,9 +843,13 @@ discrete_chla %>%
 ```
 
 ```{r}
-#filter out any NA in coordinates columns and convert to a spatial object
+#save data to 01 folder
+#write.csv(discrete_chla, file = "data/01_processed/01_emp_discretewq.csv")
+```
+
+```{r}
+#convert to a spatial object
 discrete_chla_sf <- discrete_chla %>% 
-    filter(!is.na(Latitude)) %>% 
     st_as_sf(coords = c('Longitude', 'Latitude'),
              crs = 4326,
              remove = FALSE)
