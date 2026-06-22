@@ -201,6 +201,7 @@ Very incomplete list of stuff to do (maybe) in no particular order:
 - add number of studies to the chemical count
 - add time period for each chemical - start date and end date
 - figure out which pesticides we are interested in
+  - data from https://www.cdpr.ca.gov/pesticide-use-in-california/pesticide-use-reporting/#PUR-Data-Files-Used-to-Create-the-Annual-Reports can be used to figure out application amounts??
 - and at what concentration
 - see if SFEI's cd3 dataset has anything we are missing
 - figure out how to put the rosm.cache into git ignore so it is not tracked
