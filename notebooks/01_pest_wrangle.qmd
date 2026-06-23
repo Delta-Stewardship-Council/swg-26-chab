@@ -27,6 +27,7 @@ old data read in
 #SURF_raw <- readr::read_csv(unz(zip_path, "SURF Water Data 2025.csv"))
 #```
 
+# 1950-2009 SURF Data
 ```{r}
 # Set paths
 SURF_2009_url <- "https://www.cdpr.ca.gov/wp-content/uploads/2026/06/surf_water_data_1950-2009.xlsx"
@@ -50,6 +51,58 @@ if (!file.exists(SURF_2009_file)) {
 # Load the (locally cached) data
 SURF_2009 <- read_excel(SURF_2009_file, sheet = 1)
 ```
+
+# 2010-2017 SURF Data
+```{r}
+# Set paths
+SURF_2017_url <- "https://www.cdpr.ca.gov/wp-content/uploads/2026/06/surf_water_data_2010-2017.xlsx"
+data_dir <- "data"
+SURF_2017_file <- file.path(data_dir, "SURF_2017.xlsx")
+
+# Download data if not already cached
+if (!file.exists(SURF_2017_file)) {
+  message("Downloading file...")
+  dir.create(data_dir, showWarnings = FALSE, recursive = TRUE)
+  download.file(
+    url = SURF_2017_url,
+    destfile = SURF_2017_file, 
+    mode = "wb"
+  )
+  message("Saved to: ", SURF_2017_file)
+} else {
+  message("Using cached file.")
+}
+
+# Load the (locally cached) data
+SURF_2017 <- read_excel(SURF_2017_file, sheet = 1)
+```
+
+# 2018-2025 SURF data
+```{r}
+# Set paths
+SURF_2025_url <- "https://www.cdpr.ca.gov/wp-content/uploads/2026/06/surf_water_data_2018-2025.xlsx"
+data_dir <- "data"
+SURF_2025_file <- file.path(data_dir, "SURF_2025.xlsx")
+
+# Download data if not already cached
+if (!file.exists(SURF_2025_file)) {
+  message("Downloading file...")
+  dir.create(data_dir, showWarnings = FALSE, recursive = TRUE)
+  download.file(
+    url = SURF_2025_url,
+    destfile = SURF_2025_file, 
+    mode = "wb"
+  )
+  message("Saved to: ", SURF_2025_file)
+} else {
+  message("Using cached file.")
+}
+
+# Load the (locally cached) data
+SURF_2025 <- read_excel(SURF_2025_file, sheet = 1)
+```
+
+# Bind three dataframes (2009, 2017, 2025) together
 
 ## Filter to data in the Delta
 
