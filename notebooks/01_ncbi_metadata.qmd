@@ -1,0 +1,106 @@
+---
+title: "NCBI data and metadata"
+format: html
+---
+
+# NCBI SRA data accession and metadata extraction
+
+## Load packages
+
+```{r}
+#| label: packages
+library(rentrez)
+library(xml2)
+library(tidyverse)
+library(stringr)
+library(purrr)
+library(dplyr)
+library(here)
+```
+
+## Query NCBI
+
+```{r}
+#| label: search for the BioProject
+search_result <- entrez_search(db = "bioproject", term = "PRJNA1458311[PRJA]")
+
+```
+
+```{r}
+#| label: fetch the full record in XML
+xml_data <- entrez_fetch(db = "bioproject", id = search_result$ids, rettype = "xml")
+
+# parse XML string into an R object
+parsed_xml <- read_xml(xml_data)
+
+#check output
+print(parsed_xml)
+
+#view output
+cat(substr(as.character(parsed_xml), 1, 2000))
+
+```
+
+```{r}
+#| label: fetch and parse sample-level metadata
+
+# find the associated BioSample IDs
+links <- entrez_link(dbfrom = "bioproject", id = search_result$ids, db = "biosample")
+biosample_ids <- links$links$bioproject_biosample
+
+# fetch the raw XML for these sample IDs
+samples_xml_raw <- entrez_fetch(db = "biosample", id = biosample_ids, rettype = "xml")
+samples_xml <- read_xml(samples_xml_raw)
+
+# find individual sample nodes
+sample_nodes <- xml_find_all(samples_xml, ".//BioSample")
+
+# build the data frame
+sample_df <- data.frame(
+  BioSample = xml_attr(sample_nodes, "accession"),
+  Site_Name = xml_text(xml_find_first(sample_nodes, ".//Title")),
+  
+  # use harmonized names for reliability
+  Date      = xml_text(xml_find_first(sample_nodes, ".//Attribute[@harmonized_name='collection_date']")),
+  Lat_Lon   = xml_text(xml_find_first(sample_nodes, ".//Attribute[@harmonized_name='lat_lon']")),
+  
+  stringsAsFactors = FALSE
+)
+
+# preview sample-level spreadsheet
+print(sample_df)
+
+```
+
+```{r}
+#| label: make dataframe DwC compliant
+
+# input EML derived dataframe
+dwc_df <- sample_df %>%
+  mutate(
+    # save original string as verbatimCoordinates
+    verbatimCoordinates = Lat_Lon,
+    
+    # extract the decimal numeric part for Latitude
+    decimalLatitude = as.numeric(str_extract(Lat_Lon, "^[0-9.]+")),
+    
+    # extract the decimal numeric part for Longitude
+    decimalLongitude = as.numeric(str_extract(Lat_Lon, "[0-9.]+(?=\\s*[EW])")),
+    
+    # convert to negative if W
+    decimalLongitude = if_else(str_detect(Lat_Lon, "W"), decimalLongitude * -1, decimalLongitude),
+    
+    # geodetic datum used by NCBI
+    geodeticDatum = "WGS84"
+  ) %>%
+  # rename remaining columns in DwC
+  rename(
+    locality = Site_Name,
+    eventDate = Date
+  ) %>%
+  # keep only the standardized DwC columns (drop Lat_Lon)
+  select(BioSample, locality, eventDate, decimalLatitude, decimalLongitude, geodeticDatum, verbatimCoordinates)
+
+# preview DwC compliant table
+print(dwc_df)
+```
