@@ -979,3 +979,14 @@ plot(chla_3857_sf %>%
      scale_fill_continuous(low = "blue", high =  "green") +
      theme_bw()
 ```
+
+
+```{r}
+packageId <-"edi.1653.1" 
+read_data_package_archive(packageId, path = tempdir()) 
+res <- read_data_entity_names(packageId)
+
+entityName <- "Chlorophyll_1975_2021"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+chla_drought <- readr::read_csv(file = raw)
+```
