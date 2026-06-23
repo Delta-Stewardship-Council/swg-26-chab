@@ -127,6 +127,10 @@ SURF_all <- SURF_all %>%
       na_if("N/A") |>            # also handle common variants
       na_if("")                  # empty strings -> NA
   )
+
+#delete any duplicate rows where all column values match (Matt indicated there may be duplicate DRMP data)
+SURF_all <- SURF_all %>%
+  distinct()
 ```
 
 ## Filter to data in the Delta
@@ -150,8 +154,12 @@ delta_suisun_sf <- st_read(
 st_crs(SURF_sf) == st_crs(delta_suisun_sf)
 plot(delta_suisun_sf)
 
-# find sampling locations in Delta + Suisun
+# find measurements in Delta + Suisun
 SURF_delta_suisun_sf <- st_filter(SURF_sf, delta_suisun_sf, .predicate = st_intersects)
+
+#remove any rows with NA in the chemical_name BUT NEED TO COME BACK AND SEE IF WE CAN SUPPLEMENT THIS DATA
+SURF_delta_suisun_sf <- SURF_delta_suisun_sf %>%
+  filter(!is.na(chemical_name))
 ```
 
 ## Explore spatial coverage
@@ -198,7 +206,7 @@ study_count <- SURF_delta_suisun_sf |>
 ```{r}
 ## Looking at pesticide types
 
-#this reduces pesticide count from 505 to 178
+#filter to data where there is a detect
 SURF_ds_detects <- SURF_delta_suisun_sf %>%
   filter(concentration_ppb > 0)
 
@@ -222,7 +230,7 @@ locations_df <- SURF_ds_detects %>%
 #count chemical per site, filter, and attach coords
 chem_loc_counts <- SURF_ds_detects %>%
   count(chemical_name, site_code, name = "num_measurements") %>%
-  filter(num_measurements >= 1) |> 
+  filter(num_measurements >= 10) |> 
   left_join(locations_df, by = "site_code")
 
 chem_loc_counts
@@ -231,11 +239,49 @@ chem_loc_counts
 chem_list <- chem_loc_counts |> 
   distinct(chemical_name)
 
-#55 total chemicals with more than 20 measurements at one location
-
-site_07177 <- SURF_raw |> 
-  filter(Site_code == "07_177")
+#81 total chemicals with more than 10 measurements at one location
 ```
+
+# Looking into fluridone (herbicide where lab data shows it make have impact on microcystis)
+
+```{r}
+fluridone_counts <- SURF_ds_detects %>%
+  filter(chemical_name == "fluridone") %>%   
+  add_count(site_code, name = "num_measurements")
+```
+
+```{r}
+#fluridone data
+
+#restructuring df to one row per Site
+fl_site_summary <- fluridone_counts %>%
+  group_by(site_code) %>%
+  summarize(
+    latitude = first(latitude),
+    longitude = first(longitude),
+    total_measurements = first(num_measurements),
+    chem_list =
+      first(chemical_name),
+    .groups = "drop"
+  )
+
+#mapping
+leaflet(fl_site_summary) %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addCircleMarkers(
+    lng = ~longitude, lat = ~latitude,
+    radius = ~pmin(4 + sqrt(total_measurements), 18),
+    fillColor = "#3182bd", fillOpacity = 0.7,
+    stroke = TRUE, color = "white", weight = 1,
+    popup = ~paste0(
+      "<b>Site: </b>", site_code, "<br>",
+      "<b>Total measurements: </b>", total_measurements, "<br><br>",
+      "<b>Chemicals:</b><br>", chem_list
+    )
+  )
+```
+
+
 
 ```{r}
 #plotting chem/loc data from above
@@ -268,9 +314,6 @@ leaflet(site_summary) %>%
       "<b>Chemicals:</b><br>", chem_list
     )
   )
-
-
-
 ```
 
 
