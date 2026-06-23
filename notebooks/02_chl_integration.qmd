@@ -37,7 +37,12 @@ sb_data <- sb_data %>%
     filter(between(date, mindate, maxdate))
 
 #EMP
-## TBD
+
+iep_data <- read.csv("data//01_processed//01_chl_iep.csv")
+iep_data <- iep_data %>% 
+  mutate(date = as.Date(date))%>%
+  filter(between(date, mindate, maxdate))
+
 #EDI
 ## TBD
 
@@ -59,11 +64,33 @@ sb_data <- sb_data %>%
     select(-datetime) %>%
     distinct()
 
-chl_data <- rbind(cm_data, sb_data)
-rm(cm_data, sb_data)
+ieprmks <- iep_data %>% filter (!is.na(chla_rmk)) %>% select(chla_rmk, group) %>% distinct() #unclear what the disclaimers are but assuming bad date (outside of reporting limits, etc.) just going to remove them.
 
-chl_data <- chl_data %>% filter(!is.na(latitude)) %>% filter(!is.na(longitude)) %>% filter(!is.na(chl_ugl))
+iep_data <- iep_data %>%
+    filter(is.na(depth)| depth <=2) %>%
+    filter(is.na(chla_rmk))%>%
+    select(-datetime, -X, -depth, -chla_rmk, -group, -station) %>%
+    rename(chl_ugl = chla)%>%     
+    mutate(chl_ugl = round(chl_ugl, 2)) %>% 
+    distinct()
+
+chl_data <- rbind(cm_data, sb_data, iep_data)
+rm(cm_data, sb_data, ieprmks, iep_data)
+
+chl_data <- chl_data %>% filter(!is.na(latitude)) %>% filter(!is.na(longitude)) %>% filter(!is.na(chl_ugl)) %>% distinct()
 ```
+
+```{r}
+#try to find correction formula for YSI 6600
+ysi6600<- chl_data %>% filter(sample_type == "6600") %>% rename(chlsensor = chl_ugl) %>% select(-sample_type)
+maxysi <- max(ysi6600$date)
+dsdata <- chl_data %>% filter(sample_type == "discrete") %>%
+  filter(date <= maxysi)%>% rename(dschl = chl_ugl)%>% select(-sample_type)
+rm(maxysi)
+```
+
+
+
 
 ## Visulaize the data
 
