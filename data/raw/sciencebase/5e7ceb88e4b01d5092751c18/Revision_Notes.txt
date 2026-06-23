@@ -1,0 +1,19 @@
+Assessment of water-quality in the California Sacramento-San Joaquin Delta during a North Delta directed flow action: August - October 2018 (ver. 2.0, September 2021)
+
+Elizabeth B. Stumpner
+U.S. Geological Survey
+California Water Science Center
+6000 J Street, Placer Hall
+Sacramento, CA 95819
+Phone: 916-216-6931
+Email: estumpner@usgs.gov
+
+
+Revision Notes
+June 2021
+
+-- Added spatially alligned datafile
+
+-- Adjusted Methods document to include spatially alligned data methods
+
+-- Adjusted Data Dictionary to include spatially alligned data parameter names and definitions

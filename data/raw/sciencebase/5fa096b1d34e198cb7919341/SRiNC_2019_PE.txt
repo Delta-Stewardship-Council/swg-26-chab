@@ -1,0 +1,601 @@
+Timestamp (PST) DS	Station Abbrev. DS	"NWIS Station Latitude (Decimal Degrees, NAD83)"	"NWIS Station Longitude (Decimal Degrees, NAD83)"	Division DS	Genus DS	Species DS	Tally DS	Density (cells/L) DS	Biovolume (um3/L) DS	Notes DS
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	9	77	3023.88	Cannot meet tally in 50 fields.
+9/10/2019 14:50	SMS	38.14196111	-121.5036889	Cryptophyta	Plagioselmis	Plagioselmis prolonga	2	17	3153.79	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Chlorophyta	Drepanochloris	Drepanochloris nannoselene	10	86	1169.77	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Cyanobacteria	Eucapsis	Eucapsis microscopica	42	359	96.33	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Gomphonema	Gomphonema sp.	1	9	3695.85	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Cryptophyta	Cryptomonas	Cryptomonas sp.	2	17	18429.97	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Cyanobacteria	Planktothrix	cf. Planktothrix sp.	16	6	135.72	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Diploneis	Diploneis sp.	1	9	4233.43	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Chlorophyta	Chlorella	cf. Chlorella sp.	1	9	35.84	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Chlorophyta	Dictyosphaerium	Dictyosphaerium sp.	4	29	410.76	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	5	43	1679.93	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Bacillariophyta	Encyonema	Encyonema silesiacum	2	17	5704.63	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Ochrophyta	Pseudokephyrion	Pseudokephyrion spp.	2	17	1791.93	Cannot meet tally in 50 fields.
+9/10/2019 14:50	SMS	38.14196111	-121.5036889	Euglenophyta	Phacus	Phacus sp.	1	7	7564.79	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Chlorophyta	Eudorina	Eudorina sp.	29	248	285422.66	Cannot meet tally in 50 fields.
+9/10/2019 14:50	SMS	38.14196111	-121.5036889	Bacillariophyta	Cocconeis	Cocconeis sp.	3	26	12639.81	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Chlorophyta	Chlamydomonas	Chlamydomonas sp.	1	9	120.96	Cannot meet tally in 50 fields.
+9/10/2019 14:50	SMS	38.14196111	-121.5036889	Bacillariophyta	Nitzschia	Nitzschia sp.	8	68	2190.29	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Ochrophyta	Chrysococcus	Chrysococcus sp.	1	9	671.97	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Cyclotella	Cyclotella spp.	3	26	3870.56	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Bacillariophyta	Planothidium	Planothidium sp.	1	7	4335.78	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Cryptophyta	Plagioselmis	Plagioselmis prolonga	4	34	3225.47	Cannot meet tally in 50 fields.
+9/10/2019 14:50	SMS	38.14196111	-121.5036889	Chlorophyta	Eudorina	cf. Eudorina sp.	32	232	333961.38	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Bacillariophyta	Nitzschia	Nitzschia inconspicua	2	17	205.34	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Chlorophyta	Scenedesmus	Scenedesmus sp.	2	17	215.03	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Rhoicosphenia	Rhoicosphenia sp.	1	7	795.21	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Chlorophyta	Lagerheimia	Lagerheimia sp.	1	9	201.59	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Thalassiosira	Thalassiosira spp.	3	26	3870.56	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Chlorophyta	Drepanochloris	Drepanochloris nannoselene	3	26	294.83	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Cocconeis	Cocconeis sp.	1	9	3427.06	Cannot meet tally in 50 fields.
+9/10/2019 14:50	SMS	38.14196111	-121.5036889	Bacillariophyta	Cyclotella	cf. Cyclotella sp.	9	77	4535.82	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Pseudostaurosira	Pseudostaurosira brevistriata	2	17	1330.51	Cannot meet tally in 50 fields.
+9/10/2019 14:50	SMS	38.14196111	-121.5036889	Bacillariophyta	Navicula	Navicula spp.	6	51	51607.51	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Chlorophyta	Monoraphidium	Monoraphidium sp.	3	26	94.08	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	1	9	349.43	Cannot meet tally in 50 fields.
+9/10/2019 14:50	SMS	38.14196111	-121.5036889	Bacillariophyta	Thalassiosira	Thalassiosira sp.	1	9	4542.54	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Fragilaria	Fragilaria sp.	1	9	4334.22	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Aulacoseira	Aulacoseira spp.	4	34	12579.33	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Cryptophyta	Plagioselmis	Plagioselmis prolonga	5	43	3628.65	Cannot meet tally in 50 fields.
+9/10/2019 14:50	SMS	38.14196111	-121.5036889	Cyanobacteria	Microcystis	Microcystis sp.	694	278	25526.20	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Miozoa	Peridinium	Peridinium sp.	1	9	38813.15	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Bacillariophyta	Craticula	Craticula sp.	1	9	2902.92	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Bacillariophyta	Cyclotella	Cyclotella sp.	3	26	1511.94	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Chlorophyta	Monoraphidium	Monoraphidium sp.	1	9	215.03	Cannot meet tally in 50 fields.
+9/10/2019 14:50	SMS	38.14196111	-121.5036889	Bacillariophyta	Cyclotella	Cyclotella meneghiniana	1	9	6719.73	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Bacillariophyta	Sellaphora	Sellaphora sp.	2	17	8213.60	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Achnanthidium	Achnanthidium sp.	1	9	201.59	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Bacillariophyta	Nitzschia	Nitzschia cf. subacicularis	1	9	2079.07	Cannot meet tally in 50 fields.
+9/10/2019 14:50	SMS	38.14196111	-121.5036889	Chlorophyta	Scenedesmus	Scenedesmus spp.	6	51	1451.46	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Cryptophyta	Hemiselmis	cf. Hemiselmis sp.	1	9	201.59	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Ochrophyta	Pseudokephyrion	Pseudokephyrion spp.	2	17	483.82	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Eunotia	Eunotia sp.	1	9	5456.42	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Nitzschia	Nitzschia spp.	5	43	2481.19	Cannot meet tally in 50 fields.
+9/10/2019 14:50	SMS	38.14196111	-121.5036889	Bacillariophyta	Aulacoseira	Aulacoseira sp.	11	94	93135.42	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Cyanobacteria	Aphanizomenon	cf. Aphanizomenon sp.	28	11	237.51	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Bacillariophyta	Achnanthidium	Achnanthidium spp.	4	34	1774.01	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Chlorophyta	Scenedesmus	Scenedesmus sp.	4	29	1369.19	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Navicula	Navicula sp.	1	9	8063.67	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Bacillariophyta	Humidophila	Humidophila contenta	1	9	403.18	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Cyanobacteria	Aphanizomenon	Aphanizomenon sp.	46	334	11809.29	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Bacillariophyta	Nitzschia	Nitzschia spp.	5	43	1625.61	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Chlorophyta	Kirchneriella	Kirchneriella sp.	2	17	215.03	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Bacillariophyta	Encyonema	Encyonema silesiacum	2	17	3879.15	Cannot meet tally in 50 fields.
+9/11/2019 12:20	SMS	38.14196111	-121.5036889	Bacillariophyta	Cocconeis	Cocconeis sp.	3	26	16087.03	Cannot meet tally in 50 fields.
+9/12/2019 10:40	SMS	38.14196111	-121.5036889	Cyanobacteria	Cuspidothrix	Cuspidothrix sp.	17	145	2741.65	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Nitzschia	Nitzschia spp.	23	197	22138.21	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Gomphonema	Gomphonema sp.	1	9	2836.82	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Bacillaria	Bacillaria paxillifera	35	299	261423.38	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Reimeria	Reimeria sinuata	1	9	524.14	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Navicula	Navicula sp.	3	26	5140.59	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	7	60	2069.68	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Gomphoneis	Gomphoneis sp.	1	9	8144.94	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Cyclotella	Cyclotella spp.	2	17	4300.63	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Diatoma	Diatoma sp.	1	9	1814.33	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Ochrophyta	Pseudokephyrion	Pseudokephyrion sp.	1	9	671.97	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Lindavia	Lindavia bodanica	1	9	33598.64	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Ochrophyta	Chrysococcus	Chrysococcus sp.	2	17	1791.93	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Skeletonema	Skeletonema sp.	2	17	1693.37	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Nitzschia	Nitzschia dissipata	1	9	1347.54	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Achnanthidium	Achnanthidium spp.	2	17	645.09	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	7	60	3104.51	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Fragilaria	Fragilaria spp.	4	34	16933.71	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Chlorophyta	Chlorella	cf. Chlorella sp.	1	9	35.84	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Aulacoseira	Aulacoseira sp.	1	7	9127.95	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Ochrophyta	Pseudokephyrion	Pseudokephyrion pseudospirale	3	26	1612.73	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Pseudostaurosira	Pseudostaurosira brevistriata	6	51	4112.47	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Achnanthidium	Achnanthidium sp.	3	26	2419.10	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Cryptophyta	Plagioselmis	Plagioselmis prolonga	2	17	1612.73	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Cyanobacteria	Cylindrospermopsis	cf. Cylindrospermopsis sp.	20	171	1612.73	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Nitzschia	Nitzschia inconspicua	5	43	1026.70	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Diatoma	Diatoma vulgaris	1	7	13977.18	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Nitzschia	Nitzschia spp.	16	137	3011.65	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Chlorophyta	Scenedesmus	Scenedesmus sp.	4	34	430.06	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	24	205	8063.67	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Pseudostaurosira	Pseudostaurosira brevistriata	1	9	604.78	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Nitzschia	Nitzschia inconspicua	2	17	513.35	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Craticula	Craticula sp.	1	9	2217.51	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Gomphonema	Gomphonema sp.	4	34	9325.59	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Staurosira	Staurosira venter	1	9	806.37	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Nitzschia	Nitzschia brevissima	1	9	1925.06	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Cocconeis	Cocconeis sp.	7	60	43463.20	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Geissleria	Geissleria sp.	2	15	4518.34	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Gyrosigma	Gyrosigma sp.	1	9	31981.69	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Epithemia	Epithemia sp.	1	9	2395.87	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Euglenophyta	Euglena	Euglena sp.	1	9	4031.84	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Cocconeis	Cocconeis sp.	8	68	28384.13	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Fragilaria	Fragilaria sp.	2	17	2902.92	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Staurosirella	Staurosirella pinnata	3	26	907.16	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Sellaphora	Sellaphora sp.	23	197	83633.24	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Navicula	Navicula reinhardtii	1	9	37012.26	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	9	77	6531.57	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Planothidium	Planothidium spp.	2	17	3386.74	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Melosira	Melosira sp.	3	26	53663.74	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Navicula	Navicula spp.	2	17	22040.71	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Navicula	Navicula capitatoradiata	1	7	8443.36	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Cryptophyta	Cryptomonas	Cryptomonas sp.	1	9	9855.60	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Thalassiosira	Thalassiosira sp.	1	9	2015.92	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Geissleria	Geissleria sp.	1	9	6450.94	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Cryptophyta	Plagioselmis	Plagioselmis prolonga	3	26	2177.19	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Thalassiosira	Thalassiosira spp.	5	43	6450.94	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Bacillaria	Bacillaria paxillifera	1	9	22074.04	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Cyclotella	Cyclotella meneghiniana	2	17	13170.67	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Amphora	Amphora sp.	2	17	228.17	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Ulnaria	Ulnaria sp.	7	60	269246.03	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Chlorophyta	Monoraphidium	Monoraphidium spp.	3	26	752.61	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Cryptophyta	Cryptomonas	Cryptomonas sp.	1	9	20441.41	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Planothidium	Planothidium sp.	3	26	3084.35	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Cyanobacteria	Planktolyngbya	cf. Planktolyngbya sp.	39	283	360.44	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Ochrophyta	Chrysococcus	Chrysococcus sp.	1	9	1290.19	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Staurosira	Staurosira venter	2	17	2015.92	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Chlorophyta	Drepanochloris	Drepanochloris nannoselene	2	17	376.30	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Diadesmis	Diadesmis sp.	4	29	9127.95	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Bacillariophyta	Ulnaria	Ulnaria sp.	1	9	104935.26	Cannot meet tally in 50 fields.
+9/12/2019 9:20	NEW HOPE	38.22555556	-121.4911111	Chlorophyta	Coenochloris	cf. Coenochloris sp.	16	137	8959.64	Cannot meet tally in 50 fields.
+9/11/2019 11:30	NEW HOPE	38.22555556	-121.4911111	Chlorophyta	Scenedesmus	Scenedesmus spp.	10	86	716.77	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Nitzschia	Nitzschia inconspicua	9	77	1694.05	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Psammothidium	Psammothidium sp.	1	9	1108.76	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Gomphoneis	Gomphoneis spp.	2	17	62969.23	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Reimeria	Reimeria sinuata	1	9	786.21	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Nitzschia	Nitzschia dissipata	2	17	2079.07	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Cyclotella	Cyclotella meneghiniana	2	17	9757.04	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Cyanobacteria	Planktolyngbya	Planktolyngbya sp.	30	12	16.96	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Humidophila	Humidophila contenta	1	9	604.78	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Navicula	Navicula capitatoradiata	1	9	9407.62	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Fragilaria	Fragilaria tenera	1	7	1894.05	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Chlorophyta	Monoraphidium	Monoraphidium sp.	1	9	76.16	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Cryptophyta	Plagioselmis	Plagioselmis prolonga	2	17	3583.85	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Epithemia	Epithemia sp.	1	9	125501.81	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Navicula	Navicula cf. tripunctata	1	9	10751.56	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Nitzschia	Nitzschia inconspicua	8	68	1642.72	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Craticula	Craticula sp.	1	9	2116.71	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Ulnaria	Ulnaria sp.	2	17	344157.55	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Staurosira	Staurosira cf. venter	1	9	645.09	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Amphora	Amphora sp.	2	17	136.90	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Cymbella	Cymbella affinis	1	9	4564.04	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Nitzschia	Nitzschia spp.	7	60	5120.66	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Cymbella	Cymbella cf. affinis	1	9	3308.68	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Encyonema	Encyonema silesiacum	1	7	4238.08	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Ochrophyta	Pseudokephyrion	Pseudokephyrion sp.	2	17	806.37	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Fragilaria	Fragilaria sp.	2	17	11759.52	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Thalassiosira	Thalassiosira spp.	5	43	10079.59	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	13	111	4367.82	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Navicula	Navicula sp.	2	17	12901.88	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Gomphoneis	Gomphoneis sp.	1	7	3215.68	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Rhoicosphenia	Rhoicosphenia sp.	2	15	7455.74	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Chlorophyta	Monoraphidium	Monoraphidium tortile	1	9	573.42	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Chlorophyta	Scenedesmus	Scenedesmus sp.	8	58	730.24	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Pseudostaurosira	Pseudostaurosira brevistriata	12	103	5805.84	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Nitzschia	Nitzschia spp.	20	171	8726.95	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Navicula	Navicula spp.	2	17	32321.89	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Reimeria	Reimeria sinuata	2	17	2620.69	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Nitzschia	Nitzschia cf. intermedia	1	9	16256.08	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Planothidium	cf. Planothidium spp.	3	26	1330.51	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Chlorophyta	Crucigenia	Crucigenia sp.	4	34	205.34	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Ochrophyta	Mallomonas	Mallomonas sp.	1	7	10124.42	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Achnanthidium	cf. Achnanthidium sp.	4	34	2661.01	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Chlorophyta	Monoraphidium	Monoraphidium sp.	1	9	131.03	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Chlorophyta	Monoraphidium	Monoraphidium sp.	1	9	304.63	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Cocconeis	Cocconeis sp.	7	60	32597.40	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Pseudostaurosira	Pseudostaurosira sp.	1	9	1411.14	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Diatoma	Diatoma moniliformis	1	7	718.83	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Staurosira	Staurosira venter	2	17	1679.93	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Chlorophyta	Scenedesmus	Scenedesmus sp.	4	34	806.37	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Synedra	Synedra sp.	1	9	17639.28	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Cocconeis	Cocconeis sp.	4	34	6773.49	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Aulacoseira	Aulacoseira sp.	2	17	27644.96	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Cyclotella	Cyclotella sp.	1	9	2015.92	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Cryptophyta	Plagioselmis	Plagioselmis prolonga	1	9	1576.90	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Gyrosigma	Gyrosigma sp.	1	9	16084.96	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	5	43	3326.27	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Amphora	Amphora sp.	2	17	872.74	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Skeletonema	Skeletonema sp.	3	26	15119.39	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	7	60	3527.86	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Staurosirella	cf. Staurosirella sp.	1	9	443.50	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Nitzschia	Nitzschia spp.	14	120	7905.59	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Aulacoseira	Aulacoseira granulata	1	9	3191.87	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Geissleria	Geissleria sp.	1	7	4107.58	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Rhoicosphenia	Rhoicosphenia abbreviata	1	9	2419.10	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Pseudostaurosira	Pseudostaurosira brevistriata	2	17	2217.51	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Cocconeis	Cocconeis sp.	8	68	35480.16	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Navicula	Navicula sp.	1	9	3507.70	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Gomphonema	Gomphonema sp.	1	9	1612.73	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	6	51	2661.01	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Encyonema	Encyonema silesiacum	1	9	872.87	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Sellaphora	Sellaphora sp.	1	9	1026.70	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Diadesmis	Diadesmis sp.	1	7	2601.47	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Cryptophyta	Plagioselmis	Plagioselmis nannoplanctica	1	9	1863.60	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Melosira	Melosira sp.	2	17	116439.44	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Cryptophyta	Cryptomonas	Cryptomonas sp.	2	17	19711.20	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Cryptophyta	Plagioselmis	Plagioselmis prolonga	2	17	1451.46	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Melosira	Melosira sp.	2	15	95626.72	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	17	145	8567.65	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Fragilaria	cf. Fragilaria sp.	1	9	1108.76	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Encyonema	Encyonema silesiacum	2	17	8159.36	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Tryblionella	Tryblionella debilis	1	9	33867.43	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Bacillariophyta	Nitzschia	Nitzschia sigmoidea	1	9	49794.93	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Ulnaria	Ulnaria ulna	1	7	34458.02	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Chlorophyta	Chlorella	cf. Chlorella sp.	4	34	143.35	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Bacillariophyta	Nitzschia	Nitzschia inconspicua	3	26	282.34	Cannot meet tally in 50 fields.
+9/12/2019 8:45	NFM	38.22333333	-121.5072222	Chlorophyta	Drepanochloris	Drepanochloris nannoselene	1	9	36.96	Cannot meet tally in 50 fields.
+9/10/2019 15:50	NFM	38.22333333	-121.5072222	Bacillariophyta	Gomphonema	Gomphonema spp.	3	26	5882.51	Cannot meet tally in 50 fields.
+9/11/2019 9:55	NFM	38.22333333	-121.5072222	Chlorophyta	Drepanochloris	Drepanochloris nannoselene	1	9	228.47	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Nitzschia	Nitzschia dissipata	2	17	2695.09	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Chlorophyta	Scenedesmus	Scenedesmus sp.	4	34	358.39	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Pseudostaurosira	Pseudostaurosira sp.	30	218	68459.65	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Sellaphora	Sellaphora spp.	3	26	5390.17	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Eunotia	Eunotia sp.	2	17	6047.75	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Chlorophyta	Drepanochloris	Drepanochloris nannoselene	1	7	37.08	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Humidophila	Humidophila contenta	3	26	1814.33	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Cryptophyta	Plagioselmis	Plagioselmis prolonga	1	9	725.73	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Staurosira	Staurosira venter	2	17	1612.73	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Hantzschia	Hantzschia amphioxys	1	9	5475.73	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Gomphonema	Gomphonema sp.	1	9	1673.69	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Aulacoseira	Aulacoseira sp.	3	26	2177.19	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Staurosira	Staurosira construens	1	9	1774.01	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Cyclotella	Cyclotella sp.	1	9	2150.31	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Nitzschia	Nitzschia acicularis	1	9	7186.90	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Planothidium	Planothidium spp.	3	26	4717.25	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Encyonema	Encyonema silesiacum	5	43	5134.54	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Navicula	Navicula spp.	11	94	35923.66	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Achnanthidium	Achnanthidium spp.	5	43	1612.73	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Melosira	Melosira sp.	1	9	32523.48	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Cocconeis	Cocconeis sp.	5	43	33867.43	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Miozoa	Peridinium	Peridinium sp.	1	9	9842.16	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Reimeria	Reimeria sinuata	1	9	2687.89	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Pseudostaurosira	Pseudostaurosira parasitica	1	7	2156.48	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Ochrophyta	Chrysococcus	Chrysococcus sp.	5	43	3359.86	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Geissleria	Geissleria sp.	1	9	5039.80	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Ochrophyta	Pseudokephyrion	Pseudokephyrion sp.	3	26	4435.02	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	2	17	430.06	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Thalassiosira	cf. Thalassiosira sp.	7	60	3527.86	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Tryblionella	Tryblionella debilis	1	9	7055.71	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Chlorophyta	Crucigenia	cf. Crucigenia sp.	42	359	16170.52	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Bacillaria	Bacillaria sp.	1	9	15186.60	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Nitzschia	Nitzschia inconspicua	1	7	43.58	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Chlorophyta	Chlorella	Chlorella sp.	2	17	241.91	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Lemnicola	cf. Lemnicola hungarica	1	9	7794.88	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Seminavis	cf. Seminavis sp.	1	7	980.75	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Nitzschia	Nitzschia spp.	4	34	13415.54	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Bacillariophyta	Fragilaria	Fragilaria sp.	2	17	2540.06	Cannot meet tally in 50 fields.
+9/11/2019 10:55	MOK AB CFL	38.22931111	-121.4907611	Chlorophyta	Monoraphidium	Monoraphidium sp.	1	9	340.47	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Cyclotella	Cyclotella sp.	1	9	8231.67	
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	22	196	7699.69	
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Skeletonema	Skeletonema sp.	2	17	725.73	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Euglenophyta	Lepocinclis	cf. Lepocinclis sp.	1	7	3422.98	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Diatoma	Diatoma sp.	1	7	16316.22	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Cyanobacteria	Eucapsis	Eucapsis microscopica	148	1266	339.46	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Ochrophyta	Pseudokephyrion	Pseudokephyrion sp.	1	9	201.59	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Cyanobacteria	Pseudanabaena	Pseudanabaena sp.	14	102	958.44	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Ulnaria	Ulnaria sp.	1	9	237997.34	
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Encyonema	Encyonema silesiacum	1	9	4136.16	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Cryptophyta	Cryptomonas	Cryptomonas spp.	3	26	35775.83	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Cyclotella	Cyclotella sp.	3	26	8164.47	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Cocconeis	Cocconeis sp.	6	51	6289.66	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Chlorophyta	Crucigenia	Crucigenia sp.	16	143	855.58	
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Achnanthidium	Achnanthidium sp.	2	17	1048.28	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Thalassiosira	Thalassiosira spp.	3	26	5160.75	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Chlorophyta	Chlamydomonas	Chlamydomonas sp.	1	9	2389.24	
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Fragilaria	Fragilaria crotonensis	1	7	18113.28	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Chlorophyta	Chlorella	Chlorella sp.	7	60	250.87	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Cryptophyta	Plagioselmis	Plagioselmis prolonga	2	18	1511.94	
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Chlorophyta	Oocystis	Oocystis sp.	1	9	895.96	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Amphora	Amphora sp.	1	9	171.14	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Encyonema	Encyonema silesiacum	1	9	3850.91	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Ulnaria	Ulnaria sp.	2	15	167954.34	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Fragilaria	Fragilaria mazamaensis	1	9	1552.26	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Aulacoseira	Aulacoseira granulata	4	34	7741.13	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Cryptophyta	Cryptomonas	Cryptomonas sp.	1	7	4138.01	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Nitzschia	Nitzschia spp.	9	77	5082.16	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Chlorophyta	Scenedesmus	Scenedesmus sp.	4	36	373.32	
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Miozoa	Peridinium	Peridinium sp.	1	9	84910.47	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Nitzschia	Nitzschia dissipata	1	9	1116.54	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Cryptophyta	Plagioselmis	Plagioselmis nannoplanctica	2	17	6719.73	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Reimeria	Reimeria sinuata	1	9	1411.14	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Nitzschia	Nitzschia lorenziana	1	9	23254.75	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Nitzschia	Nitzschia spp.	18	154	9702.31	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Chlorophyta	Scenedesmus	Scenedesmus spp.	6	44	456.40	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Aulacoseira	Aulacoseira cf. alpigena	2	17	2902.92	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Nitzschia	Nitzschia inconspicua	2	17	205.34	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Cymbella	Cymbella sp.	1	7	2615.31	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Sellaphora	Sellaphora sp.	1	9	5646.85	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Chlorophyta	Chlorella	Chlorella sp.	1	9	120.96	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Nitzschia	Nitzschia spp.	6	53	6416.87	
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Nitzschia	Nitzschia inconspicua	6	51	924.03	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	1	9	443.50	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Nitzschia	Nitzschia dissipata	2	18	2165.69	
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Pseudostaurosira	Pseudostaurosira brevistriata	11	98	5543.78	
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Amphora	Amphora sp.	3	26	1411.91	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Chlorophyta	Monoraphidium	Monoraphidium sp.	3	26	483.82	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Ochrophyta	Chrysococcus	Chrysococcus sp.	1	9	671.97	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Chlorophyta	Monoraphidium	Monoraphidium sp.	4	34	250.87	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Melosira	Melosira sp.	1	9	28810.83	
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Nitzschia	Nitzschia incerta	1	9	10138.66	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	9	77	4535.82	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Cocconeis	Cocconeis sp.	7	60	41487.60	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Nitzschia	Nitzschia spp.	6	51	11319.36	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Reimeria	Reimeria sinuata	2	17	1572.42	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Cyanobacteria	Planktothrix	Planktothrix sp.	17	145	913.88	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Planothidium	Planothidium spp.	2	18	2729.89	
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Craticula	Craticula sp.	1	9	2284.71	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Rhoicosphenia	Rhoicosphenia abbreviata	1	9	2558.34	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Ulnaria	Ulnaria sp.	1	9	281475.94	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Planothidium	Planothidium sp.	1	7	941.32	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Planothidium	Planothidium spp.	3	26	3326.27	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Cryptophyta	Plagioselmis	Plagioselmis prolonga	16	137	28670.84	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Chlorophyta	Chlorella	Chlorella sp.	9	77	1088.60	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Navicula	Navicula sp.	1	9	1713.53	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Thalassiosira	Thalassiosira spp.	5	43	6047.75	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Psammothidium	Psammothidium sp.	2	17	645.09	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Chlorophyta	Scenedesmus	Scenedesmus spp.	6	51	376.30	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Cyclotella	Cyclotella sp.	1	9	2015.92	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	16	137	34405.00	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Chlorophyta	Drepanochloris	Drepanochloris nannoselene	2	18	521.62	
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Achnanthidium	Achnanthidium sp.	1	9	2624.89	
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Cocconeis	Cocconeis sp.	3	26	17296.58	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Cryptophyta	Plagioselmis	Plagioselmis prolonga	8	68	5805.84	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Cymbella	Cymbella affinis	2	18	11440.29	
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Ochrophyta	Pseudokephyrion	Pseudokephyrion sp.	1	9	671.97	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Navicula	Navicula spp.	2	17	6719.73	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Navicula	Navicula spp.	2	17	4112.47	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Cryptophyta	Plagioselmis	Plagioselmis prolonga	4	34	3225.47	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Chlorophyta	Drepanochloris	Drepanochloris nannoselene	2	17	204.11	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Skeletonema	Skeletonema sp.	6	51	3628.65	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Aulacoseira	Aulacoseira sp.	1	9	13551.45	
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Cryptophyta	Plagioselmis	Plagioselmis nannoplanctica	1	9	4607.49	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Epithemia	Epithemia sorex	1	7	3995.90	
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Aulacoseira	Aulacoseira granulata	5	36	32803.58	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Achnanthidium	Achnanthidium sp.	3	26	967.64	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Cyanobacteria	Merismopedia	Merismopedia sp.	4	34	199.59	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Chlorophyta	Chlamydomonas	Chlamydomonas sp.	1	7	5982.61	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Chlorophyta	Drepanochloris	Drepanochloris nannoselene	1	9	101.41	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Chlorophyta	Chlorella	cf. Chlorella sp.	232	2068	29230.81	
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Cryptophyta	Plagioselmis	Plagioselmis nannoplanctica	2	18	9034.30	
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Karayevia	Karayevia sp.	1	9	4300.63	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Pseudostaurosira	Pseudostaurosira brevistriata	1	9	524.14	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Gomphonema	Gomphonema sp.	2	17	725.73	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Cymbella	Cymbella affinis	1	9	4564.04	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Cocconeis	Cocconeis sp.	4	36	14783.40	
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Nitzschia	Nitzschia inconspicua	3	26	616.02	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Gomphonema	Gomphonema sp.	1	9	285.86	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Chlorophyta	Coelastrum	Coelastrum sp.	8	68	967.64	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Chlorophyta	Kirchneriella	Kirchneriella sp.	2	17	35.84	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Cyanobacteria	Cylindrospermopsis	cf. Cylindrospermopsis sp.	14	120	1881.52	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Caloneis	cf. Caloneis sp.	1	9	5543.78	
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Fragilaria	Fragilaria sp.	1	7	1899.76	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Melosira	Melosira sp.	1	7	96271.38	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	6	51	5080.11	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Chlorophyta	Crucigenia	Crucigenia sp.	4	34	684.47	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Chlorophyta	Monoraphidium	Monoraphidium sp.	3	27	265.99	
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	3	27	923.96	
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Rhoicosphenia	Rhoicosphenia abbreviata	1	9	6854.12	Cannot meet tally in 50 fields.
+9/10/2019 16:20	NMR	38.14366944	-121.5595389	Bacillariophyta	Epithemia	Epithemia sp.	1	7	3196.49	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	7	60	5503.46	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Cocconeis	Cocconeis pediculus	1	9	16933.71	Cannot meet tally in 50 fields.
+9/11/2019 13:04	NMR	38.14366944	-121.5595389	Bacillariophyta	Encyonema	Encyonema silesiacum	1	9	3208.85	
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Pseudostaurosira	Pseudostaurosira sp.	2	17	1693.37	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Chlorophyta	Monoraphidium	Monoraphidium sp.	1	9	94.08	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Gomphonema	Gomphonema sp.	1	7	4754.03	Cannot meet tally in 50 fields.
+9/12/2019 11:30	NMR	38.14366944	-121.5595389	Bacillariophyta	Cyclotella	cf. Cyclotella sp.	3	26	2177.19	Cannot meet tally in 50 fields.
+9/12/2019 11:31	NMR	38.14366944	-121.5595389	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	18	154	9071.63	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Planothidium	Planothidium sp.	1	9	1411.14	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Melosira	Melosira sp.	1	12	65226.83	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Cryptophyta	Plagioselmis	Plagioselmis sp.	2	17	5823.76	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Cryptophyta	Cryptomonas	Cryptomonas sp.	1	14	2956.68	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Reimeria	Reimeria sinuata	4	34	3144.83	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Cyclotella	Cyclotella spp.	4	34	1343.95	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Cyanobacteria	Planktolyngbya	Planktolyngbya sp.	20	8	12.57	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Cocconeis	Cocconeis sp.	7	100	15522.57	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Chlorophyta	Chlorella	cf. Chlorella sp.	1	14	201.59	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Fragilaria	Fragilaria mazamaensis	1	12	2709.86	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Achnanthidium	Achnanthidium sp.	1	14	671.97	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Cryptophyta	Plagioselmis	Plagioselmis prolonga	1	14	2628.16	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Nitzschia	Nitzschia spp.	13	185	7785.81	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Staurosira	Staurosira sp.	1	9	1108.76	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Thalassiosira	Thalassiosira spp.	4	57	8601.25	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Fragilaria	Fragilaria sp.	2	17	3628.65	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Chlorophyta	Monoraphidium	Monoraphidium sp.	1	9	197.11	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Pseudostaurosira	Pseudostaurosira brevistriata	9	65	5083.13	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Staurosira	Staurosira construens	10	73	5647.92	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Cocconeis	Cocconeis sp.	3	26	7741.13	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Fragilaria	Fragilaria tenera	1	9	1693.37	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Nitzschia	Nitzschia cf. linearis	2	17	38193.22	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Pseudostaurosira	Pseudostaurosira sp.	2	29	3494.26	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Nitzschia	Nitzschia inconspicua	3	26	770.02	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Ulnaria	Ulnaria sp.	1	9	26878.91	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Cyclotella	Cyclotella meneghiniana	1	9	7902.40	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	6	51	5805.84	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Encyonema	Encyonema sp.	1	14	2168.26	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Cyanobacteria	Cylindrospermopsis	cf. Cylindrospermopsis sp.	11	133	1255.09	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Navicula	Navicula spp.	3	26	6047.75	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Cymbella	Cymbella affinis	1	9	3080.50	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Nitzschia	Nitzschia inconspicua	3	43	513.35	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Thalassiosira	cf. Thalassiosira sp.	7	60	2351.90	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Ochrophyta	Pseudokephyrion	Pseudokephyrion sp.	3	26	725.73	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Chlorophyta	Tetrastrum	Tetrastrum glabrum	8	68	967.64	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Aulacoseira	Aulacoseira granulata	4	48	10953.54	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Encyonema	Encyonema silesiacum	1	14	9936.71	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Bacillaria	Bacillaria paxillifera	2	29	22074.04	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Euglenophyta	Trachelomonas	Trachelomonas sp.	1	9	18438.93	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Navicula	Navicula tripunctata	1	14	24639.00	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	6	86	1209.55	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Actinocyclus	Actinocyclus sp.	1	9	16261.74	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Staurosirella	cf. Staurosirella pinnata	5	43	4199.83	Girdle view. Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Gomphonema	Gomphonema spp.	3	26	5543.78	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Ulnaria	Ulnaria sp.	1	14	302566.92	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Rhoicosphenia	Rhoicosphenia sp.	1	14	922.40	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	3	43	2217.51	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Nitzschia	Nitzschia spp.	12	103	6468.21	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Chlorophyta	Monoraphidium	Monoraphidium tortile	2	17	1648.57	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Chlorophyta	Monoraphidium	Monoraphidium sp.	2	29	328.52	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Cyclotella	Cyclotella sp.	1	14	7167.71	Cannot meet tally in 50 fields.
+9/12/2019 13:40	WGA	38.25769218	-121.5182865	Bacillariophyta	Staurosira	Staurosira venter	1	14	1343.95	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Rhoicosphenia	Rhoicosphenia abbreviata	1	9	8338.33	Cannot meet tally in 50 fields.
+9/10/2019 11:25	WGA	38.25769218	-121.5182865	Bacillariophyta	Encyonema	Encyonema sp.	1	9	188.25	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Aulacoseira	Aulacoseira sp.	8	68	29566.80	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Cocconeis	Cocconeis sp.	4	34	37630.47	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Cymbella	Cymbella cf. cistula	1	7	12209.53	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Cryptophyta	Plagioselmis	Plagioselmis prolonga	4	34	2902.92	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Gomphonema	Gomphonema spp.	3	26	4263.90	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Chlorophyta	Scenedesmus	Scenedesmus spp.	9	77	2177.19	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Ochrophyta	Chrysococcus	Chrysococcus sp.	1	9	1290.19	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Surirella	Surirella sp.	1	7	4563.98	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Chlorophyta	Monoraphidium	Monoraphidium sp.	1	9	174.18	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Planothidium	Planothidium spp.	3	26	3931.04	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Chlorophyta	Monoraphidium	Monoraphidium sp.	2	17	573.42	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Nitzschia	Nitzschia inconspicua	3	26	192.51	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Reimeria	Reimeria sinuata	1	9	725.73	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Amphora	Amphora sp.	2	17	205.36	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Cocconeis	Cocconeis sp.	4	34	4193.11	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Navicula	Navicula spp.	2	17	5711.77	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Cymbella	Cymbella sp.	1	9	2852.31	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Encyonema	Encyonema spp.	4	34	3765.10	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Pseudostaurosira	Pseudostaurosira sp.	1	9	1257.93	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Cyanobacteria	Limnothrix	cf. Limnothrix sp.	57	23	53.72	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Achnanthidium	Achnanthidium spp.	2	17	698.85	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Nitzschia	Nitzschia spp.	8	68	2327.19	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Nitzschia	Nitzschia inconspicua	1	9	188.23	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Chlorophyta	Chlamydomonas	Chlamydomonas sp.	2	17	6307.58	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Cyclotella	Cyclotella meneghiniana	1	9	8130.87	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Achnanthidium	Achnanthidium sp.	1	9	443.50	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Cocconeis	Cocconeis sp.	1	9	7196.83	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Cyclotella	Cyclotella sp.	14	120	10160.23	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Surirella	Surirella sp.	1	9	1935.28	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	17	145	3655.53	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Staurosira	Staurosira venter	3	26	2519.90	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Cymbella	Cymbella affinis	1	9	6132.92	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Staurosira	Staurosira venter	2	17	2015.92	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Chlorophyta	Drepanochloris	Drepanochloris nannoselene	1	9	27.52	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Cryptophyta	Plagioselmis	Plagioselmis prolonga	3	26	5590.81	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Rhoicosphenia	Rhoicosphenia sp.	1	9	604.78	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Ulnaria	Ulnaria sp.	1	7	41486.55	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Amphora	Amphora sp.	2	17	228.17	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Pseudostaurosira	Pseudostaurosira brevistriata	15	128	26206.94	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	21	180	15240.34	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Diatoma	Diatoma sp.	1	9	1713.53	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Nitzschia	Nitzschia spp.	13	111	25526.32	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Nitzschia	Nitzschia inconspicua	6	51	924.03	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Diatoma	Diatoma vulgaris	1	7	15945.39	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Fragilaria	Fragilaria sp.	2	17	5201.07	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	5	43	4233.43	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Sellaphora	Sellaphora sp.	1	7	11985.27	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Cyanobacteria	Jaaginema	cf. Jaaginema sp.	62	450	2829.67	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Pseudostaurosira	Pseudostaurosira brevistriata	16	137	5160.75	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Cymbella	Cymbella sp.	1	9	2510.04	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Ochrophyta	Pseudokephyrion	Pseudokephyrion sp.	1	9	559.98	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Skeletonema	Skeletonema sp.	7	60	3386.74	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	10	86	7660.49	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Gomphonema	Gomphonema parvulum	2	17	5685.20	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Rhoicosphenia	Rhoicosphenia abbreviata	2	17	2260.10	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Cryptophyta	Cryptomonas	Cryptomonas sp.	1	9	4013.92	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Fragilaria	Fragilaria mazamaensis	1	7	2481.66	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Tryblionella	Tryblionella debilis	1	9	8130.87	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Gomphonema	Gomphonema spp.	5	43	3579.44	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Chlorophyta	Chlamydomonas	cf. Chlamydomonas sp.	1	9	120.96	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Navicula	Navicula sp.	1	9	1713.53	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	6	51	5080.11	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Rhoicosphenia	Rhoicosphenia abbreviata	1	9	2687.89	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Chlorophyta	Monoraphidium	Monoraphidium tortile	1	9	573.42	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Thalassiosira	Thalassiosira spp.	3	26	2963.40	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Encyonema	Encyonema silesiacum	1	9	2053.55	Cannot meet tally in 50 fields.
+9/10/2019 12:40	TIB	38.15878056	-121.5862889	Bacillariophyta	Planothidium	Planothidium spp.	3	26	4838.20	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Bacillariophyta	Ulnaria	Ulnaria sp.	2	17	74588.97	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Fragilaria	Fragilaria crotonensis	3	22	13400.98	Cannot meet tally in 50 fields.
+9/11/2019 14:35	TIB	38.15878056	-121.5862889	Chlorophyta	Chlorella	cf. Chlorella sp.	36	308	1290.19	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Nitzschia	Nitzschia spp.	22	188	11858.38	Cannot meet tally in 50 fields.
+9/12/2019 12:50	TIB	38.15878056	-121.5862889	Bacillariophyta	Encyonema	Encyonema sp.	3	26	7187.83	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Reimeria	Reimeria sinuata	4	34	2661.01	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Pseudostaurosira	Pseudostaurosira brevistriata	7	60	7337.94	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Chlorophyta	Oocystis	Oocystis sp.	4	29	684.60	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Diatoma	Diatoma sp.	1	9	2177.19	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Cocconeis	Cocconeis sp.	2	17	3386.74	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Staurosira	Staurosira venter	1	9	1343.95	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Achnanthidium	Achnanthidium exiguum	1	9	1310.35	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Gomphonema	Gomphonema sp.	4	34	2008.42	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Psammothidium	Psammothidium sp.	1	9	1108.76	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Cryptophyta	Cryptomonas	Cryptomonas sp.	2	17	12615.17	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Nitzschia	Nitzschia spp.	16	137	22792.73	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Rhoicosphenia	Rhoicosphenia abbreviata	2	17	4031.84	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Chlorophyta	Chlamydomonas	Chlamydomonas sp.	1	9	4927.80	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Planothidium	Planothidium sp.	1	7	1334.96	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Encyonema	Encyonema sp.	2	17	3697.45	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Epithemia	Epithemia sorex	2	17	7016.29	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Cryptophyta	Plagioselmis	Plagioselmis prolonga	2	17	3440.50	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Amphora	Amphora sp.	2	15	479.44	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Melosira	Melosira sp.	3	26	174659.15	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Nitzschia	Nitzschia inconspicua	10	86	1540.05	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Ulnaria	Ulnaria sp.	1	9	83432.13	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Navicula	Navicula sp.	2	15	5339.85	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Gomphoneis	Gomphoneis sp.	1	9	38688.47	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Navicula	Navicula capitatoradiata	2	17	20427.97	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	5	43	1478.34	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Cyclotella	Cyclotella spp.	18	154	13063.15	Cannot meet tally in 50 fields.
+9/10/2019 10:45	HOOD	38.36796663	-121.5213432	Bacillariophyta	Cymbella	Cymbella cf. affinis	1	9	3080.50	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Cyanobacteria	Eucapsis	Eucapsis microscopica	108	1540	587.84	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Navicula	Navicula sp.	1	14	2351.90	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Staurosirella	Staurosirella leptostauron	1	7	8899.75	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Fragilaria	Fragilaria sp.	1	14	4367.82	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Navicula	Navicula spp.	4	34	7660.49	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Cryptophyta	Plagioselmis	Plagioselmis prolonga	1	14	3106.01	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Cyanobacteria	Cylindrospermopsis	cf. Cylindrospermopsis sp.	9	128	2015.92	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Planothidium	Planothidium frequentissimum	2	29	5241.39	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Navicula	Navicula tripunctata	1	9	10213.99	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Chlorophyta	Drepanochloris	Drepanochloris nannoselene	3	26	151.19	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Ochrophyta	Pseudokephyrion	Pseudokephyrion sp.	3	43	2015.92	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Stephanodiscus	cf. Stephanodiscus sp.	14	120	18062.63	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Chlorophyta	Chlorella	cf. Chlorella sp.	2	29	119.46	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Euglenophyta	Trachelomonas	Trachelomonas sp.	1	9	4587.33	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Sellaphora	Sellaphora sp.	1	14	10694.79	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Cyanobacteria	Planktolyngbya	Planktolyngbya sp.	9	65	12.84	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Staurosira	Staurosira venter	4	57	1612.73	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Thalassiosira	cf. Thalassiosira spp.	14	200	2822.29	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Diatoma	Diatoma sp.	1	7	15574.57	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Achnanthidium	Achnanthidium sp.	1	9	1713.53	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	7	60	2069.68	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Cyanobacteria	Limnothrix	cf. Limnothrix sp.	16	228	2150.31	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Cymbella	Cymbella sp.	2	15	4843.16	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Cyanobacteria	Dolichospermum	cf. Dolichospermum sp.	19	138	1445.26	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Chlorophyta	Scenedesmus	Scenedesmus sp.	4	34	215.03	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Amphora	Amphora sp.	6	86	1711.36	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Chlorophyta	Scenedesmus	Scenedesmus sp.	8	97	4563.98	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Gomphonema	Gomphonema spp.	5	43	12623.94	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Navicula	Navicula capitatoradiata	1	14	17919.27	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Cocconeis	Cocconeis sp.	9	77	24674.84	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Rhoicosphenia	Rhoicosphenia abbreviata	1	9	2280.61	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Nitzschia	Nitzschia inconspicua	9	77	2310.07	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Nitzschia	Nitzschia dissipata	2	29	4748.49	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Reimeria	Reimeria sinuata	1	7	667.48	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Skeletonema	cf. Skeletonema sp.	4	29	9127.95	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Cyanobacteria	Planktolyngbya	Planktolyngbya sp.	6	86	108.86	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Nitzschia	Nitzschia dissipata	1	9	1155.04	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Encyonema	Encyonema silesiacum	3	22	5230.32	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Pseudostaurosira	Pseudostaurosira brevistriata	17	123	15129.58	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Cymbella	Cymbella sp.	1	14	4753.86	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Ulnaria	Ulnaria sp.	4	34	60477.55	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Ulnaria	Ulnaria ulna	3	26	857974.78	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Staurosira	Staurosira construens	10	86	13103.47	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Rhoicosphenia	Rhoicosphenia abbreviata	1	14	2015.92	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Chlorophyta	Drepanochloris	Drepanochloris nannoselene	7	100	1190.65	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Staurosira	Staurosira venter	8	68	10751.56	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Chlorophyta	Chlorella	Chlorella sp.	1	9	120.96	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Fragilaria	Fragilaria tenera	1	7	1463.33	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Craticula	Craticula sp.	1	14	1847.93	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Fragilaria	Fragilaria vaucheriae	1	14	6719.73	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Nitzschia	Nitzschia spp.	26	222	14014.45	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Nitzschia	Nitzschia inconspicua	11	157	2352.85	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Achnanthidium	Achnanthidium spp.	5	71	2687.89	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Melosira	Melosira sp.	5	71	128738.78	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Cyclotella	Cyclotella sp.	3	26	6450.94	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Thalassiosira	Thalassiosira spp.	7	100	15052.19	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Cocconeis	Cocconeis sp.	8	114	50263.56	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Melosira	Melosira sp.	3	26	204897.93	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Synedra	cf. Synedra sp.	2	29	28827.63	Cannot meet tally in 50 fields.
+9/10/2019 9:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Epithemia	Epithemia sorex	1	7	4928.49	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Epithemia	Epithemia sorex	1	12	7063.46	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Nitzschia	Nitzschia spp.	29	414	46522.32	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Achnanthidium	Achnanthidium minutissimum	7	100	3449.46	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Pseudostaurosira	Pseudostaurosira sp.	11	157	43118.25	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Encyonema	Encyonema sp.	1	14	399.32	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Ochrophyta	Chrysococcus	Chrysococcus sp.	1	14	2150.31	Cannot meet tally in 50 fields.
+9/12/2019 14:45	FPT	38.45601954	-121.5013437	Bacillariophyta	Reimeria	Reimeria sinuata	2	29	2822.29	Cannot meet tally in 50 fields.

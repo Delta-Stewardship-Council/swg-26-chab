@@ -1,0 +1,21 @@
+USGS Data Release "Assessing spatial variability of nutrients and related water quality constituents in the California Sacramento-San Joaquin Delta at the landscape scale: 2018 High resolution mapping surveys"
+
+Citation:  Bergamaschi, B.A., Kraus, T.E., Downing, B.D., Soto Perez, J., O'Donnell, K., Hansen, J.A., Hansen, A.M., Gelber, A.D., and Stumpner, E.B., 2020, Assessing spatial variability of nutrients and related water quality constituents in the California Sacramento-San Joaquin Delta at the landscape scale: 2018 High resolution mapping surveys (version 2.0, October 2023): U.S. Geological Survey data release, https://doi.org/10.5066/P9FQEUAL.
+
+Revision History
+First release:  May 4, 2020
+Revision 2.0:  October 3, 2023
+
+Revision 2.0
+In April 2023, during the review of another related scientific product, it was discovered that there were some inaccuracies in the taxonomic names used in phytoplankton enumeration. 
+Problematic records were updated in the database. Because there have been some changes to the database and how data are formatted, these changes are reflected in the updated phytoenumeration file. These changes include slightly different headers, which match the format of more recent Data Releases, as well as a change in units from (cells/L) to (cells/mL), and from (um3/L) to (um3/mL). 
+Following these updates, the Data Release was peer-reviewed. During this process, a reviewer suggested updating the headers in the discrete sampling file as well. As a result, changes were required to the Data Dictionary and metadata files as well. Another reviewer noted that the methods used to measure the optical properties of dissolved organic carbon in discrete samples were not included in the methods documentation, so this was added.
+
+Changes from previous version:
+1) For phytoplankton genus and divisions, typos were corrected and some updates were made to ensure the most up-to-date taxonomic classifications.
+2) Phytoplankton species information added. 
+3) Units changed from (cells/L) to (cells/mL) for density, and from (um3/L) to (um3/mL) for biovolume.
+4) Slight changes to header names for phytoenumeration and discrete sampling files.
+5) Data dictionary and metadata entity and attribute section updated to reflect changes made to headers in files. 
+6) Methods documentation was updated to include information on how the optical properties of dissolved organic carbon in discrete samples were measured.
+7) File names were updated, as well as the metadata and landing page on ScienceBase accordingly.

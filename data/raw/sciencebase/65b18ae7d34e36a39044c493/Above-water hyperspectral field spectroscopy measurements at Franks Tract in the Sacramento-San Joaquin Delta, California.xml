@@ -1,0 +1,540 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Keith Bouma-Gregson</origin>
+        <origin>Katy O'Donnell</origin>
+        <origin>Maura Q. Uebner</origin>
+        <origin>Jesse R. Schroeder</origin>
+        <origin>Kat M. Cone</origin>
+        <origin>Dulcinea M.  Avouris</origin>
+        <origin>Tim J. Baxter</origin>
+        <origin>Crystal L. Sturgeon</origin>
+        <origin>Tamara E.C. Kraus</origin>
+        <origin>Brian A. Bergamaschi</origin>
+        <pubdate>20240328</pubdate>
+        <title>Above-water hyperspectral field spectroscopy measurements at Franks Tract in the Sacramento-San Joaquin Delta, California</title>
+        <geoform>tabular digital data</geoform>
+        <onlink>https://doi.org/10.5066/P13J77JK</onlink>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>Hand-held hyperspectral spectroscopy data were collected in 2022 in Franks Tract, a flooded area located in the central Sacramento-San Joaquin Delta of California. The data were collected from a boat and co-located within pixels from the Ocean Land Color Imaging (OLCI) sensor on the Sentinel-3A and 3-B satellites. Data from 16 sites within 7 OLCI pixels were collected on three days: July 14, August 3, and November 3, 2022. Radiance measurements from the water, sky, and a reflectance plaque were collected to enable calculation of water-leaving radiance (Mobley 1999, Ruddick et al. 2019). At the location of each spectroscopy site, discrete water samples were also collected and analyzed for chlorophyll a, dissolved organic carbon, and phytoplankton enumeration by microscopy. Also included are OLCI rho_s data (Wynne et al. 2020) from Franks Tract to compare the field radiance data with the satellite radiance data.</abstract>
+      <purpose>These data were collected to evaluate the performance of algorithms designed to estimate cyanobacterial biomass. The data release contains 12 data files in CSV format that are viewable in a text editor or spreadsheet software. See the data dictionary and methods document for more information.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <mdattim>
+          <sngdate>
+            <caldate>20220714</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20220803</caldate>
+          </sngdate>
+          <sngdate>
+            <caldate>20221103</caldate>
+          </sngdate>
+        </mdattim>
+      </timeinfo>
+      <current>ground condition</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None planned</update>
+    </status>
+    <spdom>
+      <descgeog>Franks Tract</descgeog>
+      <bounding>
+        <westbc>-121.66809</westbc>
+        <eastbc>-121.54930</eastbc>
+        <northbc>38.09134</northbc>
+        <southbc>38.00374</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>ISO 19115 Topic Category</themekt>
+        <themekey>biota</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Thesaurus</themekt>
+        <themekey>Harmful algal blooms</themekey>
+        <themekey>Phytoplankton</themekey>
+        <themekey>Remote Sensing</themekey>
+        <themekey>Water Quality</themekey>
+      </theme>
+      <theme>
+        <themekt>None</themekt>
+        <themekey>Hyperspectral</themekey>
+        <themekey>Chlorophyll</themekey>
+      </theme>
+      <theme>
+        <themekt>Marine Realms Information Bank</themekt>
+        <themekey>Cyanobacteria</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Metadata Identifier</themekt>
+        <themekey>USGS:65b18ae7d34e36a39044c493</themekey>
+      </theme>
+      <place>
+        <placekt>Common geographic areas</placekt>
+        <placekey>San Joaquin</placekey>
+      </place>
+      <place>
+        <placekt>None</placekt>
+        <placekey>Sacramento-San Joaquin Delta</placekey>
+        <placekey>Central Valley</placekey>
+        <placekey>Franks Tract</placekey>
+      </place>
+    </keywords>
+    <accconst>None.  Please see 'Distribution Info' for details.</accconst>
+    <useconst>None.  Users are advised to read the dataset's metadata thoroughly to understand appropriate use and data limitations.</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Keith Bouma-Gregson</cntper>
+          <cntorg>U.S. Geological Survey, SOUTHWEST REGION</cntorg>
+        </cntperp>
+        <cntpos>Research Biologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>6000 J Street Placer Hall</address>
+          <city>Sacramento</city>
+          <state>CA</state>
+          <postal>95819</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>510-230-3691</cntvoice>
+        <cntemail>kbouma-gregson@usgs.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <native>Environment of Metadata Creation: Microsoft Windows 10 Enterprise Version 21H2 (OS Build 19044.2130)
+Benchtop vectorized data produced by Aqualog software Origin (version 3.6)</native>
+    <crossref>
+      <citeinfo>
+        <origin>U.S. Environmental Protection Agency, Office of Research and Development, National Exposure Research Laboratory</origin>
+        <pubdate>19970101</pubdate>
+        <title>In vitro determination of chlorophyll a and pheophytin a in marine and freshwater algae by fluorescence</title>
+        <geoform>publication</geoform>
+        <onlink>https://cfpub.epa.gov/si/si_public_record_report.cfm?Lab=NERL&amp;dirEntryId=309417</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Angela M. Hansen</origin>
+        <origin>Tamara E. C. Kraus</origin>
+        <origin>Brian A. Pellerin</origin>
+        <origin>Jacob A. Fleck</origin>
+        <origin>Bryan D. Downing</origin>
+        <origin>Brian A. Bergamaschi</origin>
+        <pubdate>20160310</pubdate>
+        <title>Optical properties of dissolved organic matter (DOM): Effects of biological and photolytic degradation</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Limnology and Oceanography</sername>
+          <issue>vol. 61, issue 3</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Wiley</publish>
+        </pubinfo>
+        <othercit>ppg. 1015-1032</othercit>
+        <onlink>https://doi.org/10.1002/lno.10270</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Angela M. Hansen</origin>
+        <origin>Jacob Fleck</origin>
+        <origin>Tamara E. C. Kraus</origin>
+        <origin>Bryan D. Downing</origin>
+        <origin>Travis von Dessonneck</origin>
+        <origin>Brian Bergamaschi</origin>
+        <pubdate>2018</pubdate>
+        <title>Procedures for using the Horiba Scientific Aqualog fluorometer to measure absorbance and fluorescence from dissolved organic matter</title>
+        <geoform>publication</geoform>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>US Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.3133/ofr20181096</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Ross S. Lunetta</origin>
+        <origin>Blake A. Schaeffer</origin>
+        <origin>Richard P. Stumpf</origin>
+        <origin>Darryl Keith</origin>
+        <origin>Scott A. Jacobs</origin>
+        <origin>Mark S. Murphy</origin>
+        <pubdate>20150201</pubdate>
+        <title>Evaluation of cyanobacteria cell count detection derived from MERIS imagery across the eastern USA</title>
+        <geoform>publication</geoform>
+        <onlink>https://doi.org/10.1016/j.rse.2014.06.008</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Mark W. Matthews</origin>
+        <origin>Stewart Bernard</origin>
+        <origin>Lisl Robertson</origin>
+        <pubdate>20120901</pubdate>
+        <title>An algorithm for detecting trophic status (chlorophyll-a), cyanobacterial-dominance, surface scums and floating vegetation in inland and coastal waters</title>
+        <geoform>publication</geoform>
+        <onlink>https://doi.org/10.1016/j.rse.2012.05.032</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Curtis D. Mobley</origin>
+        <origin>Jeremy Werdell</origin>
+        <origin>Bryan Franz</origin>
+        <origin>Ziauddin Ahmad</origin>
+        <origin>Sean Bailey</origin>
+        <pubdate>20160601</pubdate>
+        <title>Atmospheric Correction for Satellite Ocean Color Radiometry</title>
+        <geoform>publication</geoform>
+        <onlink>https://ntrs.nasa.gov/citations/20160011399</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Curtis D. Mobley</origin>
+        <pubdate>19991220</pubdate>
+        <title>Estimation of the remote-sensing reflectance from above-surface measurements</title>
+        <geoform>publication</geoform>
+        <onlink>https://opg.optica.org/ao/viewmedia.cfm?uri=ao-38-36-7442&amp;seq=0&amp;html=true</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Billy B. Potter</origin>
+        <origin>John C. Wimsatt</origin>
+        <pubdate>201206</pubdate>
+        <title>USEPA method 415.3: Quantifying TOC, DOC, and SUVA</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>Journal AWWA</sername>
+          <issue>vol. 104, issue 6</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Wiley</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.5942/jawwa.2012.104.0086</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Kevin G. Ruddick</origin>
+        <origin>Kenneth Voss</origin>
+        <origin>Andrew C. Banks</origin>
+        <origin>Emmanuel Boss</origin>
+        <origin>Alexander Castagna</origin>
+        <origin>Robert Frouin</origin>
+        <origin>Martin Hieronymi</origin>
+        <origin>Cedric Jamet</origin>
+        <origin>B. Carol Johnson</origin>
+        <origin>Joel Kuusk</origin>
+        <origin>Zhongping Lee</origin>
+        <origin>Michael Ondrusek</origin>
+        <origin>Viktor Vabson</origin>
+        <origin>RIho Vendt</origin>
+        <pubdate>20190724</pubdate>
+        <title>A Review of Protocols for Fiducial Reference Measurements of Downwelling Irradiance for the Validation of Satellite Remote Sensing Data over Water</title>
+        <edition>a</edition>
+        <geoform>publication</geoform>
+        <onlink>https://doi.org/10.3390/rs11151742</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Kevin G. Ruddick</origin>
+        <origin>Kenneth Voss</origin>
+        <origin>Emmanuel Boss</origin>
+        <origin>Alexander Castagna</origin>
+        <origin>Robert Frouin</origin>
+        <origin>Alex Gilerson</origin>
+        <origin>Martin Hieronymi</origin>
+        <origin>B. Carol Johnson</origin>
+        <origin>Joel Kuusk</origin>
+        <origin>Zhongping Lee</origin>
+        <origin>Michael Ondrusek</origin>
+        <origin>Viktor Vabson</origin>
+        <origin>RIho Vendt</origin>
+        <pubdate>20190920</pubdate>
+        <title>A Review of Protocols for Fiducial Reference Measurements of Water-Leaving Radiance for Validation of Satellite Remote-Sensing Data over Water</title>
+        <edition>b</edition>
+        <geoform>publication</geoform>
+        <onlink>https://doi.org/10.3390/rs11192198</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Richard P. Stumpf</origin>
+        <origin>Timothy W. Davis</origin>
+        <origin>Timothy T. Wynne</origin>
+        <origin>Jennifer L. Graham</origin>
+        <origin>Keith A. Loftin</origin>
+        <origin>Thomas H. Johengen</origin>
+        <origin>Duane Gossiaux</origin>
+        <origin>Danna Palladino</origin>
+        <origin>Ashley Burtner</origin>
+        <pubdate>20160401</pubdate>
+        <title>Challenges for mapping cyanotoxin patterns from remote sensing of cyanobacteria</title>
+        <geoform>publication</geoform>
+        <onlink>https://doi.org/10.1016/j.hal.2016.01.005</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>U.S. Geological Survey</origin>
+        <pubdate>20230101</pubdate>
+        <title>National Water Information System</title>
+        <geoform>application/service</geoform>
+        <onlink>http://doi.org/10.5066/F7P55KJN</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Timothy T. Wynne</origin>
+        <origin>Andrew Meredith</origin>
+        <origin>Richard Stumpf</origin>
+        <origin>Travis Briggs</origin>
+        <origin>Wayne Litaker</origin>
+        <pubdate>20200101</pubdate>
+        <title>Harmful Algal Bloom Forecasting Branch Ocean Color Satellite Imagery Processing Guidelines</title>
+        <geoform>publication</geoform>
+        <onlink>https://doi.org/10.25923/606t-m243</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>T. T. Wynne</origin>
+        <origin>R. P. Stumpf</origin>
+        <origin>M. C. Tomlinson</origin>
+        <origin>R. A. Warner</origin>
+        <origin>P. A. Tester</origin>
+        <origin>J. Dyble</origin>
+        <origin>G. L. Fahnenstiel</origin>
+        <pubdate>20080516</pubdate>
+        <title>Relating spectral shape to cyanobacterial blooms in the Laurentian Great Lakes</title>
+        <geoform>publication</geoform>
+        <serinfo>
+          <sername>International Journal of Remote Sensing</sername>
+          <issue>vol. 29, issue 12</issue>
+        </serinfo>
+        <pubinfo>
+          <pubplace>n/a</pubplace>
+          <publish>Informa UK Limited</publish>
+        </pubinfo>
+        <othercit>ppg. 3665-3672</othercit>
+        <onlink>https://doi.org/10.1080/01431160802007640</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>YSI Inc. / Xylem Inc.</origin>
+        <pubdate>20210101</pubdate>
+        <title>EXO User Manual</title>
+        <edition>Revision K</edition>
+        <geoform>publication</geoform>
+        <othercit>YSI Incorporated
+1700/1725 Brannum Lane
+Yellow Springs, OH 45387 USA</othercit>
+        <onlink>https://www.ysi.com/File%20Library/Documents/Manuals/EXO-User-Manual-Web.pdf</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Spectra Vista Corporation</origin>
+        <pubdate>20230101</pubdate>
+        <title>SVC 512i spectroradiometer user manual</title>
+        <geoform>publication</geoform>
+        <othercit>Spectra Vista Corporation
+29 Firemen's Way
+Poughkeepsie, NY 12603 USA</othercit>
+        <onlink>https://spectravista.com/wp-content/uploads/2023/08/SVC_HR-512i_Brochure_2023.pdf</onlink>
+      </citeinfo>
+    </crossref>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>YSI EXO sondes were calibrated before use in the field with the KorEXO software (version 2.2.0.5) . For calibration, the sonde sensors are submerged one at a time in standards, then the verified chemical concentration is recorded within the instrument. If the instrument measures an unknown value of the parameter, it refers to the calibration information to calculate the concentration of the chemical in the water (EXO User Manual, pg. 81).
+Some software may interpret blank values as zero. Blank values should be used with caution. Values given as "NA" are not available. Typically, this means a given parameter was not analyzed for a given discrete water quality sample, or there is no associated remark code.</attraccr>
+    </attracc>
+    <logic>All data match the details provided and fall within expected ranges. We have checked for data duplication omission. Data are logically consistent.</logic>
+    <complete>Data set is considered complete for the information presented, as described in the abstract. Users are advised to read the rest of the metadata record carefully for additional details.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>We conducted a visual check that the GPS data we recorded matched the boat GPS. Data was also displayed in real-time, allowing us to spot check GPS data underway. In addition, GPS location information was compared to field notes that described known locations and features. The datum used was WGS1984.</horizpar>
+      </horizpa>
+    </posacc>
+    <lineage>
+      <procstep>
+        <procdesc>Field sampling was conducted on the RV Aiken in Franks Tract on July 14, August 9, and November 3, 2022. During each sampling event, personnel collected handheld hyperspectral radiance and water quality data. The sampling method was designed to collect field data that would be comparable with satellite remote sensed data from Ocean Land Color Instrument (OLCI) on the Sentinel-3 A and B satellites. See methods document (ScienceBaseMethods.docx) for more information</procdesc>
+        <procdate>2022</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Field-based hyperspectral data were collected with a Spectra Vista Corporation (SVC) 512i spectroradiometer (Poughkeepsie, New York, USA). The instrument collects radiance (W m-2 nm-1 sr-1) approximately every 3 nm from 350–1050 nm. Radiance data were aggregated into 5 nm bins by averaging the values in each bin. First, remote sensing reflectance (Rrs) was calculated, then non-dimensional surface reflectance was calculated from the Rrs value. Rrs was calculated using an above-water measurement approach (Mobley, 1999; Ruddick et al., 2019b) with a 10% calibrated Spectralon reflectance plate (Labsphere, North Sutton, New Hampshire, USA). Radiance data were collected from the water, sky, and reflectance plate at an angle of approximately 40 degrees from nadir and an azimuth of 135 degrees from the sun. See methods document (ScienceBaseMethods.docx) for more information</procdesc>
+        <procdate>2022</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>At each sampling site a suite of water quality measurements was collected to study how different parameters influence the optical properties of surface reflectance spectra. Discrete samples were collected for chl-a and dissolved organic carbon (DOC) while stopped at each site. DOC samples were collected by passing water from the pickup tube through a 0.2-micron filter into a sample bottle, stored chilled, and analyzed at the USGS Organic Matter Research Laboratory. In preparation for analysis, dissolved organic carbon samples were preserved to &lt;2 pH with high-purity sulfuric acid the day following collection and stored at 2 degrees Celsius. See methods document (ScienceBaseMethods.docx) for more information</procdesc>
+        <procdate>2022</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Field and satellite Rrs data were used in three algorithms to estimate cyanobacterial biomass. The CI, CIcyano, and SS(665) algorithms were calculated from SVC or OLCI ρs data. Because OLCI bandwidths are wider than the SVC bands, three SVC 5 nm bins were averaged together to match the widths of the OLCI wavelengths included in each OLCI band. Pearson correlations between remote sensing and water sample parameters were calculated by averaging all replicate measurements within a site and then comparing site averaged values among parameters. See methods document (ScienceBaseMethods.docx) for more information</procdesc>
+        <srcused>NWISweb</srcused>
+        <procdate>2023</procdate>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>T6_DS_DR.csv</enttypl>
+        <enttypd>Discrete water quality sample data matched with remote sensing cyanobacterial abundance algorithms calculated at each site</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>T6_PhytoEnum.csv</enttypl>
+        <enttypd>Phytoplankton enumeration by microscopy</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>All_rhos_values.csv</enttypl>
+        <enttypd>Rho_s (surface reflectance) calculated from plate (PL), sky (SK), and water (WA) irradiance values</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>20220714_SVC_spectra.csv</enttypl>
+        <enttypd>Radiance values collected at each wavelength using a handheld hyperspectral spectroradiometer on 20220714.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>20220803_SVC_spectra.csv</enttypl>
+        <enttypd>Radiance values collected at each wavelength using a handheld hyperspectral spectroradiometer on 20220803</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>20221103_SVC_spectra.csv</enttypl>
+        <enttypd>Radiance values collected at each wavelength using a handheld hyperspectral spectroradiometer on 20221103</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Satellite_rhos_data.csv</enttypl>
+        <enttypd>Rho_s (surface reflectance) calculated from the Ocean Land Color Instrument (OLCI) sensor on the Sentinel 3-A and B satellites</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>Paired_svc_sat_data.csv</enttypl>
+        <enttypd>Cyanobacterial abundance algorithm results from satellite and hand-held data</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>All_pixels_data.csv</enttypl>
+        <enttypd>Cyanobacterial abundance algorithms calculated for all pixels within Franks Tract on the sampling dates</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>ReflectancePlateCalibrationValues.csv</enttypl>
+        <enttypd>Calibration values for Labsphere 10% reflectance plate; Model= SRT-10-05; Serial Number= 10AA01-0522-2088</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>headers_gps_wide.csv</enttypl>
+        <enttypd>Acquisition parameters for the handheld hyperspectral spectroradiometer for each data file</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+    </detailed>
+    <overview>
+      <eaover>The data dictionary is titled Data Dictionary T6 Field Verification. This file lists and describes the labels in tables.</eaover>
+      <eadetcit>https://www.sciencebase.gov/catalog/item/65b18ae7d34e36a39044c493</eadetcit>
+    </overview>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey</cntorg>
+          <cntper>GS ScienceBase</cntper>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>Denver Federal Center, Building 810, Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty. Any use of trade, product, or firm names is for descriptive purposes only and does not imply endorsement by the U.S. Government.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>Digital Data</formname>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>https://doi.org/10.5066/P13J77JK</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <fees>None</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20240328</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Keith Bouma-Gregson</cntper>
+          <cntorg>U.S. Geological Survey, SOUTHWEST REGION</cntorg>
+        </cntperp>
+        <cntpos>Research Biologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>6000 J Street Placer Hall</address>
+          <city>Sacramento</city>
+          <state>CA</state>
+          <postal>95819</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>510-230-3691</cntvoice>
+        <cntemail>kbouma-gregson@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Biological Data Profile of the Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001.1-1999</metstdv>
+  </metainfo>
+</metadata>
