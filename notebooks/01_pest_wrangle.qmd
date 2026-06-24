@@ -131,6 +131,10 @@ SURF_all <- SURF_all %>%
 #delete any duplicate rows where all column values match (Matt indicated there may be duplicate DRMP data)
 SURF_all <- SURF_all %>%
   distinct()
+
+#convert sample_date column to date type format
+SURF_all <- SURF_all |> 
+  mutate(sample_date = as.Date(sample_date))
 ```
 
 ## Filter to data in the Delta
@@ -220,6 +224,8 @@ SURF_ds_detects <- SURF_delta_suisun_sf %>%
 ```
 
 ## Shaela's workspace
+
+# filtering approach #1
 ```{r}
 #number of measurements per chemical and per location
 
@@ -242,12 +248,34 @@ chem_list <- chem_loc_counts |>
 #81 total chemicals with more than 10 measurements at one location
 ```
 
+# filtering approach #2
+
+```{r}
+# 1) Find (chemical, site) combinations with ≥10 measurements
+site_chem_ok <- SURF_ds_detects %>%
+  st_drop_geometry() %>%
+  count(chemical_name, site_code, name = "num_measurements") %>%
+  filter(num_measurements >= 10)
+
+# 2) Among those, keep chemicals that appear at ≥3 distinct sites
+chem_ok <- site_chem_ok %>%
+  count(chemical_name, name = "num_sites") %>%
+  filter(num_sites >= 3)
+
+# 3) Filter the original data to only rows that meet both criteria
+SURF_filtered <- SURF_ds_detects %>%
+  semi_join(site_chem_ok, by = c("chemical_name", "site_code")) %>%
+  semi_join(chem_ok,     by = "chemical_name")
+```
+
 # Looking into fluridone (herbicide where lab data shows it make have impact on microcystis)
 
 ```{r}
+#filter data to fluridone and sites with more than 10 measurements
 fluridone_counts <- SURF_ds_detects %>%
   filter(chemical_name == "fluridone") %>%   
-  add_count(site_code, name = "num_measurements")
+  add_count(site_code, name = "num_measurements") |> 
+  filter(num_measurements >= 10)
 ```
 
 ```{r}
@@ -260,8 +288,9 @@ fl_site_summary <- fluridone_counts %>%
     latitude = first(latitude),
     longitude = first(longitude),
     total_measurements = first(num_measurements),
-    chem_list =
-      first(chemical_name),
+    chem_list = first(chemical_name),
+    earliest_date = min(sample_date, na.rm = TRUE),
+    latest_date = max(sample_date, na.rm = TRUE),
     .groups = "drop"
   )
 
@@ -276,12 +305,100 @@ leaflet(fl_site_summary) %>%
     popup = ~paste0(
       "<b>Site: </b>", site_code, "<br>",
       "<b>Total measurements: </b>", total_measurements, "<br><br>",
+      "<b>Earliest sample date: </b>", format(earliest_date, "%Y-%m-%d"), "<br>",
+      "<b>Latest sample date: </b>", format(latest_date, "%Y-%m-%d"), "<br><br>",
       "<b>Chemicals:</b><br>", chem_list
     )
   )
 ```
 
+# Looking into glyphosate
 
+```{r}
+#filter data to glyphosate and sites with more than 10 measurements
+glyphosate_counts <- SURF_ds_detects %>%
+  filter(chemical_name == "glyphosate") %>%   
+  add_count(site_code, name = "num_measurements") |> 
+  filter(num_measurements >= 10)
+```
+
+```{r}
+#glyphosate data
+
+#restructuring df to one row per Site
+gl_site_summary <- glyphosate_counts %>%
+  group_by(site_code) %>%
+  summarize(
+    latitude = first(latitude),
+    longitude = first(longitude),
+    total_measurements = first(num_measurements),
+    chem_list = first(chemical_name),
+    earliest_date = min(sample_date, na.rm = TRUE),
+    latest_date = max(sample_date, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+#mapping
+leaflet(gl_site_summary) %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addCircleMarkers(
+    lng = ~longitude, lat = ~latitude,
+    radius = ~pmin(4 + sqrt(total_measurements), 18),
+    fillColor = "#3182bd", fillOpacity = 0.7,
+    stroke = TRUE, color = "white", weight = 1,
+    popup = ~paste0(
+      "<b>Site: </b>", site_code, "<br>",
+      "<b>Total measurements: </b>", total_measurements, "<br><br>",
+      "<b>Earliest sample date: </b>", format(earliest_date, "%Y-%m-%d"), "<br>",
+      "<b>Latest sample date: </b>", format(latest_date, "%Y-%m-%d"), "<br><br>",
+      "<b>Chemicals:</b><br>", chem_list
+    )
+  )
+```
+
+# Looking into diuron
+
+```{r}
+#filter data to diuron and sites with more than 10 measurements
+diuron_counts <- SURF_ds_detects %>%
+  filter(chemical_name == "diuron") %>%   
+  add_count(site_code, name = "num_measurements") |> 
+  filter(num_measurements >= 10) 
+```
+
+```{r}
+#diuron data
+
+#restructuring df to one row per Site
+di_site_summary <- diuron_counts %>%
+  group_by(site_code) %>%
+  summarize(
+    latitude = first(latitude),
+    longitude = first(longitude),
+    total_measurements = first(num_measurements),
+    chem_list = first(chemical_name),
+    earliest_date = min(sample_date, na.rm = TRUE),
+    latest_date = max(sample_date, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+#mapping
+leaflet(di_site_summary) %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addCircleMarkers(
+    lng = ~longitude, lat = ~latitude,
+    radius = ~pmin(4 + sqrt(total_measurements), 18),
+    fillColor = "#3182bd", fillOpacity = 0.7,
+    stroke = TRUE, color = "white", weight = 1,
+    popup = ~paste0(
+      "<b>Site: </b>", site_code, "<br>",
+      "<b>Total measurements: </b>", total_measurements, "<br><br>",
+      "<b>Earliest sample date: </b>", format(earliest_date, "%Y-%m-%d"), "<br>",
+      "<b>Latest sample date: </b>", format(latest_date, "%Y-%m-%d"), "<br><br>",
+      "<b>Chemicals:</b><br>", chem_list
+    )
+  )
+```
 
 ```{r}
 #plotting chem/loc data from above
