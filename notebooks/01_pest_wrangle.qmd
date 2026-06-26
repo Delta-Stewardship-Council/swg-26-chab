@@ -15,6 +15,8 @@ library(leaflet)
 library(htmltools)
 library(stringr)
 library(readxl)
+library(janitor)
+library(prettymapr)
 ```
 
 ## Read in data
@@ -49,7 +51,7 @@ if (!file.exists(SURF_2009_file)) {
 }
 
 # Load the (locally cached) data
-SURF_2009 <- read_excel(SURF_2009_file, sheet = 1)
+SURF_2009 <- read_excel(SURF_2009_file, skip = 1)
 ```
 
 # 2010-2017 SURF Data
@@ -74,7 +76,7 @@ if (!file.exists(SURF_2017_file)) {
 }
 
 # Load the (locally cached) data
-SURF_2017 <- read_excel(SURF_2017_file, sheet = 1)
+SURF_2017 <- read_excel(SURF_2017_file, skip = 1)
 ```
 
 # 2018-2025 SURF data
@@ -99,32 +101,55 @@ if (!file.exists(SURF_2025_file)) {
 }
 
 # Load the (locally cached) data
-SURF_2025 <- read_excel(SURF_2025_file, sheet = 1)
+SURF_2025 <- read_excel(SURF_2025_file, skip = 1)
 ```
 
 # Bind three dataframes (2009, 2017, 2025) together
 
+```{r}
+#fix column data type issue
+SURF_2009 <- SURF_2009 %>% mutate(`Method Detection Level PPB` = readr::parse_double(as.character(`Method Detection Level PPB`)))
+SURF_2017 <- SURF_2017 %>% mutate(`Method Detection Level PPB` = readr::parse_double(as.character(`Method Detection Level PPB`)))
+SURF_2025 <- SURF_2025 %>% mutate(`Method Detection Level PPB` = readr::parse_double(as.character(`Method Detection Level PPB`)))
+
+#combine all data
+SURF_all <- bind_rows(SURF_2009, SURF_2017, SURF_2025)
+
+#fix column names to snake case
+SURF_all <- SURF_all |> clean_names()
+
+#convert NAs in "chemical_name" column to actual missing values
+SURF_all <- SURF_all %>%
+  mutate(
+    chemical_name = chemical_name |> 
+      str_trim() |>              # remove leading/trailing spaces
+      na_if("NA") |>             # turn literal "NA" into real NA
+      na_if("N/A") |>            # also handle common variants
+      na_if("")                  # empty strings -> NA
+  )
+
+#delete any duplicate rows where all column values match (Matt indicated there may be duplicate DRMP data)
+SURF_all <- SURF_all %>%
+  distinct()
+
+#convert sample_date column to date type format
+SURF_all <- SURF_all |> 
+  mutate(sample_date = as.Date(sample_date))
+```
+
 ## Filter to data in the Delta
 
 ```{r}
+#remove any rows with NAs in lat or long
+SURF_all <- SURF_all %>%
+  filter(!is.na(latitude) & !is.na(longitude))
+
 #create sf object
-SURF_sf <- SURF_raw %>% 
-    st_as_sf(coords = c('Longitude', 'Latitude'),
+SURF_sf <- SURF_all %>% 
+    st_as_sf(coords = c('longitude', 'latitude'),
              crs = 4326,
              remove = FALSE)
 
-#read in shapefile
-delta_sf <- st_read("https://services5.arcgis.com/netd7RBEFAa05HUC/arcgis/rest/services/Legal_Delta/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson")
-
-plot(delta_sf)
-st_crs(delta_sf)
-
-#find sampling locations within the Delta
-SURF_delta_sf <- st_filter(SURF_sf, delta_sf, .predicate = st_within)
-```
-
-```{r}
-##### as above but adding Suisun to legal Delta
 # read in geoJSON for Delta + Suisun
 delta_suisun_sf <- st_read(
   "https://services5.arcgis.com/netd7RBEFAa05HUC/ArcGIS/rest/services/LegalDelta/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson")
@@ -133,67 +158,26 @@ delta_suisun_sf <- st_read(
 st_crs(SURF_sf) == st_crs(delta_suisun_sf)
 plot(delta_suisun_sf)
 
-# find sampling locations in Delta + Suisun
+# find measurements in Delta + Suisun
 SURF_delta_suisun_sf <- st_filter(SURF_sf, delta_suisun_sf, .predicate = st_intersects)
+
+#remove any rows with NA in the chemical_name BUT NEED TO COME BACK AND SEE IF WE CAN SUPPLEMENT THIS DATA
+SURF_delta_suisun_sf <- SURF_delta_suisun_sf %>%
+  filter(!is.na(chemical_name))
 ```
 
 ## Explore spatial coverage
 
 ```{r}
 #count samples per station
-samples_per_station <- SURF_delta_sf %>%
-  count(Site_code, name = "n_samples")
+samples_per_station <- SURF_delta_suisun_sf %>%
+  count(site_code, name = "n_samples")
 
-#plot samples per station
-
-ggplot() +
-  geom_sf(data = delta_sf, fill = "#6CA6CD", color = "white", alpha = 0.25) +
-  geom_sf(
-    data = samples_per_station,
-    aes(size = n_samples),
-    color = "#E4572E",
-    alpha = 0.8
-  ) +
-  scale_size_continuous(name = "Samples per station") +
-  labs(
-    title = "Unique Station Locations within Delta",
-    subtitle = "Point size reflects number of samples per station",
-    x = NULL, y = NULL
-  ) 
-
-```
-
-
-```{r}
-##### as above but adding Suisun to legal Delta
-#count samples per station
-samples_per_station_ds <- SURF_delta_suisun_sf %>%
-  count(Site_code, name = "n_samples")
-
-#plot samples per station
-
-ggplot() +
-  geom_sf(data = delta_suisun_sf, fill = "#6CA6CD", color = "white", alpha = 0.25) +
-  geom_sf(
-    data = samples_per_station_ds,
-    aes(size = n_samples),
-    color = "#E4572E",
-    alpha = 0.8
-  ) +
-  scale_size_continuous(name = "Samples per station") +
-  labs(
-    title = "Unique Station Locations within Delta and Suisun",
-    subtitle = "Point size reflects number of samples per station",
-    x = NULL, y = NULL
-  ) 
-```
-
-```{r}
 ##adding a basemap to plot 
 
 #transform data to web mercator to match basemap
 delta_suisun_3857   <- st_transform(delta_suisun_sf, 3857)
-samples_3857 <- st_transform(samples_per_station_ds, 3857)
+samples_3857 <- st_transform(samples_per_station, 3857)
 
 #plot samples per station with basemap
 ggplot() +
@@ -211,7 +195,6 @@ ggplot() +
     subtitle = "Point size reflects number of samples per station",
     x = NULL, y = NULL
   ) 
-
 ```
 
 ```{r}
@@ -219,7 +202,7 @@ ggplot() +
 
 study_count <- SURF_delta_suisun_sf |> 
   sf::st_drop_geometry() |> 
-  count(Study_description, name = "n_measurements") |> 
+  count(study_description, name = "n_measurements") |> 
   arrange(desc(n_measurements))
 ```
 
@@ -227,51 +210,194 @@ study_count <- SURF_delta_suisun_sf |>
 ```{r}
 ## Looking at pesticide types
 
-#this reduces pesticide count from 505 to 178
+#filter to data where there is a detect
 SURF_ds_detects <- SURF_delta_suisun_sf %>%
-  filter(Concentration_ppb > 0)
+  filter(concentration_ppb > 0)
 
 # export as CSV for analysis
-chemicals_detected <- unique(SURF_ds_detects$Chemical_name)
-write.csv(
-  data.frame(chemical_name = chemicals_detected),
-  "./data/raw/SURF_ds_chemicals_detected.csv",
-  row.names = FALSE
-)
-
-# # export csv for analysis [this includes pesticides with ppb 0.0]
-# chemical_names <- unique(SURF_delta_suisun_sf$Chemical_name)
-# write.csv(
-#   data.frame(chemical_name = chemical_names),
-#   "./data/raw/SURF_ds_chemicals.csv",
-#   row.names = FALSE
-# )
+#chemicals_detected <- unique(SURF_ds_detects$Chemical_name)
+#write.csv(
+#  data.frame(chemical_name = chemicals_detected),
+#  "./data/raw/SURF_ds_chemicals_detected.csv",
+#  row.names = FALSE
+#)
 ```
 
 ## Shaela's workspace
+
+# filtering approach #1
 ```{r}
 #number of measurements per chemical and per location
 
 #dataframe to hold coords
 locations_df <- SURF_ds_detects %>%
-  distinct(Site_code, Latitude, Longitude)
+  distinct(site_code, latitude, longitude)
 
 #count chemical per site, filter, and attach coords
 chem_loc_counts <- SURF_ds_detects %>%
-  count(Chemical_name, Site_code, name = "num_measurements") %>%
-  filter(num_measurements >= 1) |> 
-  left_join(locations_df, by = "Site_code")
+  count(chemical_name, site_code, name = "num_measurements") %>%
+  filter(num_measurements >= 10) |> 
+  left_join(locations_df, by = "site_code")
 
 chem_loc_counts
 
 #list of unique chemicals
 chem_list <- chem_loc_counts |> 
-  distinct(Chemical_name)
+  distinct(chemical_name)
 
-#55 total chemicals with more than 20 measurements at one location
+#81 total chemicals with more than 10 measurements at one location
+```
 
-site_07177 <- SURF_raw |> 
-  filter(Site_code == "07_177")
+# filtering approach #2
+
+```{r}
+# 1) Find (chemical, site) combinations with ≥10 measurements
+site_chem_ok <- SURF_ds_detects %>%
+  st_drop_geometry() %>%
+  count(chemical_name, site_code, name = "num_measurements") %>%
+  filter(num_measurements >= 10)
+
+# 2) Among those, keep chemicals that appear at ≥3 distinct sites
+chem_ok <- site_chem_ok %>%
+  count(chemical_name, name = "num_sites") %>%
+  filter(num_sites >= 3)
+
+# 3) Filter the original data to only rows that meet both criteria
+SURF_filtered <- SURF_ds_detects %>%
+  semi_join(site_chem_ok, by = c("chemical_name", "site_code")) %>%
+  semi_join(chem_ok,     by = "chemical_name")
+```
+
+# Looking into fluridone (herbicide where lab data shows it make have impact on microcystis)
+
+```{r}
+#filter data to fluridone and sites with more than 10 measurements
+fluridone_counts <- SURF_ds_detects %>%
+  filter(chemical_name == "fluridone") %>%   
+  add_count(site_code, name = "num_measurements") |> 
+  filter(num_measurements >= 10)
+```
+
+```{r}
+#fluridone data
+
+#restructuring df to one row per Site
+fl_site_summary <- fluridone_counts %>%
+  group_by(site_code) %>%
+  summarize(
+    latitude = first(latitude),
+    longitude = first(longitude),
+    total_measurements = first(num_measurements),
+    chem_list = first(chemical_name),
+    earliest_date = min(sample_date, na.rm = TRUE),
+    latest_date = max(sample_date, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+#mapping
+leaflet(fl_site_summary) %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addCircleMarkers(
+    lng = ~longitude, lat = ~latitude,
+    radius = ~pmin(4 + sqrt(total_measurements), 18),
+    fillColor = "#3182bd", fillOpacity = 0.7,
+    stroke = TRUE, color = "white", weight = 1,
+    popup = ~paste0(
+      "<b>Site: </b>", site_code, "<br>",
+      "<b>Total measurements: </b>", total_measurements, "<br><br>",
+      "<b>Earliest sample date: </b>", format(earliest_date, "%Y-%m-%d"), "<br>",
+      "<b>Latest sample date: </b>", format(latest_date, "%Y-%m-%d"), "<br><br>",
+      "<b>Chemicals:</b><br>", chem_list
+    )
+  )
+```
+
+# Looking into glyphosate
+
+```{r}
+#filter data to glyphosate and sites with more than 10 measurements
+glyphosate_counts <- SURF_ds_detects %>%
+  filter(chemical_name == "glyphosate") %>%   
+  add_count(site_code, name = "num_measurements") |> 
+  filter(num_measurements >= 10)
+```
+
+```{r}
+#glyphosate data
+
+#restructuring df to one row per Site
+gl_site_summary <- glyphosate_counts %>%
+  group_by(site_code) %>%
+  summarize(
+    latitude = first(latitude),
+    longitude = first(longitude),
+    total_measurements = first(num_measurements),
+    chem_list = first(chemical_name),
+    earliest_date = min(sample_date, na.rm = TRUE),
+    latest_date = max(sample_date, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+#mapping
+leaflet(gl_site_summary) %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addCircleMarkers(
+    lng = ~longitude, lat = ~latitude,
+    radius = ~pmin(4 + sqrt(total_measurements), 18),
+    fillColor = "#3182bd", fillOpacity = 0.7,
+    stroke = TRUE, color = "white", weight = 1,
+    popup = ~paste0(
+      "<b>Site: </b>", site_code, "<br>",
+      "<b>Total measurements: </b>", total_measurements, "<br><br>",
+      "<b>Earliest sample date: </b>", format(earliest_date, "%Y-%m-%d"), "<br>",
+      "<b>Latest sample date: </b>", format(latest_date, "%Y-%m-%d"), "<br><br>",
+      "<b>Chemicals:</b><br>", chem_list
+    )
+  )
+```
+
+# Looking into diuron
+
+```{r}
+#filter data to diuron and sites with more than 10 measurements
+diuron_counts <- SURF_ds_detects %>%
+  filter(chemical_name == "diuron") %>%   
+  add_count(site_code, name = "num_measurements") |> 
+  filter(num_measurements >= 10) 
+```
+
+```{r}
+#diuron data
+
+#restructuring df to one row per Site
+di_site_summary <- diuron_counts %>%
+  group_by(site_code) %>%
+  summarize(
+    latitude = first(latitude),
+    longitude = first(longitude),
+    total_measurements = first(num_measurements),
+    chem_list = first(chemical_name),
+    earliest_date = min(sample_date, na.rm = TRUE),
+    latest_date = max(sample_date, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+#mapping
+leaflet(di_site_summary) %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addCircleMarkers(
+    lng = ~longitude, lat = ~latitude,
+    radius = ~pmin(4 + sqrt(total_measurements), 18),
+    fillColor = "#3182bd", fillOpacity = 0.7,
+    stroke = TRUE, color = "white", weight = 1,
+    popup = ~paste0(
+      "<b>Site: </b>", site_code, "<br>",
+      "<b>Total measurements: </b>", total_measurements, "<br><br>",
+      "<b>Earliest sample date: </b>", format(earliest_date, "%Y-%m-%d"), "<br>",
+      "<b>Latest sample date: </b>", format(latest_date, "%Y-%m-%d"), "<br><br>",
+      "<b>Chemicals:</b><br>", chem_list
+    )
+  )
 ```
 
 ```{r}
@@ -305,9 +431,6 @@ leaflet(site_summary) %>%
       "<b>Chemicals:</b><br>", chem_list
     )
   )
-
-
-
 ```
 
 
