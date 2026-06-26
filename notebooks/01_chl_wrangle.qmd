@@ -900,6 +900,7 @@ library(EDIutils)
 ### ggspatial depends on but does not import prettymapr for internal functions
 ```
 
+## EDI Data for 
 ```{r}
 packageId <-"edi.1537.4" 
 read_data_package_archive(packageId, path = tempdir()) 
@@ -980,7 +981,7 @@ plot(chla_3857_sf %>%
      theme_bw()
 ```
 
-
+## EDI Data for Drought and Chlorophyll
 ```{r}
 packageId <-"edi.1653.1" 
 read_data_package_archive(packageId, path = tempdir()) 
@@ -989,4 +990,29 @@ res <- read_data_entity_names(packageId)
 entityName <- "Chlorophyll_1975_2021"; entityId <- res$entityId[res$entityName == entityName]
 raw <- read_data_entity(packageId, entityId)
 chla_drought <- readr::read_csv(file = raw)
+```
+
+## EDI Data for Aquatic Weeds and HABs in Franks Tract (Chl-a specific)
+
+```{r}
+packageId <-"edi.1337.2" 
+read_data_package_archive(packageId, path = tempdir()) 
+res <- read_data_entity_names(packageId)
+
+entityName <- "Discrete Nutrients and Chlorophyll"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+chla_aquaweeds <- readr::read_csv(file = raw)
+```
+
+## EDI Data for cyanobacteria abundance in SFE
+
+
+```{r}
+packageId <-"edi.1076.1" 
+read_data_package_archive(packageId, path = tempdir()) 
+res <- read_data_entity_names(packageId)
+
+entityName <- "San Francisco Estuary cyanoHAB data 2014 to 2019_v1.csv"; entityId <- res$entityId[res$entityName == entityName]
+raw <- read_data_entity(packageId, entityId)
+chla_cyanoabundance <- readr::read_csv(file = raw)
 ```
