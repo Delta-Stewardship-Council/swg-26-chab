@@ -3,7 +3,7 @@ title: "SURF data"
 format: html
 ---
 
-## Load Packages
+# Load Packages
 
 ```{r}
 library(readr)
@@ -19,17 +19,18 @@ library(janitor)
 library(prettymapr)
 ```
 
-## Read in data
+# Read in and wrangle data
 
-old data read in
+## deprecated data
+This data has apparently been deprecated and superseded by 3 different dated datasets (see below)
 #```{r}
-#zip_path <- tempfile(fileext = ".zip")
-#download.file("https://www.cdpr.ca.gov/wp-content/uploads/2025/06/SURF-Water-Data-2025.zip", zip_path, mode = "wb")
+zip_path <- tempfile(fileext = ".zip")
+download.file("https://www.cdpr.ca.gov/wp-content/uploads/2025/06/SURF-Water-Data-2025.zip", zip_path, mode = "wb")
 
-#SURF_raw <- readr::read_csv(unz(zip_path, "SURF Water Data 2025.csv"))
+SURF_old_raw <- readr::read_csv(unz(zip_path, "SURF Water Data 2025.csv"))
 #```
 
-# 1950-2009 SURF Data
+## 1950-2009 SURF Data
 ```{r}
 # Set paths
 SURF_2009_url <- "https://www.cdpr.ca.gov/wp-content/uploads/2026/06/surf_water_data_1950-2009.xlsx"
@@ -54,7 +55,7 @@ if (!file.exists(SURF_2009_file)) {
 SURF_2009 <- read_excel(SURF_2009_file, skip = 1)
 ```
 
-# 2010-2017 SURF Data
+## 2010-2017 SURF Data
 ```{r}
 # Set paths
 SURF_2017_url <- "https://www.cdpr.ca.gov/wp-content/uploads/2026/06/surf_water_data_2010-2017.xlsx"
@@ -79,7 +80,7 @@ if (!file.exists(SURF_2017_file)) {
 SURF_2017 <- read_excel(SURF_2017_file, skip = 1)
 ```
 
-# 2018-2025 SURF data
+## 2018-2025 SURF data
 ```{r}
 # Set paths
 SURF_2025_url <- "https://www.cdpr.ca.gov/wp-content/uploads/2026/06/surf_water_data_2018-2025.xlsx"
@@ -104,7 +105,7 @@ if (!file.exists(SURF_2025_file)) {
 SURF_2025 <- read_excel(SURF_2025_file, skip = 1)
 ```
 
-# Bind three dataframes (2009, 2017, 2025) together
+## Bind three dataframes (2009, 2017, 2025) together
 
 ```{r}
 #fix column data type issue
@@ -137,8 +138,8 @@ SURF_all <- SURF_all |>
   mutate(sample_date = as.Date(sample_date))
 ```
 
-## Filter to data in the Delta
-
+## !!!Filter to data in the Delta
+!!!This chunk is where we need to come back to see if we can find the dropped data!!!
 ```{r}
 #remove any rows with NAs in lat or long
 SURF_all <- SURF_all %>%
@@ -165,6 +166,8 @@ SURF_delta_suisun_sf <- st_filter(SURF_sf, delta_suisun_sf, .predicate = st_inte
 SURF_delta_suisun_sf <- SURF_delta_suisun_sf %>%
   filter(!is.na(chemical_name))
 ```
+
+# General exploration
 
 ## Explore spatial coverage
 
@@ -197,8 +200,8 @@ ggplot() +
   ) 
 ```
 
+## Study counts
 ```{r}
-##exploration
 
 study_count <- SURF_delta_suisun_sf |> 
   sf::st_drop_geometry() |> 
@@ -206,9 +209,8 @@ study_count <- SURF_delta_suisun_sf |>
   arrange(desc(n_measurements))
 ```
 
-
+## Pesticide types
 ```{r}
-## Looking at pesticide types
 
 #filter to data where there is a detect
 SURF_ds_detects <- SURF_delta_suisun_sf %>%
@@ -223,9 +225,9 @@ SURF_ds_detects <- SURF_delta_suisun_sf %>%
 #)
 ```
 
-## Shaela's workspace
+# Shaela's workspace
 
-# filtering approach #1
+## filtering approach #1
 ```{r}
 #number of measurements per chemical and per location
 
@@ -248,7 +250,7 @@ chem_list <- chem_loc_counts |>
 #81 total chemicals with more than 10 measurements at one location
 ```
 
-# filtering approach #2
+## filtering approach #2
 
 ```{r}
 # 1) Find (chemical, site) combinations with ≥10 measurements
@@ -268,7 +270,7 @@ SURF_filtered <- SURF_ds_detects %>%
   semi_join(chem_ok,     by = "chemical_name")
 ```
 
-# Looking into fluridone (herbicide where lab data shows it make have impact on microcystis)
+## Looking into fluridone (herbicide where lab data shows it make have impact on microcystis)
 
 ```{r}
 #filter data to fluridone and sites with more than 10 measurements
@@ -312,7 +314,7 @@ leaflet(fl_site_summary) %>%
   )
 ```
 
-# Looking into glyphosate
+## Looking into glyphosate
 
 ```{r}
 #filter data to glyphosate and sites with more than 10 measurements
@@ -356,7 +358,7 @@ leaflet(gl_site_summary) %>%
   )
 ```
 
-# Looking into diuron
+## Looking into diuron
 
 ```{r}
 #filter data to diuron and sites with more than 10 measurements
@@ -405,13 +407,13 @@ leaflet(di_site_summary) %>%
 
 #restructuring df to one row per Site
 site_summary <- chem_loc_counts %>%
-  group_by(Site_code) %>%
+  group_by(site_code) %>%
   summarize(
-    Latitude = first(Latitude),
-    Longitude = first(Longitude),
+    Latitude = first(latitude),
+    Longitude = first(longitude),
     total_measurements = sum(num_measurements),
     chem_list = str_c(
-      Chemical_name, ": ", num_measurements,
+      chemical_name, ": ", num_measurements,
       collapse = "<br>"
     ),
     .groups = "drop"
@@ -426,7 +428,7 @@ leaflet(site_summary) %>%
     fillColor = "#3182bd", fillOpacity = 0.7,
     stroke = TRUE, color = "white", weight = 1,
     popup = ~paste0(
-      "<b>Site: </b>", Site_code, "<br>",
+      "<b>Site: </b>", site_code, "<br>",
       "<b>Total measurements: </b>", total_measurements, "<br><br>",
       "<b>Chemicals:</b><br>", chem_list
     )
@@ -452,7 +454,7 @@ leaflet(site_summary) %>%
 
 
 
-## Nick's workspace
+# Nick's workspace
 ```{r}
 
 ```
