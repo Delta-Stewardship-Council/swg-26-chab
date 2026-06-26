@@ -77,22 +77,15 @@ print(sample_df)
 
 # input EML derived dataframe
 dwc_df <- sample_df %>%
-  mutate(
-    # save original string as verbatimCoordinates
-    verbatimCoordinates = Lat_Lon,
+  mutate(verbatimCoordinates = Lat_Lon,
     
-    # extract the decimal numeric part for Latitude
-    decimalLatitude = as.numeric(str_extract(Lat_Lon, "^[0-9.]+")),
+    decimalLatitude = as.numeric(format(round(as.numeric(str_extract(Lat_Lon, "^[0-9.]+")), 4), nsmall = 4)),
     
-    # extract the decimal numeric part for Longitude
-    decimalLongitude = as.numeric(str_extract(Lat_Lon, "[0-9.]+(?=\\s*[EW])")),
-    
-    # convert to negative if W
+    decimalLongitude = as.numeric(format(round(as.numeric(str_extract(Lat_Lon, "[0-9.]+(?=\\s*[EW])")), 4), nsmall = 4)),
     decimalLongitude = if_else(str_detect(Lat_Lon, "W"), decimalLongitude * -1, decimalLongitude),
-    
-    # geodetic datum used by NCBI
+  
     geodeticDatum = "WGS84"
-  ) %>%
+  )  %>%
   # rename remaining columns in DwC
   rename(
     locality = Site_Name,
@@ -104,3 +97,29 @@ dwc_df <- sample_df %>%
 # preview DwC compliant table
 print(dwc_df)
 ```
+```{r}
+#| label: clean and standardize localities for plotting
+# apply locality cleaning pipeline
+clean_dwc_df <- dwc_df %>%
+  mutate(
+    # retain original locality string
+    verbatimLocality = locality,
+    
+    # Fix shorthand 'R' or 'R.' to 'River' using word boundaries
+    clean_locality = str_replace_all(locality, "\\bR\\b\\.?", "River"),
+    
+    # Split on common connectors (@, near, off, at)
+    river_part    = str_split_i(clean_locality, "\\s+(?i)(@|near|off|at)\\s+", 1),
+    landmark_part = str_split_i(clean_locality, "\\s+(?i)(@|near|off|at)\\s+", 2),
+    
+    # Build standardized locality
+    standardized_locality = if_else(
+      !is.na(landmark_part) & landmark_part != "",
+      paste0(river_part, ", ", landmark_part),
+      river_part
+    )
+  ) %>%
+  select(-locality, -clean_locality, -river_part, -landmark_part) %>%
+  rename(locality = standardized_locality) %>%
+  relocate(locality, .after = eventDate)
+  ```
