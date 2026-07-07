@@ -1,204 +1,111 @@
 
 ```{r}
-# Load required libraries with error handling
-required_pkgs <- c("terra", "sf", "dplyr", "ggplot2", "lubridate", "stringr", "purrr")
-for (pkg in required_pkgs) {
-  if (!requireNamespace(pkg, quietly = TRUE)) {
-    stop(paste("Package not installed:", pkg,
-               ". Install with install.packages('", pkg, "')"))
-  }
-}
-
-library(terra)
-library(sf)
-library(dplyr)
+library(terra)      # Raster handling
+library(sf)         # Shapefile handling
+library(dplyr)      # Data manipulation
+library(lubridate)  # Date parsing
+### for easy data wrangling and plotting:   
+library(tidyr)
 library(ggplot2)
-library(lubridate)
-library(stringr)
-library(purrr)
-
-# ---------------------------------------------------------
-# USER INPUTS
-# ---------------------------------------------------------
-
-folder_path <- "D:\\Sentinel-2_Harmonized_Indices"    # Folder with *.tif
-polygon_path <- "data\\BigBreak.shp"           # Polygon file
-indices_to_plot <- c(1,10)                   # Example: plot band 1 and 3
-plot_all_bands <- TRUE                       # Whether to plot all bands
-
-# ---------------------------------------------------------
-# READ ALL TIF FILES
-# ---------------------------------------------------------
-
-tif_files <- list.files(folder_path, pattern = "\\.tif$", full.names = TRUE)
-
-if (length(tif_files) == 0) {
-  stop("No .tif files found in folder.")
-}
-
-# Load polygon safely
-try({
-  poly <- st_read(polygon_path, quiet = TRUE)
-}, silent = FALSE)
-
-if (!inherits(poly, "sf")) {
-  stop("Failed to load polygon file.")
-}
-
-poly_v <- vect(poly)
-
-# ---------------------------------------------------------
-# FUNCTION: Extract per raster file with date parsing
-# ---------------------------------------------------------
-date_from_band <- substr(tif_path, 60, 67)
-parse_date_from_name <- function(filename) {
-  # Extract numeric sequences
-  nums <- str_extract_all(basename(filename), "\\d+")[[1]]
-
-  # Try YYYYMMDD
-  date_try <- suppressWarnings(ymd(nums))
-  if (any(!is.na(date_try))) return(date_try[!is.na(date_try)][1])
-
-  # Try YYYY_DOY (e.g., 2020150)
-  date_doy_try <- suppressWarnings(
-    map(nums, function(x) {
-      if (nchar(x) == 7) {
-        yr <- substr(x, 1, 4)
-        doy <- substr(x, 5, 7)
-        return(ymd(paste0(yr, "-01-01")) + days(as.numeric(doy) - 1))
-      }
-      return(NA)
-    }) %>% unlist()
-  )
-
-  if (any(!is.na(date_doy_try))) return(date_doy_try[!is.na(date_doy_try)][1])
-
-  return(NA)
-}
-
-# ---------------------------------------------------------
-# PROCESS EACH RASTER
-# ---------------------------------------------------------
-
-extract_for_file <- function(tif_path) {
-  r <- try(rast(tif_path), silent = TRUE)
-  if (!inherits(r, "SpatRaster")) stop(paste("Failed to read:", tif_path))
-
-  # Align CRS if needed
-  if (!is.na(crs(r)) && !is.na(crs(poly_v))) {
-    if (crs(r) != crs(poly_v)) {
-      poly_v_local <- project(poly_v, crs(r))
-    } else {
-      poly_v_local <- poly_v
-    }
+### for easy relative file paths:
+library(here)   
+```
+```{r}
+tif_folder <- here("D:\\Sentinel-2_Harmonized_Indices\\")
+shapefile_path <- here('data\\BigBreak_s.shp')
+date_pattern <- "\\d{8}"
+  
+  # Read shapefile
+  shp <- st_read(shapefile_path, quiet = TRUE)
+  
+  # List all .tif files
+  tif_files <- list.files(tif_folder, pattern = "\\S2B.*\\.tif$", full.names = TRUE)
+  length(tif_files)
+  results_list <- list()
+  
+  for (file in tif_files) {
+    # Read raster
+    rast_obj <- rast(file)
+    
+    # Get band names (or fallback)
+    band_names <- names(rast_obj)
+    
+    # Extract mean values for first 10 bands
+    mean_vals <- terra::extract(rast_obj[[1:10]], shp, fun = mean, na.rm = TRUE)
+    
+    # Remove ID column
+    mean_vals <- mean_vals %>% select(-ID)
+    
+    # Rename columns to band names
+    colnames(mean_vals) <- band_names[1:10]
+    
+    # Extract date from filename
+    date_str <- regmatches(basename(file), regexpr(date_pattern, basename(file)))
+        
+    # Convert to Date
+    date_val <- as.Date(date_str, format = "%Y%m%d")
+    
+    # Add date, Julian day, and filename
+    mean_vals <- mean_vals %>%
+      mutate(Date = date_val,
+             Julian = yday(date_val),
+             File = basename(file))
+  
+    results_list[[length(results_list) + 1]] <- mean_vals
   }
-
-  vals <- extract(r, poly_v_local)[1, -1] %>% as.numeric()
-  band_count <- nlyr(r)
-
-  # Assign names: file-band
-  band_names <- paste0(basename(tif_path), "_band", seq_len(band_count))
-
-  # Parse date
-  dt <- parse_date_from_name(date_from_band)
-  if (is.na(dt)) stop(paste("Cannot parse date from:", date_from_band))
-
-  data.frame(
-    file = basename(tif_path),
-    band_index = seq_len(band_count),
-    value = vals,
-    date = dt,
-    julian_day = yday(dt),
-    stringsAsFactors = FALSE
-  )
-}
-
-# Extract from all rasters
-ts_df <- map_dfr(tif_files, extract_for_file)
-
-# ---------------------------------------------------------
-# PLOT FUNCTIONS
-# ---------------------------------------------------------
-
-plot_indices <- function(df, idx) {
-  df %>%
-    filter(band_index %in% idx) %>%
-    ggplot(aes(x = date, y = value, color = factor(band_index))) +
-    geom_line(linewidth = 1) +
-    geom_point(size = 2) +
-    theme_minimal() +
-    labs(
-      title = paste("Time Series for Selected Bands:", paste(idx, collapse = ", ")),
-      x = "Date",
-      y = "Value",
-      color = "Band"
-    )
-}
-
-plot_indices_julian <- function(df, idx) {
-  df %>%
-    filter(band_index %in% idx) %>%
-    ggplot(aes(x = julian_day, y = value, color = factor(band_index))) +
-    geom_point(size = 2) +
-    geom_smooth(se = FALSE) +
-    theme_minimal() +
-    labs(
-      title = paste("Julian Day Plot for Bands:", paste(idx, collapse = ", ")),
-      x = "Julian Day",
-      y = "Value",
-      color = "Band"
-    )
-}
-
-plot_all <- function(df) {
-  df %>%
-    ggplot(aes(x = date, y = value, color = factor(band_index))) +
-    geom_line(linewidth = 1) +
-    geom_point(size = 1.5) +
-    theme_minimal() +
-    labs(
-      title = "Time Series for All Bands",
-      x = "Date",
-      y = "Value",
-      color = "Band"
-    )
-}
-
-plot_all_julian <- function(df) {
-  df %>%
-    ggplot(aes(x = julian_day, y = value, color = factor(band_index))) +
-    geom_point(size = 1.8) +
-    geom_smooth(se = FALSE) +
-    theme_minimal() +
-    labs(
-      title = "Julian Day Plot for All Bands",
-      x = "Julian Day",
-      y = "Value",
-      color = "Band"
-    )
-}
-
-# ---------------------------------------------------------
-# EXECUTE PLOTS
-# ---------------------------------------------------------
-
-if (length(indices_to_plot) > 0) {
-  print(plot_indices(ts_df, indices_to_plot))
-  print(plot_indices_julian(ts_df, indices_to_plot))
-}
-
-if (plot_all_bands) {
-  print(plot_all(ts_df))
-  print(plot_all_julian(ts_df))
-}
-
-# Optionally save
-ggsave("selected_indices_timeseries.png", plot_indices(ts_df, indices_to_plot), width = 8, height = 4)
-ggsave("all_bands_timeseries.png", plot_all(ts_df), width = 8, height = 4)
-
+  #
+  
+  # Combine all results
+  final_df <- bind_rows(results_list)
+  final_df
 ```
 
+```{r}
+#make plots
+  # Reshape to long format for ggplot
+  df_long <- final_df %>%
+    pivot_longer(
+      cols = !c(Date, Julian, File),
+      names_to = "Band",
+      values_to = "MeanValue"
+    )
+  
+  # Plot each band separately
+  p <- ggplot(df_long, aes(x = Date, y = MeanValue)) +
+    geom_line(color = "steelblue") +
+    geom_point(size = 1, alpha = 0.6) +
+    facet_wrap(~ Band, scales = "free_y") +
+    theme_minimal(base_size = 14) +
+    labs(
+      title = "Time Series of Mean Index Values",
+      x = "Date",
+      y = "Mean Value"
+    )
+p
+ggsave("mean_index_time_series.png", plot = p, width = 12, height = 8, dpi = 300)
+```
 
-
-
-
+```{r}
+#Julian plot
+# Function to plot summary by Julian date
+  df_long2 <- final_df %>%
+    pivot_longer(
+      cols = !c(Date, Julian, File),
+      names_to = "Band",
+      values_to = "MeanValue"
+    ) %>%
+    group_by(Band, Julian) %>%
+    summarise(MeanValue = mean(MeanValue, na.rm = TRUE), .groups = "drop")
+  
+  p2 <- ggplot(df_long2, aes(x = Julian, y = MeanValue, color = Band)) +
+    geom_line(linewidth = 1) +
+    theme_minimal(base_size = 14) +
+    labs(
+      title = "Seasonal Summary by Julian Date",
+      x = "Julian Day",
+      y = "Mean Value",
+      color = "Band"
+    )
+p2
+ggsave("seasonal_summary_julian_plot.png", plot = p2, width = 10, height = 6, dpi = 300)
+```
