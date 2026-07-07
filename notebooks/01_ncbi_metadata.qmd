@@ -1,0 +1,336 @@
+---
+title: "NCBI data and metadata"
+format: html
+---
+
+# NCBI SRA data accession and metadata extraction
+
+## Load packages
+
+```{r}
+#| label: packages
+library(rentrez)
+library(xml2)
+library(tidyverse)
+library(stringr)
+library(purrr)
+library(dplyr)
+library(here)
+library(lubridate)
+library(ggplot2)
+library(sf)
+library(viridis)
+library(nhdplusTools)
+```
+
+## Query NCBI
+
+```{r}
+#| label: search for this BioProject as a test case
+search_result <- entrez_search(db = "bioproject", term = "PRJNA1458311[PRJA]")
+
+```
+
+```{r}
+#| label: fetch the full record in XML
+xml_data <- entrez_fetch(db = "bioproject", id = search_result$ids, rettype = "xml")
+
+# parse XML string into an R object
+parsed_xml <- read_xml(xml_data)
+
+#check output
+print(parsed_xml)
+
+#view output
+cat(substr(as.character(parsed_xml), 1, 2000))
+
+```
+
+```{r}
+#| label: fetch and parse sample-level metadata
+
+# find the associated BioSample IDs
+links <- entrez_link(dbfrom = "bioproject", id = search_result$ids, db = "biosample")
+biosample_ids <- links$links$bioproject_biosample
+
+# fetch the raw XML for these sample IDs
+samples_xml_raw <- entrez_fetch(db = "biosample", id = biosample_ids, rettype = "xml")
+samples_xml <- read_xml(samples_xml_raw)
+
+# find individual sample nodes
+sample_nodes <- xml_find_all(samples_xml, ".//BioSample")
+
+# build the data frame
+sample_df <- data.frame(
+  biosample = xml_attr(sample_nodes, "accession"),
+  Site_Name = xml_text(xml_find_first(sample_nodes, ".//Title")),
+  
+  # use harmonized names for reliability
+  Date      = xml_text(xml_find_first(sample_nodes, ".//Attribute[@harmonized_name='collection_date']")),
+  Lat_Lon   = xml_text(xml_find_first(sample_nodes, ".//Attribute[@harmonized_name='lat_lon']")),
+  
+  stringsAsFactors = FALSE
+)
+
+# preview sample-level spreadsheet
+print(sample_df)
+
+```
+
+```{r}
+#| label: make data frame DwC compliant
+
+# input EML derived dataframe
+dwc_df <- sample_df %>%
+  mutate(verbatimCoordinates = Lat_Lon,
+    
+    decimalLatitude = as.numeric(format(round(as.numeric(str_extract(Lat_Lon, "^[0-9.]+")), 4), nsmall = 4)),
+    
+    decimalLongitude = as.numeric(format(round(as.numeric(str_extract(Lat_Lon, "[0-9.]+(?=\\s*[EW])")), 4), nsmall = 4)),
+    decimalLongitude = if_else(str_detect(Lat_Lon, "W"), decimalLongitude * -1, decimalLongitude),
+  
+    geodeticDatum = "WGS84"
+  )  %>%
+  # rename remaining columns in DwC
+  rename(
+    locality = Site_Name,
+    eventDate = Date
+  ) %>%
+  # keep only the standardized DwC columns (drop Lat_Lon)
+  select(biosample, locality, eventDate, decimalLatitude, decimalLongitude, geodeticDatum, verbatimCoordinates)
+
+# preview DwC compliant table
+print(dwc_df)
+```
+```{r}
+#| label: clean and standardize localities for plotting
+# apply locality cleaning pipeline
+clean_dwc_df <- dwc_df %>%
+  mutate(
+    # move original locality string to a verbatim column
+    verbatimLocality = locality,
+    # fix any shorthand 'R' or 'R.' to 'River' using word boundaries
+    clean_locality = str_replace_all(locality, "\\bR\\b\\.?", "River"),
+    # split on connector works and symbols (@, near, off, at)
+    river_part    = str_split_i(clean_locality, "\\s+(?i)(@|near|off|at)\\s+", 1),
+    landmark_part = str_split_i(clean_locality, "\\s+(?i)(@|near|off|at)\\s+", 2),
+    # build standardized localities
+    standardized_locality = if_else(
+      !is.na(landmark_part) & landmark_part != "",
+      paste0(river_part, ", ", landmark_part),
+      river_part
+    )
+  ) %>%
+  select(-locality, -clean_locality, -river_part, -landmark_part) %>%
+  rename(locality = standardized_locality) %>%
+  relocate(locality, .after = eventDate)
+  ```
+
+```{r}
+#| label: query sample metadata from bioproject PRJNA1458311 using the run field (SRR)
+# includes PRJNA and SAMN to later join with site metadata
+
+# search SRA for all runs in PRJNA1458311
+search_results <- entrez_search(
+  db          = "sra",
+  term        = "PRJNA1458311[BioProject]",
+  use_history = TRUE
+)
+
+cat("Found", search_results$count, "runs\n")
+
+# fetch XML records (batches of 50)
+batch_size <- 50
+n_records  <- search_results$count
+
+xml_records <- map(
+  seq(0, n_records - 1, by = batch_size),
+  ~ entrez_fetch(
+      db          = "sra",
+      web_history = search_results$web_history,
+      rettype     = "xml",
+      retstart    = .x,
+      retmax      = batch_size
+    )
+)
+
+# parse a single XML experiment package
+parse_sra_record <- function(pkg) {
+  
+  get_text <- function(node, xpath) {
+    result <- xml_find_first(node, xpath)
+    if (is.na(result)) NA_character_ else xml_text(result)
+  }
+  get_attr <- function(node, xpath, attr) {
+    result <- xml_find_first(node, xpath)
+    if (is.na(result)) NA_character_ else xml_attr(result, attr)
+  }
+  
+  tibble(
+    # accessions
+    run        = get_attr(pkg, ".//RUN",        "accession"),
+    bioproject = get_attr(pkg, ".//STUDY_REF", "accession"),
+    sraStudy   = get_attr(pkg, ".//STUDY",      "accession"),
+    biosample  = get_text(pkg, ".//EXTERNAL_ID[starts-with(text(), 'SAMN')]"),
+    srs        = get_attr(pkg, ".//SAMPLE",     "accession"),
+    srx        = get_attr(pkg, ".//EXPERIMENT", "accession"),
+
+    # run stats
+    spots      = get_attr(pkg, ".//RUN", "total_spots"),
+    bases      = get_attr(pkg, ".//RUN", "total_bases"),
+    sizeMB     = get_attr(pkg, ".//RUN", "size"),
+    published  = substr(get_attr(pkg, ".//RUN", "published"), 1, 10),
+
+    # library / experiment (DwC DNA extension)
+    libraryName      = get_text(pkg, ".//LIBRARY_NAME"),
+    sequencingMethod = get_text(pkg, ".//PLATFORM//*"),
+    libraryStrategy  = get_text(pkg, ".//LIBRARY_STRATEGY"),
+    librarySource    = get_text(pkg, ".//LIBRARY_SOURCE"),
+    librarySelection = get_text(pkg, ".//LIBRARY_SELECTION"),
+    libraryLayout = xml_name(xml_find_first(pkg, ".//LIBRARY_LAYOUT/*")),
+    libraryDesign    = get_text(pkg, ".//DESIGN_DESCRIPTION"),
+
+    # add primers here later (DwC DNA extension) ─────────────────────────────────
+    #primerNameForward  = NA_character_,  # e.g. "515F"
+    #pcr_primer_forward = NA_character_,  # e.g. "GTGYCAGCMGCCGCGGTAA"
+    #primerNameReverse  = NA_character_,  # e.g. "806R"
+    #pcr_primer_reverse = NA_character_,  # e.g. "GGACTACNVGGGTWTCTAAT"
+  )
+}
+
+# parse all batches
+sra_df <- xml_records %>%
+  map(~ {
+    doc  <- read_xml(.x)
+    pkgs <- xml_find_all(doc, "//EXPERIMENT_PACKAGE")
+    map_dfr(pkgs, parse_sra_record)
+  }) %>%
+  list_rbind() %>%
+# add sampleID and targetGene by extracting from library name
+mutate(
+    sampleID = sub("_.*", "", libraryName),
+    targetGene = sub(".*_", "", libraryName)
+  )
+```
+
+```{r}
+PRJNA1458311_metadata <- sra_df %>%
+  left_join(clean_dwc_df, by = "biosample")
+```
+
+## quick map didn't work
+```{r}
+# check data
+map_PRJNA1458311_metadata <- PRJNA1458311_metadata %>%
+  mutate(
+    decimalLongitude = as.numeric(decimalLongitude),
+    decimalLatitude  = as.numeric(decimalLatitude),
+    eventDate = as.Date(eventDate),
+    year = factor(lubridate::year(eventDate)),
+    targetGene = factor(targetGene)
+  )
+
+summary(map_PRJNA1458311_metadata$decimalLongitude)
+summary(map_PRJNA1458311_metadata$decimalLatitude)
+```
+
+```{r}
+
+# data prep
+map_PRJNA1458311_metadata <- PRJNA1458311_metadata %>%
+  mutate(
+    decimalLongitude = as.numeric(decimalLongitude),
+    decimalLatitude  = as.numeric(decimalLatitude),
+    eventDate = as.Date(eventDate),
+    year = factor(year(eventDate)),
+    targetGene = factor(targetGene)
+  )
+
+# California basemap (NO hires package)
+ca <- ne_states(
+  country = "United States of America",
+  returnclass = "sf"
+) %>%
+  filter(name == "California")
+
+ggplot() +
+  geom_sf(data = ca, fill = "grey95", color = "grey70") +
+
+  geom_point(
+    data = map_PRJNA1458311_metadata,
+    aes(decimalLongitude, decimalLatitude,
+        color = year,
+        shape = targetGene),
+    size = 3,
+    alpha = 0.9,
+    position = position_jitter(width = 0.01, height = 0.01)
+  ) +
+
+  coord_sf(
+    xlim = c(-122.4, -121.0),
+    ylim = c(37.5, 38.6),
+    expand = FALSE
+  ) +
+
+  scale_color_viridis_d(option = "C", end = 0.9) +
+  theme_minimal()
+  ```
+
+  ## try map again still not working
+  ```{r}
+  # bounding box around Delta
+bbox <- c(
+  xmin = -122.4,
+  ymin = 37.5,
+  xmax = -121.0,
+  ymax = 38.6
+)
+
+nhd_flow <- nhdplusTools::get_nhdplus(
+  bbox = bbox,
+  realization = "flowline",
+  simplified = TRUE
+)
+
+map_PRJNA1458311_metadata <- PRJNA1458311_metadata %>%
+  mutate(
+    decimalLongitude = as.numeric(decimalLongitude),
+    decimalLatitude  = as.numeric(decimalLatitude),
+    eventDate = as.Date(eventDate),
+    year = factor(year(eventDate)),
+    targetGene = factor(targetGene)
+  )
+
+  ggplot() +
+
+  # REAL rivers/sloughs
+  geom_sf(
+    data = nhd_flow,
+    color = "steelblue",
+    linewidth = 0.4,
+    alpha = 0.6
+  ) +
+
+  # your samples
+  geom_point(
+    data = map_PRJNA1458311_metadata,
+    aes(
+      decimalLongitude,
+      decimalLatitude,
+      color = year,
+      shape = targetGene
+    ),
+    size = 3.5,
+    alpha = 0.9,
+    position = position_jitter(width = 0.01, height = 0.01)
+  ) +
+
+  coord_sf(
+    xlim = c(-122.4, -121.0),
+    ylim = c(37.5, 38.6),
+    expand = FALSE
+  ) +
+
+  scale_color_viridis_d(option = "C", end = 0.9) +
+  theme_minimal()
+```

@@ -1,0 +1,98 @@
+---
+title: "Chlorophyll fluorescence data corrections"
+format: html
+author: Emily Richarson
+---
+
+# When used as proxies for chlorophyll concentration, data derived from chlorophyll fluorometers must be corrected prior to use in analyses. Some fluorometers contain internal corrections and require minimal corrections, wheres some require multiple corrections.
+
+## Corrections outlined here are temperature and bias corrections derived from published literature as well as corrections derived herein. Specific fluorometers that these corrections are applicable to are the YSI 6600 (discontinued) and EXO2 series (note that YSI is now Xylem), Seabird WETStar (discontinued), and bbe Moldaenke FLuoroProbe III. Corrections are in development for Turner brand fluorometers.
+
+### Temperature
+#### Temperature corrections are derived from Watras et al., 2017. Do not apply this formula to bbe Moldaenke fluorometers.
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+chl_tempcorr = Chlorophyll/(1+(0.01*(Water_Temperature-25)))
+```
+
+#### Bias
+
+#### Bias corrections are derived from Richardson et al., 2025. These corrections apply to YSI EXO2, Seabird WETStar, and bbe Moldaenke Fluoroprobe III. Do not apply bias corrections to YSI 6600, it jsut required temperature correction (justification below).
+
+```{r}
+# YSI EXO2
+fchl_corr = 1.29*chl_tempcorr+0.33
+
+#Seabird WETStar
+fchl_corr = 0.72*chl_tempcorr-0.06
+
+#bbe Moldaenke FluoroProbe III
+
+if < 16
+fchl_corr = 0.39*chl_raw+0.33
+if > 16
+fchl_corr = 0.71*chl_raw-4.66
+```
+
+##### Development of YSI 6600 Series bias correction
+
+```{r}
+#add in pathway when integrated with EDI data and published from 02 processing
+#chl_data <- read.csv()
+
+#try to find correction formula for YSI 6600
+ysi6600<- chl_data %>% filter(sample_type == "6600")
+maxysi <- max(ysi6600$date)
+dsdata <- chl_data %>% filter(sample_type == "discrete") %>%
+  filter(date <= maxysi)
+rm(maxysi)
+
+ds6600 <- rbind(dsdata, ysi6600)
+
+write.csv(ds6600, "C://Users//erichard//OneDrive - California Department of Water Resources//Projects//NCEAS/ysi6600 correction data//ds6600.csv")
+
+#write to personal computer
+```
+
+```{r}
+#filter down to 6600 and discretes
+chl_6600 <- chl_data %>% filter(sample_type == "6600")
+chl_ds <- chl_data %>% filter(sample_type == "discrete")
+```
+
+```{r}
+# I exported the data and imported into ArcGIS Pro. I selected distrete data within 1 mile of a station (and not in a different waterway). I joined ysi6600 and discrete based on that spatial relationship (named them the same stations) and date.
+
+# Reminder that the sensor data are daytime averages and temperature corrected.
+
+match6600ds <- read.csv("data//01_processed//01_chl_matched_6600ds.csv")
+match6600ds <- match6600ds %>% filter(!is.na(chl_ugl6600))
+
+# most are Peterson data which don't have timestamp. Need to keep matched to avgs.
+
+#if over 50, sensor.
+max(match6600ds$ds_chl_ugl) #under 50
+max(match6600ds$chl_ugl6600) #under 50
+
+#compare sensor and discrete
+wilcox.test(match6600ds$ds_chl_ugl, match6600ds$chl_ugl6600, paired = TRUE)
+
+#not different! YSI6600 just need temperature corrections.
+```
+
+
+
+
+
+
+
+
+
+#### References
+Richardson, E.T., Kraus, T.E.C., Sturgeon, C.L., O'Donnell, K. and Bergamaschi, B.A. (2025), Identifying conditions associated with outliers produced by three different chlorophyll fluorometers: A comparison of instrumentation and development of correction formulae. Limnol Oceanogr Methods, 23: 673-687. https://doi.org/10.1002/lom3.10705
+
+Watras, C.J., Morrison, K.A., Rubsam, J.L., Hanson, P.C., Watras, A.J., LaLiberte, G.D. and Milewski, P. (2017), A temperature compensation method for chlorophyll and phycocyanin fluorescence sensors in freshwater. Limnol. Oceanogr. Methods, 15: 642-652. https://doi.org/10.1002/lom3.10188

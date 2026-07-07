@@ -4,7 +4,7 @@ format: html
 
 params:
   bioprojects: 
-    - "PRJNA1458311"
+    - "PRJNA1456646"
   n_max: 200
 ---
 
@@ -19,6 +19,8 @@ library(purrr)
 library(dplyr)
 library(here)
 library(quarto)
+
+quarto::quarto_render("01_mb_ncbi.qmd")
 ```
 
 ```{r}
@@ -54,9 +56,16 @@ get_sra_runs <- function(prjna, n_max = 200) {
 ```
 
 ```{r}
+params <- list(
+  bioprojects = c("PRJNA1456646"),
+  n_max = 200
+)
+bioprojects <- params$bioprojects
+n_max <- params$n_max
+
 run_table <- purrr::map_dfr(
-  params$bioprojects,
-  ~ get_sra_runs(.x, params$n_max)
+  bioprojects,
+  ~ get_sra_runs(.x, n_max)
 ) %>%
   distinct()
 ```
