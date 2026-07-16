@@ -162,6 +162,10 @@ plot(delta_suisun_sf)
 # find measurements in Delta + Suisun
 SURF_delta_suisun_sf <- st_filter(SURF_sf, delta_suisun_sf, .predicate = st_intersects)
 
+# save a SURF_delta_suisun_sf *with* its NAs to work on filling them in later -- see Nick workspace
+# 280054 rows
+surf_ds_raw <- SURF_delta_suisun_sf 
+
 #remove any rows with NA in the chemical_name BUT NEED TO COME BACK AND SEE IF WE CAN SUPPLEMENT THIS DATA
 SURF_delta_suisun_sf <- SURF_delta_suisun_sf %>%
   filter(!is.na(chemical_name))
@@ -455,19 +459,45 @@ leaflet(site_summary) %>%
 
 
 # Nick's workspace
+
+- figure out NAs - email Matt
+- figure out chemical binning
+- look at chemical application
+- look at SFEI cd3 if time
+- 
+
+## Figure out NAs
+
+RENAME THE STUDIES THEY ARE DOING MY SWEDE
 ```{r}
+sum(is.na(surf_ds_raw$chemical_name))
+# 469
+
+# filter to only rows with NA chemical name
+surf_ds_na <- surf_ds_raw %>%
+  filter(is.na(chemical_name))
+
+
+surf_ds_missing <- surf_ds_raw %>%
+  group_by(site_code, study_description) %>%
+  summarize(
+    missing_chem_n = sum(is.na(chemical_name)),
+    missing_chem_p = mean(is.na(chemical_name))
+  ) %>%
+    filter(missing_chem_n > 0)
+
+plot(surf_ds_missing)
+
+surf_ds_missing_studies <- surf_ds_na %>%
+  group_by(study_description) %>%
+  summarise(
+    count = n()
+  )
+
 
 ```
 
-Very incomplete list of stuff to do (maybe) in no particular order:
-- clip to Big Break
-- investigate by date
-- add number of studies to the chemical count
-- add time period for each chemical - start date and end date
-- figure out which pesticides we are interested in
-  - data from https://www.cdpr.ca.gov/pesticide-use-in-california/pesticide-use-reporting/#PUR-Data-Files-Used-to-Create-the-Annual-Reports can be used to figure out application amounts??
-- and at what concentration
-- see if SFEI's cd3 dataset has anything we are missing
-- figure out how to put the rosm.cache into git ignore so it is not tracked
-- 
+## Figure out how to bin the pesticides
 
+
+## Explore SFEI cd3
