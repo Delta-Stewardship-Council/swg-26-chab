@@ -110,10 +110,41 @@ SSC_ID <- "63"
 
 ```{r}
 #STATION ID: ISD Michelle
-PPT <- CDECquery("ISD", "16", "E","2006-11-09", "2026-07-15")
-PPT2 <- CDECquery("ISD", "16", "E","2024-10-01", "2026-07-15")
+#Ids <- list("16", "9", "10") 
+ISD_PPT <- CDECquery("ISD", "16", "E","2006-11-09", "2026-07-15") 
+ISD_WIND <- CDECquery("ISD", "9", "E","2006-11-09", "2026-07-15")
+ISD_WINDDIR <- CDECquery("ISD", "10", "E","2006-11-09", "2026-07-15")
 
-plot(PPT2$datetime,PPT2$value)
+plot(ISD_PPT$datetime,ISD_PPT$value)
+plot(ISD_WIND$datetime,ISD_WIND$value)
+plot(ISD_WINDDIR$datetime,ISD_WINDDIR$value)
+```
+
+```{r}
+#convert cumulative precipitation to incremental
+ISD_PPT <- ISD_PPT %>% 
+  mutate(
+    incremental_ppt = c(value[1], diff(value))
+  ) 
+# remove negative values and anomalously high values greater than 2 inches per hour
+#ISD_PPT <- ISD_PPT %>% 
+ISD_PPT$incremental_ppt[ISD_PPT$incremental_ppt < 0 ] <- 0
+ISD_PPT$incremental_ppt[ISD_PPT$incremental_ppt > 2 ] <- 0
+
+plot(ISD_PPT$datetime,ISD_PPT$incremental_ppt)
+```
+
+```{r}
+#make hourly ppt daily - sum
+ISD_PPT_daily <- ISD_PPT %>%
+  mutate(date = as.Date(datetime)) %>%  # extract date
+  group_by(date) %>%
+  summarize(
+    daily_sum = sum(incremental_ppt, na.rm = TRUE),  # sum per day
+    .groups = "drop"
+  )
+
+plot(ISD_PPT_daily$date,ISD_PPT_daily$daily_sum)
 ```
 
 ```{r}
