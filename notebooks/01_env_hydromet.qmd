@@ -126,7 +126,9 @@ plot(PPT2$datetime,PPT2$value)
 ```{r}
 #STATION ID: ANH Nick
 
-ANH <- CDECquery("ANH", )
+anh_windsp <- CDECquery("ANH", "9", "E", "2008-10-16", "2026-07-16") # hourly AND 15 minutes lol why not
+
+
 
 ```
 ```{r}
