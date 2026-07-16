@@ -92,7 +92,7 @@ Suspended sed 2025 - present
 
 ```{r}
 #station id for precip ISD
-station_id <- "ISD"
+#station_ISD <- "ISD"
 #ANH, ISD, BLP, DSJ, SJJ
 precipID <- "16"
 windID <- "9"
@@ -110,8 +110,9 @@ SSC_ID <- "63"
 
 ```{r}
 #STATION ID: ISD Michelle
-PPT <- CDECquery(station_id, "16", "E","2006-11-09", "2026-07-15")
-PPT2 <- CDECquery(station_id, "16", "E","2024-10-01", "2026-07-15")
+PPT <- CDECquery("ISD", "16", "E","2006-11-09", "2026-07-15")
+PPT2 <- CDECquery("ISD", "16", "E","2024-10-01", "2026-07-15")
+
 plot(PPT2$datetime,PPT2$value)
 ```
 
