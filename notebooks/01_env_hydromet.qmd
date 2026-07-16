@@ -158,7 +158,9 @@ plot(ISD_PPT_daily$date,ISD_PPT_daily$daily_sum)
 ```{r}
 #STATION ID: ANH Nick
 
-ANH <- CDECquery("ANH", )
+anh_windsp <- CDECquery("ANH", "9", "E", "2008-10-16", "2026-07-16") # hourly AND 15 minutes lol why not
+
+
 
 ```
 ```{r}
