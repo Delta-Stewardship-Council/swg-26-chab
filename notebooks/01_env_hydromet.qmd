@@ -19,7 +19,7 @@ Variables from SCHISM: water temperature, flow, turbidity, salinity, residence t
 ```{r}
 # Required packages to include
 # install.packages("librarian")
-librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr)
+librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr,sharpshootR)
 ```
 
 ![[SCHISM boundary conditions](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/topics/baydelta_boundaries.html)](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/_images/open_boundaries.png){width="80%"}
@@ -55,6 +55,51 @@ librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, pre
 # https://github.com/DOI-USGS/dataRetrieval
 
 ```
+
+# Download data from CDEC
+
+```{r}
+#station id for precip ISD
+station_id <- "ISD"
+#ANH, ISD, BLP, DSJ, SJJ
+precipID <- "16"
+windID <- "9"
+windDirID <- "10"
+solarID <- "26" #hourly
+airtID <- "4"
+watertempID <- "25" #daily
+dischargeID <- "20" #event
+velocityID <- "21" 
+ECID <- "100" #daily or event
+turbID <- "221"
+DO_ID <- "61"
+SSC_ID <- "63"
+```
+
+```{r}
+#STATION ID: ISD Michelle
+PPT <- CDECquery(station_id, "16", "E","2006-11-09", "2026-07-15")
+PPT2 <- CDECquery(station_id, "16", "E","2024-10-01", "2026-07-15")
+plot(PPT2$datetime,PPT2$value)
+```
+
+```{r}
+#STATION ID: BLP Michelle
+
+```
+```{r}
+#STATION ID: SJJ Michelle
+
+```
+```{r}
+#STATION ID: ANH Nick
+
+```
+```{r}
+#STATION ID: DSJ Nick
+
+```
+
 
 # Visualize data
 
