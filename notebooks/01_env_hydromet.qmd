@@ -57,6 +57,38 @@ librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, pre
 ```
 
 # Download data from CDEC
+Station notes:
+CDEC Stations
+
+ISD - primary
+Precip hourly 2006 - present
+Wind speed hourly - 2006 - 2015
+Wind dir hourly - 2006 - 2015
+
+ANH - fill in
+Wind speed 1995 - present
+Solar radiation 2008 - present
+(Chl-a 2008 - present)
+Air temp 2008 -  present
+
+BLP - 
+Has some water stuff but not all
+
+DSJ
+Water velocity 2003 - present
+Discharge 2003 - present
+Water temp 2009 - present
+EC 2009 - present
+Turbidity 2009 - present
+
+SJJ
+Water velocity 2006 - present
+Discharge 2003 - present
+Water temp 2009 - present
+EC 2009 - present
+Turbidity 2009 - present
+DO 2013 - present
+Suspended sed 2025 - present
 
 ```{r}
 #station id for precip ISD
@@ -93,6 +125,8 @@ plot(PPT2$datetime,PPT2$value)
 ```
 ```{r}
 #STATION ID: ANH Nick
+
+ANH <- CDECquery("ANH", )
 
 ```
 ```{r}
