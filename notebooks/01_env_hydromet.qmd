@@ -91,9 +91,7 @@ DO 2013 - present
 Suspended sed 2025 - present
 
 ```{r}
-#station id for precip ISD
-#station_ISD <- "ISD"
-#ANH, ISD, BLP, DSJ, SJJ
+#Sensor codes of interest in CDEC 
 precipID <- "16"
 windID <- "9"
 windDirID <- "10"
@@ -120,6 +118,15 @@ plot(ISD_WIND$datetime,ISD_WIND$value)
 plot(ISD_WINDDIR$datetime,ISD_WINDDIR$value)
 ```
 
+```{r}
+#pull station locations
+#ANH, ISD, BLP, DSJ, SJJ
+ISD <- CDEC_StationInfo("ISD")
+BLP <- CDEC_StationInfo("BLP")
+SJJ <- CDEC_StationInfo("SJJ")
+CDEC_StationInfo('ANH')
+CDEC_StationInfo("DSJ")
+```
 ```{r}
 #convert cumulative precipitation to incremental
 ISD_PPT <- ISD_PPT %>% 
