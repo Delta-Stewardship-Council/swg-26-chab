@@ -255,6 +255,29 @@ DO (61) - event (hourly, 15 mins) - 2008-10-16 to present
 anh_windsp_test <- CDECquery("ANH", 9, "E", "2026-07-18", "2026-07-19") # results do not match what is on CDEC site!!!
 anh_windsp_test2 <- CDECquery("ANH", 9, "H", "2026-07-18", "2026-07-19")
 
+#make event wind speed daily - avg
+anh_wind_daily_e <- anh_windsp_test %>%
+  mutate(date = as.Date(datetime)) %>%  # extract date
+  group_by(date) %>%
+  summarize(
+    daily_avg = mean(value, na.rm = TRUE),  # avg per day
+    .groups = "drop"
+  )
+
+plot(anh_wind_daily_e$date,anh_wind_daily_e$daily_avg)
+
+#make hourly wind speed daily - avg
+anh_wind_daily_h <- anh_windsp_test2 %>%
+  mutate(date = as.Date(datetime)) %>%  # extract date
+  group_by(date) %>%
+  summarize(
+    daily_avg = mean(value, na.rm = TRUE),  # avg per day
+    .groups = "drop"
+  )
+
+plot(anh_wind_daily_e$daily_avg,anh_wind_daily_h$daily_avg)
+anh_wind_daily_e
+anh_wind_daily_h
 
 anh_params <- tibble(
   station = "ANH",
