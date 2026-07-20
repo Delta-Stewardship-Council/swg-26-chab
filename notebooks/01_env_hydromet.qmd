@@ -19,7 +19,11 @@ Variables from SCHISM: water temperature, flow, turbidity, salinity, residence t
 ```{r}
 # Required packages to include
 # install.packages("librarian")
+<<<<<<< HEAD
 librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr,sharpshootR, ckanr)
+=======
+librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr,sharpshootR, purrr, tibble)
+>>>>>>> cecaf5ed84f24de59dbeb86f72166722074473cc
 ```
 
 ![[SCHISM boundary conditions](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/topics/baydelta_boundaries.html)](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/_images/open_boundaries.png){width="80%"}
@@ -243,6 +247,51 @@ ISD_PPT_daily <- ISD_PPT %>%
 plot(ISD_PPT_daily$date,ISD_PPT_daily$daily_sum)
 ```
 
+<<<<<<< HEAD
+=======
+```{r}
+#STATION ID: BLP Michelle
+
+```
+```{r}
+#STATION ID: SJJ Michelle
+
+```
+```{r}
+#STATION ID: ANH Nick
+
+# anh_windsp <- CDECquery("ANH", 9, "E", "2008-10-16", "2026-07-16") # hourly AND 15 minutes lol why not
+
+anh_params <- tibble(
+  station = "ANH",
+  sensor = c(9, 10, 26, 4),
+  interval = c("E", "H", "E", "E" ),
+  start = c("2008-10-16", "1995-02-01", "2008-10-16", "2008-10-16"),
+  end = c("2026-07-16", "2026-07-16", "2026-07-16", "2026-07-16")
+)
+
+anh_all <- anh_params %>%
+  pmap(
+    \(station, sensor, interval, start, end) {
+      CDECquery(
+        id = station,
+        sensor = sensor,
+        interval = interval,
+        start = start,
+        end = end
+      )
+    }
+  ) %>%
+  list_rbind()
+
+```
+```{r}
+#STATION ID: DSJ Nick
+
+```
+
+
+>>>>>>> cecaf5ed84f24de59dbeb86f72166722074473cc
 # Visualize data
 
 ```{r}
