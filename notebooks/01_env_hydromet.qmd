@@ -89,6 +89,8 @@ EC 2009 - present
 Turbidity 2009 - present
 DO 2013 - present
 Suspended sed 2025 - present
+
+### Pull metadata for CDEC stations
 ```{r}
 #Site investigations for Big Break
 ISD_info <- CDEC_StationInfo("ISD") # no water quality data
@@ -146,19 +148,7 @@ plot(BLP_pH$datetime,BLP_pH$value)
 plot(BLP_Turb$datetime,BLP_Turb$value)
 ```
 
-```{r}
-#Site investigations for Big Break
-ISD_info <- CDEC_StationInfo("ISD") # no water quality data
-SJJ_info <- CDEC_StationInfo("SJJ") # Transitioned to USBR from USGS "December 2025"
-JER_info <- CDEC_StationInfo("JER") # No comments, is the data on USGS water quality?
-BLP_info <- CDEC_StationInfo("BLP") # Blind Point does have WQ data available on DWR Continuous Water Data Library station id = B9502900
-ANC_info <- CDEC_StationInfo("ANC") # Becomes ANH in 2018 but link to download data does not work
-ANH_info <- CDEC_StationInfo("ANH") # Antioch does not exist?
-FRP_info <- CDEC_StationInfo("FRP") # Farrar Park salinity and EC only
-BIF_info <- CDEC_StationInfo("BIF") # Precip gage 2008 to present
-```
-
-Pull QA QC data from BLP specifically per hidden comment in metatdata
+Pull QA QC data from BLP specifically per hidden comment in metatdata [WIP]
 ```{r}
 library(readr)
 library(dplyr)
@@ -215,6 +205,7 @@ head(wide_data)
 write_csv(wide_data, "B9502900_DAYMEAN_combined.csv")
 ```
 
+### STATION ID: SJJ/JER (Michelle)
 ```{r}
 #STATION ID: SJJ/JER Michelle
 Water velocity 2006 - present
@@ -240,46 +231,16 @@ plot(SJJ_DO$datetime,SJJ_DO$value)
 plot(SJJ_pH$datetime,SJJ_pH$value)
 plot(SJJ_Turb$datetime,SJJ_Turb$value)
 ```
-```{r}
-#STATION ID: ANH Nick
-
-anh_windsp <- CDECquery("ANH", "9", "E", "2008-10-16", "2026-07-16") # hourly AND 15 minutes lol why not
 
 
-
-```
+### STATION ID: DSJ (Nick)
 ```{r}
 #STATION ID: DSJ Nick
 
 ```
 
-```{r}
-#convert cumulative precipitation to incremental
-ISD_PPT <- ISD_PPT %>% 
-  mutate(
-    incremental_ppt = c(value[1], diff(value))
-  ) 
-# remove negative values and anomalously high values greater than 2 inches per hour
-#ISD_PPT <- ISD_PPT %>% 
-ISD_PPT$incremental_ppt[ISD_PPT$incremental_ppt < 0 ] <- 0
-ISD_PPT$incremental_ppt[ISD_PPT$incremental_ppt > 2 ] <- 0
 
-plot(ISD_PPT$datetime,ISD_PPT$incremental_ppt)
-```
-
-```{r}
-#make hourly ppt daily - sum
-ISD_PPT_daily <- ISD_PPT %>%
-  mutate(date = as.Date(datetime)) %>%  # extract date
-  group_by(date) %>%
-  summarize(
-    daily_sum = sum(incremental_ppt, na.rm = TRUE),  # sum per day
-    .groups = "drop"
-  )
-
-plot(ISD_PPT_daily$date,ISD_PPT_daily$daily_sum)
-```
-
+### STATION ID: ANH (Nick)
 ```{r}
 #STATION ID: ANH Nick
 
@@ -315,23 +276,49 @@ anh_all <- anh_params %>%
   list_rbind()
 
 ```
-```{r}
-#STATION ID: DSJ Nick
 
+# Transform data
+## Convert cumulative ppt to incremental
+```{r}
+#convert cumulative precipitation to incremental
+ISD_PPT <- ISD_PPT %>% 
+  mutate(
+    incremental_ppt = c(value[1], diff(value))
+  ) 
+# remove negative values and anomalously high values greater than 2 inches per hour
+#ISD_PPT <- ISD_PPT %>% 
+ISD_PPT$incremental_ppt[ISD_PPT$incremental_ppt < 0 ] <- 0
+ISD_PPT$incremental_ppt[ISD_PPT$incremental_ppt > 2 ] <- 0
+
+plot(ISD_PPT$datetime,ISD_PPT$incremental_ppt)
 ```
 
+## Convert hourly incremental ppt to daily
+```{r}
+#make hourly ppt daily - sum
+ISD_PPT_daily <- ISD_PPT %>%
+  mutate(date = as.Date(datetime)) %>%  # extract date
+  group_by(date) %>%
+  summarize(
+    daily_sum = sum(incremental_ppt, na.rm = TRUE),  # sum per day
+    .groups = "drop"
+  )
+
+plot(ISD_PPT_daily$date,ISD_PPT_daily$daily_sum)
+```
 
 # Visualize data
 
+## Map CDEC stations
 ```{r}
 #pull station locations
 #ANH, ISD, BLP, DSJ, SJJ
 #ANH was ANC until 2018
-ISD <- CDEC_StationInfo("ISD")
-BLP <- CDEC_StationInfo("BLP")
-SJJ <- CDEC_StationInfo("SJJ")
-CDEC_StationInfo('ANC')
-CDEC_StationInfo("DSJ")
+# ISD <- CDEC_StationInfo("ISD")
+# BLP <- CDEC_StationInfo("BLP")
+# SJJ <- CDEC_StationInfo("SJJ")
+# CDEC_StationInfo('ANC')
+# CDEC_StationInfo("DSJ")
 
 #grab all Delta stations
 library(CDECRetrieve) #had to use the following text to install: devtools::install_github("flowwest/CDECRetrieve", force = TRUE)
@@ -356,6 +343,7 @@ delta_legal <- st_read(delta_shapefile_url, quiet = TRUE)
 delta_legal <- st_transform(delta_legal, crs = 4326)
 ```
 
+NB some of our stations are missing...
 ```{r}
 # interactive map of Delta with leaflet
 leaflet() %>%
@@ -382,25 +370,7 @@ leaflet() %>%
 
 ```
 
-```{r}
-## syntax for adding multiple shapefiles example code
-# Paths to shapefiles
-shp_files <- c("data/roads.shp", "data/lakes.shp", "data/parks.shp")
 
-# Read shapefiles into a list
-shapes <- lapply(shp_files, read_sf)
-
-# Create leaflet map
-leaflet() %>%
-  addProviderTiles("CartoDB.Positron") %>%
-  addPolygons(data = shapes[[1]], color = "red", weight = 2, fillOpacity = 0.3, group = "Roads") %>%
-  addPolygons(data = shapes[[2]], color = "blue", weight = 2, fillOpacity = 0.3, group = "Lakes") %>%
-  addPolygons(data = shapes[[3]], color = "green", weight = 2, fillOpacity = 0.3, group = "Parks") %>%
-  addLayersControl(
-    overlayGroups = c("Roads", "Lakes", "Parks"),
-    options = layersControlOptions(collapsed = FALSE)
-  )
-```
 
 # Merge data together
 
