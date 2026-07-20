@@ -241,24 +241,27 @@ plot(SJJ_Turb$datetime,SJJ_Turb$value)
 
 
 ### STATION ID: ANH (Nick)
+Params:
+wind speed (9) - event (hourly, 15 mins) - 2008-10-16 to present
+wind direction (10) - event (hourly, 15 mins) - 2008-10-16 to present
+solar radiation (26) - event (hourly, 15 mins) - 2008-10-16 to present
+air temp (4) - event (hourly, 15 mins) - 2008-10-16 to present
+water temp (25) - event (hourly, 15 mins) - 2008-10-16 to present
+EC (100) - event (hourly, 15 mins) - 2008-10-16 to present
+turbidiy NTU (27) - event (hourly, 15 mins) - 2008-10-16 to present
+DO (61) - event (hourly, 15 mins) - 2008-10-16 to present
 ```{r}
-#STATION ID: ANH Nick
+# test one day of wind speed to see how event is handled when it includes hourly and 15 in data
+anh_windsp_test <- CDECquery("ANH", 9, "E", "2026-07-18", "2026-07-19") # results do not match what is on CDEC site!!!
+anh_windsp_test2 <- CDECquery("ANH", 9, "H", "2026-07-18", "2026-07-19")
 
-# anh_windsp <- CDECquery("ANH", 9, "E", "2008-10-16", "2026-07-16") # hourly AND 15 minutes lol why not
-
-dischargeID <- "20" #event
-velocityID <- "21" 
-ECID <- "100" #daily or event
-turbID <- "221"
-DO_ID <- "61"
-SSC_ID <- "63"
 
 anh_params <- tibble(
   station = "ANH",
-  sensor = c(9, 10, 26, 4, 25),
-  interval = c("E", "H", "E", "E", "E" ),
-  start = c("2008-10-16", "1995-02-01", "2008-10-16", "2008-10-16", "2008-10-16"),
-  end = c("2026-07-16", "2026-07-16", "2026-07-16", "2026-07-16", "2026-07-16")
+  sensor = c(9, 10, 26, 4, 25, 100, 27, 61),
+  interval = rep("E", 8),
+  start = rep("2008-10-16", 8), 
+  end = rep("2026-07-16", 8)
 )
 
 anh_all <- anh_params %>%
