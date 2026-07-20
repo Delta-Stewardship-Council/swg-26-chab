@@ -19,7 +19,7 @@ Variables from SCHISM: water temperature, flow, turbidity, salinity, residence t
 ```{r}
 # Required packages to include
 # install.packages("librarian")
-librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr,sharpshootR)
+librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr,sharpshootR, ckanr)
 ```
 
 ![[SCHISM boundary conditions](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/topics/baydelta_boundaries.html)](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/_images/open_boundaries.png){width="80%"}
@@ -119,14 +119,103 @@ plot(ISD_WINDDIR$datetime,ISD_WINDDIR$value)
 ```
 
 ```{r}
-#pull station locations
-#ANH, ISD, BLP, DSJ, SJJ
-ISD <- CDEC_StationInfo("ISD")
-BLP <- CDEC_StationInfo("BLP")
-SJJ <- CDEC_StationInfo("SJJ")
-CDEC_StationInfo('ANH')
-CDEC_StationInfo("DSJ")
+#STATION ID: BLP Michelle
+#EC, water temp, DO, pH, turbidity
+BLP_EC <- CDECquery("BLP", "100", "D","2010-02-17", "2026-07-15") 
+BLP_WaterT <- CDECquery("BLP", "25", "E","2010-02-17", "2026-07-15")
+BLP_DO <- CDECquery("BLP", "61", "E","2010-02-17", "2026-07-15")
+BLP_pH <- CDECquery("BLP", "62", "E","2010-02-17", "2026-07-15")
+BLP_Turb <- CDECquery("BLP", "221", "E","2010-02-17", "2026-07-15")
+
+plot(BLP_EC$datetime,BLP_EC$value)
+plot(BLP_WaterT$datetime,BLP_WaterT$value)
+plot(BLP_DO$datetime,BLP_DO$value)
+plot(BLP_pH$datetime,BLP_pH$value)
+plot(BLP_Turb$datetime,BLP_Turb$value)
 ```
+
+```{r}
+# Connect to a CKAN instance (read-only)
+ckanr_setup(url = "https://demo.ckan.org/")
+# SQL-style query
+sql <- 'SELECT * FROM "resource_id_here" LIMIT 10'
+ds_data <- ds_search_sql(sql, as = "table")
+head(ds_data)
+```
+
+```{r}
+# Load required packages
+# Install if missing: install.packages(c("httr", "jsonlite", "dplyr"))
+librarian::shelf(httr,jsonlite,dplyr)
+
+
+# Function to fetch data from DWR WDL API
+fetch_dwr_wdl <- function(station_id, start_date = NULL, end_date = NULL) {
+  base_url <- "https://wdl.water.ca.gov/waterdatalibrary/api/stations"
+
+  # Build query parameters
+  params <- list(
+    stationId = station_id,
+    startDate = start_date,
+    endDate = end_date
+  )
+
+  # Make GET request
+  res <- tryCatch({
+    GET(base_url, query = params)
+  }, error = function(e) {
+    stop("Error connecting to DWR WDL API: ", e$message)
+  })
+
+  # Check HTTP status
+  if (status_code(res) != 200) {
+    stop("API request failed with status: ", status_code(res))
+  }
+
+  # Parse JSON response
+  data <- tryCatch({
+    fromJSON(content(res, "text", encoding = "UTF-8"), flatten = TRUE)
+  }, error = function(e) {
+    stop("Error parsing API response: ", e$message)
+  })
+
+  # Return as tibble for easy handling
+  return(as_tibble(data))
+}
+
+# Example usage:
+# Replace with a valid station ID from WDL (e.g., "B91665" for a groundwater well)
+station_id <- "B9502900"
+start_date <- "2020-01-01"
+end_date <- "2020-12-31"
+
+wdl_data <- fetch_dwr_wdl(station_id, start_date, end_date)
+
+# Display first few rows
+print(head(wdl_data))
+
+```
+
+```{r}
+BLP_Watertemp2 <- GET("https://wdlstorageaccount.blob.core.windows.net/wdlcontinuous/B9502900/por/B9502900_WaterTemp_DAYMEAN.csv",)
+```
+```{r}
+#STATION ID: SJJ Michelle
+
+```
+```{r}
+#STATION ID: ANH Nick
+
+anh_windsp <- CDECquery("ANH", "9", "E", "2008-10-16", "2026-07-16") # hourly AND 15 minutes lol why not
+
+
+
+```
+```{r}
+#STATION ID: DSJ Nick
+
+```
+
 ```{r}
 #convert cumulative precipitation to incremental
 ISD_PPT <- ISD_PPT %>% 
@@ -154,29 +243,29 @@ ISD_PPT_daily <- ISD_PPT %>%
 plot(ISD_PPT_daily$date,ISD_PPT_daily$daily_sum)
 ```
 
-```{r}
-#STATION ID: BLP Michelle
-
-```
-```{r}
-#STATION ID: SJJ Michelle
-
-```
-```{r}
-#STATION ID: ANH Nick
-
-anh_windsp <- CDECquery("ANH", "9", "E", "2008-10-16", "2026-07-16") # hourly AND 15 minutes lol why not
-
-
-
-```
-```{r}
-#STATION ID: DSJ Nick
-
-```
-
-
 # Visualize data
+
+```{r}
+#pull station locations
+#ANH, ISD, BLP, DSJ, SJJ
+#ANH was ANC until 2018
+ISD <- CDEC_StationInfo("ISD")
+BLP <- CDEC_StationInfo("BLP")
+SJJ <- CDEC_StationInfo("SJJ")
+CDEC_StationInfo('ANC')
+CDEC_StationInfo("DSJ")
+
+#grab all Delta stations
+library(CDECRetrieve) #had to use the following text to install: devtools::install_github("flowwest/CDECRetrieve", force = TRUE)
+Delta_stations_CDEC <- cdec_stations(river_basin = "DELTA") 
+Delta_stations_CDEC_sf <-  st_as_sf(Delta_stations_CDEC, coords = c("longitude", "latitude"), crs = 4326)
+# Define output shapefile path
+out_path <- "data/Delta_CDEC_points.shp"
+
+# Write the sf object to a shapefile
+# 'delete_dsn = TRUE' overwrites if file exists
+st_write(Delta_stations_CDEC_sf, out_path, delete_dsn = TRUE)
+```
 
 ```{r}
 # gather shapefiles for interactive map of Delta
@@ -191,18 +280,28 @@ delta_legal <- st_transform(delta_legal, crs = 4326)
 
 ```{r}
 # interactive map of Delta with leaflet
-leaflet(delta_legal) %>%
+leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap tiles
   setView(lng = mean(st_coordinates(st_centroid(st_union(delta_legal)))[,1]),
           lat = mean(st_coordinates(st_centroid(st_union(delta_legal)))[,2]),
           zoom = 10) %>%
+            #add legal Delta boundary
   addPolygons(
+    data = delta_legal,
     color = "blue",
-    weight = 1,
-    opacity = 0.6,
-    fillOpacity = 0.2,
-    popup = ~as.character("Legal Delta") # can change to a shapefile column name
+    weight = 2,
+    opacity = 0.1,
+    fillOpacity = 0.1
+    #popup = ~as.character("Legal Delta") # can change to a shapefile column name
+  ) %>% 
+   #add the CDEC stations
+  addCircleMarkers(data = Delta_stations_CDEC_sf,
+  color = "red",
+  weight = 1.5,
+  fillOpacity = 0.4,
+  popup = ~paste("Station:", station_id, name)
   )
+
 ```
 
 ```{r}
