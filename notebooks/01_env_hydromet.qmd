@@ -19,11 +19,7 @@ Variables from SCHISM: water temperature, flow, turbidity, salinity, residence t
 ```{r}
 # Required packages to include
 # install.packages("librarian")
-<<<<<<< HEAD
-librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr,sharpshootR, ckanr)
-=======
-librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr,sharpshootR, purrr, tibble)
->>>>>>> cecaf5ed84f24de59dbeb86f72166722074473cc
+librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr,sharpshootR, purr, tibble, ckanr)
 ```
 
 ![[SCHISM boundary conditions](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/topics/baydelta_boundaries.html)](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/_images/open_boundaries.png){width="80%"}
@@ -139,64 +135,74 @@ plot(BLP_Turb$datetime,BLP_Turb$value)
 ```
 
 ```{r}
-# Connect to a CKAN instance (read-only)
-ckanr_setup(url = "https://demo.ckan.org/")
-# SQL-style query
-sql <- 'SELECT * FROM "resource_id_here" LIMIT 10'
-ds_data <- ds_search_sql(sql, as = "table")
-head(ds_data)
+#Site investigations for Big Break
+ISD_info <- CDEC_StationInfo("ISD") # no water quality data
+SJJ_info <- CDEC_StationInfo("SJJ") # Transitioned to USBR from USGS "December 2025"
+JER_info <- CDEC_StationInfo("JER") # No comments, is the data on USGS water quality?
+BLP_info <- CDEC_StationInfo("BLP") # Blind Point does have WQ data available on DWR Continuous Water Data Library station id = B9502900
+ANC_info <- CDEC_StationInfo("ANC") # Becomes ANH in 2018 but link to download data does not work
+ANH_info <- CDEC_StationInfo("ANH") # Antioch does not exist?
+FRP_info <- CDEC_StationInfo("FRP") # Farrar Park salinity and EC only
+BIF_info <- CDEC_StationInfo("BIF") # Precip gage 2008 to present
+```
+```{r}
+library(readr)
+library(dplyr)
+
+csv_url <- "https://data.ca.gov/datastore/dump/66a144b8-76d4-463e-ba7e-d4a09e715ec7?format=csv"
+
+# Read directly from the CSV dump
+df <- read_csv(csv_url)
+
+# Filter for a specific station and daily mean
+station_id <- "B9502900"
+daily_df <- df %>%
+  filter(station_number == station_id, output_interval == "DAYMEAN")
+
+print(head(daily_df))
+
 ```
 
 ```{r}
-# Load required packages
-# Install if missing: install.packages(c("httr", "jsonlite", "dplyr"))
-librarian::shelf(httr,jsonlite,dplyr)
 
 
-# Function to fetch data from DWR WDL API
-fetch_dwr_wdl <- function(station_id, start_date = NULL, end_date = NULL) {
-  base_url <- "https://wdl.water.ca.gov/waterdatalibrary/api/stations"
+# Column in daily_df that contains the CSV URLs
+csv_url_col <- "download_link"  # <-- change to your actual column name
 
-  # Build query parameters
-  params <- list(
-    stationId = station_id,
-    startDate = start_date,
-    endDate = end_date
-  )
-
-  # Make GET request
-  res <- tryCatch({
-    GET(base_url, query = params)
+# --- Function to download and read one CSV ---
+read_station_csv <- function(url) {
+  message("Downloading: ", url)
+  tryCatch({
+    read_csv(url, show_col_types = FALSE)
   }, error = function(e) {
-    stop("Error connecting to DWR WDL API: ", e$message)
+    warning("Failed to read ", url, ": ", e$message)
+    return(NULL)
   })
-
-  # Check HTTP status
-  if (status_code(res) != 200) {
-    stop("API request failed with status: ", status_code(res))
-  }
-
-  # Parse JSON response
-  data <- tryCatch({
-    fromJSON(content(res, "text", encoding = "UTF-8"), flatten = TRUE)
-  }, error = function(e) {
-    stop("Error parsing API response: ", e$message)
-  })
-
-  # Return as tibble for easy handling
-  return(as_tibble(data))
 }
 
-# Example usage:
-# Replace with a valid station ID from WDL (e.g., "B91665" for a groundwater well)
-station_id <- "B9502900"
-start_date <- "2020-01-01"
-end_date <- "2020-12-31"
+# --- Download and combine all CSVs ---
+all_data <- daily_df %>%
+  pull(!!csv_url_col) %>%       # extract the URLs
+  map(read_station_csv) #%>%     # download each
+  compact() %>%                 # remove NULLs from failed downloads
+  bind_rows()                   # stack into one long table
 
-wdl_data <- fetch_dwr_wdl(station_id, start_date, end_date)
+# --- Convert to wide format ---
+# Assumes columns: DATE, PARAMETER, VALUE
+wide_data <- all_data %>%
+  mutate(DATE = as.Date(DATE)) %>%
+  pivot_wider(
+    id_cols = DATE,
+    names_from = PARAMETER,
+    values_from = VALUE
+  ) %>%
+  arrange(DATE)
 
-# Display first few rows
-print(head(wdl_data))
+#View output
+head(wide_data)
+# --- Save to CSV ---
+write_csv(wide_data, "B9502900_DAYMEAN_combined.csv")
+
 
 ```
 
@@ -204,7 +210,7 @@ print(head(wdl_data))
 BLP_Watertemp2 <- GET("https://wdlstorageaccount.blob.core.windows.net/wdlcontinuous/B9502900/por/B9502900_WaterTemp_DAYMEAN.csv",)
 ```
 ```{r}
-#STATION ID: SJJ Michelle
+#STATION ID: SJJ/JER Michelle
 
 ```
 ```{r}
@@ -247,8 +253,6 @@ ISD_PPT_daily <- ISD_PPT %>%
 plot(ISD_PPT_daily$date,ISD_PPT_daily$daily_sum)
 ```
 
-<<<<<<< HEAD
-=======
 ```{r}
 #STATION ID: BLP Michelle
 
@@ -291,7 +295,6 @@ anh_all <- anh_params %>%
 ```
 
 
->>>>>>> cecaf5ed84f24de59dbeb86f72166722074473cc
 # Visualize data
 
 ```{r}
