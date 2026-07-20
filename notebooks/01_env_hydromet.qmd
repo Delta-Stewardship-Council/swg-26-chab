@@ -208,28 +208,31 @@ write_csv(wide_data, "B9502900_DAYMEAN_combined.csv")
 ### STATION ID: SJJ/JER (Michelle)
 ```{r}
 #STATION ID: SJJ/JER Michelle
-Water velocity 2006 - present
-Discharge 2003 - present
-Water temp 2009 - present
-EC 2009 - present
-Turbidity 2009 - present
-DO 2013 - present
-Suspended sed 2025 - present
+# Water velocity 2006 - present
+# Discharge 2003 - present
+# Water temp 2009 - present
+# EC 2009 - present
+# Turbidity 2009 - present
+# DO 2013 - present
+# Suspended sed 2025 - present
+
 #EC, water temp, DO, pH, turbidity
 
-SJJ_vel <- CDECquery("SJJ", "100", "D","2010-02-17", "2026-07-15") 
-SJJ_Q <- CDECquery("SJJ", "25", "E","2010-02-17", "2026-07-15")
-SJJ_EC <- CDECquery("SJJ", "100", "D","2010-02-17", "2026-07-15") 
-SJJ_WaterT <- CDECquery("SJJ", "25", "E","2010-02-17", "2026-07-15")
-SJJ_DO <- CDECquery("SJJ", "61", "E","2010-02-17", "2026-07-15")
-SJJ_pH <- CDECquery("SJJ", "62", "E","2010-02-17", "2026-07-15")
-SJJ_Turb <- CDECquery("SJJ", "221", "E","2010-02-17", "2026-07-15")
+SJJ_vel <- CDECquery("SJJ", "21", "E","2006-01-01", "2026-07-15") 
+SJJ_Q <- CDECquery("SJJ", "20", "E","2003-01-01", "2026-07-15")
+SJJ_WaterT <- CDECquery("SJJ", "25", "E","2009-01-01", "2026-07-15")
+SJJ_EC <- CDECquery("SJJ", "100", "E","2009-01-01", "2026-07-15") 
+SJJ_Turb <- CDECquery("SJJ", "221", "E","2009-01-01", "2026-07-15")
+SJJ_DO <- CDECquery("SJJ", "61", "E","2013-01-01", "2026-07-15")
+SJJ_SSC <- CDECquery("SJJ", "63", "E","2025-01-01", "2026-07-15")
 
-plot(SJJ_EC$datetime,SJJ_EC$value)
+plot(SJJ_vel$datetime,SJJ_vel$value)
+plot(SJJ_Q$datetime,SJJ_Q$value)
 plot(SJJ_WaterT$datetime,SJJ_WaterT$value)
-plot(SJJ_DO$datetime,SJJ_DO$value)
-plot(SJJ_pH$datetime,SJJ_pH$value)
+plot(SJJ_EC$datetime,SJJ_EC$value)
 plot(SJJ_Turb$datetime,SJJ_Turb$value)
+plot(SJJ_DO$datetime,SJJ_DO$value)
+plot(SJJ_SSC$datetime,SJJ_SSC$value)
 ```
 
 
