@@ -251,9 +251,12 @@ EC (100) - event (hourly, 15 mins) - 2008-10-16 to present
 turbidiy NTU (27) - event (hourly, 15 mins) - 2008-10-16 to present
 DO (61) - event (hourly, 15 mins) - 2008-10-16 to present
 ```{r}
-# test one day of wind speed to see how event is handled when it includes hourly and 15 in data
+# test one day of wind speed to see how event is handled when it includes hourly and 15 in data ... and now testing more stuff because values returned via this query differ to those on live site
+# NB I think event means 15 mins 
 anh_windsp_test <- CDECquery("ANH", 9, "E", "2026-07-18", "2026-07-19") # results do not match what is on CDEC site!!!
 anh_windsp_test2 <- CDECquery("ANH", 9, "H", "2026-07-18", "2026-07-19")
+anh_temp_w <- CDECquery("ANH", 25, "E", "2026-07-18", Sys.Date())
+anh_wind_dir <- CDECquery("ANH", 10, "H", "2026-07-18", Sys.Date())
 
 
 anh_params <- tibble(
