@@ -233,6 +233,29 @@ plot(SJJ_EC$datetime,SJJ_EC$value)
 plot(SJJ_Turb$datetime,SJJ_Turb$value)
 plot(SJJ_DO$datetime,SJJ_DO$value)
 plot(SJJ_SSC$datetime,SJJ_SSC$value)
+
+sjj_params <- tibble(
+  station = "SJJ",
+  sensor = c(21,20,25,100,221,61,63),
+  interval = rep("E", 7),
+  start = rep("2006-5-22", 7), 
+  end = rep("2026-07-15", 7)
+)
+
+
+sjj_all <- sjj_params %>%
+  pmap(
+    \(station, sensor, interval, start, end) {
+      CDECquery(
+        id = station,
+        sensor = sensor,
+        interval = interval,
+        start = start,
+        end = end
+      )
+    }
+  ) %>%
+  list_rbind()
 ```
 
 
