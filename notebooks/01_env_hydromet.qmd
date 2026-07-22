@@ -21,6 +21,13 @@ Major steps:
 6 combine with toxicity data at Big Break
 7 combine with remote sensing indices
 
+# Download data
+```{r}
+# Required packages to include
+# install.packages("librarian")
+librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr, sharpshootR, purrr, tibble, ckanr, lubridate)
+```
+
 ## Download data from CDEC
 Station notes:
 CDEC Stations

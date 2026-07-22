@@ -9,8 +9,6 @@ authors: Michelle Stern and Nick Rowlands
 ---
 Variables from SCHISM: water temperature, flow, turbidity, salinity, residence time (average for a certain month? season?) how to get an index for stratification, light? Variables from climate datasets: wind, solar radiation (also when?) Flow at certain gages? satellite data? Non time-variant variables?
 
-# Download data
-
 ```{r}
 # Required packages to include
 # install.packages("librarian")
