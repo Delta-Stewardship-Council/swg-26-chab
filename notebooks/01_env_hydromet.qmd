@@ -19,7 +19,7 @@ Variables from SCHISM: water temperature, flow, turbidity, salinity, residence t
 ```{r}
 # Required packages to include
 # install.packages("librarian")
-librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr, sharpshootR, purrr, tibble, ckanr)
+librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr, sharpshootR, purrr, tibble, ckanr, lubridate)
 ```
 
 ![[SCHISM boundary conditions](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/topics/baydelta_boundaries.html)](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/_images/open_boundaries.png){width="80%"}
@@ -101,6 +101,7 @@ ANC_info <- CDEC_StationInfo("ANC") # Becomes ANH in 2018 but link to download d
 ANH_info <- CDEC_StationInfo("ANH") # Antioch does not exist?
 FRP_info <- CDEC_StationInfo("FRP") # Farrar Park salinity and EC only
 BIF_info <- CDEC_StationInfo("BIF") # Precip gage 2008 to present
+#DSJ_info <- CDEC_StationInfo("DSJ")
 ```
 ```{r}
 #Sensor codes of interest in CDEC 
@@ -150,9 +151,6 @@ plot(BLP_Turb$datetime,BLP_Turb$value)
 
 Pull QA QC data from BLP specifically per hidden comment in metatdata [WIP]
 ```{r}
-library(readr)
-library(dplyr)
-
 csv_url <- "https://data.ca.gov/datastore/dump/66a144b8-76d4-463e-ba7e-d4a09e715ec7?format=csv"
 csv_url2 <- "https://wdlstorageaccount.blob.core.windows.net/wdlcontinuous/B9502900/por/B9502900_WaterTemp_DAYMEAN.csv"
 csv_url3 <- "https://wdlstorageaccount.blob.core.windows.net/wdlcontinuous/B9502900/por/B9502900_ECat25C_DAYMEAN.csv"
@@ -332,7 +330,563 @@ anh_all <- anh_params %>%
 
 ```
 
-# Transform data
+# QC data and transform to daily
+```{r}
+# Function to compute descriptive statistics for a time series
+ts_summary <- function(x) {
+  # Validate input
+  if (!is.numeric(x)) {
+    stop("Input must be numeric or a time series object.")
+  }
+  
+  # Remove NA values
+  x <- na.omit(as.numeric(x))
+  
+  if (length(x) < 2) {
+    stop("Time series must have at least 2 non-missing values.")
+  }
+  
+  # Compute statistics
+  stats <- data.frame(
+    Count = length(x),
+    Mean = mean(x),
+    Median = median(x),
+    Min = min(x),
+    Max = max(x),
+    Range = diff(range(x)),
+    SD = sd(x),
+    Variance = var(x),
+    Q05 = quantile(x, 0.05),
+    Q95 = quantile(x, 0.95),
+    Lag1_ACF = acf(x, plot = FALSE)$acf[2]
+  )
+  
+  return(stats)
+}
+```
+
+## velocity
+```{r}
+# summary statistics and removal of outliers
+# run summary stats
+ts_summary(SJJ_vel$value)
+
+threshold_pos_vel <- 4
+threshold_neg_vel <- -6
+
+# Remove values outside thresholds (set to NA)
+SJJ_vel <- SJJ_vel %>%
+  mutate(value = ifelse(value > threshold_pos_vel | value < threshold_neg_vel, NA, value))
+
+ts_summary(SJJ_vel$value)
+plot(SJJ_vel$datetime,SJJ_vel$value)
+
+
+# Step 1: Aggregate 15-min data to daily mean
+SJJ_vel_daily <- SJJ_vel %>%
+  mutate(datetime = as.Date(datetime)) %>%
+  group_by(datetime) %>%
+  summarise(daily_mean = mean(value, na.rm = TRUE), .groups = "drop")
+
+# Step 2: Add year and day-of-year (DOY)
+SJJ_vel_daily <- SJJ_vel_daily %>%
+  mutate(
+    year = year(datetime),
+    doy  = yday(datetime)
+  )
+
+# Step 3: Calculate standard deviation of daily means for each DOY across years
+doy_stats <- SJJ_vel_daily %>%
+  group_by(doy) %>%
+  summarise(
+    mean_daily_mean = mean(daily_mean, na.rm = TRUE),
+    sd_daily_mean = sd(daily_mean, na.rm = TRUE),
+    n_years = n(),  # optional: number of daily values used
+    .groups = "drop"
+  )
+
+# View results
+head(doy_stats, 10)
+plot(SJJ_vel_daily$datetime,SJJ_vel_daily$daily_mean)
+plot(doy_stats$doy,doy_stats$mean_daily_mean)
+plot(doy_stats$doy,doy_stats$sd_daily_mean)
+```
+
+## flow
+```{r}
+#SJJ_Q <- CDECquery("SJJ", "20", "E","2003-01-01", "2026-07-15")
+# summary statistics and removal of outliers
+plot(SJJ_Q$value)
+
+# run summary stats
+ts_summary(SJJ_Q$value)
+
+threshold_pos_Q <- 900000 #1480485
+threshold_neg_Q <- -900000 #-1407986
+
+# Remove values outside thresholds (set to NA)
+SJJ_Q <- SJJ_Q %>%
+  mutate(value = ifelse(value > threshold_pos_Q | value < threshold_neg_Q, NA, value))
+
+ts_summary(SJJ_Q$value)
+plot(SJJ_Q$datetime,SJJ_Q$value)
+
+# Step 1: Aggregate 15-min data to daily mean
+SJJ_Q_daily <- SJJ_Q %>%
+  mutate(datetime = as.Date(datetime)) %>%
+  group_by(datetime) %>%
+  summarise(daily_mean = mean(value, na.rm = TRUE), .groups = "drop")
+
+# Step 2: Add year and day-of-year (DOY)
+SJJ_Q_daily <- SJJ_Q_daily %>%
+  mutate(
+    year = year(datetime),
+    doy  = yday(datetime)
+  )
+
+# Step 3: Calculate standard deviation of daily means for each DOY across years
+doy_stats <- SJJ_Q_daily %>%
+  group_by(doy) %>%
+  summarise(
+    mean_daily_mean = mean(daily_mean, na.rm = TRUE),
+    sd_daily_mean = sd(daily_mean, na.rm = TRUE),
+    n_years = n(),  # optional: number of daily values used
+    .groups = "drop"
+  )
+
+# View results
+head(doy_stats, 10)
+plot(SJJ_Q_daily$datetime,SJJ_Q_daily$daily_mean)
+plot(doy_stats$doy,doy_stats$mean_daily_mean)
+plot(doy_stats$doy,doy_stats$sd_daily_mean)
+```
+
+## water temp
+```{r}
+SJJ_WaterT <- CDECquery("SJJ", "25", "E","2009-01-01", "2026-07-15")
+# summary statistics and removal of outliers
+plot(SJJ_WaterT$value)
+
+# run summary stats
+ts_summary(SJJ_WaterT$value)
+
+threshold_pos_WaterT <- 100 #163.8
+threshold_neg_WaterT <- 40 #-17966.2
+
+# Remove values outside thresholds (set to NA)
+SJJ_WaterT <- SJJ_WaterT %>%
+  mutate(value = ifelse(value > threshold_pos_WaterT | value < threshold_neg_WaterT, NA, value))
+
+ts_summary(SJJ_WaterT$value)
+plot(SJJ_WaterT$datetime,SJJ_WaterT$value)
+
+# Step 1: Aggregate 15-min data to daily mean
+SJJ_WaterT_daily <- SJJ_WaterT %>%
+  mutate(datetime = as.Date(datetime)) %>%
+  group_by(datetime) %>%
+  summarise(daily_mean = mean(value, na.rm = TRUE), .groups = "drop")
+
+# Step 2: Add year and day-of-year (DOY)
+SJJ_WaterT_daily <- SJJ_WaterT_daily %>%
+  mutate(
+    year = year(datetime),
+    doy  = yday(datetime)
+  )
+
+# Step 3: Calculate standard deviation of daily means for each DOY across years
+doy_stats <- SJJ_WaterT_daily %>%
+  group_by(doy) %>%
+  summarise(
+    mean_daily_mean = mean(daily_mean, na.rm = TRUE),
+    sd_daily_mean = sd(daily_mean, na.rm = TRUE),
+    n_years = n(),  # optional: number of daily values used
+    .groups = "drop"
+  )
+
+# View results
+head(doy_stats, 10)
+plot(SJJ_WaterT_daily$datetime,SJJ_WaterT_daily$daily_mean)
+plot(doy_stats$doy,doy_stats$mean_daily_mean)
+plot(doy_stats$doy,doy_stats$sd_daily_mean)
+
+```
+
+## EC
+```{r}
+SJJ_EC <- CDECquery("SJJ", "100", "E","2009-01-01", "2026-07-15")
+# summary statistics and removal of outliers
+plot(SJJ_EC$value)
+
+# run summary stats
+ts_summary(SJJ_EC$value)
+
+threshold_pos_EC <- 10000 
+threshold_neg_EC <- -10 
+
+# Remove values outside thresholds (set to NA)
+SJJ_EC <- SJJ_EC %>%
+  mutate(value = ifelse(value > threshold_pos_EC | value < threshold_neg_EC, NA, value))
+
+ts_summary(SJJ_EC$value)
+plot(SJJ_EC$datetime,SJJ_EC$value)
+
+# Step 1: Aggregate 15-min data to daily mean
+SJJ_EC_daily <- SJJ_EC %>%
+  mutate(datetime = as.Date(datetime)) %>%
+  group_by(datetime) %>%
+  summarise(daily_mean = mean(value, na.rm = TRUE), .groups = "drop")
+
+# Step 2: Add year and day-of-year (DOY)
+SJJ_EC_daily <- SJJ_EC_daily %>%
+  mutate(
+    year = year(datetime),
+    doy  = yday(datetime)
+  )
+
+# Step 3: Calculate standard deviation of daily means for each DOY across years
+doy_stats <- SJJ_EC_daily %>%
+  group_by(doy) %>%
+  summarise(
+    mean_daily_mean = mean(daily_mean, na.rm = TRUE),
+    sd_daily_mean = sd(daily_mean, na.rm = TRUE),
+    n_years = n(),  # optional: number of daily values used
+    .groups = "drop"
+  )
+
+# View results
+head(doy_stats, 10)
+plot(SJJ_EC_daily$datetime,SJJ_EC_daily$daily_mean)
+plot(doy_stats$doy,doy_stats$mean_daily_mean)
+plot(doy_stats$doy,doy_stats$sd_daily_mean)
+
+```
+
+```{r}
+# summary statistics and removal of outliers
+plot(BLP_EC$value)
+
+# run summary stats
+ts_summary(BLP_EC$value)
+
+threshold_pos_EC <- 10000 
+threshold_neg_EC <- 0.1 
+
+# Remove values outside thresholds (set to NA)
+BLP_EC <- BLP_EC %>%
+  mutate(value = ifelse(value > threshold_pos_EC | value < threshold_neg_EC, NA, value))
+
+ts_summary(BLP_EC$value)
+plot(BLP_EC$datetime,BLP_EC$value)
+
+# Step 1: Aggregate 15-min data to daily mean
+BLP_EC_daily <- BLP_EC %>%
+  mutate(datetime = as.Date(datetime)) %>%
+  group_by(datetime) %>%
+  summarise(daily_mean = mean(value, na.rm = TRUE), .groups = "drop")
+
+# Step 2: Add year and day-of-year (DOY)
+BLP_EC_daily <- BLP_EC_daily %>%
+  mutate(
+    year = year(datetime),
+    doy  = yday(datetime)
+  )
+
+# Step 3: Calculate standard deviation of daily means for each DOY across years
+BLP_EC_doy_stats <- BLP_EC_daily %>%
+  group_by(doy) %>%
+  summarise(
+    mean_daily_mean = mean(daily_mean, na.rm = TRUE),
+    sd_daily_mean = sd(daily_mean, na.rm = TRUE),
+    n_years = n(),  # optional: number of daily values used
+    .groups = "drop"
+  )
+
+# View results
+head(BLP_EC_doy_stats, 10)
+plot(BLP_EC_daily$datetime,BLP_EC_daily$daily_mean)
+plot(BLP_EC_doy_stats$doy,BLP_EC_doy_stats$mean_daily_mean)
+plot(BLP_EC_doy_stats$doy,BLP_EC_doy_stats$sd_daily_mean)
+
+All_EC_daily <- full_join(BLP_EC_daily,SJJ_EC_daily, by = "datetime") %>% 
+  arrange(datetime) 
+
+names(All_EC_daily)[names(All_EC_daily) == "daily_mean.x"] <- "BLP_EC" 
+names(All_EC_daily)[names(All_EC_daily) == "daily_mean.y"] <- "SJJ_EC"
+
+print(All_EC_daily)
+
+# Convert from wide to long format for ggplot
+All_EC_daily_long <- All_EC_daily %>%
+  pivot_longer(cols = c(BLP_EC, SJJ_EC),
+               names_to = "series",
+               values_to = "value")
+
+# Plot both series on the same graph
+ggplot(All_EC_daily_long, aes(x = datetime, y = value, color = series)) +
+  geom_line(size = 1) +
+  geom_point(size = 2) +
+  labs(
+    x = "Date",
+    y = "EC",
+    color = "Site"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    legend.position = "top"
+  )
+```
+
+
+
+## turbidity
+```{r}
+SJJ_Turb <- CDECquery("SJJ", "221", "E","2009-01-01", "2026-07-15")
+# summary statistics and removal of outliers
+plot(SJJ_Turb$value)
+
+# run summary stats
+ts_summary(SJJ_Turb$value)
+
+threshold_pos_Turb <- 10000 
+threshold_neg_Turb <- -10 
+
+# Remove values outside thresholds (set to NA)
+SJJ_Turb <- SJJ_Turb %>%
+  mutate(value = ifelse(value > threshold_pos_Turb | value < threshold_neg_Turb, NA, value))
+
+ts_summary(SJJ_Turb$value)
+plot(SJJ_Turb$datetime,SJJ_Turb$value)
+
+# Step 1: Aggregate 15-min data to daily mean
+SJJ_Turb_daily <- SJJ_Turb %>%
+  mutate(datetime = as.Date(datetime)) %>%
+  group_by(datetime) %>%
+  summarise(daily_mean = mean(value, na.rm = TRUE), .groups = "drop")
+
+# Step 2: Add year and day-of-year (DOY)
+SJJ_Turb_daily <- SJJ_Turb_daily %>%
+  mutate(
+    year = year(datetime),
+    doy  = yday(datetime)
+  )
+
+# Step 3: Calculate standard deviation of daily means for each DOY across years
+doy_stats <- SJJ_Turb_daily %>%
+  group_by(doy) %>%
+  summarise(
+    mean_daily_mean = mean(daily_mean, na.rm = TRUE),
+    sd_daily_mean = sd(daily_mean, na.rm = TRUE),
+    n_years = n(),  # optional: number of daily values used
+    .groups = "drop"
+  )
+
+# View results
+head(doy_stats, 10)
+plot(SJJ_Turb_daily$datetime,SJJ_Turb_daily$daily_mean)
+plot(doy_stats$doy,doy_stats$mean_daily_mean)
+plot(doy_stats$doy,doy_stats$sd_daily_mean)
+
+```
+
+## DO
+```{r}
+SJJ_DO <- CDECquery("SJJ", "61", "E","2013-01-01", "2026-07-15")
+# summary statistics and removal of outliers
+plot(SJJ_DO$value)
+
+# run summary stats
+ts_summary(SJJ_DO$value)
+
+threshold_pos_DO <- 15 
+threshold_neg_DO <- 2 
+
+# Remove values outside thresholds (set to NA)
+SJJ_DO <- SJJ_DO %>%
+  mutate(value = ifelse(value > threshold_pos_DO | value < threshold_neg_DO, NA, value))
+
+ts_summary(SJJ_DO$value)
+plot(SJJ_DO$datetime,SJJ_DO$value)
+
+# Step 1: Aggregate 15-min data to daily mean
+SJJ_DO_daily <- SJJ_DO %>%
+  mutate(datetime = as.Date(datetime)) %>%
+  group_by(datetime) %>%
+  summarise(daily_mean = mean(value, na.rm = TRUE), .groups = "drop")
+
+# Step 2: Add year and day-of-year (DOY)
+SJJ_DO_daily <- SJJ_DO_daily %>%
+  mutate(
+    year = year(datetime),
+    doy  = yday(datetime)
+  )
+
+# Step 3: Calculate standard deviation of daily means for each DOY across years
+doy_stats <- SJJ_DO_daily %>%
+  group_by(doy) %>%
+  summarise(
+    mean_daily_mean = mean(daily_mean, na.rm = TRUE),
+    sd_daily_mean = sd(daily_mean, na.rm = TRUE),
+    n_years = n(),  # optional: number of daily values used
+    .groups = "drop"
+  )
+
+# View results
+head(doy_stats, 10)
+plot(SJJ_DO_daily$datetime,SJJ_DO_daily$daily_mean)
+plot(doy_stats$doy,doy_stats$mean_daily_mean)
+plot(doy_stats$doy,doy_stats$sd_daily_mean)
+```
+
+## SSC
+```{r}
+SJJ_SSC <- CDECquery("SJJ", "63", "E","2025-01-01", "2026-07-15")
+# summary statistics and removal of outliers
+plot(SJJ_SSC$value)
+
+# run summary stats
+ts_summary(SJJ_SSC$value)
+
+threshold_pos_SSC <- 50 
+threshold_neg_SSC <- -10 
+
+# Remove values outside thresholds (set to NA)
+SJJ_SSC <- SJJ_SSC %>%
+  mutate(value = ifelse(value > threshold_pos_SSC | value < threshold_neg_SSC, NA, value))
+
+ts_summary(SJJ_SSC$value)
+plot(SJJ_SSC$datetime,SJJ_SSC$value)
+
+# Step 1: Aggregate 15-min data to daily mean
+SJJ_SSC_daily <- SJJ_SSC %>%
+  mutate(datetime = as.Date(datetime)) %>%
+  group_by(datetime) %>%
+  summarise(daily_mean = mean(value, na.rm = TRUE), .groups = "drop")
+
+# Step 2: Add year and day-of-year (DOY)
+SJJ_SSC_daily <- SJJ_SSC_daily %>%
+  mutate(
+    year = year(datetime),
+    doy  = yday(datetime)
+  )
+
+# Step 3: Calculate standard deviation of daily means for each DOY across years
+doy_stats <- SJJ_SSC_daily %>%
+  group_by(doy) %>%
+  summarise(
+    mean_daily_mean = mean(daily_mean, na.rm = TRUE),
+    sd_daily_mean = sd(daily_mean, na.rm = TRUE),
+    n_years = n(),  # optional: number of daily values used
+    .groups = "drop"
+  )
+
+# View results
+head(doy_stats, 10)
+plot(SJJ_SSC_daily$datetime,SJJ_SSC_daily$daily_mean)
+plot(doy_stats$doy,doy_stats$mean_daily_mean)
+# plot(doy_stats$doy,doy_stats$sd_daily_mean)
+
+```
+
+## wind
+```{r}
+ISD_WIND <- CDECquery("ISD", "16", "E","2006-11-09", "2026-07-15")
+# summary statistics and removal of outliers
+plot(ISD_WIND$value)
+
+# run summary stats
+ts_summary(ISD_WIND$value)
+
+# threshold_pos_SSC <- 50 
+# threshold_neg_SSC <- -10 
+
+# # Remove values outside thresholds (set to NA)
+# ISD_WIND <- ISD_WIND %>%
+#   mutate(value = ifelse(value > threshold_pos_SSC | value < threshold_neg_SSC, NA, value))
+
+ts_summary(ISD_WIND$value)
+plot(ISD_WIND$datetime,ISD_WIND$value)
+
+# Step 1: Aggregate 15-min data to daily mean
+ISD_WIND_daily <- ISD_WIND %>%
+  mutate(datetime = as.Date(datetime)) %>%
+  group_by(datetime) %>%
+  summarise(daily_mean = mean(value, na.rm = TRUE), .groups = "drop")
+
+# Step 2: Add year and day-of-year (DOY)
+ISD_WIND_daily <- ISD_WIND_daily %>%
+  mutate(
+    year = year(datetime),
+    doy  = yday(datetime)
+  )
+
+# Step 3: Calculate standard deviation of daily means for each DOY across years
+doy_stats <- ISD_WIND_daily %>%
+  group_by(doy) %>%
+  summarise(
+    mean_daily_mean = mean(daily_mean, na.rm = TRUE),
+    sd_daily_mean = sd(daily_mean, na.rm = TRUE),
+    n_years = n(),  # optional: number of daily values used
+    .groups = "drop"
+  )
+
+# View results
+head(doy_stats, 10)
+plot(ISD_WIND_daily$datetime,ISD_WIND_daily$daily_mean)
+plot(doy_stats$doy,doy_stats$mean_daily_mean)
+plot(doy_stats$doy,doy_stats$sd_daily_mean)
+```
+
+## Wind Direction
+```{r}
+ISD_WINDDIR <- CDECquery("ISD", "16", "E","2006-11-09", "2026-07-15")
+# summary statistics and removal of outliers
+plot(ISD_WINDDIR$value)
+
+# run summary stats
+ts_summary(ISD_WINDDIR$value)
+
+# threshold_pos_WINDDIR <- 50 
+# threshold_neg_WINDDIR <- -10 
+
+# # Remove values outside thresholds (set to NA)
+# ISD_WINDDIR <- ISD_WINDDIR %>%
+#   mutate(value = ifelse(value > threshold_pos_WINDDIR | value < threshold_neg_WINDDIR, NA, value))
+
+ts_summary(ISD_WINDDIR$value)
+plot(ISD_WINDDIR$datetime,ISD_WINDDIR$value)
+
+# Step 1: Aggregate 15-min data to daily mean
+ISD_WINDDIR_daily <- ISD_WINDDIR %>%
+  mutate(datetime = as.Date(datetime)) %>%
+  group_by(datetime) %>%
+  summarise(daily_mean = mean(value, na.rm = TRUE), .groups = "drop")
+
+# Step 2: Add year and day-of-year (DOY)
+ISD_WINDDIR_daily <- ISD_WINDDIR_daily %>%
+  mutate(
+    year = year(datetime),
+    doy  = yday(datetime)
+  )
+
+# Step 3: Calculate standard deviation of daily means for each DOY across years
+ISD_WINDDIR_doy_stats <- ISD_WINDDIR_daily %>%
+  group_by(doy) %>%
+  summarise(
+    mean_daily_mean = mean(daily_mean, na.rm = TRUE),
+    sd_daily_mean = sd(daily_mean, na.rm = TRUE),
+    n_years = n(),  # optional: number of daily values used
+    .groups = "drop"
+  )
+
+# View results
+head(ISD_WINDDIR_doy_stats, 10)
+plot(ISD_WINDDIR_daily$datetime,ISD_WINDDIR_daily$daily_mean)
+plot(ISD_WINDDIR_doy_stats$doy,ISD_WINDDIR_doy_stats$mean_daily_mean)
+plot(ISD_WINDDIR_doy_stats$doy,ISD_WINDDIR_doy_stats$sd_daily_mean)
+```
+
+
 ## Convert cumulative ppt to incremental
 ```{r}
 #convert cumulative precipitation to incremental
@@ -346,6 +900,9 @@ ISD_PPT$incremental_ppt[ISD_PPT$incremental_ppt < 0 ] <- 0
 ISD_PPT$incremental_ppt[ISD_PPT$incremental_ppt > 2 ] <- 0
 
 plot(ISD_PPT$datetime,ISD_PPT$incremental_ppt)
+
+# run summary stats
+ts_summary(ISD_PPT$incremental_ppt)
 ```
 
 ## Convert hourly incremental ppt to daily
