@@ -16,11 +16,13 @@ Major steps:
 1 download raw data
 2 QC data, visualize
 3 convert to daily
-4 combine all parameters together
+4 combine all parameters together into one df, then filter for analysis by date or?
 5 combine with chll data from Emily?
-6 combine with toxicity data at Big Break
-7 combine with remote sensing indices
-8 reformat if needed for modeling
+6 combine with pesticide data if available
+7 combine with toxicity data at Big Break
+8 combine with remote sensing indices
+9 combine with genetic data if available
+10 reformat if needed for modeling, add antecedent/lag variables 
 
 # Download data
 ```{r}
