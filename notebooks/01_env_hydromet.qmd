@@ -20,6 +20,7 @@ Major steps:
 5 combine with chll data from Emily?
 6 combine with toxicity data at Big Break
 7 combine with remote sensing indices
+8 reformat if needed for modeling
 
 # Download data
 ```{r}
