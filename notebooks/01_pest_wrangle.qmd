@@ -17,6 +17,12 @@ library(stringr)
 library(readxl)
 library(janitor)
 library(prettymapr)
+library(httr)
+library(zip)
+library(purrr)
+library(rvest)
+library(xml2)
+
 ```
 
 # Read in and wrangle data
@@ -445,7 +451,66 @@ leaflet(site_summary) %>%
 - pull all unique chemical names from SURF and PUR, then group/categorize
 
 
+## Read in PUR data
 
+```{r, scrape directory for purYYYY.zip files}
+BASE_URL <- "https://files.cdpr.ca.gov/pub/outgoing/pur_archives/"
+
+page <- read_html(BASE_URL)
+hrefs <- html_elements(page, "a") |> html_attr("href") #this takes the downloaded HTML page and finds every hyperlink in the directory, then extracts the href ("pur1974.zip") from each hyperlink
+
+zip_rel <- hrefs[grepl("^pur\\d{4}\\.zip$", hrefs, ignore.case = TRUE)] #this filters all the hrefs to only contain those that exactly match the "purYYYY.zip" pattern
+zip_urls <- url_absolute(zip_rel, BASE_URL) #this combines the relative URLs with the base URL so the zip files will download
+```
+
+```{r, download the zip files}
+get_zip_raw <- function(url) {
+  resp <- GET(url)
+  stop_for_status(resp)
+  content(resp, "raw")   # <-- stays in memory only
+}
+```
+
+```{r, extract the text files from the zip files}
+extract_txt_in_memory <- function(zip_raw) {
+  # List files inside ZIP (in memory)
+  listing <- zip_list(zip_raw)
+  
+  txt_members <- listing$filename[grepl("\\.txt$", listing$filename, ignore.case = TRUE)]
+  
+  # Read each .txt file back into memory
+  txt_data <- map(txt_members, function(member) {
+    rawfile <- zip_read(zip_raw, member)
+    
+    # Convert raw -> text string -> data frame
+    txt <- rawToChar(rawfile)
+    
+    # You can adjust readr::read_csv parameters depending on formatting
+    df <- read_csv(txt, show_col_types = FALSE)
+    
+    list(name = member, data = df)
+  })
+  
+  txt_data
+}
+```
+
+```{r, loop through years and load everything}
+
+pur_data <- map2(targets$year, targets$url, function(y, u) {
+  message("Processing ", y, " ...")
+  
+  zip_raw <- get_zip_raw(u)
+  txts <- extract_txt_in_memory(zip_raw)
+  
+  list(year = y, files = txts)
+})
+
+### Result structure:
+# pur_data[[i]]$year    -> numeric year
+# pur_data[[i]]$files   -> list of text tables for that year
+# Each: pur_data[[i]]$files[[j]]$name, pur_data[[i]]$files[[j]]$data
+```
 
 
 
