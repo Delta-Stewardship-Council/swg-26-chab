@@ -13,16 +13,16 @@ authors: Michelle Stern and Nick Rowlands
 The primary environmental factors shaping phytoplankton abundance and community composition are salinity, hydrodynamics, stratification, light, temperature, nutrients, and time. (https://essopenarchive.org/doi/pdf/10.22541/essoar.176495220.03206867/v1) \* Positive: high nutrients, low turbulence, long residence time, adequate light, warm temperatures, low grazing rates, seed population/refugia, low biodiversity. \* Modulating Factors: strong environmental gradients like stratification and salinity, nutrient frms and ratios, diverse habitats/connectivity, selective grazing, predator/prey co-evolution, adequate light, toxin production \* Negative: low nutrients\*, high turbulence, short residence time, low light, high grazing rates, high biodiversity, extreme temperatures warm or cold
 
 Major steps:
-1 download raw data
-2 QC data, visualize
-3 convert to daily
-4 combine all parameters together into one df, then filter for analysis by date or?
-5 combine with chll data from Emily?
-6 combine with pesticide data if available
-7 combine with toxicity data at Big Break
-8 combine with remote sensing indices
-9 combine with genetic data if available
-10 reformat if needed for modeling, add antecedent/lag variables 
+1. download raw data
+2. QC data, visualize
+3. convert to daily
+4. combine all parameters together into one df, then filter for analysis by date or?
+5. combine with chll data from Emily?
+6. combine with pesticide data if available
+7. combine with toxicity data at Big Break
+8. combine with remote sensing indices
+9. combine with genetic data if available
+10. reformat if needed for modeling, add antecedent/lag variables 
 
 # Download data
 ```{r}
@@ -30,6 +30,8 @@ Major steps:
 # install.packages("librarian")
 librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr, sharpshootR, purrr, tibble, ckanr, lubridate)
 ```
+
+Environmental variables: Precipitation, wind, solar radiation, air temperature, water velocity, discharge, EC, turbidity, SSC, DO
 
 ## Download data from CDEC
 Station notes:
@@ -1116,7 +1118,18 @@ plot(ISD_PPT_daily$date,ISD_PPT_daily$daily_sum)
 
 #grab all Delta stations
 library(CDECRetrieve) #had to use the following text to install: devtools::install_github("flowwest/CDECRetrieve", force = TRUE)
-Delta_stations_CDEC <- cdec_stations(river_basin = "DELTA") 
+Delta_stations_CDEC <- cdec_stations(river_basin = "DELTA") %>% 
+  subset( , select = c("station_id", "name", "longitude", "latitude"))
+
+SanJoaq_stations_CDEC <- cdec_stations(river_basin = "SACRAMENTO RIVER")%>% 
+  subset( , select = c("station_id", "name", "longitude", "latitude"))
+
+SacR_stations_CDEC <- cdec_stations(river_basin = "SAN JOAQUIN RIVER")%>% 
+  subset( , select = c("station_id", "name", "longitude", "latitude"))
+
+CDEC_stations_all <- data.table::merge.data.table(Delta_stations_CDEC, SanJoaq_stations_CDEC, SacR_stations_CDEC, by = "station_id", all = TRUE)
+
+
 Delta_stations_CDEC_sf <-  st_as_sf(Delta_stations_CDEC, coords = c("longitude", "latitude"), crs = 4326)
 # Define output shapefile path
 out_path <- "data/Delta_CDEC_points.shp"
