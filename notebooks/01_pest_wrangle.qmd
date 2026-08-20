@@ -459,58 +459,53 @@ BASE_URL <- "https://files.cdpr.ca.gov/pub/outgoing/pur_archives/"
 page <- read_html(BASE_URL)
 hrefs <- html_elements(page, "a") |> html_attr("href") #this takes the downloaded HTML page and finds every hyperlink in the directory, then extracts the href ("pur1974.zip") from each hyperlink
 
-zip_rel <- hrefs[grepl("^pur\\d{4}\\.zip$", hrefs, ignore.case = TRUE)] #this filters all the hrefs to only contain those that exactly match the "purYYYY.zip" pattern
+zip_rel <- hrefs[grepl("^pur\\d{4}\\.zip$", basename(hrefs), ignore.case = TRUE)] #this filters all the hrefs to only contain those that exactly match the "purYYYY.zip" pattern
 zip_urls <- url_absolute(zip_rel, BASE_URL) #this combines the relative URLs with the base URL so the zip files will download
 ```
 
-```{r, download the zip files}
+```{r, prepare storage object}
+pur_data <- list() #this creates the final object, a list of years each with a list of files
+```
+
+```{r, creating function download the zip files}
 get_zip_raw <- function(url) {
-  resp <- GET(url)
-  stop_for_status(resp)
-  content(resp, "raw")   # <-- stays in memory only
+  resp <- GET(url) #download whatever is at this URL
+  stop_for_status(resp) #checks whether download is successful 
+  content(resp, "raw") #extracts content as a raw vector, so only stored in memory (RAM)  
 }
 ```
 
-```{r, extract the text files from the zip files}
-extract_txt_in_memory <- function(zip_raw) {
-  # List files inside ZIP (in memory)
-  listing <- zip_list(zip_raw)
+Warning: The code below takes forever to run and may crash your R - I am trying to fix it
+```{r, creating for loop to loop over all ZIP urls}
+
+for (i in seq_along(zip_urls)) {
+  year_i <- as.integer(sub(".*pur(\\d{4})\\.zip$", "\\1", url_i))
+  url_i  <- zip_urls[i]
+  message("Processing year ", year_i, " ...")
+
+  zip_raw <- get_zip_raw(url_i) #download the ZIP files into memory
+
+  tmp_zip <- tempfile(fileext = ".zip") #write raw to a tempfile and use its path
+  writeBin(zip_raw, tmp_zip)
+
+  listing <- zip_list(tmp_zip) #reads the ZIP file structure and returns df listing every file inside the ZIP
+  txt_members <- listing$filename[grepl("\\.txt$", listing$filename, ignore.case = TRUE)] #filters the ZIP contents and keeps the .txt files
+
+  file_list <- list() #creating object to store extracted text files for this year in the loop
   
-  txt_members <- listing$filename[grepl("\\.txt$", listing$filename, ignore.case = TRUE)]
-  
-  # Read each .txt file back into memory
-  txt_data <- map(txt_members, function(member) {
-    rawfile <- zip_read(zip_raw, member)
-    
-    # Convert raw -> text string -> data frame
-    txt <- rawToChar(rawfile)
-    
-    # You can adjust readr::read_csv parameters depending on formatting
-    df <- read_csv(txt, show_col_types = FALSE)
-    
-    list(name = member, data = df)
-  })
-  
-  txt_data
+  for (j in seq_along(txt_members)) { #looping over text files inside the ZIP
+    txt_name <- txt_members[j]
+    con <- unz(tmp_zip, txt_name, open = "rb")
+    df  <- readr::read_csv(con, show_col_types = FALSE)
+    close(con)
+    file_list[[txt_name]] <- df #save the df into the list created earlier
+  }
+  pur_data[[as.character(year_i)]] <- file_list #store results for that year's ZIP into the larger list
+  unlink(tmp_zip) #cleanup the tempfile created for the ZIP earlier
 }
+message("Done! All years loaded fully in memory.")
 ```
 
-```{r, loop through years and load everything}
-
-pur_data <- map2(targets$year, targets$url, function(y, u) {
-  message("Processing ", y, " ...")
-  
-  zip_raw <- get_zip_raw(u)
-  txts <- extract_txt_in_memory(zip_raw)
-  
-  list(year = y, files = txts)
-})
-
-### Result structure:
-# pur_data[[i]]$year    -> numeric year
-# pur_data[[i]]$files   -> list of text tables for that year
-# Each: pur_data[[i]]$files[[j]]$name, pur_data[[i]]$files[[j]]$data
-```
 
 
 
