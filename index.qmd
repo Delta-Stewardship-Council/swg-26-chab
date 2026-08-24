@@ -1,7 +1,50 @@
 ---
-title: "My Website"
+title: "NCEAS CHAB website"
 ---
 
-## Under Construction
+## Cyanobacterial Harmful Algal Blooms (CHABs) in the Delta
+# What Are CHABs? 
+Cyanobacterial Harmful Algal Blooms (CHABs) occur when cyanobacteria grow rapidly and accumulate in waterways. In the Sacramento–San Joaquin Delta, CHABs have been documented since 1999 and are becoming more frequent and severe. They can degrade water quality, disrupt aquatic ecosystems, and produce toxins that threaten human, animal, and environmental health.
 
-Check back later!
+# Why CHABs Matter
+• Risks to people, pets, and wildlife: Toxins such as microcystins can exceed advisory levels, prompting recreation warnings and restricting water use.
+• Growing ecological impacts: Blooms influence nutrient dynamics, food webs, and habitat conditions.
+• Increasing frequency: Environmental changes including temperature, hydrology, and nutrient inputs are driving more blooms across the Delta.
+• Management relevance: CHABs complicate water operations, public communication, and long‑term planning.
+
+# Key Gaps in CHAB Data and Models
+Despite growing concern, our collective ability to monitor and predict CHABs remains limited:
+• Incomplete monitoring: Current programs were not designed for CHABs, leaving gaps in location, frequency, and parameters measured.
+• Data fragmentation: CHAB datasets are spread across agencies, researchers, and community groups, with no centralized platform for coordination or analysis.
+• Sparse toxin and genetic data: Limited information on toxin levels and gene abundance prevents understanding toxicity patterns and health risks.
+• Modeling limitations: Models lack the comprehensive data needed to link environmental conditions with bloom formation, toxicity, and regional variability.
+
+# Why Synthesis and Coordination Are Needed
+Across the Delta, CHAB‑related data are numerous but disconnected. Synthesis and coordination are essential because:
+• Many groups collect valuable data, including satellite observations, water quality sampling, toxin analyses, research studies, and community science, but each holds only part of the picture.
+• Without coordination, stakeholders lack visibility into what data exists, where they are stored, and how they can be used together.
+• Integrated datasets are necessary to support trend analysis, modeling, visualization, public health responses, and management investments.
+• Coordination ensures that data platforms can incorporate information from agencies, researchers, and community organizations, making them usable for diverse decision-making needs.
+
+# The NCEAS CHABs Working Group
+The DSP-coordinated NCEAS Synthesis Working Group represents a major step toward unifying CHAB efforts across the region. We are an interdisciplinary group of scientists who aim to:
+• Catalog and integrate existing CHAB datasets.
+• Design an accessible, publicly available, machine‑learning‑ready dataset.
+• Coordinate with national efforts such as NOAA MERHAB.
+• Ensure community organizations are included through the Delta Stewardship Council’s Science for Communities initiative.
+
+This work will enable better forecasting, clearer communication, and more effective mitigation strategies.
+
+# Expected Outcomes
+• Better data accessibility through coordinated platforms.
+• Improved early warning and forecasting through more comprehensive models.
+• Clearer, more timely public guidance during CHAB events.
+• Stronger cross‑agency collaboration to protect ecosystem and community health.
+
+
+# Current progress
+• Emily published a (https://github.com/etrichardson/chlorrectR)[https://github.com/etrichardson/chlorrectR] R package for correcting chlorophyll concentration data produced by fluorometers.
+
+# Other CHAB synthesis work
+• NOAA MERHAB
+
