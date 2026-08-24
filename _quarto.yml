@@ -16,7 +16,7 @@ website:
     background: primary
     left:
       - text: "Home"
-        href: swg-26-chab/index.qmd
+        href: index.qmd
     right: 
       - icon: github
         href: https://delta-stewardship-council.github.io/swg-26-chab/
