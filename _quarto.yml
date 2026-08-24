@@ -1,0 +1,31 @@
+project:
+  type: website
+  execute-dir: project
+  output-dir: docs
+  render:
+    - "*.qmd"
+
+execute: 
+  freeze: auto
+
+website:
+  title: "NCEAS Synthesis - Cyanobacterial Harmful Algal Blooms (CHABs)"
+  repo-url: https://github.com/Delta-Stewardship-Council/swg-26-chab.git
+  repo-actions: [issue]
+  navbar:
+    background: primary
+    left:
+      - text: "Home"
+        href: index.qmd
+    right: 
+      - icon: github
+        href: https://github.com/Delta-Stewardship-Council/swg-26-chab.git
+  page-footer: 
+    center: "Copyright &copy; 2026, NCEAS CHABS group"
+    background: secondary
+
+format:
+  html:
+    toc: true
+    link-external-newwindow: true
+    link-external-icon: false
