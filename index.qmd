@@ -6,7 +6,7 @@ format:
     theme: cosmo
     mainfont: Open Sans
 ---
-
+ 
 ## Cyanobacterial Harmful Algal Blooms (CHABs) in the Delta
 # What Are CHABs? 
 Cyanobacterial Harmful Algal Blooms (CHABs) occur when cyanobacteria grow rapidly and accumulate in waterways. In the Sacramento–San Joaquin Delta, CHABs have been documented since 1999 and are becoming more frequent and severe. They can degrade water quality, disrupt aquatic ecosystems, and produce toxins that threaten human, animal, and environmental health.
