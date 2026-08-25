@@ -62,3 +62,7 @@ rosm.cache/
 
 # ignore large sciencebase datafiles
 data/raw/sciencebase/
+
+# Quarto folders
+/.quarto/
+docs/
