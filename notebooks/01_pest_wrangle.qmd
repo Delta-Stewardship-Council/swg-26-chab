@@ -476,11 +476,14 @@ get_zip_raw <- function(url) {
 ```
 
 Warning: The code below takes forever to run and may crash your R - I am trying to fix it
+Looking into the actual data files, I am not sure if it is possible to read in this data without having it locally saved. I am trying to filter by county to limit how much of the zip file actually needs to be read into memory, but the data is formatted through a bunch of lookup tables and is not separated by county (counties are assigned a number in a lookup table and each datafile is separated by year with a column for county). I have emailed the PUR inquiry email to ask if there is an API or any other way to remotely access the database without having to locally download files and am waiting to hear back from them. 
 ```{r, creating for loop to loop over all ZIP urls}
 
+target_counties <- c("Contra Costa", "Sacramento", "San Joaquin", "Solano", "Yolo", "Alameda") #only want to pull data for Delta counties
+
 for (i in seq_along(zip_urls)) {
-  year_i <- as.integer(sub(".*pur(\\d{4})\\.zip$", "\\1", url_i))
   url_i  <- zip_urls[i]
+  year_i <- as.integer(sub(".*pur(\\d{4})\\.zip$", "\\1", url_i))
   message("Processing year ", year_i, " ...")
 
   zip_raw <- get_zip_raw(url_i) #download the ZIP files into memory
@@ -498,6 +501,11 @@ for (i in seq_along(zip_urls)) {
     con <- unz(tmp_zip, txt_name, open = "rb")
     df  <- readr::read_csv(con, show_col_types = FALSE)
     close(con)
+    
+    if ("COUNTY_NAME" %in% names(df)) {
+      df <- df[df$COUNTY_NAME %in% target_counties, , drop = FALSE]
+    }
+
     file_list[[txt_name]] <- df #save the df into the list created earlier
   }
   pur_data[[as.character(year_i)]] <- file_list #store results for that year's ZIP into the larger list
