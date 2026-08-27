@@ -4,6 +4,7 @@ project:
   output-dir: docs
   render:
     - "*.qmd"
+    - "!notebooks/"
 
 execute: 
   freeze: auto
