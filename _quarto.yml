@@ -3,7 +3,7 @@ project:
   execute-dir: project
   output-dir: docs
   render:
-    - "*index.qmd"
+    - "index.qmd"
     - "!notebooks/"
 
 execute: 
