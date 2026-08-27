@@ -87,6 +87,8 @@ This work will enable better forecasting, clearer communication, and more effect
 
 
 # Current progress
+• CHAB synthesis code in development: [https://github.com/Delta-Stewardship-Council/swg-26-chab](https://github.com/Delta-Stewardship-Council/swg-26-chab)
+
 • Dr. Richardson published a ["chlorrectR" R package](https://github.com/etrichardson/chlorrectR) for correcting chlorophyll concentration data produced by fluorometers.
 
 # Ongoing CHAB work
