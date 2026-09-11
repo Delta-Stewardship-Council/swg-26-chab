@@ -35,7 +35,7 @@ Environmental variables: Precipitation, wind, solar radiation, air temperature, 
 
 ## Download data from CDEC
 Station notes:
-CDEC Stations
+CDEC Stations near Big Break:
 
 ISD - primary
 Precip hourly 2006 - present
@@ -67,6 +67,16 @@ Turbidity 2009 - present
 DO 2013 - present
 Suspended sed 2025 - present
 
+### Stations in or near Stockton
+RRI - Rough and Ready Island
+EC, temp, air temp, chll, EC, river stage, solar radiation, DO, pH, Turbidity, wind, flow until 2008
+Most from 2000-2004 to present
+MLS - Mcleod Lake
+Chll, EC, Temp, DO, pH, Turbidity
+All from 6/24/2024 to present
+SKT - Stockton Deep Water Channel
+tide height only 2010-2011
+
 ### Pull metadata for CDEC stations
 ```{r}
 #Site investigations for Big Break
@@ -79,6 +89,7 @@ ANH_info <- CDEC_StationInfo("ANH") # Antioch does not exist?
 FRP_info <- CDEC_StationInfo("FRP") # Farrar Park salinity and EC only
 BIF_info <- CDEC_StationInfo("BIF") # Precip gage 2008 to present
 #DSJ_info <- CDEC_StationInfo("DSJ")
+#RRI_info <- CDEC_StationInfo("RRI")
 ```
 ```{r}
 #Sensor codes of interest in CDEC 
@@ -126,7 +137,7 @@ plot(BLP_pH$datetime,BLP_pH$value)
 plot(BLP_Turb$datetime,BLP_Turb$value)
 ```
 
-Pull QA QC data from BLP specifically per hidden comment in metatdata [WIP]
+Pull QA QC data from BLP and RRI specifically per hidden comment in metatdata [WIP]
 ```{r}
 csv_url <- "https://data.ca.gov/datastore/dump/66a144b8-76d4-463e-ba7e-d4a09e715ec7?format=csv"
 csv_url2 <- "https://wdlstorageaccount.blob.core.windows.net/wdlcontinuous/B9502900/por/B9502900_WaterTemp_DAYMEAN.csv"
@@ -179,6 +190,7 @@ head(wide_data)
 # --- Export to CSV ---
 write_csv(wide_data, "B9502900_DAYMEAN_combined.csv")
 ```
+
 
 ### STATION ID: SJJ/JER (Michelle)
 ```{r}

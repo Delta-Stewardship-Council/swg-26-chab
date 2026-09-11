@@ -66,3 +66,5 @@ data/raw/sciencebase/
 # Quarto folders
 /.quarto/
 docs/
+
+**/*.quarto_ipynb

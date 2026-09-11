@@ -1,6 +1,8 @@
 ---
 title: "Grabbing Chlorophyll data"
-format: html: embed-resources: TRUE
+format: 
+  html:
+    embed-resources: TRUE
 author: Emily Richardson, Shaela Noble, Spencer Fern (others tbd)
 
 ---

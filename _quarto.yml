@@ -3,7 +3,8 @@ project:
   execute-dir: project
   output-dir: docs
   render:
-    - "*.qmd"
+    - "index.qmd"
+
 
 execute: 
   freeze: auto
