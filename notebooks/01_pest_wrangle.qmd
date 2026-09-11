@@ -446,9 +446,36 @@ leaflet(site_summary) %>%
 ```
 
 
-
+TO-DO:
 - pull from PUR data and bring in data
 - pull all unique chemical names from SURF and PUR, then group/categorize
+
+## Classifying pesticides
+# Pull distinct chemical names
+
+```{r, create list of unique chemicals}
+chem_unique <- unique(SURF_delta_suisun_sf$chemical_name)
+
+chem_unique <- tibble(
+  chem_name = chem_unique)
+  
+chem_unique <- chem_unique %>%
+  mutate(chem_name = tolower(chem_name))
+```
+
+# Classify chemicals into use-type
+```{r, USGS Pesticide Toxicity Index Classifications}
+url <- "https://www.sciencebase.gov/catalog/file/get/5ebe98f782ce476925e44ba6?f=__disk__6a%2F92%2Fdf%2F6a92df5993e63c9c7248537918c7248bfa7d9cb2"
+usgs <- read_delim(url, delim = "\t")
+
+usgs_unique <- usgs %>%
+  select(`FISH-TUMAX-PNAME`, `FISH-TUMAX-TYPE`) %>%
+  distinct() %>%                 
+  filter(!is.na(`FISH-TUMAX-PNAME`)) %>%
+  mutate(
+    pname_clean = tolower(`FISH-TUMAX-PNAME`))
+
+```
 
 
 ## Read in PUR data
