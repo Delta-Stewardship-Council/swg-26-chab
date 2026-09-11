@@ -22,7 +22,7 @@ library(zip)
 library(purrr)
 library(rvest)
 library(xml2)
-
+library(ctxR)
 ```
 
 # Read in and wrangle data
@@ -454,10 +454,10 @@ TO-DO:
 # Pull distinct chemical names
 
 ```{r, create list of unique chemicals}
-chem_unique <- unique(SURF_delta_suisun_sf$chemical_name)
+chem_unique_list <- unique(SURF_delta_suisun_sf$chemical_name)
 
 chem_unique <- tibble(
-  chem_name = chem_unique)
+  chem_name = chem_unique_list)
   
 chem_unique <- chem_unique %>%
   mutate(chem_name = tolower(chem_name))
@@ -477,6 +477,17 @@ usgs_unique <- usgs %>%
 
 ```
 
+```{r}
+register_ctx_api_key(key, write = FALSE)
+
+ctxR_results <- chemical_equal_batch(chem_unique_list)
+
+na_ctxR_values <- ctxR_results$searchValue[is.na(ctxR_results$casrn)]
+
+ctxR_na_results <- chemical_contains_batch(na_ctxR_values)
+valid_df <- ctxR_na_results$valid
+invalid_df <- ctxR_na_results$invalid
+```
 
 ## Read in PUR data
 
