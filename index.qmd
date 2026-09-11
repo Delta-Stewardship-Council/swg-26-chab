@@ -27,7 +27,7 @@ Not every *Microcystis* bloom produces toxins, and the level of risk is not alwa
 
 
 ![](images/HABs1.jpg){width=750 alt="HAB"}
-
+HABs sighting in 2022 near the Five Star Marina, downtown Stockton Water Ship Channel, near the Morelli boat launch. Photo credit: Restore the Delta, (Haley Flanagan) 
 ![](images/microcystis.scale.png){width=750 alt="Microcystis Visual Index"}
 
 [*Microcystis* Visual Index](https://doi.org/10.6084/m9.figshare.19239882), or MVI, was developed to help standardize CHAB bloom severity levels.
@@ -91,7 +91,7 @@ This work will enable better forecasting, clearer communication, and more effect
 # Current progress
 • CHAB synthesis code in development: [https://github.com/Delta-Stewardship-Council/swg-26-chab](https://github.com/Delta-Stewardship-Council/swg-26-chab)
 
-• Dr. Richardson published a ["chlorrectR" R package](https://github.com/etrichardson/chlorrectR) for correcting chlorophyll concentration data produced by fluorometers.
+• Emily Richardson published a ["chlorrectR" R package](https://github.com/etrichardson/chlorrectR) for correcting chlorophyll concentration data produced by fluorometers.
 
 # Ongoing CHAB work
 • [HAB Reports Map, CA Water Quality Monitoring Council](https://mywaterquality.ca.gov/habs/resources/reports-map/)
