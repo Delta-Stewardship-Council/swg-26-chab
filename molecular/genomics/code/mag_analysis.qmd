@@ -1,0 +1,30 @@
+---
+title: "MAG Analysis"
+format: html
+---
+
+# Import and analyze Metagenome-Assembled Genomes (MAGs)
+
+## Set up
+
+```{r}
+#| label: load packages
+
+library(Biostrings)
+library(jsonlite)
+library(tidyverse)
+```
+
+## Import data
+
+``` {r}
+#| label: upzip files
+
+# Unzip the MAG sequences into the mags folder
+unzip("molecular/genomics/mags/bin.010.fasta_assembly.zip", exdir = "molecular/genomics/mags/")
+
+# Unzip the metadata into the metadata folder (if it downloaded as a zip)
+unzip("molecular/genomics/metadata/bin.010.fasta_assembly.json.zip", exdir = "molecular/genomics/metadata/")
+
+
+```

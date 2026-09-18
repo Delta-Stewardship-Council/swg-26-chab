@@ -68,3 +68,10 @@ data/raw/sciencebase/
 docs/
 
 **/*.quarto_ipynb
+
+# local environment for private EDI API login to download data
+# do not push to shared GitHub repository
+.Renviron
+
+# raw MAG sequences (large files)
+molecular/genomics/mags/

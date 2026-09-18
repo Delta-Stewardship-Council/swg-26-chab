@@ -1,0 +1,107 @@
+{
+    "metadata": [
+        [
+            24,
+            "bin.010.fasta_assembly",
+            "KBaseGenomeAnnotations.Assembly-5.1",
+            "2026-09-18T16:13:13+0000",
+            1,
+            "aholmes",
+            270085,
+            "aholmes:narrative_1789071589608",
+            "171ac91464e792358eb65d84f2e28b23",
+            240132,
+            {
+                "GC content": "0.42751",
+                "MD5": "1dd68c1c6289910ca94c6d47097ea422",
+                "N Contigs": "1037",
+                "Size": "4679552"
+            }
+        ]
+    ],
+    "provenance": [
+        {
+            "copy_source_inaccessible": 0,
+            "created": "2026-09-18T16:13:12+0000",
+            "creator": "aholmes",
+            "epoch": 1789747992936,
+            "extracted_ids": {
+                "handle": [
+                    "KBH_12336200"
+                ]
+            },
+            "info": [
+                24,
+                "bin.010.fasta_assembly",
+                "KBaseGenomeAnnotations.Assembly-5.1",
+                "2026-09-18T16:13:13+0000",
+                1,
+                "aholmes",
+                270085,
+                "aholmes:narrative_1789071589608",
+                "171ac91464e792358eb65d84f2e28b23",
+                240132,
+                {
+                    "GC content": "0.42751",
+                    "MD5": "1dd68c1c6289910ca94c6d47097ea422",
+                    "N Contigs": "1037",
+                    "Size": "4679552"
+                }
+            ],
+            "orig_wsid": 270085,
+            "path": [
+                "270085/24/1"
+            ],
+            "provenance": [
+                {
+                    "custom": {},
+                    "description": "KBase SDK method run via the KBase Execution Engine",
+                    "epoch": 1789747953000,
+                    "external_data": [],
+                    "input_ws_objects": [
+                        "270085/20/1"
+                    ],
+                    "intermediate_incoming": [],
+                    "intermediate_outgoing": [],
+                    "method": "extract_binned_contigs_as_assembly",
+                    "method_params": [
+                        {
+                            "assembly_set_name": "extracted_bins.AssemblySet",
+                            "assembly_suffix": "_assembly",
+                            "binned_contig_obj_ref": "270085/20/1",
+                            "extracted_assemblies": "",
+                            "workspace_name": "aholmes:narrative_1789071589608"
+                        }
+                    ],
+                    "resolved_ws_objects": [
+                        "270085/20/1"
+                    ],
+                    "service": "MetagenomeUtils",
+                    "service_ver": "49489d11583772d669f84e61e3cca1ddd9973c41",
+                    "subactions": [
+                        {
+                            "code_url": "https://github.com/kbaseapps/MetagenomeUtils",
+                            "commit": "49489d11583772d669f84e61e3cca1ddd9973c41",
+                            "name": "MetagenomeUtils",
+                            "ver": "49489d11583772d669f84e61e3cca1ddd9973c41"
+                        },
+                        {
+                            "code_url": "https://github.com/kbaseapps/DataFileUtil",
+                            "commit": "0d855560a37f8787ab3bb67e464b9c94b299764e",
+                            "name": "DataFileUtil",
+                            "ver": "release"
+                        },
+                        {
+                            "code_url": "https://github.com/kbaseapps/AssemblyUtil",
+                            "commit": "59855bcb24014c3030e146b98c8d3e70abac1fa1",
+                            "name": "AssemblyUtil",
+                            "ver": "release"
+                        }
+                    ],
+                    "time": "2026-09-18T16:12:33+0000"
+                }
+            ],
+            "refs": []
+        }
+    ]
+}

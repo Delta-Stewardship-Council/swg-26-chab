@@ -1,0 +1,71 @@
+---
+title: "EDI Data Download"
+format: html
+---
+
+## Query EDI for data
+
+### Set up
+```{r}
+#| label: load libraries
+#| include: false
+
+library(tidyverse)
+library(EDIutils)
+library(readr)
+
+```
+
+## Data Acquisition
+
+```{r}
+#|label: get an access key from EDI
+
+usethis::edit_r_environ(scope = "project") # creates .Renviron file
+
+# next, add the personal EDI API to the .Reviron file
+# follow this to get an API key https://www.rdocumentation.org/packages/EDIutils/versions/3.0.1
+# then add .Renviron to .gitignore
+
+my_key <- Sys.getenv("EDI_API_KEY") # restart R then test to make sure API Key is in .Renviron
+
+login(key = my_key) # explicitly register the key with EDIutils
+
+```
+
+```{r}
+#| label: download data
+
+readRenviron(".Renviron")
+
+edi_package_id <- "edi.1076.1"
+
+entities <- read_data_entity_names(packageId = edi_package_id)
+print(entities) 
+
+target_entity <- "86da4465dde063c89afb0dc256bfa619"
+
+raw_bytes <- read_data_entity(
+  packageId = edi_package_id, 
+  entityId = target_entity
+)
+
+qpcr_data <- read.csv(textConnection(rawToChar(raw_bytes)), fileEncoding = "UTF-8-BOM")
+```
+
+## Data Preview
+
+```{r}
+#| label: preview data
+
+head(qpcr_data)
+```
+
+## Save Data File
+
+```{r}
+#| label: save file
+
+write.csv(qpcr_data, "molecular/qpcr/data/SFE_cyanoHAB_data_2014_2019_v1.csv", row.names = FALSE)
+
+```
