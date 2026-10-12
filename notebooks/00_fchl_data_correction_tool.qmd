@@ -33,9 +33,15 @@ fchl_corr = 0.72*chl_tempcorr-0.06
 #bbe Moldaenke FluoroProbe III
 
 if < 16
-fchl_corr = 0.39*chl_raw+0.33
+fchl_corr = 
 if > 16
-fchl_corr = 0.71*chl_raw-4.66
+fchl_corr = 
+
+fchl_corr  <- chl_raw %>% 
+  mutate(chl_raw = case_when(
+    chl_raw < 16 ~ 0.39*chl_raw+0.33,
+    chl_raw >= 16 ~ 0.71*chl_raw-4.66
+  ))
 ```
 
 ##### Development of YSI 6600 Series bias correction
