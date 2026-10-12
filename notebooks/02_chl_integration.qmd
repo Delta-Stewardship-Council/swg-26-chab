@@ -65,11 +65,10 @@ sb_data <- sb_data %>%
     mutate(station = NA)%>%
     distinct()
 
-ieprmks <- iep_data %>% filter (!is.na(chla_rmk)) %>% select(chla_rmk, group) %>% distinct() #unclear what the disclaimers are but assuming bad date (outside of reporting limits, etc.) just going to remove them.
+ieprmks <- iep_data %>% filter (!is.na(chla_rmk)) %>% select(chla_rmk, group) %>% distinct() #"<" means below reporting limit, changed to reporting limit. "=" means value unedited. All good to keep here. 
 
 iep_data <- iep_data %>%
     filter(is.na(depth)| depth <=2) %>%
-    filter(is.na(chla_rmk))%>%
     select(-datetime, -X, -depth, -chla_rmk) %>%
     rename(chl_ugl = chla)%>%     
     mutate(chl_ugl = round(chl_ugl, 2)) %>% 
@@ -80,6 +79,56 @@ rm(cm_data, sb_data, ieprmks, iep_data)
 
 chl_data <- chl_data %>% filter(!is.na(latitude)) %>% filter(!is.na(longitude)) %>% filter(!is.na(chl_ugl)) %>% distinct()
 ```
+
+# Further clean and add lab info
+```{r}
+chl_data <- chl_data %>% mutate(group = case_when(
+    group == "dwr_rtm" ~ "dwr_cemp",
+    group == "dwr_ncro" ~ "dwr_ncro",
+    group == "NCRO" ~ "dwr_ncro",
+    group == "usgs" ~ "usgs_cawsc",
+    group == "USGS_CAWSC" ~ "usgs_cawsc",
+    group == "DOP" ~ "usbr",
+    group == "EMP" ~ "dwr_demp",
+    group == "USGS_SFBS" ~ "usgs_bay"
+  ))
+```
+
+# Compare lab data
+
+```{r}
+ds_chl <- chl_data %>% filter(sample_type == "discrete") %>%
+  mutate(lab = case_when(
+    group == "dwr_cemp" ~ "bryte",
+    group == "dwr_ncro"~ "bryte",
+    group == "usgs_cawsc" ~ "nwql_cbl",
+    group == "usbr" ~ "ucd",
+    group == "dwr_demp"~ "bryte",
+    group == "usgs_bay" ~ "menlo"
+  ))
+  
+  # export for ArcPro Analysis
+
+#write.csv(ds_chl, "data\\bespoke_datasets\\ds_data_by_lab_20261012ER.csv")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Visulaize the data
 
