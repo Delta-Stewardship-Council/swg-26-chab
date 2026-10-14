@@ -100,8 +100,7 @@ ids <- c(
  # "638f5472d34ed907bf7c8f23", #this one is too big to store in git. It is just freeport and we catch that with usgs CM, so skipping.
   "628cc9c2d34ef70cdba3bbff",
   "64ee7f82d34e4b6d8ab71438",
-  "5c13d214e4b006c4f8532a17",
-  "66427d79d34e1955f5a41cf0"
+  "5c13d214e4b006c4f8532a17"
 )
 
 files_list <- lapply(ids, item_list_files)
@@ -134,7 +133,11 @@ ids <- c(
  # "5f452e8782ce4c3d12251702", #this one is too big to store in git, large fies didn't contain chl anyways so removed.
   "64248ee5d34e370832fe343d",
   "65b18ae7d34e36a39044c493",
-  "5f5ff87582ce3550e3bff547"
+  "5f5ff87582ce3550e3bff547",
+  "6a550c541ba49b1af2face95",
+  "646402f6d34ec179a83d30da",
+  "66427d79d34e1955f5a41cf0",
+  "6a2705ed1ba49b9270585b2e"
 )
 
 files_list <- lapply(ids, item_list_files)

@@ -1,5 +1,5 @@
 ---
-title: "Pesticide data"
+title: "SURF data"
 format: html
 ---
 
@@ -477,12 +477,7 @@ usgs_unique <- usgs %>%
 
 ```
 
-
-# Use ctxR package to get data from USEPA CompTox Chemicals Dashboard
-https://www.epa.gov/comptox-tools/computational-toxicology-and-exposure-apis
-https://cran.r-project.org/web/packages/ctxR/index.html
-key <- "9c067020-f256-43a8-bb9a-4342cc129c21"
-```{r using ctxR package}
+```{r}
 register_ctx_api_key(key, write = FALSE)
 
 ctxR_results <- chemical_equal_batch(chem_unique_list)
@@ -490,36 +485,71 @@ ctxR_results <- chemical_equal_batch(chem_unique_list)
 na_ctxR_values <- ctxR_results$searchValue[is.na(ctxR_results$casrn)]
 
 ctxR_na_results <- chemical_contains_batch(na_ctxR_values)
-valid_df <- ctxR_na_results$valid               #this is a list with multuple data frames, one for each chemical that showed up as NA in the previouse data frame
-invalid_df <- ctxR_na_results$invalid           #this is a list of all the searched chemicals that are not showing up at all in the CompTox database. Likely need to go in and handle thse case by case and search for what the closest matching chemical name would be
-```
-
-```{r, get functional use (herbicide/insecticide/fungicide/etc)}
-exp_fun_use <- get_exposure_functional_use(DTXSID = 'DTXSID2032552')
+valid_df <- ctxR_na_results$valid
+invalid_df <- ctxR_na_results$invalid
 ```
 
 ## Read in PUR data
 
-```{r, read in csv file and create county data sets}
-PUR_data <- read.csv("data/raw/noble_26-881.csv")
+```{r, scrape directory for purYYYY.zip files}
+BASE_URL <- "https://files.cdpr.ca.gov/pub/outgoing/pur_archives/"
 
-Sac_PUR <- PUR_data %>%
-  filter(COUNTY == "SACRAMENTO")
+page <- read_html(BASE_URL)
+hrefs <- html_elements(page, "a") |> html_attr("href") #this takes the downloaded HTML page and finds every hyperlink in the directory, then extracts the href ("pur1974.zip") from each hyperlink
 
-CC_PUR <- PUR_data %>%
-  filter(COUNTY == "CONTRA COSTA")
+zip_rel <- hrefs[grepl("^pur\\d{4}\\.zip$", basename(hrefs), ignore.case = TRUE)] #this filters all the hrefs to only contain those that exactly match the "purYYYY.zip" pattern
+zip_urls <- url_absolute(zip_rel, BASE_URL) #this combines the relative URLs with the base URL so the zip files will download
+```
 
-SJ_PUR <- PUR_data %>%
-  filter(COUNTY == "SAN JOAQUIN")
+```{r, prepare storage object}
+pur_data <- list() #this creates the final object, a list of years each with a list of files
+```
 
-Sol_PUR <- PUR_data %>%
-  filter(COUNTY == "SOLANO")
+```{r, creating function download the zip files}
+get_zip_raw <- function(url) {
+  resp <- GET(url) #download whatever is at this URL
+  stop_for_status(resp) #checks whether download is successful 
+  content(resp, "raw") #extracts content as a raw vector, so only stored in memory (RAM)  
+}
+```
 
-Yolo_PUR <- PUR_data %>%
-  filter(COUNTY == "YOLO")
+Warning: The code below takes forever to run and may crash your R - I am trying to fix it
+Looking into the actual data files, I am not sure if it is possible to read in this data without having it locally saved. I am trying to filter by county to limit how much of the zip file actually needs to be read into memory, but the data is formatted through a bunch of lookup tables and is not separated by county (counties are assigned a number in a lookup table and each datafile is separated by year with a column for county). I have emailed the PUR inquiry email to ask if there is an API or any other way to remotely access the database without having to locally download files and am waiting to hear back from them. 
+```{r, creating for loop to loop over all ZIP urls}
 
-Ala_PUR <- PUR_data %>%
-  filter(COUNTY == "ALAMEDA")
+target_counties <- c("Contra Costa", "Sacramento", "San Joaquin", "Solano", "Yolo", "Alameda") #only want to pull data for Delta counties
+
+for (i in seq_along(zip_urls)) {
+  url_i  <- zip_urls[i]
+  year_i <- as.integer(sub(".*pur(\\d{4})\\.zip$", "\\1", url_i))
+  message("Processing year ", year_i, " ...")
+
+  zip_raw <- get_zip_raw(url_i) #download the ZIP files into memory
+
+  tmp_zip <- tempfile(fileext = ".zip") #write raw to a tempfile and use its path
+  writeBin(zip_raw, tmp_zip)
+
+  listing <- zip_list(tmp_zip) #reads the ZIP file structure and returns df listing every file inside the ZIP
+  txt_members <- listing$filename[grepl("\\.txt$", listing$filename, ignore.case = TRUE)] #filters the ZIP contents and keeps the .txt files
+
+  file_list <- list() #creating object to store extracted text files for this year in the loop
+  
+  for (j in seq_along(txt_members)) { #looping over text files inside the ZIP
+    txt_name <- txt_members[j]
+    con <- unz(tmp_zip, txt_name, open = "rb")
+    df  <- readr::read_csv(con, show_col_types = FALSE)
+    close(con)
+    
+    if ("COUNTY_NAME" %in% names(df)) {
+      df <- df[df$COUNTY_NAME %in% target_counties, , drop = FALSE]
+    }
+
+    file_list[[txt_name]] <- df #save the df into the list created earlier
+  }
+  pur_data[[as.character(year_i)]] <- file_list #store results for that year's ZIP into the larger list
+  unlink(tmp_zip) #cleanup the tempfile created for the ZIP earlier
+}
+message("Done! All years loaded fully in memory.")
 ```
 
 
