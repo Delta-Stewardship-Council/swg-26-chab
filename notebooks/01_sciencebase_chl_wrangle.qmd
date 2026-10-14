@@ -843,61 +843,28 @@ Bay_chl <- cbind(
   latitude = coords_out[, 2]
 )
 
-# Too big still! Need to split by time maybe?
+# Delta file is too big still! Need to split by time maybe?
 summary(Delta_chl) 
 
 # Convert date column to Date format
 Delta_chl$date <- as.Date(Delta_chl$datetime)
-Bay_chl$date <- as.Date(Bay_chl$datetime)
+Delta_chl$year <- year(Delta_chl$date)
 
-# Count observations for each date
-Delta_chl_counts_by_date <- Delta_chl%>%
-  st_drop_geometry() %>%
-  group_by(date) %>%
-  summarise(n_points = n(), .groups = "drop")
-
-Bay_chl_counts_by_date <- Bay_chl%>%
-  st_drop_geometry() %>%
-  group_by(date) %>%
-  summarise(n_points = n(), .groups = "drop")
-
-#plot
-
-ggplot(Delta_chl_counts_by_date, aes(x = date, y = n_points)) +
-  geom_line(color = "steelblue", linewidth = 1) +
-  geom_point(color = "darkred", size = 2) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  labs(
-    title = "Number of Data Points Over Time",
-    x = "Year",
-    y = "Number of Data Points"
-  ) +
-  theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-#Looks like we should split pre and post 2020
-
-ggplot(Bay_chl_counts_by_date, aes(x = date, y = n_points)) +
-  geom_line(color = "steelblue", linewidth = 1) +
-  geom_point(color = "darkred", size = 2) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  labs(
-    title = "Number of Data Points Over Time",
-    x = "Year",
-    y = "Number of Data Points"
-  ) +
-  theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-#possible 2020 is a good spilt off point here too.
-
-
-
+Delta_chl_pre2020 <- Delta_chl %>% filter(year < 2020)%>% select(-date, -year)
+Delta_chl_2020onward <- Delta_chl %>% filter(year >= 2020)%>% select(-date, -year)
 
 
 
 # Export to CSVs
 write.csv(
-  Delta_chl,
-  "data//01_processed//01_Delta_chl_sciencebase_csv",
+  Delta_chl_pre2020,
+  "data//01_processed//01_Delta_chl_pre2020_sciencebase_csv",
+  row.names = FALSE
+)
+
+write.csv(
+  Delta_chl_2020onward,
+  "data//01_processed//01_Delta_chl_2020onward_sciencebase_csv",
   row.names = FALSE
 )
 
