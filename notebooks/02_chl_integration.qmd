@@ -1,5 +1,5 @@
 ---
-title: "Chlorophyll Data integration and explotraion"
+title: "Chlorophyll Data integration and exploration"
 format: html
 Author: Emily Richardson, TBD
 ---
@@ -31,7 +31,14 @@ maxdate <- as.Date(max(cm_data$date))
 mindate <- as.Date(min(cm_data$date))
 
 #ScienceBase
-sb_data <- read.csv("data//01_processed//01_chl_sciencebase.csv")
+sb_data_1 <- read.csv("data//01_processed//01_Bay_chl_sciencebase.csv")
+sb_data_2 <- read.csv("data//01_processed//01_Delta_chl_2020onward_sciencebase.csv")
+sb_data_3 <- read.csv("data//01_processed//01_Delta_chl_pre2020_sciencebase.csv")
+
+sb_data <- rbind(sb_data_1, sb_data_2, sb_data_3)
+
+rm(sb_data_1, sb_data_2, sb_data_3)
+
 sb_data <- sb_data %>% 
     mutate(date = as.Date(datetime),
     group = "usgs") %>%
@@ -109,7 +116,7 @@ ds_chl <- chl_data %>% filter(sample_type == "discrete") %>%
   
   # export for ArcPro Analysis
 
-#write.csv(ds_chl, "data\\bespoke_datasets\\ds_data_by_lab_20261012ER.csv")
+#write.csv(ds_chl, "data\\bespoke_datasets\\ds_data_by_lab_20261014ER.csv")
 ```
 
 
