@@ -858,19 +858,19 @@ Delta_chl_2020onward <- Delta_chl %>% filter(year >= 2020)%>% select(-date, -yea
 # Export to CSVs
 write.csv(
   Delta_chl_pre2020,
-  "data//01_processed//01_Delta_chl_pre2020_sciencebase_csv",
+  "data//01_processed//01_Delta_chl_pre2020_sciencebase.csv",
   row.names = FALSE
 )
 
 write.csv(
   Delta_chl_2020onward,
-  "data//01_processed//01_Delta_chl_2020onward_sciencebase_csv",
+  "data//01_processed//01_Delta_chl_2020onward_sciencebase.csv",
   row.names = FALSE
 )
 
 write.csv(
   Bay_chl,
-  "data//01_processed//01_Bay_chl_sciencebase_csv",
+  "data//01_processed//01_Bay_chl_sciencebase.csv",
   row.names = FALSE
 )
 
