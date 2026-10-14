@@ -16,6 +16,8 @@ library(readr)
 library(stringr)
 library(readr)
 library(stringr)
+library(sf)
+library(ggplot2)
 ```
 
 # Three similar data sources containing toxins, qpcr, and chl data
@@ -796,7 +798,80 @@ chl_data_sciencebase <- rbind(hr_data, ds_data, peterson_chldata)
 rm(hr_data, ds_data, peterson_chldata)
 
 chl_data_sciencebase <- chl_data_sciencebase %>% distinct()%>%
-  mutate(chl_ugl = round(chl_ugl, 2))
+  mutate(chl_ugl = round(chl_ugl, 2))%>%
+  filter(!is.na(latitude))%>%
+  filter(!is.na(longitude))
 
-write.csv(chl_data_sciencebase, file = "data/01_processed/01_chl_sciencebase.csv", row.names = FALSE)
+# Need to split this file, it's way too big.
+#Let's split by Delta proper and elsewhere (probably Bay)
+
+delta_proper <- st_read(
+  "https://services5.arcgis.com/netd7RBEFAa05HUC/ArcGIS/rest/services/LegalDelta/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson") # read in geoJSON for Delta + Suisun
+
+points <- st_as_sf(
+  chl_data_sciencebase,
+  coords = c("longitude", "latitude"),
+  crs = 4326
+)
+
+# make sure they're in the safe refernce system
+points <- st_transform(points, st_crs(delta_proper))
+
+#filter to Delta proper sites and outside of Delta points
+Delta_in_points <- points[
+  lengths(st_within(points, delta_proper)) > 0,
+]
+
+Delta_out_points <- points[
+  lengths(st_within(points, delta_proper)) == 0,
+]
+
+# Extract longitude and latitude from point geometry
+coords_in <- st_coordinates(Delta_in_points)
+coords_out <- st_coordinates(Delta_out_points)
+
+# Add coordinates to the attribute data
+Delta_chl <- cbind(
+  st_drop_geometry(Delta_in_points),
+  longitude = coords_in[, 1],
+  latitude = coords_in[, 2]
+)
+
+Bay_chl <- cbind(
+  st_drop_geometry(Delta_out_points),
+  longitude = coords_out[, 1],
+  latitude = coords_out[, 2]
+)
+
+# Delta file is too big still! Need to split by time maybe?
+summary(Delta_chl) 
+
+# Convert date column to Date format
+Delta_chl$date <- as.Date(Delta_chl$datetime)
+Delta_chl$year <- year(Delta_chl$date)
+
+Delta_chl_pre2020 <- Delta_chl %>% filter(year < 2020)%>% select(-date, -year)
+Delta_chl_2020onward <- Delta_chl %>% filter(year >= 2020)%>% select(-date, -year)
+
+
+
+# Export to CSVs
+write.csv(
+  Delta_chl_pre2020,
+  "data//01_processed//01_Delta_chl_pre2020_sciencebase.csv",
+  row.names = FALSE
+)
+
+write.csv(
+  Delta_chl_2020onward,
+  "data//01_processed//01_Delta_chl_2020onward_sciencebase.csv",
+  row.names = FALSE
+)
+
+write.csv(
+  Bay_chl,
+  "data//01_processed//01_Bay_chl_sciencebase.csv",
+  row.names = FALSE
+)
+
 ```
