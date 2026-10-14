@@ -1,0 +1,55 @@
+---
+title: "Download and wrangle toxicity data from USGS sciencebase"
+format: 
+  html:
+    toc: true
+    number-sections: true
+    embed-resources: true
+authors: Michelle Stern 
+---
+
+Data is from here: https://www.sciencebase.gov/catalog/item/633e10e5d34e342aee056941
+Bouma-Gregson, K., Sturgeon, C.L., Cone, K.M., Uebner, M.Q., Baxter, T.J., Nakatsuka, K., Hansen, A.M., Richardson, E.T., Westrick, J., Szlag Silva, R., Bergamaschi, B.A., and Kraus, T.E.C., 2025, Cyanotoxins in the California Sacramento-San Joaquin Delta: Whole Water Cyanotoxin Samples: U.S. Geological Survey data release, https://doi.org/10.5066/P96L1RTV.
+
+# Download data
+```{r}
+# Required packages to include
+# install.packages("librarian")
+librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, prettymapr, sharpshootR, purrr, tibble, ckanr, lubridate)
+```
+
+```{r}
+#Read in data
+
+tox_data <- read.delim("data//raw//sciencebase//633e10e5d34e342aee056941//CyanoWW_2025_cyanotoxins.txt", header = TRUE, sep = "\t") 
+
+tox_data$Timestamp..PST..DS <- parse_date_time(tox_data$Timestamp..PST..DS, orders = "mdy HMS")
+tox_data$Station.Abbrev. <- tox_data$Station.Abbrev..DS
+
+tox_data_locs <- read.delim("data//raw//sciencebase//633e10e5d34e342aee056941//CyanoWW_2025_stations.txt", header = TRUE, sep = "\t")
+```
+
+```{r}
+#merge data
+tox_data_2 <- merge(tox_data, tox_data_locs, by = "Station.Abbrev.")
+
+plot(tox_data_2$Result.Value..ug.L.)
+plot(tox_data_2$Latitude..Decimal.Degrees..NAD83.)
+plot(tox_data_2$Longitude..Decimal.Degrees..NAD83.)
+```
+
+```{r}
+#export csv
+write.csv(tox_data_2, "data//01_processed//01_tox_BGregson.csv")
+```
+
+
+
+
+
+
+
+
+
+
+
