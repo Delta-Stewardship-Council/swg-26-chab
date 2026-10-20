@@ -75,3 +75,6 @@ docs/
 
 # raw MAG sequences (large files)
 molecular/genomics/mags/
+
+#Bespoke datasets
+data/bespoke_datasets
