@@ -1,0 +1,375 @@
+---
+title: "Discrete data comparison by lab"
+format: html
+Author: Emily Richardson, TBD
+---
+
+```{r}
+library(dplyr)
+library(readxl)
+library(ggplot2)
+library(broom)
+library(sf)
+library(leaflet)
+library(lubridate)
+```
+
+# Load data
+
+```{r}
+bryte <- read_excel("data//bespoke_datasets//bryte_near_others.xlsx")
+menlo <- read_excel("data//bespoke_datasets//menlo_near_others.xlsx")
+ucd <- read_excel("data//bespoke_datasets//ucd_near_others.xlsx")
+basemap <- st_read("data//shapefiles//WW_Delta.shp")
+```
+
+# narrow where timeframes are within 1 week and locations are appropriate for comparison
+
+```{r}
+bryte_filtered <- bryte %>%
+  filter(abs(as.numeric(difftime(
+    bryte_date, otherlab_date, units = "days"
+  ))) <= 5) 
+
+#Check to see that matched samples are realistic (filter to where assigned place names are different)
+bryte_filtered_diffs <- bryte_filtered %>% filter(!bryte_placename == otherlab_placename) %>% select(OBJECTID, bryte_placename, bryte_latitude, bryte_longitude, otherlab_placename, otherlab_latitude, otherlab_longitude)
+bryte_filtered_diffs
+
+bryte_pts <- st_as_sf(
+  bryte_filtered_diffs,
+  coords = c("bryte_longitude", "bryte_latitude"),
+  crs = 4326,
+  remove = FALSE
+)
+
+otherlab_pts <- st_as_sf(
+  bryte_filtered_diffs,
+  coords = c("otherlab_longitude", "otherlab_latitude"),
+  crs = 4326,
+  remove = FALSE
+)
+
+bryte_pts <- st_transform(bryte_pts, 4326)
+otherlab_pts <- st_transform(otherlab_pts, 4326)
+basemap <- st_transform(basemap, 4326)
+
+leaflet() %>%
+addPolygons(
+  data = basemap,
+  color = "darkblue",
+  fillColor = "lightblue",
+  fillOpacity = 0.3,
+  weight = 1
+)%>%
+
+  # UCD sampling locations
+  addCircleMarkers(
+    data = bryte_pts,
+    color = "blue",
+    radius = 5,
+    stroke = TRUE,
+    fillOpacity = 0.8,
+  label = ~paste(bryte_placename, " | ID:", OBJECTID),
+  popup = ~paste(
+    "<b>Place:</b>", bryte_placename,
+    "<br><b>OBJECTID:</b>", OBJECTID
+  )
+  ) %>%
+
+  # Other lab sampling locations
+  addCircleMarkers(
+    data = otherlab_pts,
+    color = "red",
+    radius = 5,
+    stroke = TRUE,
+    fillOpacity = 0.8,
+  label = ~paste(otherlab_placename, " | ID:", OBJECTID),
+  popup = ~paste(
+    "<b>Place:</b>", otherlab_placename,
+    "<br><b>OBJECTID:</b>", OBJECTID
+  )
+  ) 
+
+#List of inappropriate comparisons: 16708, 16577, 14873
+bryte_filtered <- bryte_filtered %>% filter(!OBJECTID == 16708) %>%
+    filter(!OBJECTID == 16577)%>%
+    filter(!OBJECTID == 14873)
+```
+
+```{r}
+menlo_filtered <- menlo %>%
+  filter(abs(as.numeric(difftime(menlo_date, otherlab_date, units = "days"
+  ))) <= 5)
+
+  #Check to see that matched samples are realistic (filter to where assigned place names are different)
+menlo_filtered_diffs <- menlo_filtered %>% filter(!menlo_placename == otherlab_placename) %>% select(OBJECTID, menlo_placename, menlo_latitude, menlo_longitude, otherlab_placename, otherlab_latitude, otherlab_longitude)
+#no diffs. 
+
+```
+
+```{r}
+ucd_filtered <- ucd %>%
+  filter(abs(as.numeric(difftime(ucd_date, otherlab_date, units = "days"
+  ))) <= 5)#%>% filter(ucd_placename == otherlab_placename)
+
+  #Check to see that matched samples are realistic (filter to where assigned place names are different)
+ucd_filtered_diffs <- ucd_filtered %>% filter(!ucd_placename == otherlab_placename) %>% select(OBJECTID, ucd_placename, ucd_latitude, ucd_longitude, otherlab_placename, otherlab_latitude, otherlab_longitude)
+ucd_filtered_diffs
+
+ucd_pts <- st_as_sf(
+  ucd_filtered_diffs,
+  coords = c("ucd_longitude", "ucd_latitude"),
+  crs = 4326,
+  remove = FALSE
+)
+
+otherlab_pts <- st_as_sf(
+  ucd_filtered_diffs,
+  coords = c("otherlab_longitude", "otherlab_latitude"),
+  crs = 4326,
+  remove = FALSE
+)
+
+ucd_pts <- st_transform(ucd_pts, 4326)
+otherlab_pts <- st_transform(otherlab_pts, 4326)
+basemap <- st_transform(basemap, 4326)
+
+leaflet() %>%
+addPolygons(
+  data = basemap,
+  color = "darkblue",
+  fillColor = "lightblue",
+  fillOpacity = 0.3,
+  weight = 1
+)%>%
+
+  # UCD sampling locations
+  addCircleMarkers(
+    data = ucd_pts,
+    color = "blue",
+    radius = 5,
+    stroke = TRUE,
+    fillOpacity = 0.8,
+  label = ~paste(ucd_placename, " | ID:", OBJECTID),
+  popup = ~paste(
+    "<b>Place:</b>", ucd_placename,
+    "<br><b>OBJECTID:</b>", OBJECTID
+  )
+  ) %>%
+
+  # Other lab sampling locations
+  addCircleMarkers(
+    data = otherlab_pts,
+    color = "red",
+    radius = 5,
+    stroke = TRUE,
+    fillOpacity = 0.8,
+  label = ~paste(otherlab_placename, " | ID:", OBJECTID),
+  popup = ~paste(
+    "<b>Place:</b>", otherlab_placename,
+    "<br><b>OBJECTID:</b>", OBJECTID
+  )
+  ) 
+
+#List of inappropriate comparisons: 8528, 3858, 7206
+ucd_filtered <- ucd_filtered %>% filter(!OBJECTID == 8528) %>% 
+    filter(!OBJECTID == 3858)%>% 
+    filter(!OBJECTID == 7206)
+```
+
+# Explore
+
+```{r}
+#Bryte
+# Plot regression, color by lab
+ggplot(bryte_filtered, aes(x = otherlab_chl_ugl, y = bryte_chl_ugl, color = otherlab_lab)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+
+# Plot regression, color by lab
+ggplot(bryte_filtered, aes(x = otherlab_chl_ugl, y = bryte_chl_ugl, color = otherlab_lab)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal() +
+  ylim(0, 30) +
+  xlim(0, 30) 
+
+ggplot(bryte_filtered, aes(x = log(otherlab_chl_ugl), y = log(bryte_chl_ugl), color = otherlab_lab)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+
+#There are only enough data points fo compare Bryte data to NWQL_CBL data.
+
+bryte_v_cawsc <- bryte_filtered %>% filter(otherlab_lab == "nwql_cbl")
+
+b_v_c <-t.test(bryte_v_cawsc$bryte_chl_ugl, bryte_v_cawsc$otherlab_chl_ugl, paired = TRUE) 
+b_v_c#not diff
+```
+
+
+```{r}
+#Menlo
+ggplot(menlo_filtered, aes(x = otherlab_chl_ugl, y = menlo_chl_ugl, color = otherlab_lab)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+
+ggplot(menlo_filtered, aes(x = log(otherlab_chl_ugl), y = log(menlo_chl_ugl), color = otherlab_lab)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+
+#Regression with nwql_cbl looks dang near perfect, UCD looks offset. Only 1 Bryte sample, can't compare. 
+
+menlo_v_cawsc <- menlo_filtered %>% filter(otherlab_lab == "nwql_cbl")
+
+m_v_c <- t.test(menlo_v_cawsc$menlo_chl_ugl, menlo_v_cawsc$otherlab_chl_ugl, paired = TRUE) 
+m_v_c#not different!!!
+
+menlo_v_ucd <- menlo_filtered %>% filter(otherlab_lab == "ucd")
+
+m_v_u <- t.test(menlo_v_ucd$menlo_chl_ugl, menlo_v_ucd$otherlab_chl_ugl, paired = TRUE) 
+m_v_u #oof, these are different. 
+```
+
+
+```{r}
+# UCD
+ggplot(ucd_filtered, aes(x = otherlab_chl_ugl, y = ucd_chl_ugl, color = otherlab_lab)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+
+ggplot(ucd_filtered, aes(x = log(otherlab_chl_ugl), y = log(ucd_chl_ugl), color = otherlab_lab)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+
+#Not enough data to compare to Bryte
+
+ucd_v_cawsc <- ucd_filtered %>% filter(otherlab_lab == "nwql_cbl")
+
+u_v_c <- t.test(ucd_v_cawsc$ucd_chl_ugl, ucd_v_cawsc$otherlab_chl_ugl, paired = TRUE) 
+u_v_c#not different but really inappropriate regression line. 
+
+# Already compared to Menlo, regression line looks slightly better but it is significantly different.
+```
+
+#Create clean results table
+```{r}
+
+results <- bind_rows(
+
+  tidy(b_v_c) %>%
+    mutate(lab1 = "Bryte",
+           lab2 = "NWQL and CBL",
+           N = sum(complete.cases(bryte_v_cawsc))),
+
+  tidy(m_v_c) %>%
+    mutate(lab1 = "Menlo",
+           lab2 = "NWQL and CBL",
+           N = sum(complete.cases(menlo_v_cawsc))),
+
+  tidy(m_v_u) %>%
+    mutate(lab1 = "Menlo",
+           lab2 = "UCD",
+           N = sum(complete.cases(menlo_v_ucd))),
+
+  tidy(u_v_c) %>%
+    mutate(lab1 = "UCD",
+           lab2 = "NWQL and CBL",
+           N = sum(complete.cases(ucd_v_cawsc)))
+
+) %>%
+  select(lab1, lab2, N, estimate, statistic, parameter,
+         p.value, conf.low, conf.high, method)
+
+results
+```
+
+# The Menlo v UCD comparison anre the only different one. The issue may be the low N. Since the other comparisons are not different. let's combine all other labs to compare similar spacetime UCD measurements. 
+
+
+```{r}
+u_v_all <- t.test(ucd_filtered$ucd_chl_ugl, ucd_filtered$otherlab_chl_ugl, paired = TRUE) 
+u_v_all # still different. 
+
+ggplot(ucd_filtered, aes(x = otherlab_chl_ugl, y = ucd_chl_ugl)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+
+ggplot(ucd_filtered, aes(x = log(otherlab_chl_ugl), y = log(ucd_chl_ugl))) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+
+#Still flatline in regression. Does not appear to be correctable. Relatively low values but at the 1 to 5is range, there should be a trend and certainly not a flatline.
+```
+
+
+```{r}
+# Explore UCD data ranges in similar locs/season/years
+ds_data <- read.csv("data//bespoke_datasets//ds_data_by_lab_20261014ER.csv")
+
+ucd_all <- ds_data %>%
+  filter(lab == "ucd") %>%
+  mutate(
+    date = ymd(date),
+    month = month(date),
+    year = year(date),
+    my = paste0(month, year)
+  )
+
+latmin = min(ucd_all$latitude)
+latmax = max(ucd_all$latitude)
+longmin = min(ucd_all$longitude)
+longmax = max(ucd_all$longitude)
+mylist = unique(ucd_all$my)
+
+ds_ucd_filter <- ds_data  %>%
+    mutate(
+    date = ymd(date),
+    month = month(date),
+    year = year(date),
+    my = paste0(month, year)) %>%
+    filter(
+    latitude >= latmin,
+    latitude <= latmax,
+    longitude >= longmin,
+    longitude <=longmax,
+    my %in% mylist) 
+
+    
+testing_pts <- st_as_sf(
+  ds_ucd_filter,
+  coords = c("longitude", "latitude"),
+  crs = 4326,
+  remove = FALSE
+)
+
+lab_palette <- colorFactor(
+  palette = c("red", "blue", "darkgreen", "purple"),
+  domain = testing_pts$lab
+)
+
+leaflet() %>%
+  addPolygons(
+    data = basemap,
+    color = "darkblue",
+    fillColor = "lightblue",
+    fillOpacity = 0.3,
+    weight = 1
+  ) %>%
+  addCircleMarkers(
+    data = testing_pts,
+    color = ~lab_palette(as.character(lab)),
+    radius = 5,
+    stroke = TRUE,
+    fillOpacity = 0.8
+  )
+
+#Too differnt in location ranges to compare broadly with ANOVAs. I want to pivot and correct the sonde data and compare to discretes, maybe we'll have more UCD data comparisons. 
+```
