@@ -98,13 +98,7 @@ chl_data <- chl_data %>% mutate(group = case_when(
     group == "DOP" ~ "usbr",
     group == "EMP" ~ "dwr_demp",
     group == "USGS_SFBS" ~ "usgs_bay"
-  ))
-```
-
-# Compare lab data
-
-```{r}
-ds_chl <- chl_data %>% filter(sample_type == "discrete") %>%
+  )) %>%
   mutate(lab = case_when(
     group == "dwr_cemp" ~ "bryte",
     group == "dwr_ncro"~ "bryte",
@@ -113,64 +107,64 @@ ds_chl <- chl_data %>% filter(sample_type == "discrete") %>%
     group == "dwr_demp"~ "bryte",
     group == "usgs_bay" ~ "menlo"
   ))
-  
-  # export for ArcPro Analysis
-
-#write.csv(ds_chl, "data\\bespoke_datasets\\ds_data_by_lab_20261014ER.csv")
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Visulaize the data
-
-### Convert and clean
+# Create bespoke dataset for lab data comparison (00 prefixed notebook)
 
 ```{r}
-#Create spatial object
-chl_sf <- chl_data %>% 
-    st_as_sf(coords = c('longitude', 'latitude'),
-             crs = 4326, #WGS84, leaflet demands it.
-             remove = FALSE)
+chl_data <- chl_data %>%
+  arrange(date) %>%
+  mutate(sample_id = row_number())
 
-#read in shapefile
-# read in geoJSON for Delta + Suisun
-delta_suisun_sf <- st_read(
-  "https://services5.arcgis.com/netd7RBEFAa05HUC/ArcGIS/rest/services/LegalDelta/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson")
+#locs just for ArcPro
+ds_chl <- chl_data %>% filter(sample_type == "discrete") 
 
-nad83_delta_suisun_sf <- st_transform(delta_suisun_sf, crs = 4326)
-rm(delta_suisun_sf)
+ds_locs <- ds_chl %>% 
+  select(sample_id, latitude, longitude)
+  # export for ArcPro Analysis
 
-# find sampling locations in Delta + Suisun
-chl_delta_suisun_sf <- st_filter(chl_sf, nad83_delta_suisun_sf, .predicate = st_intersects)
-rm(chl_sf)
+write.csv(ds_locs, "data\\bespoke_datasets\\ds_locs_20261023ER.csv")
 
-#group by hydrologic cycle
-chl_seasonal <- chl_delta_suisun_sf %>%
-  mutate(
-    year = year(date),
-    month = month(date),
-    season = case_when(
-      month %in% c(10, 11, 12, 1, 2, 3) ~ "Wet",
-      month %in% c(4, 5, 6, 7, 8, 9)     ~ "Dry"),
-    water_year = if_else(month >= 10, year + 1, year),
-    season_date = case_when(
-      season == "Wet" ~ as.Date(paste0(water_year, "-01-15")),
-      season == "Dry" ~ as.Date(paste0(water_year, "-07-15"))
-  ))
+# Create sensor-only dataset
+sensor_chl <- chl_data %>% filter(!sample_type == "discrete")
+
+#locs just for ArcPro
+sensor_locs <- sensor_chl %>% select(sample_id, latitude, longitude)
+
+write.csv(sensor_locs, "data\\bespoke_datasets\\sensor_locs20261023ER.csv")
+```
+
+```{r}
+# After Arcpro nearest spatial neightbors analysis, filter by near time, join in metadata
+
+
+
+
+
+
+
+
+
+
+
+
+# Join in discrete that match sensor by time and location to compare. All labs except UCD (USBR DOP data) were comparable, granted concentration was relatively low.
+chl_comparison_df <- inner_join(ds_chl, sensor_chl, join_by(group, date, station)) %>% 
+  select(date, station, latitude.x, longitude.x, group, chl_ugl.x, chl_ugl.y, sample_type.y, lab.x) %>% 
+  filter(!is.na(station)) %>%
+  rename(longitude = longitude.x, 
+  latitude = latitude.x,
+  chl_ds = chl_ugl.x, 
+  chl_sensor = chl_ugl.y,
+  sensor= sample_type.y,
+  lab = lab.x)%>% 
+  distinct()
+```
+
+```{r}
+#Visualize ds comparison by by lab. Reminder that these sensor data have been corrected in the 01_chl_wrangle workbook.
+ggplot(chl_comparison_df, aes(x = log(chl_ds), y = log(chl_sensor), color = group)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal() 
 ```
