@@ -180,36 +180,6 @@ ucd_filtered <- ucd_filtered %>% filter(!OBJECTID == 8528) %>%
 # Explore
 
 ```{r}
-#Bryte
-# Plot regression, color by lab
-ggplot(bryte_filtered, aes(x = otherlab_chl_ugl, y = bryte_chl_ugl, color = otherlab_lab)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  theme_minimal()
-
-# Plot regression, color by lab
-ggplot(bryte_filtered, aes(x = otherlab_chl_ugl, y = bryte_chl_ugl, color = otherlab_lab)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  theme_minimal() +
-  ylim(0, 30) +
-  xlim(0, 30) 
-
-ggplot(bryte_filtered, aes(x = log(otherlab_chl_ugl), y = log(bryte_chl_ugl), color = otherlab_lab)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  theme_minimal()
-
-#There are only enough data points fo compare Bryte data to NWQL_CBL data.
-
-bryte_v_cawsc <- bryte_filtered %>% filter(otherlab_lab == "nwql_cbl")
-
-b_v_c <-t.test(bryte_v_cawsc$bryte_chl_ugl, bryte_v_cawsc$otherlab_chl_ugl, paired = TRUE) 
-b_v_c#not diff
-```
-
-
-```{r}
 #Menlo
 ggplot(menlo_filtered, aes(x = otherlab_chl_ugl, y = menlo_chl_ugl, color = otherlab_lab)) +
   geom_point() +
@@ -234,27 +204,57 @@ m_v_u <- t.test(menlo_v_ucd$menlo_chl_ugl, menlo_v_ucd$otherlab_chl_ugl, paired 
 m_v_u #oof, these are different. 
 ```
 
+#Because they are certainly compatible, let's combine all USGS data to make a more robust comparison dataset for Bryte and UCD samples.
 
 ```{r}
-# UCD
-ggplot(ucd_filtered, aes(x = otherlab_chl_ugl, y = ucd_chl_ugl, color = otherlab_lab)) +
+bryte_filtered <- bryte_filtered %>%
+  mutate(group = if_else(otherlab_lab == "ucd", "ucd", "usgs"))
+ucd_filtered <- ucd_filtered %>%
+  mutate(group = if_else(otherlab_lab == "bryte", "bryte", "usgs"))
+
+```
+
+```{r}
+#Bryte
+# Plot regression, color by group
+ggplot(bryte_filtered, aes(x = otherlab_chl_ugl, y = bryte_chl_ugl, color = group)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   theme_minimal()
 
-ggplot(ucd_filtered, aes(x = log(otherlab_chl_ugl), y = log(ucd_chl_ugl), color = otherlab_lab)) +
+ggplot(bryte_filtered, aes(x = log(otherlab_chl_ugl), y = log(bryte_chl_ugl), color = group)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+
+#There are only enough data points fo compare Bryte data to USGS data.
+
+bryte_v_cawsc <- bryte_filtered %>% filter(group == "usgs")
+
+b_v_c <-t.test(bryte_v_cawsc$bryte_chl_ugl, bryte_v_cawsc$otherlab_chl_ugl, paired = TRUE) 
+#not diff
+```
+
+
+```{r}
+# UCD
+ggplot(ucd_filtered, aes(x = otherlab_chl_ugl, y = ucd_chl_ugl, color = group)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+
+ggplot(ucd_filtered, aes(x = log(otherlab_chl_ugl), y = log(ucd_chl_ugl), color = group)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   theme_minimal()
 
 #Not enough data to compare to Bryte
 
-ucd_v_cawsc <- ucd_filtered %>% filter(otherlab_lab == "nwql_cbl")
+ucd_v_cawsc <- ucd_filtered %>% filter(group == "usgs")
 
 u_v_c <- t.test(ucd_v_cawsc$ucd_chl_ugl, ucd_v_cawsc$otherlab_chl_ugl, paired = TRUE) 
-u_v_c#not different but really inappropriate regression line. 
+u_v_c# different and really inappropriate regression line. 
 
-# Already compared to Menlo, regression line looks slightly better but it is significantly different.
 ```
 
 #Create clean results table
@@ -264,7 +264,7 @@ results <- bind_rows(
 
   tidy(b_v_c) %>%
     mutate(lab1 = "Bryte",
-           lab2 = "NWQL and CBL",
+           lab2 = "NWQL, CBL, Menlo",
            N = sum(complete.cases(bryte_v_cawsc))),
 
   tidy(m_v_c) %>%
@@ -279,7 +279,7 @@ results <- bind_rows(
 
   tidy(u_v_c) %>%
     mutate(lab1 = "UCD",
-           lab2 = "NWQL and CBL",
+           lab2 = "NWQL, CBL, Menlo",
            N = sum(complete.cases(ucd_v_cawsc)))
 
 ) %>%
@@ -372,4 +372,86 @@ leaflet() %>%
   )
 
 #Too differnt in location ranges to compare broadly with ANOVAs. I want to pivot and correct the sonde data and compare to discretes, maybe we'll have more UCD data comparisons. 
+```
+
+# Let's compare ds to sensor data now
+
+```{r}
+# Reminder that these sensor data have been corrected.
+ds_near_sensor <- read.csv("data//bespoke_datasets//ds_near_sensor_20261110ER.csv")
+#check to see if there are mismatching placenames
+ds_near_sensor_diffs <- ds_near_sensor %>% filter(!ds_loc == sensor_loc) 
+
+
+ds_pts <- st_as_sf(
+  ds_near_sensor_diffs,
+  coords = c("ds_longitude", "ds_latitude"),
+  crs = 4326,
+  remove = FALSE
+)
+
+sensor_pts <- st_as_sf(
+  ds_near_sensor_diffs,
+  coords = c("sensor_longitude", "sensor_latitude"),
+  crs = 4326,
+  remove = FALSE
+)
+
+ds_pts <- st_transform(ds_pts, 4326)
+sensor_pts <- st_transform(sensor_pts, 4326)
+basemap <- st_transform(basemap, 4326)
+
+leaflet() %>%
+addPolygons(
+  data = basemap,
+  color = "darkblue",
+  fillColor = "lightblue",
+  fillOpacity = 0.3,
+  weight = 1
+)%>%
+
+  # ds sampling locations
+  addCircleMarkers(
+    data = ds_pts,
+    color = "blue",
+    radius = 5,
+    stroke = TRUE,
+    fillOpacity = 0.8,
+  label = ~paste(ds_loc, " | ID:", ds_sample_id),
+  popup = ~paste(
+    "<b>Place:</b>", ds_loc,
+    "<br><b>OBJECTID:</b>", ds_sample_id
+  )
+  ) %>%
+
+  # sensor locations
+  addCircleMarkers(
+    data = sensor_pts,
+    color = "red",
+    radius = 5,
+    stroke = TRUE,
+    fillOpacity = 0.8,
+  label = ~paste(sensor_locs, " | ID:", ds_sample_id),
+  popup = ~paste(
+    "<b>Place:</b>",sensor_locs,
+    "<br><b>OBJECTID:</b>", ds_sample_id
+  )
+  ) 
+
+#List of inappropriate comparisons by ds_sample_id: 16708, 16577, 14873
+ds_near_sensor <- ds_near_sensor %>% filter(!ds_sample_id == 0000000) %>%
+    filter(!ds_sample_id == 0000000)%>%
+    filter(!ds_sample_id == 0000000)
+
+
+```
+
+
+
+```{r}
+#Visualize ds comparison by by lab. Reminder that these sensor data have been corrected in the 01_chl_wrangle workbook.
+ggplot(chl_comparison_df, aes(x = log(chl_ds), y = log(chl_sensor), color = group)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal() 
 ```
