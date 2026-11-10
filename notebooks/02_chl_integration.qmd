@@ -19,6 +19,7 @@ library(scales)
 library(crosstalk)
 library(geojsonsf)
 library(jsonlite)
+library(readxl)
 ```
 
 ## Read in data and keep only dates that fall within the range of continous monitoring data
@@ -123,48 +124,125 @@ ds_locs <- ds_chl %>%
   select(sample_id, latitude, longitude)
   # export for ArcPro Analysis
 
-write.csv(ds_locs, "data\\bespoke_datasets\\ds_locs_20261023ER.csv")
+#write.csv(ds_locs, "data\\bespoke_datasets\\ds_locs_20261023ER.csv")
 
 # Create sensor-only dataset
 sensor_chl <- chl_data %>% filter(!sample_type == "discrete")
 
 #locs just for ArcPro
-sensor_locs <- sensor_chl %>% select(sample_id, latitude, longitude)
+sensor_locs <- sensor_chl %>% select(sample_id, latitude, longitude, group)
 
-write.csv(sensor_locs, "data\\bespoke_datasets\\sensor_locs20261023ER.csv")
+#write.csv(sensor_locs, "data\\bespoke_datasets\\sensor_locs20261105ER.csv")
 ```
 
 ```{r}
-# After Arcpro nearest spatial neightbors analysis, filter by near time, join in metadata
+# After Arcpro nearest spatial neightbors analysis join in metadata, filter by near time
+ds_near_sensor <- read.csv("data//bespoke_datasets//ID_ds_near_sensor.csv")
+sensors_cemp_near_usgs <- read.csv("data//bespoke_datasets//ID_sensors_cemp_near_usgs.csv")
+sensors_ncro_near_usgs <- read.csv("data//bespoke_datasets//ID_sensors_ncro_near_usgs.csv")
 
+ds_near_sensor <- left_join(ds_near_sensor, chl_data, by = join_by(ds_sample_id == sample_id))
+ds_near_sensor <- ds_near_sensor %>%
+  rename(ds_date = date,
+         ds_longitude = longitude,
+         ds_latitude = latitude,
+         ds_station = station,
+         ds_chl_ug_l = chl_ugl,
+         ds_group = group,
+         ds_lab = lab) %>%
+  select(-sample_type)
+ds_near_sensor <- left_join(ds_near_sensor, chl_data, by = join_by(sensor_sample_id == sample_id))
+ds_near_sensor <- ds_near_sensor %>%
+  rename(sensor_date = date,
+         sensor_longitude = longitude,
+         sensor_latitude = latitude,
+         sensor_station = station,
+         sensor_chl_ug_l = chl_ugl,
+         sensor_group = group) %>%
+  select(-lab)
 
+ds_near_sensor_filtered <- ds_near_sensor %>%
+  filter(abs(as.numeric(difftime(
+    ds_date, sensor_date, units = "days"
+  ))) == 1)  %>%
+  filter(NEAR_RANK == 1)
 
-
-
-
-
-
-
-
-
-
-# Join in discrete that match sensor by time and location to compare. All labs except UCD (USBR DOP data) were comparable, granted concentration was relatively low.
-chl_comparison_df <- inner_join(ds_chl, sensor_chl, join_by(group, date, station)) %>% 
-  select(date, station, latitude.x, longitude.x, group, chl_ugl.x, chl_ugl.y, sample_type.y, lab.x) %>% 
-  filter(!is.na(station)) %>%
-  rename(longitude = longitude.x, 
-  latitude = latitude.x,
-  chl_ds = chl_ugl.x, 
-  chl_sensor = chl_ugl.y,
-  sensor= sample_type.y,
-  lab = lab.x)%>% 
-  distinct()
+#Export for more detailed comparison in 00_workbook.
+write.csv(ds_near_sensor_filtered, "data//bespoke_datasets//ds_near_sensor_20261110ER.csv")
 ```
 
 ```{r}
-#Visualize ds comparison by by lab. Reminder that these sensor data have been corrected in the 01_chl_wrangle workbook.
-ggplot(chl_comparison_df, aes(x = log(chl_ds), y = log(chl_sensor), color = group)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  theme_minimal() 
+sensors_cemp_near_usgs <- left_join(sensors_cemp_near_usgs, chl_data, by = join_by(cemp_sample_id == sample_id))
+sensors_cemp_near_usgs <- sensors_cemp_near_usgs %>%
+  rename(cemp_date = date,
+         cemp_longitude = longitude,
+         cemp_latitude = latitude,
+         cemp_station = station,
+         cemp_chl_ug_l = chl_ugl,
+         cemp_group = group) %>%
+  select(-sample_type, -lab)
+
+sensors_cemp_near_usgs <- left_join(ds_near_sensor, chl_data, by = join_by(usgs_sample_id == sample_id))
+sensors_cemp_near_usgs <- sensors_cemp_near_usgs %>%
+  rename(usgs_date = date,
+         usgs_longitude = longitude,
+         usgs_latitude = latitude,
+         usgs_station = station,
+         usgs_chl_ug_l = chl_ugl,
+         usgs_group = group) %>%
+  select(-lab)
+
+sensors_cemp_near_usgs_filtered <- sensors_cemp_near_usgs %>%
+  filter(abs(as.numeric(difftime(
+    cemp_date, usgs_date, units = "days"
+  ))) == 1)  %>%
+  filter(NEAR_RANK == 1)
+
+#Export for more detailed comparison in 00_workbook.
+write.csv(cemp_near_usgs_filtered, "data//bespoke_datasets//cemp_near_usgs_20261110ER.csv")
+```
+
+```{r}
+sensors_ncro_near_usgs <- left_join(sensors_ncro_near_usgs, chl_data, by = join_by(ncro_sample_id == sample_id))
+sensors_ncro_near_usgs <- sensors_ncro_near_usgs %>%
+  rename(ncro_date = date,
+         ncro_longitude = longitude,
+         ncro_latitude = latitude,
+         ncro_station = station,
+         ncro_chl_ug_l = chl_ugl,
+         ncro_group = group) %>%
+  select(-sample_type, -lab)
+
+sensors_ncro_near_usgs <- left_join(ds_near_sensor, chl_data, by = join_by(usgs_sample_id == sample_id))
+sensors_ncro_near_usgs <- sensors_ncro_near_usgs %>%
+  rename(usgs_date = date,
+         usgs_longitude = longitude,
+         usgs_latitude = latitude,
+         usgs_station = station,
+         usgs_chl_ug_l = chl_ugl,
+         usgs_group = group) %>%
+  select(-lab)
+
+sensors_ncro_near_usgs_filtered <- sensors_ncro_near_usgs %>%
+  filter(abs(as.numeric(difftime(
+    ncro_date, usgs_date, units = "days"
+  ))) == 1)  %>%
+  filter(NEAR_RANK == 1)
+
+#Export for more detailed comparison in 00_workbook.
+write.csv(ncro_near_usgs_filtered, "data//bespoke_datasets//ncro_near_usgs_20261110ER.csv")
+```
+
+#Create 02 combined data file that's appropriate for synthesis
+
+```{r}
+
+#00 data exploration for discrete data indicated that DOP data were not comparable to all other data (and the rest were comparable to one another, so we'll remove it from our dataset)
+
+chl_data <- chl_data %>% filter(!group == "usbr")
+
+#00 data exploration for sensor data indicated that XYz
+
+
+
 ```
