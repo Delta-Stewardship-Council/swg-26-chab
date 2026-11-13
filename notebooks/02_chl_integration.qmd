@@ -140,7 +140,10 @@ sensor_locs <- sensor_chl %>% select(sample_id, latitude, longitude, group)
 ds_near_sensor <- read.csv("data//bespoke_datasets//ID_ds_near_sensor.csv")
 sensors_cemp_near_usgs <- read.csv("data//bespoke_datasets//ID_sensors_cemp_near_usgs.csv")
 sensors_ncro_near_usgs <- read.csv("data//bespoke_datasets//ID_sensors_ncro_near_usgs.csv")
+```
 
+```{r}
+#Clean a discrete near sensor dataset
 ds_near_sensor <- left_join(ds_near_sensor, chl_data, by = join_by(ds_sample_id == sample_id))
 ds_near_sensor <- ds_near_sensor %>%
   rename(ds_date = date,
@@ -159,19 +162,22 @@ ds_near_sensor <- ds_near_sensor %>%
          sensor_station = station,
          sensor_chl_ug_l = chl_ugl,
          sensor_group = group) %>%
-  select(-lab)
+  select(-lab, -sample_type)
 
 ds_near_sensor_filtered <- ds_near_sensor %>%
   filter(abs(as.numeric(difftime(
     ds_date, sensor_date, units = "days"
-  ))) == 1)  %>%
-  filter(NEAR_RANK == 1)
+  ))) == 1)   %>%
+  group_by(sensor_date) %>%
+  slice_min(NEAR_DIST, n = 1, with_ties = FALSE) %>%
+  ungroup()
 
 #Export for more detailed comparison in 00_workbook.
-write.csv(ds_near_sensor_filtered, "data//bespoke_datasets//ds_near_sensor_20261110ER.csv")
+write.csv(ds_near_sensor_filtered, "data//bespoke_datasets//ds_near_sensor_20261112ER.csv")
 ```
 
 ```{r}
+#clean a CEMP sensor near USGS sensor dataset
 sensors_cemp_near_usgs <- left_join(sensors_cemp_near_usgs, chl_data, by = join_by(cemp_sample_id == sample_id))
 sensors_cemp_near_usgs <- sensors_cemp_near_usgs %>%
   rename(cemp_date = date,
@@ -190,19 +196,22 @@ sensors_cemp_near_usgs <- sensors_cemp_near_usgs %>%
          usgs_station = station,
          usgs_chl_ug_l = chl_ugl,
          usgs_group = group) %>%
-  select(-lab)
+  select(-sample_type, -lab, -NEAR_RANK, -cemp_sample_id, -usgs_sample_id, -ncro_group, -usgs_group)
 
 sensors_cemp_near_usgs_filtered <- sensors_cemp_near_usgs %>%
   filter(abs(as.numeric(difftime(
     cemp_date, usgs_date, units = "days"
-  ))) == 1)  %>%
-  filter(NEAR_RANK == 1)
+  ))) ==5)  %>%
+  group_by(usgs_date) %>%
+  slice_min(NEAR_DIST, n = 1, with_ties = FALSE) %>%
+  ungroup()
 
 #Export for more detailed comparison in 00_workbook.
-write.csv(cemp_near_usgs_filtered, "data//bespoke_datasets//cemp_near_usgs_20261110ER.csv")
+write.csv(sensors_cemp_near_usgs_filtered, "data//bespoke_datasets//cemp_near_usgs_filtered.csv")
 ```
 
 ```{r}
+#clean an NCRO sensor near USGS sensor dataset
 sensors_ncro_near_usgs <- left_join(sensors_ncro_near_usgs, chl_data, by = join_by(ncro_sample_id == sample_id))
 sensors_ncro_near_usgs <- sensors_ncro_near_usgs %>%
   rename(ncro_date = date,
@@ -213,7 +222,7 @@ sensors_ncro_near_usgs <- sensors_ncro_near_usgs %>%
          ncro_group = group) %>%
   select(-sample_type, -lab)
 
-sensors_ncro_near_usgs <- left_join(ds_near_sensor, chl_data, by = join_by(usgs_sample_id == sample_id))
+sensors_ncro_near_usgs <- left_join(sensors_ncro_near_usgs, chl_data, by = join_by(usgs_sample_id == sample_id))
 sensors_ncro_near_usgs <- sensors_ncro_near_usgs %>%
   rename(usgs_date = date,
          usgs_longitude = longitude,
@@ -221,16 +230,18 @@ sensors_ncro_near_usgs <- sensors_ncro_near_usgs %>%
          usgs_station = station,
          usgs_chl_ug_l = chl_ugl,
          usgs_group = group) %>%
-  select(-lab)
+  select(-sample_type, -lab, -NEAR_RANK, -ncro_sample_id, -usgs_sample_id, -ncro_group, -usgs_group)
 
 sensors_ncro_near_usgs_filtered <- sensors_ncro_near_usgs %>%
   filter(abs(as.numeric(difftime(
     ncro_date, usgs_date, units = "days"
-  ))) == 1)  %>%
-  filter(NEAR_RANK == 1)
+  ))) ==5)  %>%
+  group_by(usgs_date) %>%
+  slice_min(NEAR_DIST, n = 1, with_ties = FALSE) %>%
+  ungroup()
 
 #Export for more detailed comparison in 00_workbook.
-write.csv(ncro_near_usgs_filtered, "data//bespoke_datasets//ncro_near_usgs_20261110ER.csv")
+#write.csv(sensors_ncro_near_usgs_filtered, "data//bespoke_datasets//ncro_near_usgs_filtered.csv")
 ```
 
 #Create 02 combined data file that's appropriate for synthesis

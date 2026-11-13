@@ -378,80 +378,51 @@ leaflet() %>%
 
 ```{r}
 # Reminder that these sensor data have been corrected.
-ds_near_sensor <- read.csv("data//bespoke_datasets//ds_near_sensor_20261110ER.csv")
-#check to see if there are mismatching placenames
-ds_near_sensor_diffs <- ds_near_sensor %>% filter(!ds_loc == sensor_loc) 
+ds_near_sensor <- read.csv("data//bespoke_datasets//ds_near_sensor_20261112ER.csv")
 
+#usbr data were not comparable, so remove
+ds_near_sensor <- ds_near_sensor %>% filter(!ds_group == "usbr")
 
-ds_pts <- st_as_sf(
-  ds_near_sensor_diffs,
-  coords = c("ds_longitude", "ds_latitude"),
-  crs = 4326,
-  remove = FALSE
-)
+#My computer can't handle plotting the mismatch placenames (there are over 200, but there are still plenty that do match. I will just filter to only include matching waterway names.)
+ds_near_sensor <- ds_near_sensor %>% filter(ds_loc == sensor_loc) 
 
-sensor_pts <- st_as_sf(
-  ds_near_sensor_diffs,
-  coords = c("sensor_longitude", "sensor_latitude"),
-  crs = 4326,
-  remove = FALSE
-)
+ggplot(ds_near_sensor, aes(x = ds_chl_ug_l, y = sensor_chl_ug_l, color = sensor_group)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
 
-ds_pts <- st_transform(ds_pts, 4326)
-sensor_pts <- st_transform(sensor_pts, 4326)
-basemap <- st_transform(basemap, 4326)
+ggplot(ds_near_sensor, aes(x = log(ds_chl_ug_l), y = log(sensor_chl_ug_l), color = sensor_group)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
 
-leaflet() %>%
-addPolygons(
-  data = basemap,
-  color = "darkblue",
-  fillColor = "lightblue",
-  fillOpacity = 0.3,
-  weight = 1
-)%>%
+###Try filtering chl less than 50, there are some outrageous values here.
 
-  # ds sampling locations
-  addCircleMarkers(
-    data = ds_pts,
-    color = "blue",
-    radius = 5,
-    stroke = TRUE,
-    fillOpacity = 0.8,
-  label = ~paste(ds_loc, " | ID:", ds_sample_id),
-  popup = ~paste(
-    "<b>Place:</b>", ds_loc,
-    "<br><b>OBJECTID:</b>", ds_sample_id
-  )
-  ) %>%
+ds_near_sensor_less50 <- ds_near_sensor %>% filter(ds_chl_ug_l <= 50) 
+ggplot(ds_near_sensor_less50, aes(x = ds_chl_ug_l, y = sensor_chl_ug_l, color = sensor_group)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
 
-  # sensor locations
-  addCircleMarkers(
-    data = sensor_pts,
-    color = "red",
-    radius = 5,
-    stroke = TRUE,
-    fillOpacity = 0.8,
-  label = ~paste(sensor_locs, " | ID:", ds_sample_id),
-  popup = ~paste(
-    "<b>Place:</b>",sensor_locs,
-    "<br><b>OBJECTID:</b>", ds_sample_id
-  )
-  ) 
-
-#List of inappropriate comparisons by ds_sample_id: 16708, 16577, 14873
-ds_near_sensor <- ds_near_sensor %>% filter(!ds_sample_id == 0000000) %>%
-    filter(!ds_sample_id == 0000000)%>%
-    filter(!ds_sample_id == 0000000)
-
-
+ggplot(ds_near_sensor_less50, aes(x = log(ds_chl_ug_l), y = log(sensor_chl_ug_l), color = sensor_group)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
 ```
 
 
-
 ```{r}
-#Visualize ds comparison by by lab. Reminder that these sensor data have been corrected in the 01_chl_wrangle workbook.
-ggplot(chl_comparison_df, aes(x = log(chl_ds), y = log(chl_sensor), color = group)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  theme_minimal() 
+usgs_ds_near_sensor_less50 <- ds_near_sensor_less50 %>% filter(sensor_group == "usgs_cawsc") 
+ds_v_usgs <- t.test((usgs_ds_near_sensor_less50$ds_chl_ug_l),(usgs_ds_near_sensor_less50$sensor_chl_ug_l), paired = TRUE) 
+ds_v_usgs
+
+cemp_ds_near_sensor_less50 <- ds_near_sensor_less50 %>% filter(sensor_group == "dwr_cemp") 
+ds_v_cemp <- t.test((cemp_ds_near_sensor_less50$ds_chl_ug_l), (cemp_ds_near_sensor_less50$sensor_chl_ug_l), paired = TRUE) 
+ds_v_cemp
+
+ncro_ds_near_sensor_less50 <- ds_near_sensor_less50 %>% filter(sensor_group == "dwr_ncro") 
+ds_v_ncro <- t.test((ncro_ds_near_sensor_less50$ds_chl_ug_l), (ncro_ds_near_sensor_less50$sensor_chl_ug_l), paired = TRUE) 
+ds_v_ncro
+
+#Try to figure out what's up with those obvious outliers (discrete data over 20 and sensor data under 5.)
 ```
