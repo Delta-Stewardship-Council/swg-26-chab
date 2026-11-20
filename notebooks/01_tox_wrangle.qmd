@@ -23,7 +23,7 @@ librarian::shelf(readr, dplyr, tidyr, here, leaflet, sf, ggplot2, ggspatial, pre
 
 tox_data <- read.delim("data//raw//sciencebase//633e10e5d34e342aee056941//CyanoWW_2025_cyanotoxins.txt", header = TRUE, sep = "\t") 
 
-tox_data$Timestamp..PST..DS <- parse_date_time(tox_data$Timestamp..PST..DS, orders = "mdy HMS")
+tox_data$Timestamp..PST..DS <- parse_date_time(tox_data$Timestamp..PST..DS, orders = "mdy H:M")
 tox_data$Station.Abbrev. <- tox_data$Station.Abbrev..DS
 
 tox_data_locs <- read.delim("data//raw//sciencebase//633e10e5d34e342aee056941//CyanoWW_2025_stations.txt", header = TRUE, sep = "\t")
@@ -43,7 +43,11 @@ plot(tox_data_2$Longitude..Decimal.Degrees..NAD83.)
 write.csv(tox_data_2, "data//01_processed//01_tox_BGregson.csv")
 ```
 
+Compare to the previous version
 
+```{r}
+
+```
 
 
 
