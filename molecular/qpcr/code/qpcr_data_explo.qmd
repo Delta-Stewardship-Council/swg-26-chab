@@ -1,0 +1,310 @@
+---
+title: "qPCR data exploration"
+format: html
+---
+
+# Explore qPCR data of Microcystis, microcystin genes, cyanotoxin data, and associated variables
+
+## Set up
+
+```{r}
+#| label: load packages
+
+library(tidyverse) #for readr, lubridate, ggplot2
+library(cowplot)
+library(scales)
+library(forcats)
+
+```
+
+## Import data
+
+```{r}
+#| label: read in Kurobe et al. 2022, a CHAB dataset from EDI
+
+options(scipen = 999)
+
+SFE_CHAB_2014_2019 <- read_csv(
+  "molecular/qpcr/data/SFE_cyanoHAB_data_2014_2019_v1.csv",
+  col_types = cols(
+    RepCont = col_integer(),
+    Collection_Month = col_integer(),
+    Collection_ID = col_integer(),
+    Survey_Year = col_integer(),
+    field.PST = col_character(),  
+    ucd.qpcr.total.MIC = col_integer(),
+    ucd.qpcr.toxin.MIC = col_integer()
+    )) |> 
+  mutate(
+    # create time (e.g., "08:30") from current values in field.PST
+    field.PST = str_pad(field.PST, width = 4, side = "left", pad = "0"),
+    field.PST = parse_time(str_replace(field.PST, "^(\\d{2})(\\d{2})$", "\\1:\\2"), format = "%H:%M")
+  )
+
+```
+
+```{r}
+#| label: create separate dataframes for controls and field samples
+
+# controls are any row where DWR_site contains "FieldCont"
+SFE_CHAB_2014_2019_controls <- SFE_CHAB_2014_2019 |> 
+  filter(str_detect(DWR_Site, "FieldCont"))
+
+# field samples are everything else
+SFE_CHAB_2014_2019_samples <- SFE_CHAB_2014_2019 |> 
+  filter(!str_detect(DWR_Site, "FieldCont") | is.na(DWR_Site))
+
+```
+
+```{r}
+#| label: deal with replicate field samples
+
+rep_keys <- SFE_CHAB_2014_2019_samples |> 
+  filter(RepCont == 1) |> 
+  distinct(Lat, Lon, Collection_Date)
+
+replicates <- SFE_CHAB_2014_2019_samples |> 
+  semi_join(rep_keys, by = c("Lat", "Lon", "Collection_Date")) |> 
+  arrange(Collection_Date, Lat, Lon, RepCont)
+
+replicates <- replicates |> 
+  mutate(
+    toxin_total_ratio = if_else(
+      ucd.qpcr.total.MIC > 0,
+      ucd.qpcr.toxin.MIC / ucd.qpcr.total.MIC,
+      NA_real_
+    ),
+    .after = ucd.qpcr.toxin.MIC
+  )
+
+```
+
+```{r}
+#| label: plot replicate field samples for gene copy ratios
+
+microcystin_data_explo_reps_ratio <-ggplot(replicates, aes(x = ucd.ppia.MC.total.ugL, 
+                       y = toxin_total_ratio, 
+                       color = factor(Collection_Date),
+                       shape = factor(Collection_Date))) +
+  geom_jitter(size = 6, width = 0.04, height = 0.04, alpha = 0.85) +
+  scale_color_viridis_d(option = "turbo") +
+  scale_shape_manual(values = rep(15:20, 3)) +
+  theme_minimal() +
+  labs(title = "Toxin gene ratio (qPCR) vs. microcystin concentration (PPIA) for samples with 2 replicates",
+       x = "Microcystin value from PPIA (µg/L)",
+       y = "Ratio mcyD:16S (gene copies)",
+       color = "Date",
+       shape = "Date")
+
+dir.create("molecular/qpcr/figures", recursive = TRUE, showWarnings = FALSE)
+
+# save plot
+save_plot(
+  filename = "molecular/qpcr/figures/microcystin_data_explo_reps_ratio.png",
+  plot = microcystin_data_explo_reps_ratio,
+  base_height = 6,
+  base_asp = 1.4,
+  dpi = 300,
+  bg = "white"
+)
+
+```
+
+```{r}
+#| label: plot replicate field samples for total mcyD gene copies
+
+microcystin_data_explo_reps_copies <- ggplot(replicates, aes(x = ucd.ppia.MC.total.ugL, 
+                                                             y = ucd.qpcr.toxin.MIC, 
+                                                             color = factor(Collection_Date),
+                                                             shape = factor(Collection_Date))) +
+  geom_jitter(size = 6, width = 0.04, height = 0, alpha = 0.85) +
+  scale_y_continuous(
+    trans = pseudo_log_trans(sigma = 1, base = 10),
+    breaks = c(0, 10, 100, 1000, 10000, 100000, 1000000),
+    labels = label_comma()
+  ) +
+  scale_color_viridis_d(option = "turbo") +
+  scale_shape_manual(values = rep(15:20, 3)) +
+  theme_minimal() +
+  theme(panel.grid.minor.y = element_blank()) +
+  labs(title = "Toxin gene copies (qPCR) vs. microcystin concentration (PPIA) for samples with 2 replicates",
+       x = "Microcystin concentration from PPIA (\u00b5g/L)",
+       y = "mcyD toxin qPCR (gene copies, log10 scale)",
+       color = "Date",
+       shape = "Date")
+
+# save plot
+save_plot(
+  filename = "molecular/qpcr/figures/microcystin_data_explo_reps_copies.png",
+  plot = microcystin_data_explo_reps_copies,
+  base_height = 6,
+  base_asp = 1.4,
+  dpi = 300,
+  bg = "white"
+)
+
+```
+
+```{r}
+#| label: create ratio for all samples
+
+SFE_CHAB_2014_2019_samples <- SFE_CHAB_2014_2019_samples |> 
+  mutate(
+    toxin_total_ratio = if_else(
+      ucd.qpcr.total.MIC > 0,
+      ucd.qpcr.toxin.MIC / ucd.qpcr.total.MIC,
+      NA_real_
+    ),
+    .after = ucd.qpcr.toxin.MIC
+  )
+
+# clean up the data
+SFE_CHAB_2014_2019_samples_detects <- SFE_CHAB_2014_2019_samples |>
+    #remove rows with zero values for ratio AND microcystin (keep if one value is zero)
+    filter(toxin_total_ratio != 0 | ucd.ppia.MC.total.ugL != 0) |>
+    #remove rows where copy number for either MIC16S or mycD is <100
+    filter(ucd.qpcr.total.MIC >= 100 & ucd.qpcr.toxin.MIC >= 100)
+
+
+```
+
+```{r}
+#| label: make similar plots for all samples
+
+SFE_CHAB_2014_2019_samples_detects <- SFE_CHAB_2014_2019_samples_detects %>%
+  mutate(
+    Month_Year = paste(Collection_Month, Survey_Year),
+    # order legend chronologically instead of alphabetically
+    Month_Year = fct_reorder(Month_Year, as.Date(Collection_Date))
+  )
+
+# endless Month-Year combos
+n_combos <- nlevels(SFE_CHAB_2014_2019_samples_detects$Month_Year)
+
+# plot using Month_Year (instead of dates) for both color and shape
+microcystin_data_explo_ratio <- ggplot(
+  SFE_CHAB_2014_2019_samples_detects, 
+  aes(x = ucd.ppia.MC.total.ugL, 
+      y = toxin_total_ratio, 
+      color = Month_Year,
+      shape = Month_Year)
+) +
+  geom_jitter(size = 6, width = 0.04, height = 0.04, alpha = 0.85) +
+  scale_color_viridis_d(option = "turbo") +
+  scale_shape_manual(values = rep(15:20, length.out = n_combos)) +
+  theme_minimal() +
+  guides(
+    color = guide_legend(ncol = 2),
+    shape = guide_legend(ncol = 2)
+  ) +
+  labs(
+    title = "Toxin gene ratio (qPCR) vs. microcystin concentration (PPIA) for all samples",
+    x = "Microcystin value from PPIA (µg/L)",
+    y = "Ratio mcyD:16S (gene copies)",
+    color = "Month & Year",
+    shape = "Month & Year"
+  )
+
+# save plot
+save_plot(
+  filename = "molecular/qpcr/figures/microcystin_data_explo_ratio.png",
+  plot = microcystin_data_explo_ratio,
+  base_height = 6,
+  base_asp = 2,
+  dpi = 300,
+  bg = "white"
+)
+
+```
+
+
+```{r}
+#| label: plot all field samples for total mcyD gene copies
+
+microcystin_data_explo_copies <- ggplot(
+  SFE_CHAB_2014_2019_samples_detects, 
+  aes(x = ucd.ppia.MC.total.ugL, 
+      y = ucd.qpcr.toxin.MIC, 
+      color = Month_Year,
+      shape = Month_Year)
+) +
+  geom_jitter(size = 6, width = 0.04, height = 0, alpha = 0.85) +
+  scale_y_continuous(
+    trans = pseudo_log_trans(sigma = 1, base = 10),
+    breaks = c(0, 10, 100, 1000, 10000, 100000, 1000000),
+    labels = label_comma()
+  ) +
+  scale_color_viridis_d(option = "turbo") +
+  scale_shape_manual(values = rep(15:20, length.out = n_combos)) +
+  theme_minimal() +
+  theme(panel.grid.minor.y = element_blank()) +
+  guides(
+    color = guide_legend(ncol = 2),
+    shape = guide_legend(ncol = 2)
+  ) +
+  labs(
+    title = "Toxin gene copies (qPCR) vs. microcystin concentration (PPIA) for all samples",
+    x = "Microcystin concentration from PPIA (\u00b5g/L)",
+    y = "mcyD toxin qPCR (gene copies, log10 scale)",
+    color = "Month & Year",
+    shape = "Month & Year"
+  )
+
+# save plot
+save_plot(
+  filename = "molecular/qpcr/figures/microcystin_data_explo_copies.png",
+  plot = microcystin_data_explo_copies,
+  base_height = 6,
+  base_asp = 1.4,
+  dpi = 300,
+  bg = "white"
+)
+
+```
+
+```{r}
+#| label: plot all field samples for total mcyD gene copies, remove ppia values >10 for visualization
+
+SFE_CHAB_2014_2019_samples_detects_under10 <- SFE_CHAB_2014_2019_samples_detects |>
+  filter(ucd.ppia.MC.total.ugL <= 10)
+
+microcystin_data_explo_copies_under10 <- ggplot(
+  SFE_CHAB_2014_2019_samples_detects_under10, 
+  aes(x = ucd.ppia.MC.total.ugL, 
+      y = ucd.qpcr.toxin.MIC, 
+      color = Month_Year,
+      shape = Month_Year)
+) +
+  geom_jitter(size = 6, width = 0.04, height = 0, alpha = 0.85) +
+  scale_y_continuous(
+    trans = pseudo_log_trans(sigma = 1, base = 10),
+    breaks = c(0, 10, 100, 1000, 10000, 100000, 1000000),
+    labels = label_comma()
+  ) +
+  scale_color_viridis_d(option = "turbo") +
+  scale_shape_manual(values = rep(15:20, length.out = n_combos)) +
+  theme_minimal() +
+  theme(panel.grid.minor.y = element_blank()) +
+  guides(
+    color = guide_legend(ncol = 2),
+    shape = guide_legend(ncol = 2)
+  ) +
+  labs(
+    title = "Toxin gene copies (qPCR) vs. microcystin concentration (PPIA) for samples under 10µg/L",
+    x = "Microcystin concentration from PPIA (\u00b5g/L)",
+    y = "mcyD toxin qPCR (gene copies, log10 scale)",
+    color = "Month & Year",
+    shape = "Month & Year"
+  )
+
+# save plot
+save_plot(
+  filename = "molecular/qpcr/figures/microcystin_data_explo_copies_under10.png",
+  plot = microcystin_data_explo_copies_under10,
+  base_height = 6,
+  base_asp = 1.4,
+  dpi = 300,
+  bg = "white"
+)
+
+```
