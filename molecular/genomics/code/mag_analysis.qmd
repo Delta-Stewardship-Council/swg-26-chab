@@ -13,6 +13,8 @@ format: html
 library(Biostrings)
 library(jsonlite)
 library(tidyverse)
+library(vcfR) # installed memuse dependency
+library(Rsamtools)
 ```
 
 ## Import data
@@ -26,5 +28,80 @@ unzip("molecular/genomics/mags/bin.010.fasta_assembly.zip", exdir = "molecular/g
 # Unzip the metadata into the metadata folder (if it downloaded as a zip)
 unzip("molecular/genomics/metadata/bin.010.fasta_assembly.json.zip", exdir = "molecular/genomics/metadata/")
 
+```
 
+```{r}
+
+bin010_vcf <- read.vcfR("molecular/genomics/mags/bin010_variants.flt.vcf")
+
+# confirm allele depth exists
+queryMETA(bin010_vcf, element = "FORMAT")
+
+#extract allele depth
+bin010_ad <- extract.gt(bin010_vcf, element = "AD")
+bin010_ad_split <- strsplit(bin010_ad[,1], ",")
+
+bin010_ref_counts <- as.numeric(sapply(bin010_ad_split, '[',1))
+bin010_alt_counts <- as.numeric(sapply(bin010_ad_split, '[',2))
+bin010_total_counts <- bin010_ref_counts + bin010_alt_counts
+
+bin010_alt_freq <- bin010_alt_counts/bin010_total_counts
+
+# drop low coverage sites
+bin010_alt_freq_filt <-bin010_alt_freq[bin010_total_counts >= 10]
+
+```
+
+```{r}
+hist(bin010_alt_freq_filt, breaks = 50,
+    main = "Alt allele frequency across SNP sites for bin010",
+    xlab = "Alt allele frequency")
+
+```
+
+```{r}
+
+bin010_bamfile <- "molecular/genomics/mags/bin010_sorted_mapped_reads.bam"
+if(!file.exists(paste0(bin010_bamfile, ".bai"))) indexBam(bin010_bamfile)
+
+param <- PileupParam(distinguish_strands = FALSE, distinguish_nucleotides = FALSE)
+pile <-pileup(bin010_bamfile, pileupParam = param)
+
+bin010_coverage_per_contig <- aggregate(count ~ seqnames, data = pile, FUN = mean)
+colnames(bin010_coverage_per_contig) <- c("contig", "mean_coverage")
+
+```
+
+```{r}
+
+bin010_seqs <- readDNAStringSet("molecular/genomics/mags/bin.010.fasta_assembly.fa")
+bin010_gc_per_contig <- data.frame(
+    contig = names(bin010_seqs),
+    gc = letterFrequency(bin010_seqs, letters = "GC", as.prob = TRUE)[,1]*100,
+    length = width(bin010_seqs)
+)
+
+bin010_merge <- merge(bin010_coverage_per_contig, bin010_gc_per_contig, by = "contig")
+```
+
+```{r}
+
+plot(
+    bin010_merge$gc, bin010_merge$mean_coverage,
+    cex = sqrt(bin010_merge$length)/100,
+    xlab = "GC%", ylab = "Mean coverage",
+    main = "bin010: Coverage vs. GC per contig"
+)
+
+```
+
+```{bash}
+#| label: install instrain
+conda create -n instrain python=3.9 -y
+conda run -n instrain pip install instrain
+
+```
+
+```{bash}
+conda run n instrain profile sorted
 ```

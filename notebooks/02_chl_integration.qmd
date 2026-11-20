@@ -19,13 +19,14 @@ library(scales)
 library(crosstalk)
 library(geojsonsf)
 library(jsonlite)
+library(readxl)
 ```
 
 ## Read in data and keep only dates that fall within the range of continous monitoring data
 
 ```{r}
 #Continuous monitoring
-cm_data <- read.csv("data//01_processed//01_chl_cm_daytime_avg.csv")
+cm_data <- read.csv("data//01_processed//01_chl_cm_midday_avg.csv")
 cm_data <- cm_data %>% select(-X)
 maxdate <- as.Date(max(cm_data$date))
 mindate <- as.Date(min(cm_data$date))
@@ -98,13 +99,7 @@ chl_data <- chl_data %>% mutate(group = case_when(
     group == "DOP" ~ "usbr",
     group == "EMP" ~ "dwr_demp",
     group == "USGS_SFBS" ~ "usgs_bay"
-  ))
-```
-
-# Compare lab data
-
-```{r}
-ds_chl <- chl_data %>% filter(sample_type == "discrete") %>%
+  )) %>%
   mutate(lab = case_when(
     group == "dwr_cemp" ~ "bryte",
     group == "dwr_ncro"~ "bryte",
@@ -113,64 +108,129 @@ ds_chl <- chl_data %>% filter(sample_type == "discrete") %>%
     group == "dwr_demp"~ "bryte",
     group == "usgs_bay" ~ "menlo"
   ))
-  
+```
+
+# Create bespoke dataset for lab data comparison (00 prefixed notebook)
+
+```{r}
+# midday dataset has 5 extra rows. Need to delete them so old lookup table remains the same
+chl_data <- chl_data %>%
+  arrange(date) %>%
+  mutate(sample_id = row_number())
+
+#locs just for ArcPro
+ds_chl <- chl_data %>% filter(sample_type == "discrete") 
+
+ds_locs <- ds_chl %>% 
+  select(sample_id, latitude, longitude)
   # export for ArcPro Analysis
 
-#write.csv(ds_chl, "data\\bespoke_datasets\\ds_data_by_lab_20261014ER.csv")
+write.csv(ds_locs, "data\\bespoke_datasets\\ds_locs_20261117.csv")
+
+# Create sensor-only datasets
+sensor_chl <- chl_data %>% filter(!sample_type == "discrete")
+
+sensor_dates_v_ds <- read.csv("data\\bespoke_datasets\\sensor_dates_v_ds")
+sensor_dates_v_ds <- sensor_dates_v_ds  %>% mutate(
+  date = as.Date(date))
+ID_sensor_near_ds_sensor_only <- inner_join(sensor_dates_v_ds, sensor_chl, by = join_by(date == date)) %>% select(latitude, longitude, sample_id) %>% distinct()
+
+datefilter <- read.csv("data\\bespoke_datasets\\date_filter_sensor_v_sensor.csv")
+datefilter <- datefilter %>% mutate(
+  date = as.Date(date)) %>% select(date)
+
+ID_dwr_near_usgs_id_filter <- inner_join(datefilter, sensor_chl, by = join_by(date == date)) %>% select(latitude, longitude, sample_id, group) %>% distinct()
+
+
+write.csv(ID_sensor_near_ds_sensor_only, "data\\bespoke_datasets\\ID_sensor_near_ds_sensor_only.csv")
+write.csv(ID_dwr_near_usgs_id_filter, "data\\bespoke_datasets\\ID_sensor_near_sensor.csv")
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Visulaize the data
-
-### Convert and clean
+```{r}
+# After Arcpro nearest spatial neightbors analysis join in metadata, filter by near time
+ds_near_sensor <- read.csv("data//bespoke_datasets//ID_ds_near_sensor.csv")
+sensors_dwr_near_usgs <- read.csv("data//bespoke_datasets//ID_sensors_cemp_near_usgs.csv")
+```
 
 ```{r}
-#Create spatial object
-chl_sf <- chl_data %>% 
-    st_as_sf(coords = c('longitude', 'latitude'),
-             crs = 4326, #WGS84, leaflet demands it.
-             remove = FALSE)
+#Clean a discrete near sensor dataset
+ds_near_sensor <- left_join(ds_near_sensor, chl_data, by = join_by(ds_sample_id == sample_id))
+ds_near_sensor <- ds_near_sensor %>%
+  rename(ds_date = date,
+         ds_longitude = longitude,
+         ds_latitude = latitude,
+         ds_station = station,
+         ds_chl_ug_l = chl_ugl,
+         ds_group = group,
+         ds_lab = lab) %>%
+  select(-sample_type)
+ds_near_sensor <- left_join(ds_near_sensor, chl_data, by = join_by(sensor_sample_id == sample_id))
+ds_near_sensor <- ds_near_sensor %>%
+  rename(sensor_date = date,
+         sensor_longitude = longitude,
+         sensor_latitude = latitude,
+         sensor_station = station,
+         sensor_chl_ug_l = chl_ugl,
+         sensor_group = group) %>%
+  select(-lab, -sample_type)
 
-#read in shapefile
-# read in geoJSON for Delta + Suisun
-delta_suisun_sf <- st_read(
-  "https://services5.arcgis.com/netd7RBEFAa05HUC/ArcGIS/rest/services/LegalDelta/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson")
+ds_near_sensor_filtered <- ds_near_sensor %>%
+  filter(abs(as.numeric(difftime(
+    ds_date, sensor_date, units = "days"
+  ))) == 1)   %>%
+  group_by(sensor_date) %>%
+  slice_min(NEAR_DIST, n = 1, with_ties = FALSE) %>%
+  ungroup()
 
-nad83_delta_suisun_sf <- st_transform(delta_suisun_sf, crs = 4326)
-rm(delta_suisun_sf)
+#Export for more detailed comparison in 00_workbook.
+#write.csv(ds_near_sensor_filtered, "data//bespoke_datasets//ds_near_sensor_20261112ER.csv")
+```
 
-# find sampling locations in Delta + Suisun
-chl_delta_suisun_sf <- st_filter(chl_sf, nad83_delta_suisun_sf, .predicate = st_intersects)
-rm(chl_sf)
+```{r}
+#clean an DWR sensor near USGS sensor dataset
+sensors_dwr_near_usgs <- left_join(sensors_dwr_near_usgs, chl_data, by = join_by(dwr_sample_id == sample_id))
+sensors_dwr_near_usgs <- sensors_dwr_near_usgs %>%
+  rename(dwr_date = date,
+         dwr_longitude = longitude,
+         dwr_latitude = latitude,
+         dwr_station = station,
+         dwr_chl_ug_l = chl_ugl,
+         dwr_group = group) %>%
+  select(-sample_type, -lab)
 
-#group by hydrologic cycle
-chl_seasonal <- chl_delta_suisun_sf %>%
-  mutate(
-    year = year(date),
-    month = month(date),
-    season = case_when(
-      month %in% c(10, 11, 12, 1, 2, 3) ~ "Wet",
-      month %in% c(4, 5, 6, 7, 8, 9)     ~ "Dry"),
-    water_year = if_else(month >= 10, year + 1, year),
-    season_date = case_when(
-      season == "Wet" ~ as.Date(paste0(water_year, "-01-15")),
-      season == "Dry" ~ as.Date(paste0(water_year, "-07-15"))
-  ))
+sensors_dwr_near_usgs <- left_join(sensors_dwr_near_usgs, chl_data, by = join_by(usgs_sample_id == sample_id))
+sensors_dwr_near_usgs <- sensors_dwr_near_usgs %>%
+  rename(usgs_date = date,
+         usgs_longitude = longitude,
+         usgs_latitude = latitude,
+         usgs_station = station,
+         usgs_chl_ug_l = chl_ugl,
+         usgs_group = group) %>%
+  select(-sample_type, -lab, -NEAR_RANK, -dwr_sample_id, -usgs_sample_id, -dwr_group, -usgs_group)
+
+sensors_dwr_near_usgs_filtered <- sensors_dwr_near_usgs %>%
+  filter(abs(as.numeric(difftime(
+    dwr_date, usgs_date, units = "days"
+  ))) ==5)  %>%
+  group_by(usgs_date) %>%
+  slice_min(NEAR_DIST, n = 1, with_ties = FALSE) %>%
+  ungroup()
+
+#Export for more detailed comparison in 00_workbook.
+#write.csv(sensors_ncro_near_usgs_filtered, "data//bespoke_datasets//dwr_near_usgs_filtered.csv")
+```
+
+#Create 02 combined data file that's appropriate for synthesis
+
+```{r}
+
+#00 data exploration for discrete data indicated that DOP data were not comparable to all other data (and the rest were comparable to one another, so we'll remove it from our dataset)
+
+chl_data <- chl_data %>% filter(!group == "usbr")
+
+#00 data exploration for sensor data indicated that XYz
+
+
+
 ```

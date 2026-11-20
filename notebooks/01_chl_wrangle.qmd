@@ -22,6 +22,7 @@ library(lubridate)
 library(DBI)
 library(EDIutils)
 library(sbtools)
+library(readr)
 ```
 
 ### ScienceBase
@@ -262,7 +263,7 @@ rm(delta_chl_data_1, delta_chl_data_2, delta_chl_data_3, delta_chl_data_4, delta
 #Grab only daytime data and average daily and correct per the EXO bias correction formula in Richardson, 2025
 delta_chl_data$hour <- as.numeric(format(delta_chl_data$time, "%H"))
 
-delta_chl_data$TOD <- ifelse(delta_chl_data$hour %in% c(8, 9, 10, 11, 12, 13, 14, 15, 16), "keep", "remove")
+delta_chl_data$TOD <- ifelse(delta_chl_data$hour %in% c(11, 12, 13), "keep", "remove")
 delta_chl_data$date <- as.Date(delta_chl_data$time)
 
 daytime_delta_chl_data <- delta_chl_data %>% filter(TOD == "keep")
@@ -300,258 +301,63 @@ rm(coords, daytime_delta_chl_data, delta_chl_data, delta_chl_sites, deltasite_me
 
 ### DWR real time monitoring
 ```{r}
-#This script was adapted from one written by Schuyler Nardelli (USGS)
-
-packageId <-"edi.1177.8" # Version updated 05/2026
-#read_data_package_archive(packageId, path = tempdir()) 
-res <- read_data_entity_names(packageId)
-
-entityName <- "Station Metadata"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-stations <- readr::read_csv(file = raw)
-stations <- stations %>% select(station, latitude, longitude, EXO2_start_date, EXO2_start_time)
-
-stations$EXO2_start_date<- as.character(stations$EXO2_start_date)
-stations$EXO2_start_time<- as.character(stations$EXO2_start_time)
-
-stations$datetime <- paste(stations$EXO2_start_date, stations$EXO2_start_time, sep = " ")
-stations <- stations %>% mutate(datetime = ymd_hms(datetime))
-
-#indicate when data were collected by different instruments
-
-HON_exodate <- stations %>% filter(station == "HON")
-HON_exodate <- HON_exodate$datetime
-
-MAL_exodate <- stations %>% filter(station == "MAL")
-MAL_exodate <- MAL_exodate$datetime
-
-GZL_exodate <- stations %>% filter(station == "GZL")
-GZL_exodate <- GZL_exodate$datetime
-
-RYC_exodate <- stations %>% filter(station == "RYC")
-RYC_exodate <- RYC_exodate$datetime
-
-ANH_exodate <- stations %>% filter(station == "ANH")
-ANH_exodate <- ANH_exodate$datetime
-
-FRK_exodate <- stations %>% filter(station == "FRK")
-FRK_exodate <- FRK_exodate$datetime
-
-MSD_exodate <- stations %>% filter(station == "MSD")
-MSD_exodate <- MSD_exodate$datetime
-
-PPT_exodate <- stations %>% filter(station == "PPT")
-PPT_exodate <- PPT_exodate$datetime
-
-RRI_exodate <- stations %>% filter(station == "RRI")
-RRI_exodate <- RRI_exodate$datetime
-
-RVB_exodate <- stations %>% filter(station == "RVB")
-RVB_exodate <- RVB_exodate$datetime
-
-SJR_exodate <- stations %>% filter(station == "SJR")
-SJR_exodate <- SJR_exodate$datetime
-
-SRH_exodate <- stations %>% filter(station == "SRH")
-SRH_exodate <- SRH_exodate$datetime
-
-SSI_exodate <- stations %>% filter(station == "SSI")
-SSI_exodate <- SSI_exodate$datetime
-
-TWI_exodate <- stations %>% filter(station == "TWI")
-TWI_exodate <- TWI_exodate$datetime
-
-
-entityName <- "ANH"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-ANH <- readr::read_csv(file = raw)
-ANH <- ANH %>% rename(Chl=fluorescence)%>% 
-  mutate(Date = as.character(date))%>% 
-  mutate(Time = as.character(time))
-
-ANH$datetime <- paste(ANH$Date, ANH$Time, sep = " ")
-
-ANH <- ANH %>% 
-  mutate(datetime = ymd_hms(datetime))%>% 
-  mutate(instrument = if_else(datetime >= ANH_exodate, "EXO", "6600"))
-
-entityName <- "HON"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-HON <- readr::read_csv(file = raw)
-HON <- HON %>% rename(Chl=fluorescence)%>% 
-  mutate(Date = as.character(date))%>% 
-  mutate(Time = as.character(time))
-
-HON$datetime <- paste(HON$Date, HON$Time, sep = " ")
-
-HON <- HON %>% 
-  mutate(datetime = ymd_hms(datetime))%>% 
-  mutate(instrument = if_else(datetime >= HON_exodate, "EXO", "6600"))
-
-entityName <- "MAL"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-MAL <- readr::read_csv(file = raw)
-MAL <- MAL %>% rename(Chl=fluorescence)%>% 
-  mutate(Date = as.character(date))%>% 
-  mutate(Time = as.character(time))
-
-MAL$datetime <- paste(MAL$Date, MAL$Time, sep = " ")
-
-MAL <- MAL %>% 
-  mutate(datetime = ymd_hms(datetime))%>% 
-  mutate(instrument = if_else(datetime >= MAL_exodate, "EXO", "6600"))
-
-entityName <- "GZL"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-GZL <- readr::read_csv(file = raw)
-GZL <- GZL %>% rename(Chl=fluorescence)%>% 
-  mutate(Date = as.character(date))%>% 
-  mutate(Time = as.character(time))
-
-GZL$datetime <- paste(GZL$Date, GZL$Time, sep = " ")
-
-GZL <- GZL %>% 
-  mutate(datetime = ymd_hms(datetime))%>% 
-  mutate(instrument = if_else(datetime >= GZL_exodate, "EXO", "6600"))
-
-entityName <- "FRK"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-FRK <- readr::read_csv(file = raw)
-FRK <- FRK %>% rename(Chl=fluorescence)%>% 
-  mutate(Date = as.character(date))%>% 
-  mutate(Time = as.character(time))
-
-FRK$datetime <- paste(FRK$Date, FRK$Time, sep = " ")
-
-FRK <- FRK %>% 
-  mutate(datetime = ymd_hms(datetime))%>% 
-  mutate(instrument = if_else(datetime >= FRK_exodate, "EXO", "6600"))
-
-entityName <- "RYC"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-RYC <- readr::read_csv(file = raw)
-RYC <- RYC %>% rename(Chl=fluorescence)%>% 
-  mutate(Date = as.character(date))%>% 
-  mutate(Time = as.character(time))
-
-RYC$datetime <- paste(RYC$Date, RYC$Time, sep = " ")
-
-RYC <- RYC %>% 
-  mutate(datetime = ymd_hms(datetime))%>% 
-  mutate(instrument = if_else(datetime >= RYC_exodate, "EXO", "6600"))
-
-entityName <- "MSD"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-MSD <- readr::read_csv(file = raw)
-MSD <- MSD %>% rename(Chl=fluorescence)%>% 
-  mutate(Date = as.character(date))%>% 
-  mutate(Time = as.character(time))
-
-MSD$datetime <- paste(MSD$Date, MSD$Time, sep = " ")
-
-MSD <- MSD %>% 
-  mutate(datetime = ymd_hms(datetime))%>% 
-  mutate(instrument = if_else(datetime >= MSD_exodate, "EXO", "6600"))
-
-entityName <- "PPT"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-PPT <- readr::read_csv(file = raw)
-PPT <- PPT %>% rename(Chl=fluorescence)%>% 
-  mutate(Date = as.character(date))%>% 
-  mutate(Time = as.character(time))
-
-PPT$datetime <- paste(PPT$Date, PPT$Time, sep = " ")
-
-PPT <- PPT %>% 
-  mutate(datetime = ymd_hms(datetime))%>% 
-  mutate(instrument = if_else(datetime >= PPT_exodate, "EXO", "6600"))
-
-entityName <- "RRI"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-RRI <- readr::read_csv(file = raw)
-RRI <- RRI %>% rename(Chl=fluorescence)%>% 
-  mutate(Date = as.character(date))%>% 
-  mutate(Time = as.character(time))
-
-RRI$datetime <- paste(RRI$Date, RRI$Time, sep = " ")
-
-RRI <- RRI %>% 
-  mutate(datetime = ymd_hms(datetime))%>% 
-  mutate(instrument = if_else(datetime >= RRI_exodate, "EXO", "6600"))
-
-entityName <- "RVB"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-RVB <- readr::read_csv(file = raw)
-RVB <- RVB %>% rename(Chl=fluorescence)%>% 
-  mutate(Date = as.character(date))%>% 
-  mutate(Time = as.character(time))
-
-RVB$datetime <- paste(RVB$Date, RVB$Time, sep = " ")
-
-RVB <- RVB %>% 
-  mutate(datetime = ymd_hms(datetime))%>% 
-  mutate(instrument = if_else(datetime >= RVB_exodate, "EXO", "6600"))
-
-entityName <- "SJR"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-SJR <- readr::read_csv(file = raw)
-SJR <- SJR %>% rename(Chl=fluorescence)%>% 
-  mutate(Date = as.character(date))%>% 
-  mutate(Time = as.character(time))
-
-SJR$datetime <- paste(SJR$Date, SJR$Time, sep = " ")
-
-SJR <- SJR %>% 
-  mutate(datetime = ymd_hms(datetime))%>% 
-  mutate(instrument = if_else(datetime >= SJR_exodate, "EXO", "6600"))
-
-entityName <- "SRH"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-SRH <- readr::read_csv(file = raw)
-SRH <- SRH %>% rename(Chl=fluorescence)%>% 
-  mutate(Date = as.character(date))%>% 
-  mutate(Time = as.character(time))
-
-SRH$datetime <- paste(SRH$Date, SRH$Time, sep = " ")
-
-SRH <- SRH %>% 
-  mutate(datetime = ymd_hms(datetime))%>% 
-  mutate(instrument = if_else(datetime >= SRH_exodate, "EXO", "6600"))
-
-entityName <- "SSI"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-SSI <- readr::read_csv(file = raw)
-SSI <- SSI %>% rename(Chl=fluorescence)%>% 
-  mutate(Date = as.character(date))%>% 
-  mutate(Time = as.character(time))
-
-SSI$datetime <- paste(SSI$Date, SSI$Time, sep = " ")
-
-SSI <- SSI %>% 
-  mutate(datetime = ymd_hms(datetime))%>% 
-  mutate(instrument = if_else(datetime >= SSI_exodate, "EXO", "6600"))
-
-entityName <- "TWI"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-TWI <- readr::read_csv(file = raw)
-TWI <- TWI %>% rename(Chl=fluorescence)%>% 
-  mutate(Date = as.character(date))%>% 
-  mutate(Time = as.character(time))
-
-TWI$datetime <- paste(TWI$Date, TWI$Time, sep = " ")
-
-TWI <- TWI %>% 
-  mutate(datetime = ymd_hms(datetime))%>% 
-  mutate(instrument = if_else(datetime >= TWI_exodate, "EXO", "6600"))
-
-
-rm(entityName,entityId,res,raw,packageId)
-# Merge all stations ------------------------------------------------------
-
-CM_DWR <- rbind(HON,MAL,GZL,RYC,ANH,FRK,MSD,PPT,RRI,RVB,SJR,SRH,SSI,TWI)
-
-rm(HON,MAL,GZL,RYC,ANH,FRK,MSD,PPT,RRI,RVB,SJR,SRH,SSI,TWI)
-rm(HON_exodate,MAL_exodate,GZL_exodate,RYC_exodate,ANH_exodate,FRK_exodate,MSD_exodate,PPT_exodate,RRI_exodate,RVB_exodate,SJR_exodate,SRH_exodate,SSI_exodate,TWI_exodate)
+#uses EDI access key that will be specific to each user.
+#edi_key <- "Your key"
+
+scope    <- "edi"
+id       <- 1177
+revision <- 8
+base     <- "https://pasta.lternet.edu/package"
+
+# Helper: build an authenticated EDI URL
+edi_url <- function(path) paste0(base, path, "?key=", edi_key)
+
+# Entity IDs and names (replaces read_data_entity_names) ---------------------
+# Response is "entityId,entityName" per line; split on the first comma only
+ent_lines <- readLines(edi_url(sprintf("/name/eml/%s/%s/%s", scope, id, revision)))
+res <- tibble(
+  entityId   = sub(",.*$", "", ent_lines),
+  entityName = sub("^[^,]*,", "", ent_lines)
+)
+
+# Helper: read one data table by entity name (replaces read_data_entity + read_csv)
+read_edi_entity <- function(entity_name) {
+  entity_id <- res$entityId[res$entityName == entity_name]
+  if (length(entity_id) != 1) stop("Entity not found (or not unique): ", entity_name)
+  read_csv(
+    edi_url(sprintf("/data/eml/%s/%s/%s/%s", scope, id, revision, entity_id)),
+    show_col_types = FALSE
+  )
+}
+
+# Station metadata: when each station switched to the EXO2 sonde -------------
+stations <- read_edi_entity("Station Metadata") %>%
+  select(station, latitude, longitude, EXO2_start_date, EXO2_start_time) %>%
+  mutate(exo_start = ymd_hms(paste(as.character(EXO2_start_date),
+                                   as.character(EXO2_start_time))))
+
+# Station data -----------------------------------------------------------------
+station_codes <- c("HON", "MAL", "GZL", "RYC", "ANH", "FRK", "MSD",
+                   "PPT", "RRI", "RVB", "SJR", "SRH", "SSI", "TWI")
+
+load_station <- function(st) {
+  exo_date <- stations$exo_start[stations$station == st]
+
+  read_edi_entity(st) %>%
+    rename(Chl = fluorescence) %>%
+    mutate(
+      Date       = as.character(date),
+      Time       = as.character(time),
+      datetime   = ymd_hms(paste(Date, Time)),
+      # indicate which instrument collected the data
+      instrument = if_else(datetime >= exo_date, "EXO", "6600")
+    )
+}
+
+# Merge all stations -----------------------------------------------------------
+CM_DWR <- map(station_codes, load_station) %>% list_rbind()
+
+rm(id, revision, ent_lines, res, station_codes)
 ```
 
 ```{r}
@@ -559,7 +365,7 @@ rm(HON_exodate,MAL_exodate,GZL_exodate,RYC_exodate,ANH_exodate,FRK_exodate,MSD_e
  CM_DWR <- CM_DWR %>% 
   mutate(hour = hour(time))
 
-CM_DWR$TOD <- ifelse(CM_DWR$hour %in% c(8, 9, 10, 11, 12, 13, 14, 15, 16), "keep", "remove")
+CM_DWR$TOD <- ifelse(CM_DWR$hour %in% c(11, 12, 13), "keep", "remove")
 
 CM_DWR <- CM_DWR %>% filter(TOD == "keep")
 
@@ -592,159 +398,60 @@ avg_daytime_dwr_delta_chl_data <- avg_daytime_dwr_delta_chl_data %>%
 
 ### DWR NCRO real time monitoring
 ```{r}
-packageId <-"edi.2180.1" # Version updated 10/2025
-res <- read_data_entity_names(packageId)
+id       <- 2180
+revision <- 1
 
-entityName <- "Stations Metadata"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-stations <- readr::read_csv(file = raw)
-stations <- stations %>% select(Station_Code, Latitude, Longitude) %>%
-    rename(station = Station_Code, latitude = Latitude, longitude = Longitude)
+# Helper: build an authenticated EDI URL
+edi_url <- function(path) paste0(base, path, "?key=", edi_key)
 
-entityName <- "Instrument Type Date Ranges"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-instruments <- readr::read_csv(file = raw)
-instruments$Start_Time_YSIEXO2 <- as.character(instruments$Start_Time_YSIEXO2)
+# Entity IDs and names (replaces read_data_entity_names) ---------------------
+# Response is "entityId,entityName" per line; split on the first comma only
+ent_lines <- readLines(edi_url(sprintf("/name/eml/%s/%s/%s", scope, id, revision)))
+res <- tibble(
+  entityId   = sub(",.*$", "", ent_lines),
+  entityName = sub("^[^,]*,", "", ent_lines)
+)
 
-instruments$datetime <- paste(instruments$Start_Date_YSIEXO2, instruments$Start_Time_YSIEXO2, sep = " ")
-instruments <- instruments %>% mutate(datetime = mdy_hms(datetime))
+# Helper: read one data table by entity name (replaces read_data_entity + read_csv)
+read_edi_entity <- function(entity_name) {
+  entity_id <- res$entityId[res$entityName == entity_name]
+  if (length(entity_id) != 1) stop("Entity not found (or not unique): ", entity_name)
+  read_csv(
+    edi_url(sprintf("/data/eml/%s/%s/%s/%s", scope, id, revision, entity_id)),
+    show_col_types = FALSE
+  )
+}
 
-#indicate when data were collected by different instruments
+# Station metadata -------------------------------------------------------------
+stations <- read_edi_entity("Stations Metadata") %>%
+  select(Station_Code, Latitude, Longitude) %>%
+  rename(station = Station_Code, latitude = Latitude, longitude = Longitude)
 
-GLC_exodate <- instruments %>% filter(Station_Code == "GLC")
-GLC_exodate <- GLC_exodate$datetime
+# When each station switched to the YSI EXO2 sonde ---------------------------
+instruments <- read_edi_entity("Instrument Type Date Ranges") %>%
+  mutate(exo_start = mdy_hms(paste(Start_Date_YSIEXO2,
+                                   as.character(Start_Time_YSIEXO2))))
 
-GLE_exodate <- instruments %>% filter(Station_Code == "GLE")
-GLE_exodate <- GLE_exodate$datetime
+# Station data -----------------------------------------------------------------
+station_codes <- c("GLC", "GLE", "MHO", "MRU", "MRX", "ODM", "OH1",
+                   "ORI", "ORM", "ORX", "TWA", "WCI", "VCU")
 
-MHO_exodate <- instruments %>% filter(Station_Code == "MHO")
-MHO_exodate <- MHO_exodate$datetime
+load_station <- function(st) {
+  exo_date <- instruments$exo_start[instruments$Station_Code == st]
 
-MRU_exodate <- instruments %>% filter(Station_Code == "MRU")
-MRU_exodate <- MRU_exodate$datetime
+  read_edi_entity(st) %>%
+    rename(station = Station_Code) %>%
+    mutate(
+      Date_Time  = mdy_hms(Date_Time),
+      # indicate which instrument collected the data
+      instrument = if_else(Date_Time >= exo_date, "EXO", "6600")
+    )
+}
 
-MRX_exodate <- instruments %>% filter(Station_Code == "MRX")
-MRX_exodate <- MRX_exodate$datetime
+# Merge all stations -----------------------------------------------------------
+cm_ncro <- map(station_codes, load_station) %>% list_rbind()
 
-ODM_exodate <- instruments %>% filter(Station_Code == "ODM")
-ODM_exodate <- ODM_exodate$datetime
-
-OH1_exodate <- instruments %>% filter(Station_Code == "OH1")
-OH1_exodate <- OH1_exodate$datetime
-
-ORI_exodate <- instruments %>% filter(Station_Code == "ORI")
-ORI_exodate <- ORI_exodate$datetime
-
-ORM_exodate <- instruments %>% filter(Station_Code == "ORM")
-ORM_exodate <- ORM_exodate$datetime
-
-ORX_exodate <- instruments %>% filter(Station_Code == "ORX")
-ORX_exodate <- ORX_exodate$datetime
-
-TWA_exodate <- instruments %>% filter(Station_Code == "TWA")
-TWA_exodate <- TWA_exodate$datetime
-
-WCI_exodate <- instruments %>% filter(Station_Code == "WCI")
-WCI_exodate <- WCI_exodate$datetime
-
-VCU_exodate <- instruments %>% filter(Station_Code == "VCU")
-VCU_exodate <- VCU_exodate$datetime
-
-
-entityName <- "GLC"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-GLC <- readr::read_csv(file = raw)
-GLC <- GLC %>% rename(station=Station_Code)  %>%
-  mutate(Date_Time = mdy_hms(Date_Time)) %>%
-  mutate(instrument = if_else(Date_Time >= GLC_exodate, "EXO", "6600"))
-
-entityName <- "GLE"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-GLE<- readr::read_csv(file = raw)
-GLE <- GLE %>% rename(station=Station_Code)  %>%
-  mutate(Date_Time = mdy_hms(Date_Time)) %>%
-  mutate(instrument = if_else(Date_Time >= GLE_exodate, "EXO", "6600"))
-
-entityName <- "MHO"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-MHO <- readr::read_csv(file = raw)
-MHO<- MHO %>% rename(station=Station_Code)  %>%
-  mutate(Date_Time = mdy_hms(Date_Time)) %>%
-  mutate(instrument = if_else(Date_Time >= MHO_exodate, "EXO", "6600"))
-
-entityName <- "MRU"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-MRU<- readr::read_csv(file = raw)
-MRU<- MRU %>% rename(station=Station_Code)  %>%
-  mutate(Date_Time = mdy_hms(Date_Time)) %>%
-  mutate(instrument = if_else(Date_Time >= MRU_exodate, "EXO", "6600"))
-
-entityName <- "MRX"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-MRX<- readr::read_csv(file = raw)
-MRX<- MRX %>% rename(station=Station_Code)  %>%
-  mutate(Date_Time = mdy_hms(Date_Time)) %>%
-  mutate(instrument = if_else(Date_Time >= MRX_exodate, "EXO", "6600"))
-
-entityName <- "ODM"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-ODM<- readr::read_csv(file = raw)
-ODM<- ODM %>% rename(station=Station_Code)  %>%
-  mutate(Date_Time = mdy_hms(Date_Time)) %>%
-  mutate(instrument = if_else(Date_Time >= ODM_exodate, "EXO", "6600"))
-
-entityName <- "OH1"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-OH1<- readr::read_csv(file = raw)
-OH1<- OH1 %>% rename(station=Station_Code)  %>%
-  mutate(Date_Time = mdy_hms(Date_Time)) %>%
-  mutate(instrument = if_else(Date_Time >= OH1_exodate, "EXO", "6600"))
-
-entityName <- "ORI"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-ORI<- readr::read_csv(file = raw)
-ORI<- ORI %>% rename(station=Station_Code)  %>%
-  mutate(Date_Time = mdy_hms(Date_Time)) %>%
-  mutate(instrument = if_else(Date_Time >= ORI_exodate, "EXO", "6600"))
-
-entityName <- "ORM"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-ORM<- readr::read_csv(file = raw)
-ORM<- ORM %>% rename(station=Station_Code)  %>%
-  mutate(Date_Time = mdy_hms(Date_Time)) %>%
-  mutate(instrument = if_else(Date_Time >= ORM_exodate, "EXO", "6600"))
-
-entityName <- "ORX"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-ORX<- readr::read_csv(file = raw)
-ORX<- ORX %>% rename(station=Station_Code)  %>%
-  mutate(Date_Time = mdy_hms(Date_Time)) %>%
-  mutate(instrument = if_else(Date_Time >= ORX_exodate, "EXO", "6600"))
-
-entityName <- "TWA"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-TWA <- readr::read_csv(file = raw)
-TWA<- TWA %>% rename(station=Station_Code)  %>%
-  mutate(Date_Time = mdy_hms(Date_Time)) %>%
-  mutate(instrument = if_else(Date_Time >= TWA_exodate, "EXO", "6600"))
-
-entityName <- "WCI"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-WCI<- readr::read_csv(file = raw)
-WCI<- WCI %>% rename(station=Station_Code)  %>%
-  mutate(Date_Time = mdy_hms(Date_Time)) %>%
-  mutate(instrument = if_else(Date_Time >= WCI_exodate, "EXO", "6600"))
-
-entityName <- "VCU"; entityId <- res$entityId[res$entityName == entityName]
-raw <- read_data_entity(packageId, entityId)
-VCU<- readr::read_csv(file = raw)
-VCU<- VCU %>% rename(station=Station_Code)  %>%
-  mutate(Date_Time = mdy_hms(Date_Time)) %>%
-  mutate(instrument = if_else(Date_Time >= VCU_exodate, "EXO", "6600"))
-
-cm_ncro<- rbind(GLC, GLE, MHO, MRU, MRX, ODM, OH1, ORI, ORM, ORX, TWA, WCI, VCU)
-rm(GLC_exodate, GLE_exodate, MHO_exodate, MRU_exodate, MRX_exodate, ODM_exodate, OH1_exodate, ORI_exodate, ORM_exodate, ORX_exodate, TWA_exodate, WCI_exodate, VCU_exodate)
-rm(GLC, GLE, MHO, MRU, MRX, ODM, OH1, ORI, ORM, ORX, TWA, WCI, VCU, res, raw, entityName, entityId, packageId, instruments)
+rm(edi_key, scope, id, revision, base, ent_lines, res, station_codes, instruments)
 ```
 
 ```{r}
@@ -753,7 +460,7 @@ cm_ncro <- cm_ncro %>%
    rename(datetime =Date_Time)%>% 
     mutate(hour = hour(datetime))
 
-cm_ncro$TOD <- ifelse(cm_ncro$hour %in% c(8, 9, 10, 11, 12, 13, 14, 15, 16), "keep", "remove")
+cm_ncro$TOD <- ifelse(cm_ncro$hour %in% c(11, 12, 13), "keep", "remove")
 
 cm_ncro <- cm_ncro %>% filter(TOD == "keep")
 
@@ -793,7 +500,7 @@ cm_daytime_avg_chl <- rbind(avg_daytime_dwr_delta_chl_data, avg_daytime_ncro_del
 
 rm(avg_daytime_dwr_delta_chl_data, avg_daytime_ncro_delta_chl_data, avg_daytime_usgs_delta_chl_data)
 
-#write.csv(cm_daytime_avg_chl, file = "data/01_processed/01_chl_cm_daytime_avg.csv")
+#write.csv(cm_daytime_avg_chl, file = "data/01_processed/01_chl_cm_midday_avg.csv")
 ```
 
 ## Shaela's Workspace (Emily jumping in too :) 
